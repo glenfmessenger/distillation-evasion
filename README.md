@@ -1,7 +1,7 @@
-# What a Serving Layer Must See
+# What a Serving Layer Can See
 
-Harness, evidence and manuscript build for *What a Serving Layer Must See: Calibrated Detection
-of LLM Distillation Campaigns at Three Levels of Visibility*. A locally served open model is the
+Harness, evidence and manuscript build for *What a Serving Layer Can See: Calibrated Detection
+of LLM Distillation Campaigns across Pattern, Account and Content Visibility*. A locally served open model is the
 only endpoint ever queried; no third-party service is involved.
 
 ## What is here
