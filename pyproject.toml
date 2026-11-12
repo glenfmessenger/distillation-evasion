@@ -1,0 +1,42 @@
+[project]
+name = "dev-harness"
+version = "0.0.1"
+description = "Distillation evasion harness: content-blind serving-layer detectors, benign traffic model, cost accounting (Paper 6)."
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy==2.2.6",
+  "pandas==2.2.3",
+  "scipy==1.15.3",
+  "pyarrow==19.0.1",
+  "httpx==0.28.1",
+  "pydantic==2.11.4",
+  "pyyaml==6.0.2",
+  "datasets==3.6.0",
+  "math-verify==0.8.0",
+]
+
+[project.optional-dependencies]
+paper = ["matplotlib>=3.9"]
+dev = [
+  "pytest==8.3.5",
+  "ruff==0.11.10",
+  "pre-commit==4.2.0",
+]
+# GPU-side extras are installed only on the VM; versions are pinned there in docs/environment.md
+# once observed, never here by guess.
+gpu = []
+
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

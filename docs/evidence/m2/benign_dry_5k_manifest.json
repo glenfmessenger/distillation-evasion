@@ -1,0 +1,60 @@
+{
+ "seed": 0,
+ "n_identities_requested": 5000,
+ "weights": {
+  "conversational": 0.85,
+  "eval_harness": 0.04,
+  "batch_summarise": 0.03,
+  "agent_loop": 0.03,
+  "code_assistant": 0.05
+ },
+ "session_gap_s": 1800.0,
+ "n_identities": 5000,
+ "n_sessions": 10835,
+ "n_requests": 164084,
+ "n_conversations_skipped_missing_timestamps": 0,
+ "n_users_in_slice": 21763,
+ "identities_by_component": {
+  "conversational": 4250,
+  "eval_harness": 200,
+  "batch_summarise": 150,
+  "agent_loop": 150,
+  "code_assistant": 250
+ },
+ "requests_by_component": {
+  "conversational": 35829,
+  "eval_harness": 119476,
+  "batch_summarise": 3312,
+  "agent_loop": 1684,
+  "code_assistant": 3783
+ },
+ "requests_per_identity": {
+  "p50": 3,
+  "p90": 25,
+  "p99": 801,
+  "max": 995
+ },
+ "requests_per_session": {
+  "p50": 2,
+  "p90": 11,
+  "p99": 540,
+  "max": 995
+ },
+ "identities_with_ge_30_requests": 441,
+ "identities_with_ge_30_by_component": {
+  "conversational": 216,
+  "eval_harness": 200,
+  "batch_summarise": 0,
+  "agent_loop": 1,
+  "code_assistant": 24
+ },
+ "sessions_with_ge_10_requests": 1240,
+ "prompt_chars_total": 113124938,
+ "schedule_sha256": "5a168f46ce399de03d0cad7947669da00f7c3c047ad1be41a82b848a7363f6fb",
+ "wildchat_files": [
+  "train-00000-of-00014.parquet",
+  "train-00001-of-00014.parquet",
+  "train-00002-of-00014.parquet"
+ ],
+ "wildchat_snapshot": "7d6490e462285cf85d91eabea0f9a954fbddcd1f"
+}

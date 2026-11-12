@@ -1,0 +1,8 @@
+source                    n  trunc   rate  gen_mean  gen_p50  gen_max reason_mean
+apps                    395    174   0.44     10481    12587    14000       10153
+gsm8k                   500      0   0.00      2112     1617    10410        1791
+hendrycks_math         1000     75   0.07      5283     3952    14000        4665
+mbpp                    100      5   0.05      3450     2072    14000        3340
+ALL                    1995    254   0.13      5425     3585    14000
+completed-only generated-token deciles: [1222, 1550, 1920, 2369, 3030, 3803, 4933, 6616, 9567]
+records: 1995 total, 1995 completed, 0 marked in-flight by the kill

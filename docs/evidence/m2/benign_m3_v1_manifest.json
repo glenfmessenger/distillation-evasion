@@ -1,0 +1,84 @@
+{
+ "label": "m3_v1",
+ "args": {
+  "label": "m3_v1",
+  "files": 14,
+  "n_heavy": 1000,
+  "n_light": 1500,
+  "cap": 40,
+  "n_eval": 30,
+  "n_batch": 30,
+  "n_agent": 60,
+  "seed": 0
+ },
+ "wildchat_files": [
+  "train-00000-of-00014.parquet",
+  "train-00001-of-00014.parquet",
+  "train-00002-of-00014.parquet",
+  "train-00003-of-00014.parquet",
+  "train-00004-of-00014.parquet",
+  "train-00005-of-00014.parquet",
+  "train-00006-of-00014.parquet",
+  "train-00007-of-00014.parquet",
+  "train-00008-of-00014.parquet",
+  "train-00009-of-00014.parquet",
+  "train-00010-of-00014.parquet",
+  "train-00011-of-00014.parquet",
+  "train-00012-of-00014.parquet",
+  "train-00013-of-00014.parquet"
+ ],
+ "wildchat_snapshot": "7d6490e462285cf85d91eabea0f9a954fbddcd1f",
+ "n_conversations_skipped_missing_timestamps": 0,
+ "timeline": {
+  "identities": 118465,
+  "sessions": 263826,
+  "requests": 975346,
+  "identities_ge_30": 5005
+ },
+ "replay": {
+  "identities": 2620,
+  "sessions": 10487,
+  "requests": 50577,
+  "identities_ge_30": 1061,
+  "sessions_ge_10": 1190,
+  "by_component": {
+   "agent_loop": {
+    "identities": 60,
+    "requests": 725,
+    "identities_ge_30": 1
+   },
+   "batch_summarise": {
+    "identities": 30,
+    "requests": 1330,
+    "identities_ge_30": 30
+   },
+   "code_assistant": {
+    "identities": 535,
+    "requests": 14043,
+    "identities_ge_30": 334
+   },
+   "conversational": {
+    "identities": 1965,
+    "requests": 30684,
+    "identities_ge_30": 666
+   },
+   "eval_harness": {
+    "identities": 30,
+    "requests": 3795,
+    "identities_ge_30": 30
+   }
+  },
+  "prompt_chars_total": 52675432,
+  "schedule_sha256": "86cd1c58d9340c3886589193cf438e7f075448fd05e547ef8f36cee6b9988bbd"
+ },
+ "strata": {
+  "population_heavy": 5005,
+  "population_light": 113460,
+  "sampled_heavy": 1000,
+  "sampled_light": 1500,
+  "cap_per_identity": 40,
+  "identities_truncated": 678,
+  "heavy_min": 30,
+  "seed": 0
+ }
+}

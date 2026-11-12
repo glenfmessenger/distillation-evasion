@@ -1,0 +1,76 @@
+{
+ "reads_content": true,
+ "model": "BAAI/bge-small-en-v1.5",
+ "k": 50,
+ "n_match": 30,
+ "n_benign_units": 1061,
+ "n_prompts_embedded": 47385,
+ "statistics": {
+  "c1_topic_jsd": {
+   "direction": "high",
+   "benign_median": 0.6992516023529727,
+   "campaign_identity": 0.7412097413776727,
+   "campaign_split_median": 0.7407436918640122,
+   "budgets": {
+    "0.01": {
+     "threshold": 0.9354714215158109,
+     "direction": "high",
+     "fpr_budget": 0.01,
+     "n_benign": 1061,
+     "n_unscoreable": 0,
+     "n_exceed": 10,
+     "resolution": 0.000942507068803016,
+     "below_resolution": false,
+     "identity_flagged": false,
+     "split_frac_flagged": 0.0
+    },
+    "0.001": {
+     "threshold": 0.9655476979755295,
+     "direction": "high",
+     "fpr_budget": 0.001,
+     "n_benign": 1061,
+     "n_unscoreable": 0,
+     "n_exceed": 0,
+     "resolution": 0.000942507068803016,
+     "below_resolution": true,
+     "identity_flagged": false,
+     "split_frac_flagged": 0.0
+    }
+   },
+   "auc_split_vs_benign": 0.6324222431668237
+  },
+  "c1b_mean_cos_dist": {
+   "direction": "low",
+   "benign_median": 0.39260560274124146,
+   "campaign_identity": 0.4462076425552368,
+   "campaign_split_median": 0.44305291771888733,
+   "budgets": {
+    "0.01": {
+     "threshold": 0.0058959126472473145,
+     "direction": "low",
+     "fpr_budget": 0.01,
+     "n_benign": 1061,
+     "n_unscoreable": 0,
+     "n_exceed": 10,
+     "resolution": 0.000942507068803016,
+     "below_resolution": false,
+     "identity_flagged": false,
+     "split_frac_flagged": 0.0
+    },
+    "0.001": {
+     "threshold": 0.004186451435089111,
+     "direction": "low",
+     "fpr_budget": 0.001,
+     "n_benign": 1061,
+     "n_unscoreable": 0,
+     "n_exceed": 1,
+     "resolution": 0.000942507068803016,
+     "below_resolution": true,
+     "identity_flagged": false,
+     "split_frac_flagged": 0.0
+    }
+   },
+   "auc_split_vs_benign": 0.2570216776625825
+  }
+ }
+}

@@ -1,0 +1,86 @@
+{
+  "label": "teacher_qwen3_8b",
+  "model": "Qwen/Qwen3-8B",
+  "mode": "chat",
+  "k": 4,
+  "limit": 0,
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "max_tokens": 14000,
+    "extra_body": {}
+  },
+  "suites": {
+    "math500": {
+      "pass_at_1": {
+        "mean": 0.9285,
+        "lo": 0.9069302488050689,
+        "hi": 0.9475,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 118,
+      "n_errors": 0,
+      "seconds": 2557
+    },
+    "gsm8k_test": {
+      "pass_at_1": {
+        "mean": 0.9541319181197877,
+        "lo": 0.9425701288855194,
+        "hi": 0.9636087945413192,
+        "n": 1319,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 1319,
+      "n_items_scored": 1319,
+      "n_samples": 5276,
+      "n_finish_length": 7,
+      "n_errors": 0,
+      "seconds": 2469
+    },
+    "humaneval": {
+      "pass_at_1": {
+        "mean": 0.8170731707317073,
+        "lo": 0.7667682926829268,
+        "hi": 0.8582317073170732,
+        "n": 164,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 164,
+      "n_items_scored": 164,
+      "n_samples": 656,
+      "n_finish_length": 19,
+      "n_errors": 0,
+      "seconds": 668
+    },
+    "mbpp_test": {
+      "pass_at_1": {
+        "mean": 0.809,
+        "lo": 0.779,
+        "hi": 0.8345,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 166,
+      "n_errors": 0,
+      "seconds": 2576
+    }
+  },
+  "started": 1794357179.8958545,
+  "finished": 1794365449.4907227
+}

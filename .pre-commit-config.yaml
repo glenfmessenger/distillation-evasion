@@ -1,0 +1,32 @@
+repos:
+  - repo: local
+    hooks:
+      - id: no-untraced-numerals
+        name: paper prose contains no hand-typed numerals
+        entry: .venv/bin/python scripts/check_prose_numerals.py
+        language: system
+        files: ^paper/.*\.tex$
+        exclude: ^paper/(tables|macros)/  # generated from docs/evidence by scripts/build_paper.py
+        pass_filenames: true
+      - id: no-silent-fallbacks
+        name: no silent fallback patterns in harness code
+        entry: .venv/bin/python scripts/check_no_fallbacks.py
+        language: system
+        files: ^src/.*\.py$
+        pass_filenames: true
+      - id: ruff
+        name: ruff lint
+        entry: .venv/bin/ruff check
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format check
+        entry: .venv/bin/ruff format --check
+        language: system
+        types: [python]
+      - id: pytest
+        name: GPU-independent test suite
+        entry: .venv/bin/python -m pytest -q
+        language: system
+        pass_filenames: false
+        always_run: true

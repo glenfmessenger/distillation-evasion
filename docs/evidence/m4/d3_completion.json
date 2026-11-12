@@ -1,0 +1,106 @@
+{
+ "calibration": {
+  "0.01": {
+   "threshold": 0.02259475218658892,
+   "direction": "low",
+   "fpr_budget": 0.01,
+   "n_benign": 95498,
+   "n_unscoreable": 168328,
+   "n_exceed": 954,
+   "resolution": 1.0471423485308593e-05,
+   "below_resolution": false
+  },
+  "0.001": {
+   "threshold": 0.0,
+   "direction": "low",
+   "fpr_budget": 0.001,
+   "n_benign": 95498,
+   "n_unscoreable": 168328,
+   "n_exceed": 0,
+   "resolution": 1.0471423485308593e-05,
+   "below_resolution": true
+  }
+ },
+ "campaigns": {
+  "pilot_baseline": {
+   "send": {
+    "n_sessions": 20,
+    "median_cv": 0.9995392249887317,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.1628479130452994
+   },
+   "completion": {
+    "n_sessions": 20,
+    "median_cv": 1.2533679312526176,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.08970659071394166
+   }
+  },
+  "c_real_v2:20": {
+   "send": {
+    "n_sessions": 20,
+    "median_cv": 0.9678555453292821,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.20443935998659657
+   },
+   "completion": {
+    "n_sessions": 20,
+    "median_cv": 2.8485754824848875,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.0037576703177029883
+   }
+  },
+  "c_real_v2_s1": {
+   "send": {
+    "n_sessions": 20,
+    "median_cv": 0.9468185547686457,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.21539508680810068
+   },
+   "completion": {
+    "n_sessions": 20,
+    "median_cv": 2.788049183517841,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.00909704915286184
+   }
+  },
+  "c_instr_v2": {
+   "send": {
+    "n_sessions": 20,
+    "median_cv": 0.9837228965257169,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.19483182893882595
+   },
+   "completion": {
+    "n_sessions": 20,
+    "median_cv": 1.5841050396699659,
+    "flagged": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "auc": 0.041878363944794654
+   }
+  }
+ }
+}

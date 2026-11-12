@@ -1,0 +1,91 @@
+{
+  "label": "student_after_repair_s0",
+  "mode": "chat",
+  "verifier_commit": "d812b78",
+  "suites": {
+    "math500": {
+      "pass_at_1": {
+        "mean": 0.608,
+        "lo": 0.572,
+        "hi": 0.643,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 450,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 3,
+      "scoring_rule": "A8",
+      "n_samples_scored_from_reasoning": 447,
+      "complete": true
+    },
+    "gsm8k_test": {
+      "pass_at_1": {
+        "mean": 0.8263836239575436,
+        "lo": 0.8094563461575646,
+        "hi": 0.8420502184185666,
+        "n": 1319,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 1319,
+      "n_items_scored": 1319,
+      "n_samples": 5276,
+      "n_finish_length": 227,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 1,
+      "scoring_rule": "A8",
+      "n_samples_scored_from_reasoning": 224,
+      "complete": true
+    },
+    "humaneval": {
+      "pass_at_1": {
+        "mean": 0.49085365853658536,
+        "lo": 0.4298780487804878,
+        "hi": 0.552168521743252,
+        "n": 164,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 164,
+      "n_items_scored": 164,
+      "n_samples": 656,
+      "n_finish_length": 140,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 6,
+      "scoring_rule": "A8",
+      "n_samples_scored_from_reasoning": 150,
+      "complete": true
+    },
+    "mbpp_test": {
+      "pass_at_1": {
+        "mean": 0.453,
+        "lo": 0.4185,
+        "hi": 0.4895,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 614,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 7,
+      "scoring_rule": "A8",
+      "n_samples_scored_from_reasoning": 630,
+      "complete": true
+    }
+  }
+}

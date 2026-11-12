@@ -1,0 +1,87 @@
+{
+  "label": "student_repair_only_s0",
+  "mode": "chat",
+  "verifier_commit": "6462b55",
+  "suites": {
+    "math500": {
+      "pass_at_1": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 500,
+        "method": "degenerate",
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 64,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "gsm8k_test": {
+      "pass_at_1": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 1319,
+        "method": "degenerate",
+        "seed": 0
+      },
+      "n_items": 1319,
+      "n_items_scored": 1319,
+      "n_samples": 5276,
+      "n_finish_length": 18,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "humaneval": {
+      "pass_at_1": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 164,
+        "method": "degenerate",
+        "seed": 0
+      },
+      "n_items": 164,
+      "n_items_scored": 164,
+      "n_samples": 656,
+      "n_finish_length": 3,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "mbpp_test": {
+      "pass_at_1": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 500,
+        "method": "degenerate",
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 4,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    }
+  }
+}

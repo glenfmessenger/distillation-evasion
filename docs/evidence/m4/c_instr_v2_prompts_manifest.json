@@ -1,0 +1,23 @@
+{
+ "label": "c_instr_v2",
+ "source": "databricks/databricks-dolly-15k",
+ "n": 2000,
+ "seed": 0,
+ "counts": {
+  "rows": 15011,
+  "dropped_duplicate": 187,
+  "dropped_ngram_overlap": 3,
+  "candidates": 14821
+ },
+ "categories": {
+  "brainstorming": 214,
+  "classification": 306,
+  "closed_qa": 247,
+  "creative_writing": 94,
+  "general_qa": 281,
+  "information_extraction": 190,
+  "open_qa": 492,
+  "summarization": 176
+ },
+ "prompts_sha256": "349d4dff7cc2094c03265696d22d5a453a10dc079510c99fdefb857bc19e7c45"
+}

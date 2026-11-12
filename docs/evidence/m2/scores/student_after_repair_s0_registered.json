@@ -1,0 +1,91 @@
+{
+  "label": "student_after_repair_s0",
+  "mode": "chat",
+  "verifier_commit": "6462b55",
+  "suites": {
+    "math500": {
+      "pass_at_1": {
+        "mean": 0.6065,
+        "lo": 0.5706289957220876,
+        "hi": 0.6410484494645847,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 450,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "gsm8k_test": {
+      "pass_at_1": {
+        "mean": 0.826194086429113,
+        "lo": 0.809325246398787,
+        "hi": 0.8419257012888552,
+        "n": 1319,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 1319,
+      "n_items_scored": 1319,
+      "n_samples": 5276,
+      "n_finish_length": 227,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "humaneval": {
+      "pass_at_1": {
+        "mean": 0.4817073170731707,
+        "lo": 0.4192073170731707,
+        "hi": 0.5426829268292683,
+        "n": 164,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 164,
+      "n_items_scored": 164,
+      "n_samples": 656,
+      "n_finish_length": 140,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "mbpp_test": {
+      "pass_at_1": {
+        "mean": 0.4495,
+        "lo": 0.4155,
+        "hi": 0.4866626694854003,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 614,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    }
+  }
+}

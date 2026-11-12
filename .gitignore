@@ -1,0 +1,23 @@
+# Data and outputs never live under the code root (HARNESS_HOST_REPO resolves them).
+results/raw/
+results/**/*.jsonl
+results/**/*.parquet
+*.safetensors
+*.bin
+*.pt
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+paper/build/
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.out
+paper/*.pdf
+.DS_Store
+
+src/*.egg-info/
+paper/ieeeaccess.cls

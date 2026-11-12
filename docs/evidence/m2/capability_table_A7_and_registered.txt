@@ -1,0 +1,48 @@
+student_base_chat_s0 math500: pass@1=0.5735 [0.5380,0.6085] items=500/500 len=89 err=0 changed=1147 complete=True from_reasoning=2000
+student_base_chat_s0 gsm8k_test: pass@1=0.7388 [0.7202,0.7551] items=1319/1319 len=17 err=0 changed=3898 complete=True from_reasoning=5276
+student_base_chat_s0 humaneval: pass@1=0.4909 [0.4390,0.5442] items=164/164 len=10 err=0 changed=322 complete=True from_reasoning=656
+student_base_chat_s0 mbpp_test: pass@1=0.4510 [0.4170,0.4880] items=500/500 len=25 err=0 changed=902 complete=True from_reasoning=2000
+student_base_chat_s0 math500: pass@1=0.0000 [0.0000,0.0000] items=500/500 len=89 err=0 changed=0 complete=True
+student_base_chat_s0 gsm8k_test: pass@1=0.0000 [0.0000,0.0000] items=1319/1319 len=17 err=0 changed=0 complete=True
+student_base_chat_s0 humaneval: pass@1=0.0000 [0.0000,0.0000] items=164/164 len=10 err=0 changed=0 complete=True
+student_base_chat_s0 mbpp_test: pass@1=0.0000 [0.0000,0.0000] items=500/500 len=25 err=0 changed=0 complete=True
+teacher_qwen3_8b chat rule math500 pass@1=0.9285 [0.9060,0.9470] len 118 from_reasoning - commit e50ddf3
+teacher_qwen3_8b chat rule gsm8k_test pass@1=0.9541 [0.9424,0.9634] len 7 from_reasoning - commit e50ddf3
+teacher_qwen3_8b chat rule humaneval pass@1=0.8171 [0.7698,0.8628] len 19 from_reasoning - commit e50ddf3
+teacher_qwen3_8b chat rule mbpp_test pass@1=0.8090 [0.7790,0.8350] len 166 from_reasoning - commit e50ddf3
+student_before_s0 completion rule math500 pass@1=0.3695 [0.3365,0.4020] len 115 from_reasoning 0 commit 6462b55
+student_before_s0 completion rule gsm8k_test pass@1=0.6528 [0.6332,0.6727] len 25 from_reasoning 0 commit 6462b55
+student_before_s0 completion rule humaneval pass@1=0.3765 [0.3216,0.4375] len 19 from_reasoning 0 commit 6462b55
+student_before_s0 completion rule mbpp_test pass@1=0.5005 [0.4620,0.5375] len 15 from_reasoning 0 commit 6462b55
+student_base_chat_s0 chat rule math500 pass@1=0.5735 [0.5380,0.6085] len 89 from_reasoning 2000 commit 6462b55
+student_base_chat_s0 chat rule gsm8k_test pass@1=0.7388 [0.7202,0.7551] len 17 from_reasoning 5276 commit 6462b55
+student_base_chat_s0 chat rule humaneval pass@1=0.4909 [0.4390,0.5442] len 10 from_reasoning 656 commit 6462b55
+student_base_chat_s0 chat rule mbpp_test pass@1=0.4510 [0.4170,0.4880] len 25 from_reasoning 2000 commit 6462b55
+student_base_chat_s0 chat rule_registered math500 pass@1=0.0000 [0.0000,0.0000] len 89 from_reasoning 0 commit 6462b55
+student_base_chat_s0 chat rule_registered gsm8k_test pass@1=0.0000 [0.0000,0.0000] len 17 from_reasoning 0 commit 6462b55
+student_base_chat_s0 chat rule_registered humaneval pass@1=0.0000 [0.0000,0.0000] len 10 from_reasoning 0 commit 6462b55
+student_base_chat_s0 chat rule_registered mbpp_test pass@1=0.0000 [0.0000,0.0000] len 25 from_reasoning 0 commit 6462b55
+student_after_sft_s0 chat rule math500 pass@1=0.4390 [0.4055,0.4690] len 1146 from_reasoning 1140 commit 6462b55
+student_after_sft_s0 chat rule gsm8k_test pass@1=0.6560 [0.6371,0.6759] len 1865 from_reasoning 1862 commit 6462b55
+student_after_sft_s0 chat rule humaneval pass@1=0.3049 [0.2500,0.3628] len 373 from_reasoning 377 commit 6462b55
+student_after_sft_s0 chat rule mbpp_test pass@1=0.3505 [0.3168,0.3826] len 1083 from_reasoning 1085 commit 6462b55
+student_after_sft_s0 chat rule_registered math500 pass@1=0.3845 [0.3520,0.4158] len 1146 from_reasoning 0 commit 6462b55
+student_after_sft_s0 chat rule_registered gsm8k_test pass@1=0.6044 [0.5851,0.6250] len 1865 from_reasoning 0 commit 6462b55
+student_after_sft_s0 chat rule_registered humaneval pass@1=0.3049 [0.2500,0.3628] len 373 from_reasoning 0 commit 6462b55
+student_after_sft_s0 chat rule_registered mbpp_test pass@1=0.3500 [0.3167,0.3820] len 1083 from_reasoning 0 commit 6462b55
+student_after_repair_s0 chat rule math500 pass@1=0.6155 [0.5785,0.6510] len 450 from_reasoning 447 commit 6462b55
+student_after_repair_s0 chat rule gsm8k_test pass@1=0.8296 [0.8129,0.8452] len 227 from_reasoning 224 commit 6462b55
+student_after_repair_s0 chat rule humaneval pass@1=0.4909 [0.4299,0.5522] len 140 from_reasoning 150 commit 6462b55
+student_after_repair_s0 chat rule mbpp_test pass@1=0.4530 [0.4185,0.4895] len 614 from_reasoning 630 commit 6462b55
+student_after_repair_s0 chat rule_registered math500 pass@1=0.6065 [0.5706,0.6410] len 450 from_reasoning 0 commit 6462b55
+student_after_repair_s0 chat rule_registered gsm8k_test pass@1=0.8262 [0.8093,0.8419] len 227 from_reasoning 0 commit 6462b55
+student_after_repair_s0 chat rule_registered humaneval pass@1=0.4817 [0.4192,0.5427] len 140 from_reasoning 0 commit 6462b55
+student_after_repair_s0 chat rule_registered mbpp_test pass@1=0.4495 [0.4155,0.4867] len 614 from_reasoning 0 commit 6462b55
+student_repair_only_s0 chat rule math500 pass@1=0.6430 [0.6050,0.6755] len 64 from_reasoning 2000 commit 6462b55
+student_repair_only_s0 chat rule gsm8k_test pass@1=0.8137 [0.7960,0.8292] len 18 from_reasoning 5276 commit 6462b55
+student_repair_only_s0 chat rule humaneval pass@1=0.6341 [0.5762,0.6898] len 3 from_reasoning 656 commit 6462b55
+student_repair_only_s0 chat rule mbpp_test pass@1=0.5160 [0.4800,0.5525] len 4 from_reasoning 2000 commit 6462b55
+student_repair_only_s0 chat rule_registered math500 pass@1=0.0000 [0.0000,0.0000] len 64 from_reasoning 0 commit 6462b55
+student_repair_only_s0 chat rule_registered gsm8k_test pass@1=0.0000 [0.0000,0.0000] len 18 from_reasoning 0 commit 6462b55
+student_repair_only_s0 chat rule_registered humaneval pass@1=0.0000 [0.0000,0.0000] len 3 from_reasoning 0 commit 6462b55
+student_repair_only_s0 chat rule_registered mbpp_test pass@1=0.0000 [0.0000,0.0000] len 4 from_reasoning 0 commit 6462b55

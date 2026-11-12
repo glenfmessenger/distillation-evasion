@@ -1,0 +1,23 @@
+after_repair gsm8k_test: pass@1=0.8262 [0.8086,0.8417] n=1319 len_trunc=227 err=0 1538s
+after_repair humaneval: pass@1=0.4817 [0.4236,0.5396] n=164 len_trunc=140 err=0 695s
+after_repair math500: pass@1=0.6065 [0.5705,0.6390] n=500 len_trunc=450 err=0 2552s
+after_sft humaneval: pass@1=0.3049 [0.2530,0.3628] n=164 len_trunc=373 err=0 1701s
+{
+ "base": "/home/ubuntu/data/checkpoints/pilot_s0/sft",
+ "regime": "full",
+ "seed": 0,
+ "steps": 200,
+ "prompts_per_step": 16,
+ "generations": 8,
+ "max_completion": 4096,
+ "lr": 1e-06,
+ "n_prompts": 3200,
+ "n_excluded_ids": 1972,
+ "seconds": 31760,
+ "global_steps": 200,
+ "peak_gpu_mem_gb": 63.21,
+ "verify_timeouts": 1,
+ "n_reward_steps": 200,
+ "reward_first10_mean": 0.4453,
+ "reward_last10_mean": 0.7031
+}

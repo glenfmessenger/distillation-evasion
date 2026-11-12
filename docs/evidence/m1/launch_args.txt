@@ -1,0 +1,2 @@
+{'model_tag': 'Qwen/Qwen3-8B', 'enable_prompt_tokens_details': True, 'model': 'Qwen/Qwen3-8B', 'dtype': 'bfloat16', 'max_model_len': 16384, 'served_model_name': ['Qwen/Qwen3-8B'], 'reasoning_parser': 'qwen3', 'gpu_memory_utilization': 0.9, 'enable_prefix_caching': True}
+SAMPLER=flashinfer-prebuilt

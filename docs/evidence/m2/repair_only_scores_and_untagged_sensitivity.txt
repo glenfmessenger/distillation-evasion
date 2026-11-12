@@ -1,0 +1,32 @@
+student_repair_only_s0 summary_rescored.json math500 pass@1=0.0000 [0.0000,0.0000] samples 2000 len 64 fallback - commit a89d6f5
+student_repair_only_s0 summary_rescored.json gsm8k_test pass@1=0.0000 [0.0000,0.0000] samples 5276 len 18 fallback - commit a89d6f5
+student_repair_only_s0 summary_rescored.json humaneval pass@1=0.0000 [0.0000,0.0000] samples 656 len 3 fallback - commit a89d6f5
+student_repair_only_s0 summary_rescored.json mbpp_test pass@1=0.0000 [0.0000,0.0000] samples 2000 len 4 fallback - commit a89d6f5
+student_repair_only_s0 summary_rescored_untagged.json math500 pass@1=0.6430 [0.6050,0.6755] samples 2000 len 64 fallback 2000 commit c8e99eb
+student_repair_only_s0 summary_rescored_untagged.json gsm8k_test pass@1=0.8137 [0.7960,0.8292] samples 5276 len 18 fallback 5276 commit c8e99eb
+student_repair_only_s0 summary_rescored_untagged.json humaneval pass@1=0.6341 [0.5762,0.6898] samples 656 len 3 fallback 656 commit c8e99eb
+student_repair_only_s0 summary_rescored_untagged.json mbpp_test pass@1=0.5160 [0.4800,0.5525] samples 2000 len 4 fallback 2000 commit c8e99eb
+student_after_repair_s0 summary_rescored.json math500 pass@1=0.6065 [0.5706,0.6410] samples 2000 len 450 fallback - commit dfdd680
+student_after_repair_s0 summary_rescored.json gsm8k_test pass@1=0.8262 [0.8093,0.8419] samples 5276 len 227 fallback - commit dfdd680
+student_after_repair_s0 summary_rescored.json humaneval pass@1=0.4817 [0.4192,0.5427] samples 656 len 140 fallback - commit dfdd680
+student_after_repair_s0 summary_rescored.json mbpp_test pass@1=0.4495 [0.4155,0.4867] samples 2000 len 614 fallback - commit dfdd680
+student_after_repair_s0 summary_rescored_untagged.json math500 pass@1=0.6155 [0.5785,0.6510] samples 2000 len 450 fallback 447 commit c8e99eb
+student_after_repair_s0 summary_rescored_untagged.json gsm8k_test pass@1=0.8296 [0.8129,0.8452] samples 5276 len 227 fallback 224 commit c8e99eb
+student_after_repair_s0 summary_rescored_untagged.json humaneval pass@1=0.4909 [0.4299,0.5522] samples 656 len 140 fallback 150 commit c8e99eb
+student_after_repair_s0 summary_rescored_untagged.json mbpp_test pass@1=0.4530 [0.4185,0.4895] samples 2000 len 614 fallback 630 commit c8e99eb
+student_after_sft_s0 summary_rescored.json math500 pass@1=0.3845 [0.3520,0.4158] samples 2000 len 1146 fallback - commit a89d6f5
+student_after_sft_s0 summary_rescored.json gsm8k_test pass@1=0.6044 [0.5851,0.6250] samples 5276 len 1865 fallback - commit a89d6f5
+student_after_sft_s0 summary_rescored.json humaneval pass@1=0.3049 [0.2500,0.3628] samples 656 len 373 fallback - commit a89d6f5
+student_after_sft_s0 summary_rescored.json mbpp_test pass@1=0.3500 [0.3167,0.3820] samples 2000 len 1083 fallback - commit a89d6f5
+student_after_sft_s0 summary_rescored_untagged.json math500 pass@1=0.4390 [0.4055,0.4690] samples 2000 len 1146 fallback 1140 commit c8e99eb
+student_after_sft_s0 summary_rescored_untagged.json gsm8k_test pass@1=0.6560 [0.6371,0.6759] samples 5276 len 1865 fallback 1862 commit c8e99eb
+student_after_sft_s0 summary_rescored_untagged.json humaneval pass@1=0.3049 [0.2500,0.3628] samples 656 len 373 fallback 377 commit c8e99eb
+student_after_sft_s0 summary_rescored_untagged.json mbpp_test pass@1=0.3505 [0.3168,0.3826] samples 2000 len 1083 fallback 1085 commit c8e99eb
+2026-11-11T16:00:53+00:00 GRPO start
+2026-11-11T20:10:36+00:00 GRPO exit 0
+2026-11-11T20:23:22+00:00 scoring exit 0
+2026-11-11T20:23:37+00:00 D19_DONE
+{"regime": "full", "steps": 200, "seconds": 14921, "peak_gpu_mem_gb": 63.19, "reward_first10": [0.5234375, 0.828125, 0.5546875, 0.5078125, 0.6953125, 0.484375, 0.6875, 0.5546875, 0.578125, 0.5234375], "reward_last10": [0.625, 0.8046875, 0.828125, 0.8125, 0.7890625, 0.765625, 0.7578125, 0.65625, 0.8359375, 0.5390625]}
+12:27
+2026-11-11T19:13:26+00:00 short_aw: SFT start (--max-gen-tokens 4096 --answer-only-copy)
+2026-11-11T19:32:12+00:00 short_aw: SFT exit 0

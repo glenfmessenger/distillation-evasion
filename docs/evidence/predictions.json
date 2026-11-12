@@ -1,0 +1,261 @@
+[
+ {
+  "id": "v1 D1",
+  "protocol": "v1.0",
+  "prediction": "max requests per identity-hour flags the unevaded campaign in at least 90% of units",
+  "outcome": "held",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 D2",
+  "protocol": "v1.0",
+  "prediction": "sessions per identity-day flags the single identity (endpoint)",
+  "outcome": "held",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 D3",
+  "protocol": "v1.0",
+  "prediction": "cadence regularity flags at least 90% of campaign sessions",
+  "outcome": "failed",
+  "finding": "F40, F63"
+ },
+ {
+  "id": "v1 D4",
+  "protocol": "v1.0",
+  "prediction": "output-length divergence flags at least 50%",
+  "outcome": "failed",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 D5",
+  "protocol": "v1.0",
+  "prediction": "reasoning share flags at least 90%",
+  "outcome": "failed",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 D6",
+  "protocol": "v1.0",
+  "prediction": "prompt-length divergence flags at least 50%",
+  "outcome": "failed",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 D7",
+  "protocol": "v1.0",
+  "prediction": "prefix-cache share flags at least 30%",
+  "outcome": "failed",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 D9",
+  "protocol": "v1.0",
+  "prediction": "single-turn fraction flags at least 90%",
+  "outcome": "failed (unscoreable)",
+  "finding": "F40"
+ },
+ {
+  "id": "v1 H3 to H6",
+  "protocol": "v1.0",
+  "prediction": "coverage lever and capability cost after repair",
+  "outcome": "not tested (superseded by v2.0)",
+  "finding": "decision 32"
+ },
+ {
+  "id": "P1",
+  "protocol": "v2.0",
+  "prediction": "pattern level flags at most 10% of C-real sessions",
+  "outcome": "held",
+  "finding": "F49, F53"
+ },
+ {
+  "id": "P2",
+  "protocol": "v2.0",
+  "prediction": "volume level fires and is cleared by 100 identities or a 26-per-hour cap",
+  "outcome": "held",
+  "finding": "F47, F49"
+ },
+ {
+  "id": "P3 (B1)",
+  "protocol": "v2.0",
+  "prediction": "membership baseline flags at least 95% of C-bench blocks",
+  "outcome": "held",
+  "finding": "F48"
+ },
+ {
+  "id": "P3 (C2)",
+  "protocol": "v2.0",
+  "prediction": "embedding MMD flags at least 90% of C-bench blocks per identity",
+  "outcome": "failed",
+  "finding": "F48"
+ },
+ {
+  "id": "P4",
+  "protocol": "v2.0",
+  "prediction": "content detectors flag at most 10% of C-real blocks",
+  "outcome": "held",
+  "finding": "F50"
+ },
+ {
+  "id": "P5",
+  "protocol": "v2.0",
+  "prediction": "content helps only when prompts are out of distribution",
+  "outcome": "held",
+  "finding": "F50, F57"
+ },
+ {
+  "id": "P6",
+  "protocol": "v2.0",
+  "prediction": "identity splitting starves per-identity content statistics",
+  "outcome": "held",
+  "finding": "F50, F53"
+ },
+ {
+  "id": "B1 C3",
+  "protocol": "v2.0 B1",
+  "prediction": "diversity statistic flags at least 90% of seed-1 blocks",
+  "outcome": "failed",
+  "finding": "F53"
+ },
+ {
+  "id": "B1 C2low",
+  "protocol": "v2.0 B1",
+  "prediction": "two-sided MMD flags at least 90% of seed-1 blocks",
+  "outcome": "held (composition effect, F56)",
+  "finding": "F53, F56"
+ },
+ {
+  "id": "B1 C-instr",
+  "protocol": "v2.0 B1",
+  "prediction": "C-instr: pattern silent, volume fires, MMD under 10%, membership 0, pooled pure window flagged",
+  "outcome": "held",
+  "finding": "F57"
+ },
+ {
+  "id": "P7",
+  "protocol": "v2.0 B2",
+  "prediction": "D10 flags at least 90% of identity-days of round-robin splits at 100 and 1000 identities",
+  "outcome": "held",
+  "finding": "F58"
+ },
+ {
+  "id": "P8",
+  "protocol": "v2.0 B2",
+  "prediction": "D10 flags at least 50% at 10 identities",
+  "outcome": "failed",
+  "finding": "F58"
+ },
+ {
+  "id": "P9 (first clause)",
+  "protocol": "v2.0 B2",
+  "prediction": "heterogeneous split without stagger leaves at least 50% flagged at 100 identities",
+  "outcome": "failed",
+  "finding": "F58"
+ },
+ {
+  "id": "P9 (second clause)",
+  "protocol": "v2.0 B2",
+  "prediction": "a day's stagger at 100 identities leaves under 10% flagged by D10",
+  "outcome": "held",
+  "finding": "F58"
+ },
+ {
+  "id": "P10",
+  "protocol": "v2.0 B2",
+  "prediction": "constructed benign components are not flagged as a group",
+  "outcome": "not testable on the timeline; replaced by B4 item 1",
+  "finding": "F58, F62"
+ },
+ {
+  "id": "P11 (n at least 100)",
+  "protocol": "v2.0 B3",
+  "prediction": "D11 flags at least 90% of round-robin identities at 100 and 1000",
+  "outcome": "held",
+  "finding": "F60"
+ },
+ {
+  "id": "P11 (n = 10)",
+  "protocol": "v2.0 B3",
+  "prediction": "D11 flags at least 50% at 10 identities",
+  "outcome": "failed",
+  "finding": "F60"
+ },
+ {
+  "id": "P12",
+  "protocol": "v2.0 B3",
+  "prediction": "heterogeneous split without stagger is flagged at least 90% by D11",
+  "outcome": "held",
+  "finding": "F60"
+ },
+ {
+  "id": "P13",
+  "protocol": "v2.0 B3",
+  "prediction": "a three-day stagger at 100 identities leaves under 10%; a day under 50%",
+  "outcome": "held",
+  "finding": "F60"
+ },
+ {
+  "id": "P14",
+  "protocol": "v2.0 B3",
+  "prediction": "a day's stagger at 1000 identities leaves at least 50% flagged by D11",
+  "outcome": "held",
+  "finding": "F60"
+ },
+ {
+  "id": "P15",
+  "protocol": "v2.0 B3",
+  "prediction": "the cheapest cell with every content-blind detector under 10% flagged is a heterogeneous split with a stagger of at least 24 h at 100 identities, costing more than 70 h",
+  "outcome": "failed (the cheapest registered clearing cell is ten rate-shaped round-robin identities at 8.0 h; F66)",
+  "finding": "F60"
+ },
+ {
+  "id": "P16 (batch job)",
+  "protocol": "v2.0 B4",
+  "prediction": "a legitimate batch job over 50 keys is flagged by D10 and D11",
+  "outcome": "held",
+  "finding": "F62"
+ },
+ {
+  "id": "P16 (evaluation fleet)",
+  "protocol": "v2.0 B4",
+  "prediction": "an evaluation fleet of 20 keys is flagged by D10 (at least 50%) and D11 (at least 90%)",
+  "outcome": "failed for D10, held for D11",
+  "finding": "F62"
+ },
+ {
+  "id": "P17",
+  "protocol": "v2.0 B4",
+  "prediction": "an organisation of real users with staggered births is flagged at most 10%",
+  "outcome": "held",
+  "finding": "F62"
+ },
+ {
+  "id": "P21",
+  "protocol": "v2.0 B4",
+  "prediction": "D3 verdict unchanged on completion times",
+  "outcome": "held",
+  "finding": "F63"
+ },
+ {
+  "id": "P18",
+  "protocol": "v2.0 B4",
+  "prediction": "at least one cell of the registered attacker search clears every content-blind detector",
+  "outcome": "held",
+  "finding": "F64"
+ },
+ {
+  "id": "P19",
+  "protocol": "v2.0 B4",
+  "prediction": "the cheapest clearing cell costs at least 24 h and at least 100 identities",
+  "outcome": "failed",
+  "finding": "F64"
+ },
+ {
+  "id": "P20",
+  "protocol": "v2.0 B4",
+  "prediction": "no cell without a creation stagger clears (D11)",
+  "outcome": "held",
+  "finding": "F64"
+ }
+]

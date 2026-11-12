@@ -1,0 +1,17 @@
+{
+ "label": "c_real_v2",
+ "benign_label": "m3_v1",
+ "n": 8000,
+ "seed": 0,
+ "wildchat_snapshot": "7d6490e462285cf85d91eabea0f9a954fbddcd1f",
+ "n_replay_users_excluded": 1965,
+ "n_replay_prompts_for_ngram_check": 50577,
+ "counts": {
+  "conversations": 469030,
+  "dropped_duplicate_text": 69538,
+  "dropped_ngram_overlap_with_replay": 98239,
+  "dropped_user_in_replay_subset": 36126,
+  "candidates": 265127
+ },
+ "prompts_sha256": "d24eb923e7dc87f90107a8ac5da4415a411ca09aa3985b5d703a1088b25dc2a5"
+}

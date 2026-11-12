@@ -1,0 +1,16 @@
+# Threats to validity (collected continuously; charter 3.15)
+
+| # | Raised | Threat | Affects | Mitigation / disclosure |
+|---|---|---|---|---|
+| T1 | 2026-10-08 | Replayed public corpus (WildChat-1M) is not a production traffic log; its shape distribution is one chat product's 2023 users. | Benign model, every FPR | Disclose; heavy-user tail added by construction (PROTOCOL §4); FPR resolution reported. |
+| T2 | 2026-10-08 | Single A100, one teacher, one student family: scale is a documented limitation, not removed. | External validity | Disclose; cross-family student arm if budget permits. |
+| T3 | 2026-10-08 | Time-scaled replay (inter-arrivals compressed) changes absolute cadence; detectors see scheduled, not wall-clock, timing. | D1, D3 | Same scale factor for benign and campaign; factor recorded; D3 defined on scheduled inter-arrivals. |
+| T4 | 2026-10-08 | Prefix-cache hit statistics depend on global load and eviction, not only on the session. | D7 | Pre-registered direction; replicate under varied background load; report instability as a result. |
+| T5 | 2026-10-08 | Benign traffic also hits a thinking-mode teacher, so reasoning share may not separate campaign from benign. | D5 | Pre-registered; a null result is reported as such. |
+| T6 | 2026-10-08 | Teacher outputs truncated at max_tokens are excluded from SFT; exclusion rate may differ by coverage level. | L6 cost | Report exclusion count per arm; cap chosen in pilot to keep exclusion <5%. |
+| T7 | 2026-10-08 | Unit prices for identities/tokens/GPU are parameters, not measurements. | Money column | Money is derived; prices stated and re-priceable. |
+| T8 | 2026-10-08 | Heavy-user tail categories are constructed by me, not observed. | FPR tail | Mixture weights signed off (D-5); sensitivity of FPR to weights reported. |
+| T9 | 2026-10-08 | Student base model's pretraining corpus may already contain test-suite items. | Bar | Student-before score reported; contamination control applies only to our training prompts. |
+| T10 | 2026-11-10 | Coverage statistics (D8) have a sample-size dependence; a campaign with many requests per cell estimates its histogram better than a sparse benign user, which can invert the sign of a divergence. Benign systematic exploration (eval harnesses, legal/medical Q&A) can look like coverage sweeps. | D8, H3, H5 | D-6: use a sample-size-independent statistic or evaluate at matched request count; the heavy-tail benign components exist precisely to measure this false-positive source. |
+| T11 | 2026-11-10 | Any generation cap truncates the teacher's longest reasoning traces; dropping truncated pairs removes the hardest items by construction, which is confounded with the coverage lever. | L6, H3, campaign data | Cap raised under amendment A1 if Glen approves; truncation rate reported per stratum per arm; residual truncation treated as a measured exclusion, never silently dropped. |
+| T12 | 2026-11-11 | WildChat timestamps the assistant reply, not the user message. Benign inter-arrival on the scheduled timeline therefore includes the original service's generation latency (GPT-3.5/4 in 2023–24), not only user think time. | D1, D3 benign calibration | Disclosed; affects benign cadence dispersion only upward-smoothly (latency adds a positive term to every gap); campaign cadence is policy-defined on the same scheduled timeline. |

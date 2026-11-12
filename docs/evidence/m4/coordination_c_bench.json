@@ -1,0 +1,1608 @@
+{
+ "benign_label": "m3_v1",
+ "campaign_label": "pilot_baseline",
+ "max_sessions": 0,
+ "n_benign_identity_days": 180288,
+ "n_benign_identities": 118465,
+ "radius": 0.3811458722799603,
+ "calibration": {
+  "0.01": {
+   "threshold": 35.0,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 180288,
+   "n_unscoreable": 0,
+   "n_exceed": 1543,
+   "resolution": 5.546680866169684e-06,
+   "below_resolution": false
+  },
+  "0.001": {
+   "threshold": 45.0,
+   "direction": "high",
+   "fpr_budget": 0.001,
+   "n_benign": 180288,
+   "n_unscoreable": 0,
+   "n_exceed": 179,
+   "resolution": 5.546680866169684e-06,
+   "below_resolution": false
+  }
+ },
+ "benign_density_quantiles": {
+  "0.5": 1.0,
+  "0.9": 20.0,
+  "0.99": 35.0,
+  "0.999": 45.0
+ },
+ "native_interval_s": 1.4204382160000932,
+ "cap_per_hour": 26,
+ "cells": [
+  {
+   "kind": "roundrobin",
+   "n": 10,
+   "shaped": false,
+   "stagger_h": null,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "roundrobin",
+   "n": 10,
+   "shaped": true,
+   "stagger_h": null,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 28781.266367029,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 28830.70810445,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 28796.113321585,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 28801.438010886,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 10,
+     "median_density": 4.0,
+     "auc": 0.6626564164004259,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 10,
+      "requests": 1995,
+      "wall_clock_s": 28741.743142633,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "roundrobin",
+   "n": 100,
+   "shaped": false,
+   "stagger_h": null,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "roundrobin",
+   "n": 100,
+   "shaped": true,
+   "stagger_h": null,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 2896.669500772,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 2940.13620876,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 2914.458275637,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 2908.669952376,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 100,
+     "median_density": 94.0,
+     "auc": 0.9831328208200213,
+     "flagged": {
+      "0.01": 0.95,
+      "0.001": 0.95
+     },
+     "frac_identities_any_day_flagged": 0.95,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 2930.830831751,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "roundrobin",
+   "n": 1000,
+   "shaped": false,
+   "stagger_h": null,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9984234114306,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9991178142749378,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9994956819089457,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9994956819089457,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9984833017172524,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 4382.184846778,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "roundrobin",
+   "n": 1000,
+   "shaped": true,
+   "stagger_h": null,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1000,
+     "median_density": 995.0,
+     "auc": 0.9986824580670927,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 354.903938833,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.998861654685836,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 351.594491471,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9992952525958466,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 354.803545063,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1000,
+     "median_density": 995.0,
+     "auc": 0.9991340216764288,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 352.399774259,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1000,
+     "median_density": 994.0,
+     "auc": 0.9985482949503017,
+     "flagged": {
+      "0.01": 0.995,
+      "0.001": 0.995
+     },
+     "frac_identities_any_day_flagged": 0.995,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 348.697853843,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 100,
+   "shaped": true,
+   "stagger_h": 0,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 104,
+     "median_density": 1.0,
+     "auc": 0.5167875896428962,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 171429.072349607,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 103,
+     "median_density": 0.0,
+     "auc": 0.4338680010580698,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 241511.420029384,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 107,
+     "median_density": 1.0,
+     "auc": 0.5188274565471984,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 427059.235544441,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 104,
+     "median_density": 1.0,
+     "auc": 0.4558462602997597,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 333870.14435901,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 100,
+     "median_density": 1.0,
+     "auc": 0.47021501708377705,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 79404.098648733,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 100,
+   "shaped": true,
+   "stagger_h": 1,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 105,
+     "median_density": 1.0,
+     "auc": 0.5183865867522017,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 173454.891194211,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 103,
+     "median_density": 0.0,
+     "auc": 0.4325258658422683,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 242613.232578111,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 107,
+     "median_density": 1.0,
+     "auc": 0.5188274565471984,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 428206.347014009,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 104,
+     "median_density": 1.0,
+     "auc": 0.4509761944990579,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 334215.003907191,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 100,
+     "median_density": 1.0,
+     "auc": 0.4688326178115016,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 80235.601655191,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 100,
+   "shaped": true,
+   "stagger_h": 6,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 106,
+     "median_density": 0.0,
+     "auc": 0.3999539416179396,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 183583.985417228,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 104,
+     "median_density": 0.0,
+     "auc": 0.36022625551254744,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 248122.29532174,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 108,
+     "median_density": 0.0,
+     "auc": 0.4272528152486885,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 433941.904361845,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 104,
+     "median_density": 0.0,
+     "auc": 0.34333674560873545,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 335939.301648094,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 100,
+     "median_density": 0.0,
+     "auc": 0.35667445975328366,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 84393.116687477,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 100,
+   "shaped": true,
+   "stagger_h": 24,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 116,
+     "median_density": 0.0,
+     "auc": 0.32036249185211707,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 233685.295727345,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 110,
+     "median_density": 0.0,
+     "auc": 0.27719058597153645,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 267954.92119881,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 116,
+     "median_density": 0.0,
+     "auc": 0.3475648732143513,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 454589.910814051,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 111,
+     "median_density": 0.0,
+     "auc": 0.29510938154608285,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 342146.773515343,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 118,
+     "median_density": 0.0,
+     "auc": 0.30226207277395717,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 124464.702364578,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 100,
+   "shaped": true,
+   "stagger_h": 72,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 121,
+     "median_density": 0.0,
+     "auc": 0.2832551480532892,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 370379.769253406,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 118,
+     "median_density": 0.0,
+     "auc": 0.2586582278147807,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 320841.92353766,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 117,
+     "median_density": 0.0,
+     "auc": 0.3017646836287012,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 509651.261353269,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 113,
+     "median_density": 0.0,
+     "auc": 0.2717860371291872,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 358700.031828008,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 119,
+     "median_density": 0.0,
+     "auc": 0.29050030222419104,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.0,
+     "price": {
+      "identities": 100,
+      "requests": 1995,
+      "wall_clock_s": 288293.539911746,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 1000,
+   "shaped": true,
+   "stagger_h": 0,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1001,
+     "median_density": 795.0,
+     "auc": 0.9458727286203324,
+     "flagged": {
+      "0.01": 0.8461538461538461,
+      "0.001": 0.8461538461538461
+     },
+     "frac_identities_any_day_flagged": 0.847,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 109989.765683657,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1000,
+     "median_density": 760.0,
+     "auc": 0.9496825301739439,
+     "flagged": {
+      "0.01": 0.853,
+      "0.001": 0.809
+     },
+     "frac_identities_any_day_flagged": 0.853,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 55198.884160736,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1000,
+     "median_density": 822.0,
+     "auc": 0.9448296253771743,
+     "flagged": {
+      "0.01": 0.81,
+      "0.001": 0.81
+     },
+     "frac_identities_any_day_flagged": 0.81,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 48007.429241293,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1000,
+     "median_density": 803.0,
+     "auc": 0.9481303858271211,
+     "flagged": {
+      "0.01": 0.832,
+      "0.001": 0.793
+     },
+     "frac_identities_any_day_flagged": 0.832,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 83402.136790569,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1002,
+     "median_density": 858.0,
+     "auc": 0.9560713420735738,
+     "flagged": {
+      "0.01": 0.8532934131736527,
+      "0.001": 0.8532934131736527
+     },
+     "frac_identities_any_day_flagged": 0.855,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 185867.415287365,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 1000,
+   "shaped": true,
+   "stagger_h": 1,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1001,
+     "median_density": 791.0,
+     "auc": 0.9446556837730959,
+     "flagged": {
+      "0.01": 0.8461538461538461,
+      "0.001": 0.8461538461538461
+     },
+     "frac_identities_any_day_flagged": 0.847,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 110692.785739738,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1000,
+     "median_density": 760.0,
+     "auc": 0.9494042504215477,
+     "flagged": {
+      "0.01": 0.853,
+      "0.001": 0.809
+     },
+     "frac_identities_any_day_flagged": 0.853,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 56078.718287331,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1000,
+     "median_density": 825.0,
+     "auc": 0.9442848081957756,
+     "flagged": {
+      "0.01": 0.81,
+      "0.001": 0.81
+     },
+     "frac_identities_any_day_flagged": 0.81,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 49826.40761884,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1001,
+     "median_density": 806.0,
+     "auc": 0.9471384052803781,
+     "flagged": {
+      "0.01": 0.8311688311688312,
+      "0.001": 0.7922077922077922
+     },
+     "frac_identities_any_day_flagged": 0.832,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 86703.346420607,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1002,
+     "median_density": 857.0,
+     "auc": 0.9553193516454843,
+     "flagged": {
+      "0.01": 0.8532934131736527,
+      "0.001": 0.8532934131736527
+     },
+     "frac_identities_any_day_flagged": 0.855,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 187387.600599004,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 1000,
+   "shaped": true,
+   "stagger_h": 6,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1001,
+     "median_density": 246.0,
+     "auc": 0.9132142263132679,
+     "flagged": {
+      "0.01": 0.7892107892107892,
+      "0.001": 0.7892107892107892
+     },
+     "frac_identities_any_day_flagged": 0.79,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 114207.886020139,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1000,
+     "median_density": 232.0,
+     "auc": 0.9068435835995741,
+     "flagged": {
+      "0.01": 0.753,
+      "0.001": 0.753
+     },
+     "frac_identities_any_day_flagged": 0.753,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 60477.888920303,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1000,
+     "median_density": 274.0,
+     "auc": 0.9107953968095491,
+     "flagged": {
+      "0.01": 0.81,
+      "0.001": 0.81
+     },
+     "frac_identities_any_day_flagged": 0.81,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 58921.299506575,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1001,
+     "median_density": 260.0,
+     "auc": 0.9127669621379685,
+     "flagged": {
+      "0.01": 0.7922077922077922,
+      "0.001": 0.7922077922077922
+     },
+     "frac_identities_any_day_flagged": 0.793,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 103209.394570794,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1003,
+     "median_density": 270.0,
+     "auc": 0.9332490359503669,
+     "flagged": {
+      "0.01": 0.8524426719840479,
+      "0.001": 0.8524426719840479
+     },
+     "frac_identities_any_day_flagged": 0.855,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 194988.527157201,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 1000,
+   "shaped": true,
+   "stagger_h": 24,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1013,
+     "median_density": 62.0,
+     "auc": 0.8828416570341682,
+     "flagged": {
+      "0.01": 0.7818361303060217,
+      "0.001": 0.7818361303060217
+     },
+     "frac_identities_any_day_flagged": 0.792,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 126862.247029583,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1007,
+     "median_density": 69.0,
+     "auc": 0.8771814897554181,
+     "flagged": {
+      "0.01": 0.7517378351539226,
+      "0.001": 0.7517378351539226
+     },
+     "frac_identities_any_day_flagged": 0.757,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 90123.36723864,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1006,
+     "median_density": 87.0,
+     "auc": 0.8929350106319838,
+     "flagged": {
+      "0.01": 0.8061630218687873,
+      "0.001": 0.8061630218687873
+     },
+     "frac_identities_any_day_flagged": 0.811,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 100417.057602249,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1009,
+     "median_density": 74.0,
+     "auc": 0.8825515173959744,
+     "flagged": {
+      "0.01": 0.7879088206144698,
+      "0.001": 0.7879088206144698
+     },
+     "frac_identities_any_day_flagged": 0.795,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 162631.167911469,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1013,
+     "median_density": 73.0,
+     "auc": 0.9127627533360246,
+     "flagged": {
+      "0.01": 0.8469891411648569,
+      "0.001": 0.8469891411648569
+     },
+     "frac_identities_any_day_flagged": 0.858,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 222351.862766709,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  },
+  {
+   "kind": "heterogeneous",
+   "n": 1000,
+   "shaped": true,
+   "stagger_h": 72,
+   "per_seed": [
+    {
+     "seed": 0,
+     "n_identity_days": 1007,
+     "median_density": 24.0,
+     "auc": 0.821366928439158,
+     "flagged": {
+      "0.01": 0.07348560079443893,
+      "0.001": 0.0
+     },
+     "frac_identities_any_day_flagged": 0.074,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 264797.320977706,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 1,
+     "n_identity_days": 1006,
+     "median_density": 29.0,
+     "auc": 0.8320065931840621,
+     "flagged": {
+      "0.01": 0.2514910536779324,
+      "0.001": 0.033797216699801194
+     },
+     "frac_identities_any_day_flagged": 0.253,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 262337.260175755,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 2,
+     "n_identity_days": 1007,
+     "median_density": 46.0,
+     "auc": 0.8754365325971659,
+     "flagged": {
+      "0.01": 0.7130089374379345,
+      "0.001": 0.5074478649453823
+     },
+     "frac_identities_any_day_flagged": 0.718,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 267650.863966244,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 3,
+     "n_identity_days": 1012,
+     "median_density": 34.0,
+     "auc": 0.859777679713337,
+     "flagged": {
+      "0.01": 0.4407114624505929,
+      "0.001": 0.16403162055335968
+     },
+     "frac_identities_any_day_flagged": 0.446,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 321089.230153266,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    },
+    {
+     "seed": 4,
+     "n_identity_days": 1009,
+     "median_density": 28.0,
+     "auc": 0.8766982903337481,
+     "flagged": {
+      "0.01": 0.13577799801783944,
+      "0.001": 0.01684836471754212
+     },
+     "frac_identities_any_day_flagged": 0.137,
+     "price": {
+      "identities": 1000,
+      "requests": 1995,
+      "wall_clock_s": 314506.396007577,
+      "prompt_tokens": 380125,
+      "generated_tokens": 10823436
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+  "built_at": "2026-11-10T22:41:12.230361+00:00",
+  "suite_counts": {
+    "math500": 500,
+    "gsm8k_test": 1319,
+    "humaneval": 164,
+    "mbpp_test": 500
+  },
+  "pool_counts_raw": {
+    "math_train": 7498,
+    "gsm8k_train": 7473,
+    "apps_train": 3288,
+    "mbpp_pool": 464
+  },
+  "contamination": {
+    "n": 13,
+    "exact_hits": {
+      "math_train": {
+        "math500": 1
+      },
+      "mbpp_pool": {
+        "mbpp_test": 3
+      }
+    },
+    "ngram_hits": {
+      "math_train": {
+        "math500": 171
+      },
+      "gsm8k_train": {
+        "gsm8k_test": 4
+      },
+      "mbpp_pool": {
+        "mbpp_test": 15
+      }
+    },
+    "removed": {
+      "math_train": 172,
+      "gsm8k_train": 4,
+      "apps_train": 0,
+      "mbpp_pool": 18
+    },
+    "kept": {
+      "math_train": 7326,
+      "gsm8k_train": 7469,
+      "apps_train": 3288,
+      "mbpp_pool": 446
+    }
+  },
+  "pool_count_clean": 18529,
+  "pool_sha256": "24fb9e8d4549748739b56f8ed798fbb2a6e99abf7e83338507627dcc8121ad54",
+  "suite_sha256": {
+    "math500": "546708175f167c71bc53f3bf4e87502240a8db992c7406c4b8dcfba39b8713f6",
+    "gsm8k_test": "1141a02e6de63c03fa2bc2605e78f525cdc3c3a3f53167a6234682dfc954703a",
+    "humaneval": "9726d22baf3aeac8d6d2c05a8e3324385d12855db2c72d594e56288f09fcd80e",
+    "mbpp_test": "e4a211e101ea28bfb39797f178b6d205c671ed6a9261fad0da353ccccfe1fa7e"
+  },
+  "sources": {
+    "math_train": "EleutherAI/hendrycks_math (7 configs, train)",
+    "gsm8k_train": "openai/gsm8k main train",
+    "apps_train": "codeparrot/apps default train @refs/convert/parquet (standard-IO items with tests)",
+    "mbpp_pool": "google-research-datasets/mbpp full train+validation",
+    "math500": "HuggingFaceH4/MATH-500 test",
+    "gsm8k_test": "openai/gsm8k main test",
+    "humaneval": "openai/openai_humaneval test",
+    "mbpp_test": "google-research-datasets/mbpp full test"
+  }
+}

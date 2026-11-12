@@ -1,0 +1,537 @@
+{
+ "reads_content": true,
+ "model": "BAAI/bge-small-en-v1.5",
+ "benign_source": "heavy_v1",
+ "k": 50,
+ "n_match": 100,
+ "block": "session size",
+ "n_sub": 20,
+ "directions": {
+  "C1": "high",
+  "C2": "high",
+  "C2low": "low",
+  "C3": "high",
+  "B1": "high",
+  "B2": "high"
+ },
+ "post_hoc": [
+  "C2low",
+  "C3"
+ ],
+ "sigma_median_heuristic": 1.0048503875732422,
+ "n_benign_units": 366,
+ "calibration": {
+  "C1": {
+   "0.01": {
+    "threshold": 0.9434716021020565,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 3,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 0.9757185193863849,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   }
+  },
+  "C2": {
+   "0.01": {
+    "threshold": 0.30180096328258516,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 3,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 0.3723141610622406,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   }
+  },
+  "C2low": {
+   "0.01": {
+    "threshold": 0.022460672259330752,
+    "direction": "low",
+    "fpr_budget": 0.01,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 3,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 0.01896369159221649,
+    "direction": "low",
+    "fpr_budget": 0.001,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   }
+  },
+  "C3": {
+   "0.01": {
+    "threshold": 0.5270208120346069,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 3,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 0.552513837814331,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   }
+  },
+  "B1": {
+   "0.01": {
+    "threshold": 0.0,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 1,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 0.08,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   }
+  },
+  "B2": {
+   "0.01": {
+    "threshold": 1.0,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 1.0,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 366,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.00273224043715847,
+    "below_resolution": true
+   }
+  }
+ },
+ "campaigns": {
+  "pilot_baseline": {
+   "identity": {
+    "C1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.6559866451909746,
+     "auc": 0.4562841530054645,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.08652694821357727,
+     "auc": 0.505464480874317,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2low": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.08652694821357727,
+     "auc": 0.49453551912568305,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C3": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.40779003500938416,
+     "auc": 0.5846994535519126,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.92,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "B2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 1.0,
+     "auc": 0.9754098360655737,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.6474476336377323,
+     "auc": 0.4412568306010929,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.08499686866998672,
+     "auc": 0.4971311475409836,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2low": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.08499686866998672,
+     "auc": 0.5028688524590164,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C3": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.4078662693500519,
+     "auc": 0.5853825136612022,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.915,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "B2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 1.0,
+     "auc": 0.9754098360655737,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   }
+  },
+  "c_real_v2:20": {
+   "identity": {
+    "C1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.3067997529313452,
+     "auc": 0.0,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.001439717411994934,
+     "auc": 0.0,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2low": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.001439717411994934,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "C3": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.5146365761756897,
+     "auc": 0.9890710382513661,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.0,
+     "auc": 0.49863387978142076,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.0305,
+     "auc": 0.14754098360655737,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.31169933502176933,
+     "auc": 0.001092896174863388,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.0014131039381027222,
+     "auc": 0.0,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2low": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.0014131039381027222,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "C3": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.5169666111469269,
+     "auc": 0.9878415300546448,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.0,
+     "auc": 0.49863387978142076,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.02,
+     "auc": 0.11413934426229508,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   }
+  },
+  "c_real_v2_s1": {
+   "identity": {
+    "C1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.3392914860281432,
+     "auc": 0.0,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.001323583722114563,
+     "auc": 0.0,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2low": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.001323583722114563,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "C3": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.516791582107544,
+     "auc": 0.9890710382513661,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.001,
+     "auc": 0.9972677595628415,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 0.0
+     }
+    },
+    "B2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.029,
+     "auc": 0.1448087431693989,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.339425181868559,
+     "auc": 0.002185792349726776,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.001293507218360901,
+     "auc": 0.0,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2low": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.001293507218360901,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "C3": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.5152584910392761,
+     "auc": 0.9868852459016394,
+     "flagged": {
+      "0.01": 0.05,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.0,
+     "auc": 0.5484972677595629,
+     "flagged": {
+      "0.01": 0.1,
+      "0.001": 0.0
+     }
+    },
+    "B2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.03,
+     "auc": 0.12192622950819672,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   }
+  }
+ }
+}

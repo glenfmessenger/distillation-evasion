@@ -1,0 +1,529 @@
+{
+ "benign_label": "m3_v1",
+ "campaign_label": "c_real_v2_s1",
+ "partial_replay": false,
+ "n_benign_replay_records": 49663,
+ "n_benign_in_flight_excluded": 0,
+ "n_campaign_records": 2000,
+ "n_campaign_in_flight_excluded": 0,
+ "detectors": {
+  "D1": {
+   "direction": "high",
+   "grain": "identity",
+   "benign_source": "timeline",
+   "populations": {
+    "campaign": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 2000.0,
+     "auc": 1.0,
+     "budgets": {
+      "0.01": {
+       "threshold": 26.0,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 1092,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 1,
+       "frac_flagged": 1.0
+      },
+      "0.001": {
+       "threshold": 57.0,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 115,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 1,
+       "frac_flagged": 1.0
+      }
+     }
+    },
+    "campaign_split": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 100.0,
+     "auc": 0.9998522770438526,
+     "budgets": {
+      "0.01": {
+       "threshold": 26.0,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 1092,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 20,
+       "frac_flagged": 1.0
+      },
+      "0.001": {
+       "threshold": 57.0,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 115,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 20,
+       "frac_flagged": 1.0
+      }
+     }
+    }
+   }
+  },
+  "D2": {
+   "direction": "high",
+   "grain": "identity",
+   "benign_source": "timeline",
+   "populations": {
+    "campaign": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 480.0,
+     "auc": 1.0,
+     "budgets": {
+      "0.01": {
+       "threshold": 48.0,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 108,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 1,
+       "frac_flagged": 1.0
+      },
+      "0.001": {
+       "threshold": 48.0,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 108,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 1,
+       "frac_flagged": 1.0
+      }
+     }
+    },
+    "campaign_split": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 24.0,
+     "auc": 0.5947157388258135,
+     "budgets": {
+      "0.01": {
+       "threshold": 48.0,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 108,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 48.0,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 118465,
+       "n_unscoreable": 0,
+       "n_exceed": 108,
+       "resolution": 8.441311779850588e-06,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D3": {
+   "direction": "low",
+   "grain": "session",
+   "benign_source": "timeline",
+   "populations": {
+    "campaign": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.9468185547686457,
+     "auc": 0.21539508680810068,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.02259475218658892,
+       "direction": "low",
+       "fpr_budget": 0.01,
+       "n_benign": 95498,
+       "n_unscoreable": 168328,
+       "n_exceed": 954,
+       "resolution": 1.0471423485308593e-05,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.0,
+       "direction": "low",
+       "fpr_budget": 0.001,
+       "n_benign": 95498,
+       "n_unscoreable": 168328,
+       "n_exceed": 0,
+       "resolution": 1.0471423485308593e-05,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D4": {
+   "direction": "high",
+   "grain": "session",
+   "benign_source": "replay",
+   "populations": {
+    "campaign": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.11808630167327791,
+     "auc": 0.012393162393162393,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.8700642329299478,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 1170,
+       "n_unscoreable": 9316,
+       "n_exceed": 11,
+       "resolution": 0.0008547008547008547,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.9514326561021283,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 1170,
+       "n_unscoreable": 9316,
+       "n_exceed": 1,
+       "resolution": 0.0008547008547008547,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D5": {
+   "direction": "high",
+   "grain": "session",
+   "benign_source": "replay",
+   "populations": {
+    "campaign": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.5393793488089866,
+     "auc": 0.4981832920083921,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.9909228441754917,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 10486,
+       "n_unscoreable": 0,
+       "n_exceed": 104,
+       "resolution": 9.536524890329964e-05,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.9999285714285714,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 10486,
+       "n_unscoreable": 0,
+       "n_exceed": 0,
+       "resolution": 9.536524890329964e-05,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D6": {
+   "direction": "high",
+   "grain": "session",
+   "benign_source": "replay",
+   "populations": {
+    "campaign": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.4915570948190806,
+     "auc": 0.5911111111111111,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.8402633751485009,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 1170,
+       "n_unscoreable": 9316,
+       "n_exceed": 11,
+       "resolution": 0.0008547008547008547,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.9284175341803758,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 1170,
+       "n_unscoreable": 9316,
+       "n_exceed": 1,
+       "resolution": 0.0008547008547008547,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D7": {
+   "direction": "high",
+   "grain": "session",
+   "benign_source": "replay",
+   "populations": {
+    "campaign": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.0,
+     "auc": 0.2579510776273126,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.8084531684977913,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 10486,
+       "n_unscoreable": 0,
+       "n_exceed": 104,
+       "resolution": 9.536524890329964e-05,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.9757105943152454,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 10486,
+       "n_unscoreable": 0,
+       "n_exceed": 10,
+       "resolution": 9.536524890329964e-05,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D8": {
+   "direction": "high",
+   "grain": "identity",
+   "benign_source": "replay",
+   "populations": {
+    "campaign": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.5151308389010382,
+     "auc": 0.6696078431372549,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.8109790056867614,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 10,
+       "resolution": 0.000980392156862745,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.8910832588650728,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 1,
+       "resolution": 0.000980392156862745,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    },
+    "campaign_split": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.48291722177181284,
+     "auc": 0.5696568627450981,
+     "budgets": {
+      "0.01": {
+       "threshold": 0.8109790056867614,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 10,
+       "resolution": 0.000980392156862745,
+       "below_resolution": false,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 0.8910832588650728,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 1,
+       "resolution": 0.000980392156862745,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D8b": {
+   "direction": "low",
+   "grain": "identity",
+   "benign_source": "replay",
+   "populations": {
+    "campaign": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 17.0,
+     "auc": 0.16715686274509803,
+     "budgets": {
+      "0.01": {
+       "threshold": 3.0,
+       "direction": "low",
+       "fpr_budget": 0.01,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 1,
+       "resolution": 0.000980392156862745,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 3.0,
+       "direction": "low",
+       "fpr_budget": 0.001,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 1,
+       "resolution": 0.000980392156862745,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    },
+    "campaign_split": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 17.25,
+     "auc": 0.16294117647058823,
+     "budgets": {
+      "0.01": {
+       "threshold": 3.0,
+       "direction": "low",
+       "fpr_budget": 0.01,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 1,
+       "resolution": 0.000980392156862745,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 3.0,
+       "direction": "low",
+       "fpr_budget": 0.001,
+       "n_benign": 1020,
+       "n_unscoreable": 1600,
+       "n_exceed": 1,
+       "resolution": 0.000980392156862745,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "D9": {
+   "direction": "high",
+   "grain": "session",
+   "benign_source": "timeline",
+   "populations": {
+    "campaign": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 1.0,
+     "auc": 0.7513607453397315,
+     "budgets": {
+      "0.01": {
+       "threshold": 1.0,
+       "direction": "high",
+       "fpr_budget": 0.01,
+       "n_benign": 263826,
+       "n_unscoreable": 0,
+       "n_exceed": 0,
+       "resolution": 3.7903769908955145e-06,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      },
+      "0.001": {
+       "threshold": 1.0,
+       "direction": "high",
+       "fpr_budget": 0.001,
+       "n_benign": 263826,
+       "n_unscoreable": 0,
+       "n_exceed": 0,
+       "resolution": 3.7903769908955145e-06,
+       "below_resolution": true,
+       "n_flagged": 0,
+       "frac_flagged": 0.0
+      }
+     }
+    }
+   }
+  }
+ }
+}

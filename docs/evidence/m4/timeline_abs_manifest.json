@@ -1,0 +1,14 @@
+{
+ "label": "m3_v1",
+ "wildchat_snapshot": "7d6490e462285cf85d91eabea0f9a954fbddcd1f",
+ "session_gap_s": 1800.0,
+ "n_conversations": 469030,
+ "n_conversations_skipped_missing_timestamps": 0,
+ "identities": 118465,
+ "sessions": 263826,
+ "requests": 975346,
+ "t_min_s": 1680998573.0,
+ "t_max_s": 1714434924.0,
+ "span_days": 386.99480324074074,
+ "timeline_abs_sha256": "168cc1de65f44b523ef79c91861fac0a5f5b9e1733d8be1b7f96b252c1827b95"
+}

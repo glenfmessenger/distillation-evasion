@@ -1,0 +1,16 @@
+{
+ "sessions": 10487,
+ "requests": 50577,
+ "sessions_aborted": 107,
+ "completed": 49663,
+ "failed": 0,
+ "requests_skipped_after_failure": 807,
+ "requests_too_long": 107,
+ "label": "m3_v1",
+ "schedule": "/home/ubuntu/data/benign/m3_v1/replay_schedule.jsonl",
+ "seconds": 26929,
+ "cap": 14000,
+ "context": 16384,
+ "concurrency": 80,
+ "model": "Qwen/Qwen3-8B"
+}

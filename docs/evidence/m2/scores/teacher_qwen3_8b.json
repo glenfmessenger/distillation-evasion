@@ -1,0 +1,91 @@
+{
+  "label": "teacher_qwen3_8b",
+  "mode": "chat",
+  "verifier_commit": "e50ddf3",
+  "suites": {
+    "math500": {
+      "pass_at_1": {
+        "mean": 0.9285,
+        "lo": 0.906,
+        "hi": 0.947,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 118,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "untagged_fallback": false,
+      "n_samples_untagged_fallback": 0,
+      "complete": true
+    },
+    "gsm8k_test": {
+      "pass_at_1": {
+        "mean": 0.9541319181197877,
+        "lo": 0.9424057745410491,
+        "hi": 0.9634192570128886,
+        "n": 1319,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 1319,
+      "n_items_scored": 1319,
+      "n_samples": 5276,
+      "n_finish_length": 7,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "untagged_fallback": false,
+      "n_samples_untagged_fallback": 0,
+      "complete": true
+    },
+    "humaneval": {
+      "pass_at_1": {
+        "mean": 0.8170731707317073,
+        "lo": 0.7698170731707317,
+        "hi": 0.8628048780487805,
+        "n": 164,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 164,
+      "n_items_scored": 164,
+      "n_samples": 656,
+      "n_finish_length": 19,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "untagged_fallback": false,
+      "n_samples_untagged_fallback": 0,
+      "complete": true
+    },
+    "mbpp_test": {
+      "pass_at_1": {
+        "mean": 0.809,
+        "lo": 0.779,
+        "hi": 0.835,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 166,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "untagged_fallback": false,
+      "n_samples_untagged_fallback": 0,
+      "complete": true
+    }
+  }
+}

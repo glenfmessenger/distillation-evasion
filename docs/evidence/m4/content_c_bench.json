@@ -1,0 +1,313 @@
+{
+ "reads_content": true,
+ "model": "BAAI/bge-small-en-v1.5",
+ "k": 50,
+ "n_match": 30,
+ "n_sub": 20,
+ "sigma_median_heuristic": 1.0170682668685913,
+ "n_benign_units": 1061,
+ "calibration": {
+  "C1": {
+   "0.01": {
+    "threshold": 0.9354714215158109,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 10,
+    "resolution": 0.000942507068803016,
+    "below_resolution": false
+   },
+   "0.001": {
+    "threshold": 0.9655476979755295,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.000942507068803016,
+    "below_resolution": true
+   }
+  },
+  "C2": {
+   "0.01": {
+    "threshold": 0.2965783625841141,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 10,
+    "resolution": 0.000942507068803016,
+    "below_resolution": false
+   },
+   "0.001": {
+    "threshold": 0.37490385174751284,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 1,
+    "resolution": 0.000942507068803016,
+    "below_resolution": true
+   }
+  },
+  "B1": {
+   "0.01": {
+    "threshold": 0.016260162601626018,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 10,
+    "resolution": 0.000942507068803016,
+    "below_resolution": false
+   },
+   "0.001": {
+    "threshold": 0.125,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 1,
+    "resolution": 0.000942507068803016,
+    "below_resolution": true
+   }
+  },
+  "B2": {
+   "0.01": {
+    "threshold": 1.0,
+    "direction": "high",
+    "fpr_budget": 0.01,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.000942507068803016,
+    "below_resolution": true
+   },
+   "0.001": {
+    "threshold": 1.0,
+    "direction": "high",
+    "fpr_budget": 0.001,
+    "n_benign": 1061,
+    "n_unscoreable": 0,
+    "n_exceed": 0,
+    "resolution": 0.000942507068803016,
+    "below_resolution": true
+   }
+  }
+ },
+ "campaigns": {
+  "pilot_baseline": {
+   "identity": {
+    "C1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.7539781926362332,
+     "auc": 0.6616399622997172,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.07493340969085693,
+     "auc": 0.44769085768143263,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 0.92,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "B2": {
+     "n_units": 1,
+     "n_scoreable": 1,
+     "median": 1.0,
+     "auc": 0.9627709707822809,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.7504157779076878,
+     "auc": 0.6562205466540999,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.07586212903261186,
+     "auc": 0.46404335532516494,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 0.915,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "B2": {
+     "n_units": 20,
+     "n_scoreable": 20,
+     "median": 1.0,
+     "auc": 0.9627709707822809,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "identity_split_n10": {
+    "C1": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "median": 0.756714222218754,
+     "auc": 0.6746465598491989,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "C2": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "median": 0.07690566778182983,
+     "auc": 0.45935909519321394,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    },
+    "B1": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "median": 0.9275,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "B2": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "median": 1.0,
+     "auc": 0.9627709707822809,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "identity_split_n100": {
+    "C1": {
+     "n_units": 500,
+     "n_scoreable": 0,
+     "median": null,
+     "auc": null,
+     "flagged": {
+      "0.01": null,
+      "0.001": null
+     }
+    },
+    "C2": {
+     "n_units": 500,
+     "n_scoreable": 0,
+     "median": null,
+     "auc": null,
+     "flagged": {
+      "0.01": null,
+      "0.001": null
+     }
+    },
+    "B1": {
+     "n_units": 500,
+     "n_scoreable": 500,
+     "median": 0.95,
+     "auc": 1.0,
+     "flagged": {
+      "0.01": 1.0,
+      "0.001": 1.0
+     }
+    },
+    "B2": {
+     "n_units": 500,
+     "n_scoreable": 500,
+     "median": 1.0,
+     "auc": 0.9489443920829406,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   },
+   "identity_split_n1000": {
+    "C1": {
+     "n_units": 5000,
+     "n_scoreable": 0,
+     "median": null,
+     "auc": null,
+     "flagged": {
+      "0.01": null,
+      "0.001": null
+     }
+    },
+    "C2": {
+     "n_units": 5000,
+     "n_scoreable": 0,
+     "median": null,
+     "auc": null,
+     "flagged": {
+      "0.01": null,
+      "0.001": null
+     }
+    },
+    "B1": {
+     "n_units": 5000,
+     "n_scoreable": 5000,
+     "median": 1.0,
+     "auc": 0.9964274269557022,
+     "flagged": {
+      "0.01": 0.993,
+      "0.001": 0.993
+     }
+    },
+    "B2": {
+     "n_units": 5000,
+     "n_scoreable": 5000,
+     "median": 1.0,
+     "auc": 0.6300697455230915,
+     "flagged": {
+      "0.01": 0.0,
+      "0.001": 0.0
+     }
+    }
+   }
+  }
+ }
+}

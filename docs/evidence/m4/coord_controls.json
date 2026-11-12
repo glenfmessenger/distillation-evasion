@@ -1,0 +1,265 @@
+{
+ "calibration_d10": {
+  "0.01": {
+   "threshold": 35.0,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 180288,
+   "n_unscoreable": 0,
+   "n_exceed": 1543,
+   "resolution": 5.546680866169684e-06,
+   "below_resolution": false
+  },
+  "0.001": {
+   "threshold": 45.0,
+   "direction": "high",
+   "fpr_budget": 0.001,
+   "n_benign": 180288,
+   "n_unscoreable": 0,
+   "n_exceed": 179,
+   "resolution": 5.546680866169684e-06,
+   "below_resolution": false
+  }
+ },
+ "calibration_d11": {
+  "0.01": {
+   "threshold": 15.0,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 118465,
+   "n_unscoreable": 0,
+   "n_exceed": 752,
+   "resolution": 8.441311779850588e-06,
+   "below_resolution": false
+  },
+  "0.001": {
+   "threshold": 20.0,
+   "direction": "high",
+   "fpr_budget": 0.001,
+   "n_benign": 118465,
+   "n_unscoreable": 0,
+   "n_exceed": 93,
+   "resolution": 8.441311779850588e-06,
+   "below_resolution": false
+  }
+ },
+ "radius": 0.3811458722799603,
+ "populations": {
+  "organisation": [
+   {
+    "seed": 0,
+    "identities": 50,
+    "identity_days": 246,
+    "d10": {
+     "0.01": 0.008130081300813009,
+     "0.001": 0.0040650406504065045
+    },
+    "d11": {
+     "0.01": 0.06,
+     "0.001": 0.0
+    },
+    "d10_median_density": 0.0
+   },
+   {
+    "seed": 1,
+    "identities": 50,
+    "identity_days": 319,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 0.0
+   },
+   {
+    "seed": 2,
+    "identities": 50,
+    "identity_days": 334,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 0.0
+   },
+   {
+    "seed": 3,
+    "identities": 50,
+    "identity_days": 414,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 0.0
+   },
+   {
+    "seed": 4,
+    "identities": 50,
+    "identity_days": 280,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 0.0
+   }
+  ],
+  "batch_job": [
+   {
+    "seed": 0,
+    "identities": 50,
+    "identity_days": 500,
+    "d10": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d10_median_density": 49.0
+   },
+   {
+    "seed": 1,
+    "identities": 50,
+    "identity_days": 500,
+    "d10": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d10_median_density": 49.0
+   },
+   {
+    "seed": 2,
+    "identities": 50,
+    "identity_days": 500,
+    "d10": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d10_median_density": 49.0
+   },
+   {
+    "seed": 3,
+    "identities": 50,
+    "identity_days": 500,
+    "d10": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d10_median_density": 49.0
+   },
+   {
+    "seed": 4,
+    "identities": 50,
+    "identity_days": 500,
+    "d10": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 1.0
+    },
+    "d10_median_density": 49.0
+   }
+  ],
+  "eval_fleet": [
+   {
+    "seed": 0,
+    "identities": 20,
+    "identity_days": 80,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 19.0
+   },
+   {
+    "seed": 1,
+    "identities": 20,
+    "identity_days": 80,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 19.0
+   },
+   {
+    "seed": 2,
+    "identities": 20,
+    "identity_days": 80,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 19.0
+   },
+   {
+    "seed": 3,
+    "identities": 20,
+    "identity_days": 80,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 19.0
+   },
+   {
+    "seed": 4,
+    "identities": 20,
+    "identity_days": 80,
+    "d10": {
+     "0.01": 0.0,
+     "0.001": 0.0
+    },
+    "d11": {
+     "0.01": 1.0,
+     "0.001": 0.0
+    },
+    "d10_median_density": 19.0
+   }
+  ]
+ }
+}

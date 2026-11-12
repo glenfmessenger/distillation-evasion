@@ -1,0 +1,91 @@
+{
+  "label": "student_after_sft_s0",
+  "mode": "chat",
+  "verifier_commit": "6462b55",
+  "suites": {
+    "math500": {
+      "pass_at_1": {
+        "mean": 0.3845,
+        "lo": 0.352,
+        "hi": 0.4157639206594223,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 1146,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "gsm8k_test": {
+      "pass_at_1": {
+        "mean": 0.6044351781652767,
+        "lo": 0.5851414079817258,
+        "hi": 0.6249532400224711,
+        "n": 1319,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 1319,
+      "n_items_scored": 1319,
+      "n_samples": 5276,
+      "n_finish_length": 1865,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "humaneval": {
+      "pass_at_1": {
+        "mean": 0.3048780487804878,
+        "lo": 0.25,
+        "hi": 0.3628048780487805,
+        "n": 164,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 164,
+      "n_items_scored": 164,
+      "n_samples": 656,
+      "n_finish_length": 373,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    },
+    "mbpp_test": {
+      "pass_at_1": {
+        "mean": 0.35,
+        "lo": 0.31673952102113284,
+        "hi": 0.382,
+        "n": 500,
+        "method": "BCa",
+        "n_resamples": 2000,
+        "seed": 0
+      },
+      "n_items": 500,
+      "n_items_scored": 500,
+      "n_samples": 2000,
+      "n_finish_length": 1083,
+      "n_errors": 0,
+      "n_verify_timeouts": 0,
+      "n_verdicts_changed_vs_stored": 0,
+      "scoring_rule": "registered_v1",
+      "n_samples_scored_from_reasoning": 0,
+      "complete": true
+    }
+  }
+}

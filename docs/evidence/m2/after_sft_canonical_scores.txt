@@ -1,0 +1,5 @@
+student_after_sft_s0 math500: pass@1=0.3845 [0.3520,0.4158] items=500/500 len=1146 err=0 changed=0 complete=True
+student_after_sft_s0 gsm8k_test: pass@1=0.6044 [0.5851,0.6250] items=1319/1319 len=1865 err=0 changed=0 complete=True
+student_after_sft_s0 humaneval: pass@1=0.3049 [0.2500,0.3628] items=164/164 len=373 err=0 changed=0 complete=True
+student_after_sft_s0 mbpp_test: pass@1=0.3500 [0.3167,0.3820] items=500/500 len=1083 err=0 changed=0 complete=True
+2026-11-11T17:37:15+00:00 REORDER_DONE
