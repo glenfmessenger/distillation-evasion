@@ -27,10 +27,10 @@ SUITES = [
 SUITE_KEY = {"math500": "Math", "gsm8k_test": "Gsm", "humaneval": "HumanEval", "mbpp_test": "Mbpp"}
 ARMS = [
     ("teacher_qwen3_8b", "Teacher (Qwen3-8B)", "Teacher"),
-    ("student_base_chat_s0", "Student, untouched (chat mode)", "BaseChat"),
-    ("student_after_sft_s0", "Student after SFT on copied pairs", "AfterSft"),
-    ("student_after_repair_s0", "Copy, then repair", "AfterRepair"),
-    ("student_repair_only_s0", "Repair only, no copy", "RepairOnly"),
+    ("student_base_chat_s0", "Student, untouched", "BaseChat"),
+    ("student_after_sft_s0", "Fine-tuned on copied answers", "AfterSft"),
+    ("student_after_repair_s0", "Fine-tuned, then reinforcement learning", "AfterRepair"),
+    ("student_repair_only_s0", "Reinforcement learning only", "RepairOnly"),
 ]
 DETS_V0 = ["D3", "D4", "D5", "D6", "D7", "D8", "D8b", "D9"]
 DETS_V1 = ["D1", "D2"]
@@ -296,7 +296,7 @@ def main() -> int:
     _table(
         "price.tex",
         "rrrrcc",
-        r"Requests & Identities & Cap/h & Hours & D1 & D2 \\",
+        r"Requests & Accounts & Cap/h & Hours & D1 & D2 \\",
         price_rows,
     )
     macro("NReschedulings", intc(len(load(CAMPAIGNS[0][2])["cells"][0]["per_seed"])))
@@ -304,7 +304,7 @@ def main() -> int:
     # ---- content breadth table
     variants = [
         ("Replay calibration, bge-small, n=30, block 100", "content_s1.json"),
-        ("Heavy-user calibration", "content_heavy.json"),
+        ("Heavy-account calibration", "content_heavy.json"),
         ("bge-base encoder", "content_bgebase.json"),
         ("Matched n = 10", "content_nm10.json"),
         ("Matched n = 100 (heavy)", "content_nm100_heavy.json"),
@@ -323,7 +323,7 @@ def main() -> int:
     _table(
         "content_breadth.tex",
         "lr" + "c" * 8,
-        r"Variant & Benign units & \multicolumn{4}{c}{C-bench blocks} & \multicolumn{4}{c}{C-real blocks} \\ & & C2 & C2low & C3 & B1 & C2 & C2low & C3 & B1 \\",
+        r"Variant & Benign units & \multicolumn{4}{c}{C-bench blocks} & \multicolumn{4}{c}{C-real blocks (seed 0)} \\ & & C2 & C2low & C3 & B1 & C2 & C2low & C3 & B1 \\",
         breadth_rows,
     )
     heavy = load(EV / "m4" / "content_heavy.json")
@@ -334,13 +334,13 @@ def main() -> int:
     macro("PooledBatch", intc(r3["batch"]))
     macro("PooledNullDraws", intc(r3["null_samples"]))
     pooled_rows = [
-        f"Benign held-out (heavy users) & {r3['benign_heldout']['median']:.2e} & {num(r3['benign_heldout']['flagged']['fpr_0.01'])} \\\\",
+        f"Benign held-out (heavy accounts) & {r3['benign_heldout']['median']:.2e} & {num(r3['benign_heldout']['flagged']['fpr_0.01'])} \\\\",
         f"Benign held-out, first turns only & {r3['benign_heldout_first_turns']['median']:.2e} & {num(r3['benign_heldout_first_turns']['flagged']['fpr_0.01'])} \\\\",
         f"Benign conversation-uniform first turns (control) & {r3['controls']['uniform_firstturns']['median']:.2e} & {num(r3['controls']['uniform_firstturns']['flagged']['fpr_0.01'])} \\\\",
     ]
     for ckey, text in (
         ("pilot_baseline", "C-bench, pure window"),
-        ("c_real_v2", "C-real, pure window"),
+        ("c_real_v2", "C-real (long run), pure window"),
     ):
         p = r3["campaigns"][ckey]["pure"]
         pooled_rows.append(f"{text} & {p['median']:.2e} & {num(p['flagged']['fpr_0.01'])} \\\\")
@@ -359,7 +359,7 @@ def main() -> int:
     share_rows = []
     for src, ckey, text in (
         (share, "pilot_baseline", "C-bench"),
-        (share, "c_real_v2", "C-real, seed 0"),
+        (share, "c_real_v2", "C-real, seed 0 (long run)"),
         (share, "c_real_v2_s1", "C-real, seed 1"),
         (r3i, "c_instr_v2", "C-instr"),
     ):
@@ -462,9 +462,9 @@ def main() -> int:
     ctrl = load(EV / "m4" / "coord_controls.json")
     ctrl_rows = []
     for name, text in (
-        ("organisation", "Organisation, real users, staggered births"),
-        ("batch_job", "Batch job, 50 keys born together"),
-        ("eval_fleet", "Evaluation fleet, 20 keys born together"),
+        ("organisation", "Organisation, real accounts, staggered creation"),
+        ("batch_job", "Batch job, 50 accounts created together"),
+        ("eval_fleet", "Evaluation fleet, 20 accounts created together"),
     ):
         per = ctrl["populations"][name]
         m = lambda v: sorted(v)[len(v) // 2]  # noqa: E731
@@ -477,8 +477,8 @@ def main() -> int:
         macro(f"CtrlDEleven{_camel(name)}", num(m(d11)))
     _table(
         "controls.tex",
-        r">{\raggedright\arraybackslash}p{2.6cm}rcc",
-        r"Population & Identities & D10 flagged at 1\% & D11 flagged at 1\% \\",
+        r">{\raggedright\arraybackslash}p{2.9cm}rcc",
+        r"Population & Accounts & D10 & D11 \\",
         ctrl_rows,
     )
 
@@ -537,6 +537,11 @@ def main() -> int:
         l9_rows,
     )
 
+    # ---- protocol constants used in prose (docs/evidence/constants.json, each with its source)
+    for cname, cval in load(EV / "constants.json").items():
+        if not cname.startswith("_"):
+            macro(cname, cval["value"])
+
     # ---- label macros (names that contain digits, so prose never types one)
     for det in DETS_V0 + DETS_V1 + DETS_V2 + DETS_V2_POST:
         macro(f"Name{_camel(det)}", det)
@@ -566,9 +571,301 @@ def main() -> int:
     m8 = load(EV / "m4" / "m3_c_real_8k.json")
     macro("NRecordsCrealEightK", intc(m8["n_campaign_records"]))
 
+    build_review_tables()
     OUT_M.write_text("".join(f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in sorted(macros.items())))
     print(f"{len(macros)} macros, {len(list(OUT_T.glob('*.tex')))} tables")
     return 0
+
+
+STAT_TEXT = {
+    "D1": "max requests in any sliding hour",
+    "D2": "sessions per day",
+    "D3": "CV of inter-arrival times",
+    "D4": "KS distance, output lengths",
+    "D5": "median reasoning share",
+    "D6": "KS distance, prompt lengths",
+    "D7": "mean cached-prefix share",
+    "D8": "JSD over length cells",
+    "D8b": "distinct length cells",
+    "D9": "single-turn fraction",
+    "D10": "same-day profile neighbours",
+    "D11": "accounts created within 10 min",
+    "C1": "JSD over topic clusters",
+    "C2": "embedding MMD",
+    "B1": "benchmark membership share",
+    "B2": "shared-suffix share",
+}
+GRAIN = {"identity": "account", "session": "session"}
+REVIEW_CAMPAIGNS = [
+    ("C-bench", "m3/m3_v1_pilot.json", "m4/b5_c_bench", "pilot_baseline", "CBench"),
+    ("C-real, seed 0", "m4/m3_c_real.json", "m4/b5_c_real", "c_real_v2:20", "CRealSeedZero"),
+    ("C-real, seed 1", "m4/m3_c_real_s1.json", "m4/b5_c_real_s1", "c_real_v2_s1", "CRealSeedOne"),
+    ("C-instr", "m4/m3_c_instr.json", "m4/b5_c_instr", "c_instr_v2", "CInstr"),
+]
+
+
+def build_review_tables() -> None:
+    """Tables and macros added in the author-review restructure (decision 43)."""
+    content = load(CONTENT)
+    m3c = load(EV / "m4" / "m3_c_real.json")
+    co = load(EV / "m4" / "coordination11_c_real.json")
+    med = lambda v: sorted(v)[len(v) // 2]  # noqa: E731
+
+    # ---- method summary: detector, level, unit, calibration, n, threshold, realised FPR, alerts/day
+    rows = []
+
+    def mrow(det, level, unit, calset, c, per_day):
+        fpr = 100.0 * c["n_exceed"] / c["n_benign"]
+        thr = c["threshold"]
+        thr_s = f"{thr:.0f}" if abs(thr - round(thr)) < 1e-9 and abs(thr) >= 1 else f"{thr:.3g}"
+        alerts = f"{c['n_exceed'] / 387.0:.1f}" if per_day else "--"
+        mark = "$^\\dagger$" if c["n_exceed"] < 10 else ""
+        rows.append(
+            f"{det}{mark} & {STAT_TEXT[det]} & {level} & {unit} & {calset} & {intc(c['n_benign'])} & "
+            f"{'$>$' if c['direction'] == 'high' else '$<$'} {thr_s} & {fpr:.2f}\\% & {alerts} \\\\"
+        )
+        dname = det
+        macro(f"RealisedFpr{_camel(dname)}", f"{fpr:.2f}\\%")
+        macro(f"RealisedThr{_camel(dname)}", thr_s)
+
+    for det in DETS_V0:
+        dd = m3c["detectors"][det]
+        tl = dd["benign_source"] == "timeline"
+        mrow(
+            det,
+            "pattern",
+            GRAIN[dd["grain"]],
+            "timeline" if tl else "replay",
+            dd["populations"]["campaign"]["budgets"]["0.01"],
+            tl,
+        )
+    for det in DETS_V1:
+        dd = m3c["detectors"][det]
+        mrow(
+            det,
+            "volume",
+            "account",
+            "timeline",
+            dd["populations"]["campaign"]["budgets"]["0.01"],
+            True,
+        )
+    mrow("D10", "cross-account", "account-day", "timeline", co["calibration"]["0.01"], True)
+    mrow("D11", "cross-account", "account", "timeline", co["calibration_d11"]["600"]["0.01"], True)
+    for det in DETS_V2:
+        mrow(
+            det,
+            "content",
+            "account, block",
+            "replay prompts",
+            content["calibration"][det]["0.01"],
+            False,
+        )
+    _table(
+        "methods.tex",
+        r"ll@{\hspace{6pt}}llllrrr",
+        r"Detector & Statistic & Level & Unit & Calibration & Benign units & Flag if & Realised rate & Alerts/day \\",
+        rows,
+    )
+
+    # ---- ladder with campaign unit counts
+    cond: dict[str, list[str]] = {}
+    for name, m3rel, _b5, ckey, tag in REVIEW_CAMPAIGNS:
+        m3 = load(EV / m3rel)
+        cont = content["campaigns"][ckey]
+        for level, dets in (("Pattern", DETS_V0), ("Volume", DETS_V1)):
+            for det in dets:
+                dd = m3["detectors"][det]
+                r = dd["populations"]["campaign"]
+                key = f"{level} & {det} & {GRAIN[dd['grain']]} & {r['n_units']}"
+                cond.setdefault(key, []).append(
+                    f"{frac_or_na(r['budgets']['0.01']['frac_flagged'])} ({'n/a' if r['auc'] is None else num(r['auc'])})"
+                )
+        for det in DETS_V2 + DETS_V2_POST:
+            for unit, ulabel in (("identity", "account"), ("block100", "block")):
+                r = cont[unit][det]
+                lvl = "Content, post hoc" if det in DETS_V2_POST else "Content"
+                key = f"{lvl} & {det} & {ulabel} & {r['n_units']}"
+                cond.setdefault(key, []).append(
+                    f"{frac_or_na(r['flagged']['0.01'])} ({'n/a' if r['auc'] is None else num(r['auc'])})"
+                )
+                if unit == "identity":
+                    macro(
+                        f"AucAccount{tag}{_camel(det)}",
+                        "n/a" if r["auc"] is None else num(r["auc"]),
+                    )
+    _table(
+        "ladder2.tex",
+        "lllr" + "c" * len(REVIEW_CAMPAIGNS),
+        "Level & Detector & Unit & Units & " + " & ".join(c[0] for c in REVIEW_CAMPAIGNS) + r" \\",
+        [f"{k} & " + " & ".join(v) + r" \\" for k, v in cond.items()],
+    )
+
+    # ---- session-definition sensitivity (amendment 5)
+    srows = []
+    for det in ("D2", "D3", "D4", "D5", "D6", "D7"):
+        for label, suffix in (
+            ("declared blocks", None),
+            ("idle-gap rule", "gap"),
+            ("size-matched", "benign_sized"),
+        ):
+            cells, units = [], None
+            for name, m3rel, b5, _ckey, tag in REVIEW_CAMPAIGNS:
+                d = load(EV / m3rel) if suffix is None else load(EV / f"{b5}_{suffix}.json")
+                r = d["detectors"][det]["populations"]["campaign"]
+                units = r["n_units"]
+                f = r["budgets"]["0.01"]["frac_flagged"]
+                cells.append(f"{frac_or_na(f)} ({'n/a' if r['auc'] is None else num(r['auc'])})")
+                if suffix:
+                    macro(f"Flag{_camel(det)}{_camel(suffix)}{tag}", frac_or_na(f))
+                    macro(
+                        f"Auc{_camel(det)}{_camel(suffix)}{tag}",
+                        "n/a" if r["auc"] is None else num(r["auc"]),
+                    )
+                    if det == "D2":
+                        macro(f"Median{_camel(det)}{_camel(suffix)}{tag}", f"{r['median']:.0f}")
+            srows.append(f"{det} & {label} & {units} & " + " & ".join(cells) + r" \\")
+    _table(
+        "sessions.tex",
+        "llr" + "c" * len(REVIEW_CAMPAIGNS),
+        "Detector & Campaign sessions & Units & "
+        + " & ".join(c[0] for c in REVIEW_CAMPAIGNS)
+        + r" \\",
+        srows,
+    )
+    macro(
+        "DTwoThreshold",
+        intc(m3c["detectors"]["D2"]["populations"]["campaign"]["budgets"]["0.01"]["threshold"]),
+    )
+
+    # ---- cross-account table (accounts wording, includes the 72 h cell at 100 accounts)
+    crows = []
+    want = [
+        ("roundrobin", 10, None),
+        ("roundrobin", 100, None),
+        ("roundrobin", 1000, None),
+        ("heterogeneous", 100, 0),
+        ("heterogeneous", 100, 6),
+        ("heterogeneous", 100, 24),
+        ("heterogeneous", 100, 72),
+        ("heterogeneous", 1000, 0),
+        ("heterogeneous", 1000, 24),
+        ("heterogeneous", 1000, 72),
+    ]
+    for c in co["cells"]:
+        if not c["shaped"] or (c["kind"], c["n"], c["stagger_h"]) not in want:
+            continue
+        sd = c["per_seed"]
+        f1 = [x["flagged"]["0.01"] for x in sd]
+        d11 = [x["d11"]["600"]["flagged"]["0.01"] for x in sd]
+        d2 = [x["timeline_detectors"]["D2"]["0.01"] for x in sd]
+        joint = [x["joint_max_flagged_1pct"] for x in sd]
+        wc = [x["price"]["wall_clock_s"] / 3600 for x in sd]
+        kind = "round-robin" if c["kind"] == "roundrobin" else "heterogeneous"
+        stag = "" if c["stagger_h"] is None else str(c["stagger_h"])
+        crows.append(
+            f"{kind} & {intc(c['n'])} & {stag} & {num(med(f1))} [{num(min(f1))}, {num(max(f1))}] & "
+            f"{num(med(d11))} [{num(min(d11))}, {num(max(d11))}] & {num(med(d2))} [{num(min(d2))}, {num(max(d2))}] & {num(med(joint))} [{num(min(joint))}, {num(max(joint))}] & {num(med(wc), 1)} \\\\"
+        )
+        if c["kind"] == "roundrobin" and c["n"] == 10:
+            macro("JointMaxWorstRoundRobinTen", num(max(joint)))
+            macro("NPlacementsFlaggedRoundRobinTen", intc(sum(1 for j in joint if j > 0.10)))
+    _table(
+        "coordination2.tex",
+        "lrrccccr",
+        r"Split & Accounts & Stagger (h) & D10 & D11 & D2 & Joint max & Hours \\",
+        crows,
+    )
+
+    # ---- search table and grid text
+    l9 = load(EV / "m4" / "l9_search.json")
+    g = l9["grid"]
+    macro("GridAccounts", ", ".join(intc(v) for v in g["n"]))
+    macro("GridDrawCap", ", ".join(intc(v) for v in g["count_cap"]))
+    macro("GridSessionMult", ", ".join(f"{v:g}" for v in g["session_mult"]))
+    macro("GridStagger", ", ".join(intc(v) for v in g["stagger_h"]))
+    clearing = sorted(
+        [c for c in l9["cells"] if c["clears"]], key=lambda c: (c["wall_clock_h"], c["n"])
+    )
+    lrows = []
+    for c in clearing[:8]:
+        m = c["median_flagged"]
+        jseed = [max(x["flagged"].values()) for x in c["per_seed"]]
+        lrows.append(
+            f"{intc(c['n'])} & {c['count_cap']} & {c['session_mult']:g} & {c['stagger_h']} & {num(m['D2'])} & {num(m['D3'])} & {num(m['D10'])} & {num(m['D11'])} & {num(c['joint_max'])} [{num(min(jseed))}, {num(max(jseed))}] & {num(c['wall_clock_h'], 1)} \\\\"
+        )
+        if c is clearing[0]:
+            macro("LNineCheapestJointWorst", num(max(jseed)))
+    _table(
+        "search2.tex",
+        "rrrrcccccr",
+        r"Accounts & Draw cap & Session multiplier & Stagger (h) & D2 & D3 & D10 & D11 & Joint max & Hours \\",
+        lrows,
+    )
+
+    # ---- prediction register (clean labels) and counts
+    preds = load(EV / "predictions.json")
+    esc = lambda x: x.replace("%", "\\%")  # noqa: E731
+    _table(
+        "predictions2.tex",
+        r"ll>{\raggedright\arraybackslash}p{8.0cm}>{\raggedright\arraybackslash}p{3.6cm}",
+        r"Prediction & Protocol & Statement & Outcome \\",
+        [
+            f"{esc(q['id'])} & {esc(q['protocol'])} & {esc(q['prediction'])} & {esc(q['outcome'])} \\\\"
+            for q in preds
+        ],
+    )
+    n_fail = sum(1 for q in preds if q["outcome"].startswith("failed"))
+    n_unt = sum(1 for q in preds if q["outcome"].startswith("not test"))
+    macro("NPredAll", intc(len(preds)))
+    macro("NPredFailed", intc(n_fail))
+    macro("NPredUntested", intc(n_unt))
+    macro("NPredHeld", intc(len(preds) - n_fail - n_unt))
+
+    # ---- volume bound and misc
+    lev = load(EV / "m4" / "levers_c_real.json")
+    cap = lev["rate_caps"]["0.99"]
+    macro("BoundHours", num(lev["n_campaign_records"] / cap, 1))
+    r3c = load(EV / "m4" / "r3batch_firstturn_ctrl.json")
+    r3i2 = load(EV / "m4" / "r3batch_instr.json")
+    ctrl_med = r3c["controls"]["uniform_firstturns"]["median"]
+    macro("PooledInstrRatio", num(r3i2["campaigns"]["c_instr_v2"]["pure"]["median"] / ctrl_med, 1))
+    macro(
+        "PooledBenchRatio", num(r3c["campaigns"]["pilot_baseline"]["pure"]["median"] / ctrl_med, 1)
+    )
+    macro("ShapeRatePerHour", intc(cap - 1))
+    macro("DOneMedianCReal", intc(m3c["detectors"]["D1"]["populations"]["campaign"]["median"]))
+    shp = load(EV / "m4" / "l9_search_shape.json")
+    macro(
+        "NShapeUnscoreableCells",
+        intc(
+            sum(
+                1
+                for c in shp["cells"]
+                if any(v is None for v in c["shape_median_flagged"].values())
+            )
+        ),
+    )
+    worst_over = sum(
+        1
+        for c in l9["cells"]
+        if c["clears"] and max(max(x["flagged"].values()) for x in c["per_seed"]) > 0.10
+    )
+    macro("NClearingWorstOver", intc(worst_over))
+    five = [
+        load(EV / "m4" / f)["campaigns"]["pilot_baseline"]["mixed_0.05"]["flagged"]["fpr_0.01"]
+        for f in (
+            "r3batch_share.json",
+            "r3batch_instr.json",
+            "r3batch_firstturn.json",
+            "r3batch_firstturn_ctrl.json",
+        )
+    ]
+    macro("ShareBenchFiveMin", num(min(five)))
+    macro("ShareBenchFiveMax", num(max(five)))
+    macro(
+        "MedianDTwoGapBench",
+        f"{load(EV / 'm4' / 'b5_c_bench_gap.json')['detectors']['D2']['populations']['campaign']['median']:.0f}",
+    )
 
 
 _WORDS = {

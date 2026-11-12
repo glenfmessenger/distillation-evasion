@@ -11,6 +11,8 @@ mkdir -p "$TARGET"
 git -C "$SRC" archive HEAD | tar -x -C "$TARGET"
 cd "$TARGET"
 rm -rf CLAUDE.md PLAN.md STATUS.md SESSION_LOG.md docs/review_hardstop_3_4.md docs/evidence.md
+# The manuscript is withheld from the public release until it has cleared internal review.
+[ "${RELEASE_WITH_PAPER:-0}" = "1" ] || rm -rf paper
 find . -name "__pycache__" -type d -prune -exec rm -rf {} +
 git init -q && git add -A && git commit -q -m "Release $TAG: harness, evidence and manuscript build for 'What a Serving Layer Must See'" && git tag "$TAG"
 echo "release tree at $TARGET ($(git ls-files | wc -l | tr -d ' ') files), tag $TAG"

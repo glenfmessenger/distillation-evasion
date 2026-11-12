@@ -274,3 +274,15 @@ FINDINGS F65).** A sample cut off at the generation cap is creditable only if it
 answer; the trailing text of a truncated trace is not mined for a gold number. Applies to the
 capability side table only. A7 and the registered path are reported beside it once. Decision 42,
 taken on the agent's judgement during the pre-submission audit and flagged for Glen.
+
+**B5 — 2026-11-12 — Two consistency checks raised in author review, registered before running
+(decision 43).** (1) *Session definition.* Benign sessions follow the 1,800 s idle-gap rule;
+campaign sessions were client-declared blocks of 100. Every unevaded campaign is re-scored with
+its sessions re-derived by the same gap rule on send times. Prediction P23: under the gap rule D2
+no longer flags the unevaded single account (one session in under two hours), and D1 still does.
+(2) *Session size.* D4 and D6 are Kolmogorov–Smirnov distances that shrink with session size, and
+campaign blocks (100 requests) are larger than benign scoreable sessions. Every campaign is
+re-scored with its requests cut into consecutive sessions whose sizes are drawn (seed 0) from
+the benign scoreable session-size distribution. Prediction P24: 0 flagged at 1% is unchanged, and
+the D4 AUC on the ordinary-prompt campaign rises from 0.01 to between 0.3 and 0.7, so the "more
+typical than the typical user" reading is a size artefact and is withdrawn.

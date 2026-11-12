@@ -186,3 +186,18 @@ No mature or adopted open-source detector for distillation campaigns exists. Wha
   found in search results; not verified against their docs.
 - Name collision: two unrelated "DistillGuard" papers (npm malware; output-side defence
   evaluation). Neither is a traffic detector.
+
+## Re-verification of 2026-11-11 (for the manuscript bibliography)
+
+Fetched from arXiv abstract pages on 2026-11-11: 1609.02943 (Tramèr et al., USENIX Security 2016),
+1812.02766 (Orekondy, Schiele, Fritz), 2403.06634 (Carlini et al.), 1910.12366 (Krishna et al.,
+ICLR 2020), 1503.02531 (Hinton, Vinyals, Dean), 2301.10226 (Kirchenbauer et al., ICML 2023),
+2309.06180 (Kwon et al., SOSP 2023), 2309.07597 (Xiao et al., SIGIR 2024), 2402.03300 (Shao et
+al.), 2405.01470 (Zhao et al., ICLR 2024), 2505.09388 (Qwen3), 2606.25059, 2504.13146, 2602.15143,
+2603.07835, 2604.23238, 2610.00839, 2608.09867, 2510.09023, 2103.03874, 2110.14168, 2107.03374,
+2108.07732, 2105.09938, 0805.2368, 2611.06661 (Khilar, concurrent). Corrections to entries above:
+R9's authors are Hartman, Jayaraman, Choraria, Varshney (now v3, 2026-10-10); R1's author order
+is Nasr, Carlini, Sitawarin, Schulhoff, Hayes, Ilie, Pluto, Song, Chaudhari, Shumailov, Thakurta,
+Xiao, Terzis, Tramèr; R2's arXiv page lists no venue, so it is cited as a preprint. The classic
+extraction papers are cited for what their titles and abstracts state only.
+

@@ -37,6 +37,8 @@ from dev_harness.detectors.analysis import (
     timeline_stats,
 )
 
+NS = 1_000_000_000
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -50,6 +52,13 @@ def main() -> int:
     )
     ap.add_argument(
         "--max-sessions", type=int, default=0, help="keep campaign sessions 0..k-1 (0 = all)"
+    )
+    ap.add_argument(
+        "--campaign-sessions",
+        choices=["declared", "gap", "benign-sized"],
+        default="declared",
+        help="B5: declared = client-declared blocks; gap = 1,800 s idle-gap rule on send times; "
+        "benign-sized = consecutive sessions with sizes drawn from benign scoreable sessions",
     )
     a = ap.parse_args()
     root = host_repo()
@@ -68,6 +77,25 @@ def main() -> int:
         camp = [r for r in camp if int(r.session_id.rsplit(":s", 1)[1]) < a.max_sessions]
         if not camp:
             raise RuntimeError("no campaign records after the session filter")
+    if a.campaign_sessions != "declared":
+        camp = sorted(camp, key=lambda r: r.t_send_ns)
+        if a.campaign_sessions == "gap":
+            sess, last, relabelled = 0, camp[0].t_send_ns, []
+            for r in camp:
+                if (r.t_send_ns - last) / NS > 1800.0:
+                    sess += 1
+                last = r.t_send_ns
+                relabelled.append(r.model_copy(update={"session_id": f"{r.identity_id}:g{sess}"}))
+        else:
+            sizes = [len(v) for v in D.by_session(benign).values() if len(v) >= D.MIN_SCOREABLE]
+            rng = np.random.default_rng(0)
+            relabelled, sess, left = [], 0, int(rng.choice(sizes))
+            for r in camp:
+                if left == 0:
+                    sess, left = sess + 1, int(rng.choice(sizes))
+                relabelled.append(r.model_copy(update={"session_id": f"{r.identity_id}:b{sess}"}))
+                left -= 1
+        camp = relabelled
     ref = D.BenignReference.fit(benign)
 
     rows: dict[str, dict[str, list]] = defaultdict(

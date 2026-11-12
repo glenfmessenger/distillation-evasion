@@ -103,73 +103,57 @@ def fig_ladder() -> None:
 
 def fig_price() -> None:
     lev = load(EV / "m4" / "levers_c_real.json")
-    co = load(EV / "m4" / "coordination11_c_real.json")
+    l9 = load(EV / "m4" / "l9_search.json")
     n_req = lev["n_campaign_records"]
     cap = lev["rate_caps"]["0.99"]
     med = lambda v: sorted(v)[len(v) // 2]  # noqa: E731
-    fig, ax = plt.subplots(figsize=(5.2, 3.9))
-    xs = [1, 10, 100, 1000, 10000]
+    fig, ax = plt.subplots(figsize=(5.2, 3.7))
+    xs = [1, 10, 100, 1000]
     ax.plot(
         xs,
         [n_req / cap / x for x in xs],
         color=MUTED,
         lw=1.2,
         ls="--",
-        label=f"identities × hours = N / {cap}",
+        label=f"bound: accounts × hours = N / {cap}",
     )
     clear_x, clear_y, hit_x, hit_y = [], [], [], []
     for c in lev["cells"]:
         s = c["per_seed"]
         wc = med([x["price"]["wall_clock_s"] / 3600 for x in s])
         d1 = med([x["detectors"]["D1"]["budgets"]["0.01"]["frac_flagged"] for x in s])
-        d2 = med([x["detectors"]["D2"]["budgets"]["0.01"]["frac_flagged"] for x in s])
-        (hit_x if max(d1, d2) > 0.1 else clear_x).append(c["n"])
-        (hit_y if max(d1, d2) > 0.1 else clear_y).append(wc)
-    ax.scatter(hit_x, hit_y, s=28, color=ORANGE, label="volume level fires (D1 or D2)", zorder=3)
-    ax.scatter(clear_x, clear_y, s=28, color=BLUE, label="clears the volume level", zorder=3)
-    hx, hy, labels = [], [], []
-    for c in co["cells"]:
-        if c["kind"] != "heterogeneous":
-            continue
-        s = c["per_seed"]
-        hx.append(c["n"])
-        hy.append(med([x["price"]["wall_clock_s"] / 3600 for x in s]))
-        labels.append((c["stagger_h"], med([x["joint_max_flagged_1pct"] for x in s])))
+        (hit_x if d1 > 0.1 else clear_x).append(c["n"])
+        (hit_y if d1 > 0.1 else clear_y).append(wc)
     ax.scatter(
-        hx,
-        hy,
-        s=34,
+        hit_x, hit_y, s=30, color=ORANGE, label="round-robin split: rate detector fires", zorder=3
+    )
+    ax.scatter(
+        clear_x,
+        clear_y,
+        s=30,
+        color=BLUE,
+        label="round-robin split: clears the rate detector",
+        zorder=3,
+    )
+    cl = [c for c in l9["cells"] if c["clears"]]
+    ax.scatter(
+        [c["n"] for c in cl],
+        [c["wall_clock_h"] for c in cl],
+        s=26,
         marker="^",
         color=AQUA,
-        label="heterogeneous split (D10, D11 scored)",
+        label="wider search: clears every content-blind detector",
         zorder=4,
     )
-    for x, y, (S, j) in zip(hx, hy, labels):
-        if S in (0, 72):
-            dx, dy = (8, 4) if S == 72 else (8, -9)
-            if x == 1000:
-                dx = -8
-            ax.annotate(
-                f"stagger {S} h: max flagged {j:.2f}",
-                (x, y),
-                textcoords="offset points",
-                xytext=(dx, dy),
-                fontsize=6.5,
-                color=INK,
-                ha="left" if dx > 0 else "right",
-            )
     ax.set_xscale("log")
     ax.set_yscale("log")
-    ax.set_xlabel("identities", fontsize=8, color=INK)
+    ax.set_xlabel("accounts", fontsize=8, color=INK)
     ax.set_ylabel("scheduled wall-clock (hours)", fontsize=8, color=INK)
     ax.tick_params(labelsize=7, colors=INK)
     ax.grid(True, which="major", color=GRID, lw=0.6)
-    for s in ax.spines.values():
-        s.set_color(GRID)
+    for sp in ax.spines.values():
+        sp.set_color(GRID)
     ax.legend(fontsize=6.5, frameon=False, loc="lower left")
-    ax.set_title(
-        "Price of clearing the volume level, ordinary-prompt campaign", fontsize=8, color=INK
-    )
     fig.tight_layout()
     fig.savefig(OUT / "price.pdf")
     fig.savefig(OUT / "price.png", dpi=200)

@@ -1,0 +1,103 @@
+{
+ "_note": "Protocol constants used in manuscript prose, each traced to its registration. Generated into macros by scripts/build_paper.py so that prose carries no hand-typed numeral.",
+ "PctOne": {
+  "value": "1\\%",
+  "source": "PROTOCOL.md section 4 and PROTOCOL_v2.md section 5: primary FPR budget"
+ },
+ "PctTenth": {
+  "value": "0.1\\%",
+  "source": "PROTOCOL.md section 4: secondary FPR budget"
+ },
+ "PctTen": {
+  "value": "10\\%",
+  "source": "PROTOCOL_v2.md B4 item 2: clearing criterion"
+ },
+ "PctTwentyFive": {
+  "value": "25\\%",
+  "source": "PROTOCOL_v2.md B1 item 6: campaign share grid"
+ },
+ "PctNinetyFive": {
+  "value": "95\\%",
+  "source": "PROTOCOL.md section 8: BCa interval level"
+ },
+ "PctlNinetyNine": {
+  "value": "99th",
+  "source": "PROTOCOL.md section 6 L2: benign quantile 0.99"
+ },
+ "NTen": {
+  "value": "10",
+  "source": "PROTOCOL.md section 6 L1 level n = 10; D11 window of 10 minutes (B3); resolution floor of 10 exceedances (section 4)"
+ },
+ "NTwenty": {
+  "value": "20",
+  "source": "PROTOCOL.md section 5: 20 subsamples; B4 item 1: evaluation fleet of 20 keys"
+ },
+ "NFifty": {
+  "value": "50",
+  "source": "PROTOCOL_v2.md section 5: k = 50 clusters; B4 item 1: 50 identities and 50 keys"
+ },
+ "NHundred": {
+  "value": "100",
+  "source": "PROTOCOL.md section 6 L1 level n = 100; session and block size 100 (section 3)"
+ },
+ "NThousand": {
+  "value": "1,000",
+  "source": "PROTOCOL.md section 6 L1 level n = 1000"
+ },
+ "NSixty": {
+  "value": "60",
+  "source": "docs/evidence/m4/m3_c_real.json and m3/m3_v1_pilot.json: D1 campaign median over threshold, 63 to 77"
+ },
+ "NSeventy": {
+  "value": "70",
+  "source": "PROTOCOL_v2.md B3 P15: more than 70 hours"
+ },
+ "SessGapMin": {
+  "value": "30",
+  "source": "PROTOCOL.md section 4: session gap 1800 s"
+ },
+ "ReplayCap": {
+  "value": "40",
+  "source": "PROTOCOL.md amendment A3: 40-request cap per identity"
+ },
+ "NgramLen": {
+  "value": "13",
+  "source": "PROTOCOL.md section 3 and PROTOCOL_v2.md section 3: 13-gram contamination check"
+ },
+ "SixHours": {
+  "value": "6",
+  "source": "PROTOCOL_v2.md B2 and B4: stagger level 6 h"
+ },
+ "SeventyTwoHours": {
+  "value": "72",
+  "source": "PROTOCOL_v2.md B2: stagger level 72 h"
+ },
+ "PctNinetyNine": {
+  "value": "99\\%",
+  "source": "docs/evidence/m4/m3_c_real.json: D4 AUC 0.010, i.e. the campaign is closer to the pooled distribution than 99% of benign sessions"
+ },
+ "PooledWindows": {
+  "value": "20",
+  "source": "scripts/analyse_b1.sh and analyse_c_instr.sh: --windows 20"
+ },
+ "PooledRefRepeats": {
+  "value": "10",
+  "source": "same scripts: --reference-repeats 10"
+ },
+ "CapQuantiles": {
+  "value": "0.99, 0.9 and 0.5",
+  "source": "PROTOCOL.md section 6 L2; docs/evidence/m4/levers_c_real.json rate_caps"
+ },
+ "MinCadence": {
+  "value": "3",
+  "source": "src/dev_harness/detectors/stats.py d3_cadence: at least 3 completed requests"
+ },
+ "CorpusSpan": {
+  "value": "April 2023 to April 2024",
+  "source": "docs/evidence/m4/timeline_abs_manifest.json t_min_s 1680998573, t_max_s 1714434924"
+ },
+ "ClearPct": {
+  "value": "10\\%",
+  "source": "PROTOCOL_v2.md B4 item 2: clearing criterion"
+ }
+}
