@@ -99,5 +99,37 @@
  "ClearPct": {
   "value": "10\\%",
   "source": "PROTOCOL_v2.md B4 item 2: clearing criterion"
+ },
+ "SamplingTemperature": {
+  "value": "0.6",
+  "source": "scripts/run_campaign.py SAMPLING and scripts/run_replay.py sampling_fn: temperature"
+ },
+ "SamplingTopP": {
+  "value": "0.95",
+  "source": "scripts/run_campaign.py SAMPLING and scripts/run_replay.py: top_p"
+ },
+ "SamplingTopK": {
+  "value": "20",
+  "source": "scripts/run_campaign.py SAMPLING and scripts/run_replay.py: top_k"
+ },
+ "GenCapTokens": {
+  "value": "14,000",
+  "source": "PROTOCOL.md amendment A1; replay manifest m3_v1 cap"
+ },
+ "ContextTokens": {
+  "value": "16,384",
+  "source": "replay manifest m3_v1 context; scripts/run_replay.py"
+ },
+ "CampaignConcurrency": {
+  "value": "32",
+  "source": "scripts/run_campaign.py --concurrency default, used for every campaign"
+ },
+ "ReplayConcurrency": {
+  "value": "80",
+  "source": "replay manifest m3_v1 concurrency"
+ },
+ "NFive": {
+  "value": "5",
+  "source": "PROTOCOL_v2.md B6 item 3(b): smallest pooled-account size m"
  }
 }

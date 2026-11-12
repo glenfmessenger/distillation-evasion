@@ -311,19 +311,37 @@ def main() -> int:
         ("Block 50", "content_b50.json"),
         ("Block 500", "content_b500.json"),
     ]
+    # extra rows (after review): the second seed and the uniform benign control, primary settings
+    variants += [
+        ("Seed 1, primary settings", "content_s1.json", "c_real_v2_s1"),
+        (
+            "Uniform benign control, primary settings",
+            "content_ctrl.json",
+            "control:uniform_firstturns",
+        ),
+        (
+            "Uniform benign control, heavy calibration",
+            "content_ctrl_heavy.json",
+            "control:uniform_firstturns",
+        ),
+    ]
     breadth_rows = []
-    for text, fn in variants:
+    for text, fn, *alt in variants:
         d = load(EV / "m4" / fn)
-        blockkey = [k for k in d["campaigns"]["c_real_v2:20"] if k.startswith("block")][0]
+        creal = alt[0] if alt else "c_real_v2:20"
+        blockkey = [k for k in d["campaigns"][creal] if k.startswith("block")][0]
         cells = []
-        for ckey in ("pilot_baseline", "c_real_v2:20"):
+        for ckey in ("pilot_baseline", creal):
+            if alt and ckey == "pilot_baseline":
+                cells += ["--"] * 4
+                continue
             r = d["campaigns"][ckey][blockkey]
             cells += [frac_or_na(r[det]["flagged"]["0.01"]) for det in ("C2", "C2low", "C3", "B1")]
         breadth_rows.append(f"{text} & {intc(d['n_benign_units'])} & " + " & ".join(cells) + r" \\")
     _table(
         "content_breadth.tex",
         "lr" + "c" * 8,
-        r"Variant & Benign units & \multicolumn{4}{c}{C-bench blocks} & \multicolumn{4}{c}{C-real blocks (seed 0)} \\ & & C2 & C2low & C3 & B1 & C2 & C2low & C3 & B1 \\",
+        r"Variant & Benign units & \multicolumn{4}{c}{C-bench blocks} & \multicolumn{4}{c}{C-real or control blocks} \\ & & C2 & C2low & C3 & B1 & C2 & C2low & C3 & B1 \\",
         breadth_rows,
     )
     heavy = load(EV / "m4" / "content_heavy.json")
@@ -333,6 +351,8 @@ def main() -> int:
     r3 = load(EV / "m4" / "r3batch_firstturn_ctrl.json")
     macro("PooledBatch", intc(r3["batch"]))
     macro("PooledNullDraws", intc(r3["null_samples"]))
+    macro("PooledNRef", intc(r3["n_reference"]))
+    macro("PooledNHeld", intc(r3["n_heldout"]))
     pooled_rows = [
         f"Benign held-out (heavy accounts) & {r3['benign_heldout']['median']:.2e} & {num(r3['benign_heldout']['flagged']['fpr_0.01'])} \\\\",
         f"Benign held-out, first turns only & {r3['benign_heldout_first_turns']['median']:.2e} & {num(r3['benign_heldout_first_turns']['flagged']['fpr_0.01'])} \\\\",
@@ -572,6 +592,7 @@ def main() -> int:
     macro("NRecordsCrealEightK", intc(m8["n_campaign_records"]))
 
     build_review_tables()
+    build_revision_tables()
     OUT_M.write_text("".join(f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in sorted(macros.items())))
     print(f"{len(macros)} macros, {len(list(OUT_T.glob('*.tex')))} tables")
     return 0
@@ -807,7 +828,7 @@ def build_review_tables() -> None:
     esc = lambda x: x.replace("%", "\\%")  # noqa: E731
     _table(
         "predictions2.tex",
-        r"ll>{\raggedright\arraybackslash}p{8.0cm}>{\raggedright\arraybackslash}p{3.6cm}",
+        r"ll>{\raggedright\arraybackslash}p{7.6cm}>{\raggedright\arraybackslash}p{3.2cm}",
         r"Prediction & Protocol & Statement & Outcome \\",
         [
             f"{esc(q['id'])} & {esc(q['protocol'])} & {esc(q['prediction'])} & {esc(q['outcome'])} \\\\"
@@ -820,6 +841,14 @@ def build_review_tables() -> None:
     macro("NPredFailed", intc(n_fail))
     macro("NPredUntested", intc(n_unt))
     macro("NPredHeld", intc(len(preds) - n_fail - n_unt))
+    for pref, tag in (("v1", "VOne"), ("v2", "VTwo")):
+        sub = [q for q in preds if q["protocol"].startswith(pref)]
+        f = sum(1 for q in sub if q["outcome"].startswith("failed"))
+        u = sum(1 for q in sub if q["outcome"].startswith("not test"))
+        macro(f"NPred{tag}All", intc(len(sub)))
+        macro(f"NPred{tag}Tested", intc(len(sub) - u))
+        macro(f"NPred{tag}Held", intc(len(sub) - f - u))
+        macro(f"NPred{tag}Failed", intc(f))
 
     # ---- volume bound and misc
     lev = load(EV / "m4" / "levers_c_real.json")
@@ -866,6 +895,289 @@ def build_review_tables() -> None:
         "MedianDTwoGapBench",
         f"{load(EV / 'm4' / 'b5_c_bench_gap.json')['detectors']['D2']['populations']['campaign']['median']:.0f}",
     )
+
+
+def build_revision_tables() -> None:
+    """Tables and macros from the revision analyses (amendment B6, decision 44)."""
+    from statistics import median as _median
+
+    m5 = EV / "m5"
+    macro("TwentyFourHours", "24")
+    macro("DTenFloor", "0.001")
+
+    # ---- held-out calibration (B6 item 1)
+    h = load(m5 / "heldout.json")
+    order = DETS_V0 + DETS_V1 + ["D10", "D11"] + DETS_V2 + DETS_V2_POST
+    rows = []
+    for det in order:
+        s = h["detectors"].get(det)
+        if s is None:
+            raise KeyError(f"held-out result missing for {det}")
+        mark = "$^\\dagger$" if s["registered_below_resolution"] else ""
+        lo, hi = s["median_split_ci"]
+        k, n = s["median_split_k_n"]
+        rows.append(
+            f"{det}{mark} & {100 * s['registered_realised_fpr']:.2f}\\% & {100 * s['heldout_fpr_mean']:.2f}\\% & "
+            f"[{100 * s['heldout_fpr_min']:.2f}\\%, {100 * s['heldout_fpr_max']:.2f}\\%] & {k}/{intc(n)} & "
+            f"[{100 * lo:.2f}\\%, {100 * hi:.2f}\\%] \\\\"
+        )
+        macro(f"HeldoutFpr{_camel(det)}", f"{100 * s['heldout_fpr_mean']:.2f}\\%")
+    _table(
+        "heldout.tex",
+        "lrrcrc",
+        r"Detector & In-sample & Held-out mean & Held-out range & Median split $k/n$ & Exact 95\% CI \\",
+        rows,
+    )
+    resolved = [d for d in order if not h["detectors"][d]["registered_below_resolution"]]
+    macro("NHeldoutResolved", intc(len(resolved)))
+    macro("NHeldoutInBand", intc(sum(1 for d in resolved if h["detectors"][d]["p25_mean_in_band"])))
+    shifts = [
+        abs(s["heldout_median"] - s["registered"])
+        for dd in h["campaigns"].values()
+        for s in dd.values()
+        if s["registered"] is not None
+    ]
+    macro("HeldoutMaxCampaignShift", num(max(shifts)))
+    macro("NHeldoutSplits", intc(h["splits"]))
+    macro("HeldoutThrDTenMin", intc(h["detectors"]["D10"]["threshold_min"]))
+    macro("HeldoutThrDTenMax", intc(h["detectors"]["D10"]["threshold_max"]))
+    anyd = h["any_detector"]
+    macro("AnyDetTimeline", pct(anyd["timeline_accounts"]["any"], 1) + "\\%")
+    macro("AnyDetReplayPattern", pct(anyd["replayed_accounts"]["any_pattern_volume"], 1) + "\\%")
+    macro("AnyDetReplayAll", pct(anyd["replayed_accounts"]["any_incl_cross_account"], 1) + "\\%")
+    macro("NReplayAccountsAny", intc(anyd["replayed_accounts"]["n_accounts"]))
+    macro("ReplayMeanSessions", num(anyd["replayed_accounts"]["mean_sessions_per_account"], 1))
+    byd = anyd["replayed_accounts"]["by_detector"]
+    top = max(byd, key=byd.get)
+    macro("AnyDetReplayTopDet", top)
+    macro("AnyDetReplayTopRate", pct(byd[top], 1) + "\\%")
+
+    # ---- all-day placements (B6 item 2)
+    pl = load(m5 / "placements.json")
+    cells = pl["cells"]
+
+    def find(**kw):
+        for c in cells:
+            if all(c.get(k) == v for k, v in kw.items()):
+                return c
+        raise KeyError(kw)
+
+    prow = []
+
+    def arow(label, c):
+        s = c["summary_all"]
+        e = c["summary_excluding_original_days"]
+
+        def f(d):
+            if d not in s:
+                return "n/a"
+            return f"{num(s[d]['median'])} [{num(s[d]['p5'])}, {num(s[d]['p95'])}]"
+
+        st = "" if c["stagger_h"] is None else intc(c["stagger_h"])
+        prow.append(
+            f"{label} & {intc(c['n'])} & {st} & {intc(c['n_placements'])} & {f('D10')} & {f('D11')} & "
+            f"{num(s['joint_max']['median'])} [{num(s['joint_max']['p5'])}, {num(s['joint_max']['p95'])}] & "
+            f"{num(s['p_any_unit_flagged'])} & {num(s['p_over_0.10'])} & {num(e['p_over_0.10'])} \\\\"
+        )
+
+    for c in cells:
+        if c["source"] == "table5":
+            arow("round-robin" if c["kind"] == "roundrobin" else "heterogeneous", c)
+    search_cells = sorted(
+        [c for c in cells if c["source"] == "search"],
+        key=lambda c: (c["five_placement_wall_clock_h"], c["n"]),
+    )
+    seen_ns = set()
+    for c in search_cells:  # one row per (accounts, stagger): the shortest schedule among them
+        key = (c["n"], c["stagger_h"])
+        if key in seen_ns:
+            continue
+        seen_ns.add(key)
+        arow("search", c)
+        if len(seen_ns) == 8:
+            break
+    _table(
+        "placements.tex",
+        "lrrrcccccc",
+        r"Split & Accounts & Stagger (h) & Days & D10 & D11 & Joint max & P(any) & P($>$0.10) & P($>$0.10), excl. \\",
+        prow,
+    )
+    ten = find(source="table5", kind="roundrobin", n=10)
+    macro("NPlacementDays", intc(ten["n_placements"]))
+    macro("TenAccountPAnyDEleven", num(pl["predictions"]["P28_ten_account_p_any_d11"]))
+    macro("TenAccountDElevenMedianAll", num(ten["summary_all"]["D11"]["median"]))
+    macro("TenAccountDElevenPNinetyFive", num(ten["summary_all"]["D11"]["p95"]))
+    macro("TenAccountPOver", num(ten["summary_all"]["p_over_0.10"]))
+    hundred = find(source="table5", kind="roundrobin", n=100)
+    macro("HundredAccountDTenMedianAll", num(hundred["summary_all"]["D10"]["median"]))
+    macro("HundredAccountDTenPFive", num(hundred["summary_all"]["D10"]["p5"]))
+    macro("NClearingAll", intc(len(search_cells)))
+    macro("NClearingStillClear", intc(sum(1 for c in search_cells if c["summary_all"]["clears"])))
+    reliable = [c for c in search_cells if c["summary_all"]["p_over_0.10"] <= 0.10]
+    macro("NClearingReliable", intc(len(reliable)))
+    best = min(reliable, key=lambda c: (c["summary_all"]["wall_clock_h_median"], c["n"]))
+    macro("ReliableCheapestHours", num(best["summary_all"]["wall_clock_h_median"], 1))
+    macro("ReliableCheapestAccounts", intc(best["n"]))
+    macro("ReliableCheapestStagger", intc(best["stagger_h"]))
+    macro("ReliableCheapestPOver", num(best["summary_all"]["p_over_0.10"]))
+    macro("ReliableCheapestPAny", num(best["summary_all"]["p_any_unit_flagged"]))
+    macro("ReliableCheapestHoursFive", num(best["five_placement_wall_clock_h"], 1))
+    fewest = min(reliable, key=lambda c: (c["n"], c["summary_all"]["wall_clock_h_median"]))
+    macro("ReliableFewestAccounts", intc(fewest["n"]))
+    macro("ReliableFewestHours", num(fewest["summary_all"]["wall_clock_h_median"], 1))
+    for tag, kw in (
+        ("Fifty", dict(source="search", n=50, count_cap=26, session_mult=10.0, stagger_h=6)),
+        ("Hundred", dict(source="search", n=100, count_cap=26, session_mult=10.0, stagger_h=6)),
+    ):
+        c = find(**kw)
+        macro(f"Cell{tag}POver", num(c["summary_all"]["p_over_0.10"]))
+        macro(f"Cell{tag}POverExcl", num(c["summary_excluding_original_days"]["p_over_0.10"]))
+        macro(f"Cell{tag}JointPNinetyFive", num(c["summary_all"]["joint_max"]["p95"]))
+        macro(f"Cell{tag}JointMedianAll", num(c["summary_all"]["joint_max"]["median"]))
+        macro(f"Cell{tag}PAny", num(c["summary_all"]["p_any_unit_flagged"]))
+        macro(f"Cell{tag}HoursFive", num(c["five_placement_wall_clock_h"], 1))
+        macro(f"Cell{tag}HoursAll", num(c["summary_all"]["wall_clock_h_median"], 1))
+    for t4 in pl["table4"]:
+        w = t4["wall_clock_h"]
+        tag = _camel(f"n{t4['n']}cap{t4['cap']}")
+        macro(f"PriceRange{tag}", f"[{w['min']:.1f}, {w['max']:.1f}]")
+    macro("NPriceReschedulings", intc(len(pl["table4"]) and 50))
+
+    # ---- search summary by account count (replaces the per-cell recipe table)
+    l9s = load(EV / "m4" / "l9_search.json")
+    srows2 = []
+    per_n = sorted({c["n"] for c in l9s["cells"]})
+    for n in per_n:
+        allc = [c for c in l9s["cells"] if c["n"] == n]
+        cl = [c for c in allc if c["clears"]]
+        rel = [c for c in search_cells if c["n"] == n and c["summary_all"]["p_over_0.10"] <= 0.10]
+        if cl:
+            hrs = [c["wall_clock_h"] for c in cl]
+            stag = min(c["stagger_h"] for c in cl)
+            hr_s = f"{min(hrs):.1f}--{max(hrs):.1f}"
+            st_s = intc(stag)
+        else:
+            hr_s, st_s = "--", "--"
+        rel_s = (
+            f"{len(rel)} ({min(c['summary_all']['wall_clock_h_median'] for c in rel):.1f})"
+            if rel
+            else "0"
+        )
+        srows2.append(f"{intc(n)} & {len(cl)}/{len(allc)} & {st_s} & {hr_s} & {rel_s} \\\\")
+    _table(
+        "search_summary.tex",
+        "rrrrr",
+        r"Accounts & Clearing cells & Min.\ stagger (h) & Hours & Reliable cells (shortest, h) \\",
+        srows2,
+    )
+
+    # ---- pooled-account control (B6 item 3b)
+    pc = load(m5 / "pooled_control.json")
+    prows = []
+    for m in (5, 20, 100):
+        c = pc["controls"][f"control:pooled_m{m}"]
+        vals = [
+            frac_or_na(c[u][d]["flagged"])
+            for u in ("identity", "block100")
+            for d in ("C1", "C2", "C2low", "C3", "B1", "B2")
+        ]
+        prows.append(
+            f"{m} & {intc(c['n_groups'])} & {intc(c['block100']['C2']['n_units'])} & "
+            + " & ".join(vals)
+            + r" \\"
+        )
+        tag = _camel(str(m))
+        macro(f"PooledCTwoLowAccount{tag}", frac_or_na(c["identity"]["C2low"]["flagged"]))
+        macro(f"PooledCTwoLowBlock{tag}", frac_or_na(c["block100"]["C2low"]["flagged"]))
+        macro(f"PooledCThreeAucAccount{tag}", num(c["identity"]["C3"]["auc"]))
+    _table(
+        "pooled_control.tex",
+        "rrr" + "c" * 12,
+        r"$m$ & Accounts & Blocks & \multicolumn{6}{c}{Per account} & \multicolumn{6}{c}{Per block} \\ & & & C1 & C2 & C2low & C3 & B1 & B2 & C1 & C2 & C2low & C3 & B1 & B2 \\",
+        prows,
+    )
+    macro("NPooledBenignUnits", intc(pc["n_benign_units"]))
+
+    # ---- sensitivity (B6 items 4 and 6)
+    se = load(m5 / "sensitivity.json")
+    vrows = []
+    for fr in sorted({v["f"] for v in se["volume"]}):
+        vs = [v for v in se["volume"] if v["f"] == fr]
+        med = lambda k: _median([x[k] for x in vs])  # noqa: E731
+        medc = lambda n, k: _median([x["cells"][n][k] for x in vs])  # noqa: E731
+        vrows.append(
+            f"{fr:g} & {intc(vs[0]['n_accounts'])} & {med('thr_d10'):.0f} & {med('thr_d11'):.0f} & "
+            f"{num(medc('10', 'd11_median'))} & {num(medc('10', 'p_any_d11'))} & {num(medc('100', 'd10_median'))} & {num(medc('100', 'd11_median'))} \\\\"
+        )
+        tag = _camel(f"f{fr:g}".replace(".", "p"))
+        macro(f"DElevenThr{tag}", f"{med('thr_d11'):.0f}")
+        macro(f"DTenThr{tag}", f"{med('thr_d10'):.0f}")
+        macro(f"TenAccountPAnyDEleven{tag}", num(medc("10", "p_any_d11")))
+    _table(
+        "volume_sensitivity.tex",
+        "rrrrcccc",
+        r"Fraction & Accounts & D10 thr. & D11 thr. & \multicolumn{2}{c}{10 accounts: D11, P(any)} & \multicolumn{2}{c}{100 accounts: D10, D11} \\",
+        vrows,
+    )
+    names = {
+        "registered": "registered (floor 0.001)",
+        "drop_constant": "constant features dropped",
+        "floor_1": "floor 1",
+        "iqr": "IQR/1.349",
+    }
+    srows = []
+    for v in se["scale"]:
+        c = v["cells"]
+        fmt = lambda k: f"{num(c[k]['median'])} [{num(c[k]['min'])}, {num(c[k]['max'])}]"  # noqa: E731
+        srows.append(
+            f"{names[v['variant']]} & {v['features_kept']} & {v['radius']:.2f} & {v['thr_d10']:.0f} & "
+            f"{fmt('roundrobin_100')} & {fmt('organisation')} & {fmt('batch_job')} & {fmt('eval_fleet')} \\\\"
+        )
+    _table(
+        "scale_sensitivity.tex",
+        "lrrrcccc",
+        r"Scale & Features & Radius & Threshold & Round-robin 100 & Organisation & Batch job & Eval.\ fleet \\",
+        srows,
+    )
+    mad = dict(zip(se["feature_names"], se["scale"][0]["mad"]))
+    macro("NConstantFeatures", intc(sum(1 for v in mad.values() if v == 0)))
+    macro("ConstantFeatureNames", ", ".join(k.replace("_", " ") for k, v in mad.items() if v == 0))
+    macro("NScaleVariantsHold", intc(sum(1 for ok in se["p36"].values() if ok)))
+    macro("NScaleVariants", intc(len(se["p36"])))
+
+    # ---- P22: request-weighted reference pool (B4 item 5, run in the revision)
+    p22 = load(m5 / "r3batch_p22.json")
+    macro("PTwoTwoCampaignMedian", f"{p22['campaigns']['c_real_v2']['pure']['median']:.2e}")
+    macro("PTwoTwoControlMedian", f"{p22['controls']['uniform_firstturns']['median']:.2e}")
+    macro(
+        "PTwoTwoCampaignFlagged", num(p22["campaigns"]["c_real_v2"]["pure"]["flagged"]["fpr_0.01"])
+    )
+    macro(
+        "PTwoTwoControlFlagged", num(p22["controls"]["uniform_firstturns"]["flagged"]["fpr_0.01"])
+    )
+    macro("PTwoTwoNIdentities", intc(p22["n_benign_identities_in_pools"]))
+    macro("PTwoTwoNRef", intc(p22["n_reference"]))
+
+    # ---- benign tails (B6 item 5)
+    ta = load(m5 / "tails.json")
+    d5, d3, b2, d1 = ta["D5"], ta["D3"], ta["B2"], ta["D1"]
+    macro("DFiveNOver", intc(d5["n_over"]))
+    macro("DFiveNRecordsOver", intc(d5["n_records_over"]))
+    macro("DFiveTruncOver", pct(d5["truncated_share_over"]) + "\\%")
+    macro("DFiveTruncReplay", pct(d5["truncated_share_replay"], 1) + "\\%")
+    macro("DThreeNBelow", intc(d3["n_below"]))
+    macro("DThreeShareThree", pct(d3["share_below_with_three_requests"]) + "\\%")
+    macro("DThreeThrMinFive", num(d3["threshold_min_size"]["5"]["threshold"]))
+    macro("DThreeThrMinTen", num(d3["threshold_min_size"]["10"]["threshold"]))
+    macro("BTwoFullShare", pct(b2["share_b2_equal_1"], 1) + "\\%")
+    macro("BTwoHalfShare", pct(b2["share_b2_at_least_0.5"], 1) + "\\%")
+    macro("DOneAboveN", intc(d1["above"]["n"]))
+    macro("DOneAboveMedianRequests", intc(d1["above"]["requests"]["50"]))
+    macro("DOneAboveMedianSessions", intc(d1["above"]["sessions"]["50"]))
+    macro("DOneAboveMedianSingleTurn", num(d1["above"]["single_turn_fraction"]["50"]))
+    macro("DOneAbovePNinetySingleTurn", num(d1["above"]["single_turn_fraction"]["90"]))
+    macro("DOneAboveMedianCv", num(d1["above"]["median_cadence_cv"]["50"]))
+    macro("DOneAllMedianRequests", intc(d1["all"]["requests"]["50"]))
 
 
 _WORDS = {

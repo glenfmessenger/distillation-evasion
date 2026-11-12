@@ -286,3 +286,80 @@ re-scored with its requests cut into consecutive sessions whose sizes are drawn 
 the benign scoreable session-size distribution. Prediction P24: 0 flagged at 1% is unchanged, and
 the D4 AUC on the ordinary-prompt campaign rises from 0.01 to between 0.3 and 0.7, so the "more
 typical than the typical user" reading is a size artefact and is withdrawn.
+
+**B6 — 2026-11-12 — Revision after three external reviews, registered before any run (decision
+44; Glen: "i agree with your recommendations. go").** Scope: defender-side measurement only. No
+new attacker family and no finer lever grid are run; the cells re-scored below are the cells the
+manuscript already reports. All runs on the Mac from the copied data; no teacher calls; no GPU.
+Predictions were written before any of the analyses ran; where a prediction was informed by a
+number already seen, the item says so.
+
+1. *Held-out calibration.* For every detector, the benign units are split at random into two
+   halves (seeded, 20 splits; session-level detectors split by account so that an account's
+   sessions fall on one side). The threshold is set on one half at the 1% budget and the
+   false-alarm rate measured on the other, with an exact (Clopper–Pearson) 95% interval; the
+   campaign flagged fractions of Table II are recomputed under each held-out threshold. Also
+   reported: the per-account rate at which benign traffic trips *any* content-blind detector at
+   the 1% budget (an account is flagged if any of its sessions or any of its account statistics
+   is flagged), on the timeline accounts (D1, D2, D3, D9) and on the replayed accounts (all ten
+   pattern and volume detectors, plus D10 and D11 for the replayed accounts' timeline days).
+   Predictions. P25: for every detector not below resolution, the mean held-out false-alarm rate
+   over the 20 splits lies in [0.5%, 1.5%]. P26: no campaign flagged fraction in Table II moves
+   by more than 0.05 (median over splits) under held-out thresholds. P27: the any-detector
+   per-account benign rate is between 2% and 10% on timeline accounts and between 5% and 30% on
+   replayed accounts (replayed accounts are heavy and carry many sessions).
+2. *Placements.* Every cell of Table V and every clearing cell of the wider search (62 of 225)
+   is re-scored on every eligible placement day of the timeline (a day is eligible when the
+   cell's schedule ends before the timeline does), one re-scheduling per day, instead of five;
+   reported per cell: the distribution of each detector's flagged fraction (median, 5th and 95th
+   percentiles), the campaign-level detection probability (the fraction of placements in which
+   at least one unit is flagged by any content-blind detector), and the same quantities with the
+   five original placements excluded. The placement affects only D10 and D11; D1, D2, D3 and D9
+   are re-scored alongside for completeness. Table IV's cells are re-scheduled 50 times to give
+   the range of their prices and flags under the scheduler's jitter. Predictions. P28: for the
+   ten-account rate-capped round-robin cell, the campaign-level D11 detection probability over
+   all placements lies in [0.05, 0.40] (one of five placements flagged all ten; informed by that
+   number). P29: at least 80% of the 62 clearing cells still clear (all-placement median joint
+   max at most 0.10). P30: the 50-account cell reported in the abstract (draw cap 26, session
+   multiplier 10, stagger 6 h) has a joint max above 0.10 in fewer than 10% of placements. P31:
+   the 100-account cell with the shortest schedule (11.8 h) has a joint max above 0.10 in more
+   than 10% of placements (its worst of five was 0.28; informed by that number).
+3. *Content controls.* (a) The per-account uniform control already run (content_ctrl,
+   content_ctrl_heavy) is tabulated beside Table VIII; no new run. (b) A pooled-account control:
+   synthetic accounts each formed by merging the prompt streams of m real replayed accounts
+   drawn at random without replacement (m ∈ {5, 20, 100}; 100 synthetic accounts per m, or as
+   many as the replay affords), interleaved in time order, scored by every content statistic at
+   matched count 30 and in blocks of 100 against the primary calibration, with the constituent
+   accounts excluded from the reference pool. This is the legitimate aggregation key (an
+   organisation behind one API key) that the uniform control does not represent. Prediction
+   P32: at m ≥ 20, C2low flags at least half of the pooled units at 1% (an aggregate of many
+   users is closer to the population than any one user, which is what C2low measures), and C1,
+   C2, C3, B1 and B2 each flag at most 0.10. (c) P22 (request-weighted reference pool) is run if
+   the embedding model can be installed locally; its prediction stands as registered in B4.
+4. *Sensitivity to benign volume.* D10 and D11 are recalibrated on the timeline with the benign
+   account population subsampled at random to fractions f ∈ {0.1, 0.25, 0.5, 1.0} (seeded, 5
+   draws each), and the ten-account rate-capped cell and the 100-account round-robin cell are
+   re-scored under each; reported: thresholds, radius and campaign-level detection probability
+   against f. D1 and D2 threshold intervals come from item 1's splits. Prediction P33: at
+   f = 0.25 the D11 threshold at 1% is at most 10 and the ten-account cell's campaign-level D11
+   detection probability is at least 0.5.
+5. *Benign tails.* (a) D5: for the benign sessions above the reasoning-share threshold, the
+   share of records with finish reason "length", against the replay-wide share. Prediction P35:
+   fewer than half of those records are truncated (informed by the replay-wide count of 710
+   truncated records in 49,663, already seen while checking the data). (b) D3: the session-size
+   distribution of benign sessions below the cadence threshold, and the threshold recomputed
+   with minimum session sizes 5 and 10. Prediction P34: at least half of the sessions below the
+   threshold have exactly three requests. (c) B2: the share of replayed accounts with B2 = 1.0,
+   and the share of their prompts' common suffix that is a fixed instruction (reported, no
+   prediction). (d) The accounts above the D1 threshold: request count, single-turn fraction,
+   cadence CV and session count, as descriptive quantiles; no estimate of scripted traffic is
+   claimed.
+6. *D10 scale sensitivity.* The standardiser floors each feature's median absolute deviation
+   at 0.001; a feature with zero deviation (session count, for most account-days) is thereby
+   given a very large weight, which the manuscript does not state. D10 is re-run with three
+   alternatives: the constant-deviation features dropped; the floor raised to one unit; and
+   deviation replaced by the interquartile range divided by 1.349, floored at 0.001. Reported
+   for each: radius, threshold, the 100-account round-robin split on the ordinary-prompt
+   campaign, and the three B4 populations. Prediction P36: under every alternative the
+   100-account split is flagged at 0.95 or more, the batch job at 0.5 or more, and the
+   organisation at 0.10 or less (medians over the five B4 placements).

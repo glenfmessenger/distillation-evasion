@@ -108,7 +108,7 @@
   "id": "P6",
   "protocol": "v2.0",
   "prediction": "account splitting starves per-account content statistics",
-  "outcome": "held",
+  "outcome": "held (follows from the matched-count definition)",
   "finding": "F50, F53"
  },
  {
@@ -241,8 +241,8 @@
   "id": "P22",
   "protocol": "v2.0 am. 4",
   "prediction": "with a request-weighted reference pool including light accounts, the ordinary-prompt pure window and the uniform benign control move together",
-  "outcome": "not tested (optional item, not run)",
-  "finding": "-"
+  "outcome": "failed on the first clause (pure window still flagged); held on the second (control and campaign move together)",
+  "finding": "F74"
  },
  {
   "id": "P18",
@@ -262,14 +262,14 @@
   "id": "P20",
   "protocol": "v2.0 am. 4",
   "prediction": "no cell without a creation stagger clears (D11)",
-  "outcome": "held",
+  "outcome": "held (follows from the registered D11 result)",
   "finding": "F64"
  },
  {
   "id": "P23",
   "protocol": "v2.0 am. 5",
   "prediction": "under the idle-gap session rule D2 no longer flags the unevaded single account and D1 still does",
-  "outcome": "held",
+  "outcome": "held (follows from the session definition)",
   "finding": "F67"
  },
  {
@@ -278,5 +278,89 @@
   "prediction": "with size-matched sessions 0 flagged is unchanged and the D4 AUC on ordinary prompts rises to between 0.3 and 0.7",
   "outcome": "failed: AUC 0.11; flags unchanged except one detector at 0.02 on one campaign",
   "finding": "F67"
+ },
+ {
+  "id": "P25",
+  "protocol": "v2.0 am. 6",
+  "prediction": "for every detector not below resolution the mean held-out false-alarm rate over 20 account splits lies in [0.5%, 1.5%]",
+  "outcome": "failed on one detector: D2 at 0.09% (tied statistic, as in sample); the other 14 lie in the band",
+  "finding": "F71"
+ },
+ {
+  "id": "P26",
+  "protocol": "v2.0 am. 6",
+  "prediction": "no campaign flagged fraction in the unevaded table moves by more than 0.05 (median over splits) under held-out thresholds",
+  "outcome": "held",
+  "finding": "F71"
+ },
+ {
+  "id": "P27",
+  "protocol": "v2.0 am. 6",
+  "prediction": "any-detector per-account benign rate between 2% and 10% on timeline accounts and between 5% and 30% on replayed accounts",
+  "outcome": "failed on the timeline clause: 1.76% (D9 cannot fire, D2 almost never); replayed clause held at 15.0%",
+  "finding": "F71"
+ },
+ {
+  "id": "P32",
+  "protocol": "v2.0 am. 6",
+  "prediction": "pooled accounts of m >= 20 real users: C2low flags at least half at 1%; C1, C2, C3, B1, B2 each at most 0.10",
+  "outcome": "held: C2low 1.00 at m = 20 and 100; others at most 0.02",
+  "finding": "F70"
+ },
+ {
+  "id": "P33",
+  "protocol": "v2.0 am. 6",
+  "prediction": "with benign accounts subsampled to a quarter the D11 threshold is at most 10 and the ten-account cell's campaign-level D11 detection probability is at least 0.5",
+  "outcome": "held: threshold 5, probability 1.00 (already 8 and 1.00 at a half)",
+  "finding": "F72"
+ },
+ {
+  "id": "P34",
+  "protocol": "v2.0 am. 6",
+  "prediction": "at least half of the benign sessions below the cadence threshold have exactly three requests",
+  "outcome": "held: 96.8%",
+  "finding": "F69"
+ },
+ {
+  "id": "P35",
+  "protocol": "v2.0 am. 6",
+  "prediction": "fewer than half of the records in sessions above the reasoning-share threshold are truncated (informed by the replay-wide count)",
+  "outcome": "held, narrowly: 39% against 1.4% replay-wide",
+  "finding": "F69"
+ },
+ {
+  "id": "P36",
+  "protocol": "v2.0 am. 6",
+  "prediction": "under every alternative D10 scaling the 100-account split is flagged at 0.95 or more, the batch job at 0.5 or more and the organisation at 0.10 or less",
+  "outcome": "held for all three alternatives",
+  "finding": "F72"
+ },
+ {
+  "id": "P28",
+  "protocol": "v2.0 am. 6",
+  "prediction": "ten rate-capped round-robin accounts: campaign-level D11 detection probability over all placement days in [0.05, 0.40]",
+  "outcome": "held: 0.08 of 387 days",
+  "finding": "F73"
+ },
+ {
+  "id": "P29",
+  "protocol": "v2.0 am. 6",
+  "prediction": "at least 80% of the 62 clearing cells still clear (all-day median joint max at most 0.10)",
+  "outcome": "failed: 42 of 62 (68%) still clear at the median; 36 exceed 0.10 on at most a tenth of days",
+  "finding": "F73"
+ },
+ {
+  "id": "P30",
+  "protocol": "v2.0 am. 6",
+  "prediction": "the 50-account cell (draw cap 26, session multiplier 10, stagger 6 h) exceeds 0.10 in fewer than 10% of placements",
+  "outcome": "held: 1.3% of days",
+  "finding": "F73"
+ },
+ {
+  "id": "P31",
+  "protocol": "v2.0 am. 6",
+  "prediction": "the 100-account cell with the shortest schedule exceeds 0.10 in more than 10% of placements",
+  "outcome": "held: 17% of days",
+  "finding": "F73"
  }
 ]

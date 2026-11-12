@@ -109,6 +109,7 @@ def fig_price() -> None:
     med = lambda v: sorted(v)[len(v) // 2]  # noqa: E731
     fig, ax = plt.subplots(figsize=(5.2, 3.7))
     xs = [1, 10, 100, 1000]
+    xs = [x for x in xs if n_req / cap / x >= 1.0] + [n_req / cap]
     ax.plot(
         xs,
         [n_req / cap / x for x in xs],
@@ -117,24 +118,29 @@ def fig_price() -> None:
         ls="--",
         label=f"bound: accounts × hours = N / {cap}",
     )
-    clear_x, clear_y, hit_x, hit_y = [], [], [], []
+    styles = {
+        0: ("o", "no re-timing"),
+        26: ("s", f"rate cap {cap}/h"),
+        8: ("D", "stricter caps"),
+        2: ("D", None),
+    }
+    seen = set()
     for c in lev["cells"]:
+        capc = c["cap_per_hour"]
+        if c["n"] > 1 and capc not in (0, cap):
+            continue  # the figure shows the cells of the price table only
         s = c["per_seed"]
         wc = med([x["price"]["wall_clock_s"] / 3600 for x in s])
         d1 = med([x["detectors"]["D1"]["budgets"]["0.01"]["frac_flagged"] for x in s])
-        (hit_x if d1 > 0.1 else clear_x).append(c["n"])
-        (hit_y if d1 > 0.1 else clear_y).append(wc)
-    ax.scatter(
-        hit_x, hit_y, s=30, color=ORANGE, label="round-robin split: rate detector fires", zorder=3
-    )
-    ax.scatter(
-        clear_x,
-        clear_y,
-        s=30,
-        color=BLUE,
-        label="round-robin split: clears the rate detector",
-        zorder=3,
-    )
+        marker, lab = styles[capc]
+        colour = ORANGE if d1 > 0.1 else BLUE
+        key = (capc if capc in (0, cap) else "strict", d1 > 0.1)
+        label = None
+        if key not in seen:
+            seen.add(key)
+            what = "rate detector fires" if d1 > 0.1 else "clears the rate detector"
+            label = f"round-robin, {lab or 'stricter caps'}: {what}"
+        ax.scatter([c["n"]], [wc], s=30, marker=marker, color=colour, label=label, zorder=3)
     cl = [c for c in l9["cells"] if c["clears"]]
     ax.scatter(
         [c["n"] for c in cl],
@@ -153,7 +159,7 @@ def fig_price() -> None:
     ax.grid(True, which="major", color=GRID, lw=0.6)
     for sp in ax.spines.values():
         sp.set_color(GRID)
-    ax.legend(fontsize=6.5, frameon=False, loc="lower left")
+    ax.legend(fontsize=6.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.18), ncol=2)
     fig.tight_layout()
     fig.savefig(OUT / "price.pdf")
     fig.savefig(OUT / "price.png", dpi=200)

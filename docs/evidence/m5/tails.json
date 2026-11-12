@@ -1,0 +1,184 @@
+{
+ "D5": {
+  "threshold": 0.9909228441754917,
+  "n_sessions_scoreable": 10486,
+  "n_over": 104,
+  "n_records_over": 122,
+  "truncated_share_replay": 0.01429635744920766,
+  "truncated_share_over": 0.39344262295081966,
+  "share_over_records_with_no_answer_tokens": 0.0,
+  "generated_tokens_over": {
+   "10": 1006.1,
+   "50": 2338.0,
+   "90": 14000.0
+  },
+  "generated_tokens_replay": {
+   "10": 562.0,
+   "50": 1438.0,
+   "90": 3156.0
+  },
+  "session_sizes_over": {
+   "1": 98,
+   "2": 2,
+   "8": 1,
+   "4": 1,
+   "5": 1,
+   "3": 1
+  },
+  "p35_fewer_than_half_truncated": true
+ },
+ "D3": {
+  "threshold": 0.02259475218658892,
+  "n_sessions_scoreable": 95498,
+  "n_below": 954,
+  "session_size_hist_below": {
+   "3": 923,
+   "4": 29,
+   "5": 2
+  },
+  "share_below_with_three_requests": 0.9675052410901468,
+  "share_scoreable_with_three_requests": 0.2927600578022576,
+  "threshold_min_size": {
+   "5": {
+    "threshold": 0.17599048725778296,
+    "direction": "low",
+    "fpr_budget": 0.01,
+    "n_benign": 50675,
+    "n_unscoreable": 0,
+    "n_exceed": 506,
+    "resolution": 1.9733596447952638e-05,
+    "below_resolution": false,
+    "n_sessions": 50675
+   },
+   "10": {
+    "threshold": 0.3052578284537604,
+    "direction": "low",
+    "fpr_budget": 0.01,
+    "n_benign": 18867,
+    "n_unscoreable": 0,
+    "n_exceed": 188,
+    "resolution": 5.300259712725924e-05,
+    "below_resolution": false,
+    "n_sessions": 18867
+   }
+  },
+  "p34_at_least_half_size_three": true
+ },
+ "B2": {
+  "n_benign_units": 1061,
+  "share_b2_equal_1": 0.07445805843543826,
+  "share_b2_at_least_0.5": 0.1885014137606032,
+  "n_units_full_reuse_recomputed": 79,
+  "examples": [
+   {
+    "n_prompts": 40,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 33,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 32,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 33,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 40,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 36,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 40,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 34,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 31,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   },
+   {
+    "n_prompts": 37,
+    "top_suffix_share": 1.0,
+    "top_suffix": "beauty, Illustration, digital art, --ar 16:9 --v 5"
+   }
+  ]
+ },
+ "D1": {
+  "threshold": 26.0,
+  "above": {
+   "n": 1092,
+   "requests": {
+    "10": 35.10000000000001,
+    "50": 81.0,
+    "90": 483.79999999999995
+   },
+   "sessions": {
+    "10": 1.0,
+    "50": 5.0,
+    "90": 35.0
+   },
+   "single_turn_fraction": {
+    "10": 0.059450436569080646,
+    "50": 0.21590174531351003,
+    "90": 0.9768835455343703
+   },
+   "median_cadence_cv": {
+    "10": 0.5719979439702684,
+    "50": 0.9170724309922633,
+    "90": 1.6423026016693911
+   },
+   "active_span_days": {
+    "10": 0.03749305555555556,
+    "50": 2.1299421296296295,
+    "90": 30.725511574074073
+   }
+  },
+  "all": {
+   "n": 118465,
+   "requests": {
+    "10": 1.0,
+    "50": 2.0,
+    "90": 14.0
+   },
+   "sessions": {
+    "10": 1.0,
+    "50": 1.0,
+    "90": 4.0
+   },
+   "single_turn_fraction": {
+    "10": 0.2,
+    "50": 1.0,
+    "90": 1.0
+   },
+   "median_cadence_cv": {
+    "10": 0.19047619047619047,
+    "50": 0.5959104920698599,
+    "90": 1.0670884542087746
+   },
+   "active_span_days": {
+    "10": 0.0,
+    "50": 0.0030092592592592593,
+    "90": 3.688696759259268
+   }
+  }
+ }
+}

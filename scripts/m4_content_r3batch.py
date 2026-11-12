@@ -73,6 +73,12 @@ def main() -> int:
     )
     ap.add_argument("--device", default="cpu")
     ap.add_argument(
+        "--all-replay-prompts",
+        action="store_true",
+        help="B4 item 5 (P22): reference and held-out pools drawn by request over every replayed "
+        "identity, light users included, embedded here (cache benign_<label>_all.npy)",
+    )
+    ap.add_argument(
         "--first-turns-only",
         action="store_true",
         help="restrict the reference, null and held-out pools to first user turns (turn-matched)",
@@ -88,8 +94,13 @@ def main() -> int:
     by_ident: dict[str, list[str]] = {}
     for r in sched:
         by_ident.setdefault(r.identity_id, []).append(r.user_content)
-    units = {i: v for i, v in by_ident.items() if len(v) >= 30}
-    b_all = np.load(cache / f"benign_{a.benign_label}.npy")
+    if a.all_replay_prompts:
+        units = dict(by_ident)
+        texts_all = [x for v in units.values() for x in v]
+        b_all = _embed_control(texts_all, a.device, cache / f"benign_{a.benign_label}_all.npy")
+    else:
+        units = {i: v for i, v in by_ident.items() if len(v) >= 30}
+        b_all = np.load(cache / f"benign_{a.benign_label}.npy")
     owners = np.asarray([i for i, v in units.items() for _ in v])
     turn0: dict[str, list[bool]] = {}
     for r in sched:
@@ -136,6 +147,8 @@ def main() -> int:
     result = {
         "batch": B,
         "first_turns_only": a.first_turns_only,
+        "all_replay_prompts": a.all_replay_prompts,
+        "n_benign_identities_in_pools": len(units),
         "sigma": sigma,
         "n_reference": len(ref),
         "n_heldout": len(held),
@@ -164,7 +177,7 @@ def main() -> int:
         "flagged": {k: rate(hf_scores, t) for k, t in thr.items()},
     }
     md = [
-        f"R3 batch design ({'first-turn-matched pools; ' if a.first_turns_only else ''}batch {B}, {a.null_samples} null draws, {a.windows} windows per condition, sigma {sigma:.4f}). "
+        f"R3 batch design ({'first-turn-matched pools; ' if a.first_turns_only else ''}{'request-weighted pools over all replayed identities; ' if a.all_replay_prompts else ''}batch {B}, {a.null_samples} null draws, {a.windows} windows per condition, sigma {sigma:.4f}). "
         f"Thresholds: R3 95th {thr['r3_p95']:.4g}; 1% {thr['fpr_0.01']:.4g}; 0.1% {thr['fpr_0.001']:.4g}.\n",
         "| Window | Median MMD² | Flagged at R3 95th | at 1% | at 0.1% |",
         "|---|---|---|---|---|",
