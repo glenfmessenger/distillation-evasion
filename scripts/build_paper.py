@@ -774,6 +774,7 @@ def build_review_tables() -> None:
         ("heterogeneous", 100, 24),
         ("heterogeneous", 100, 72),
         ("heterogeneous", 1000, 0),
+        ("heterogeneous", 1000, 6),
         ("heterogeneous", 1000, 24),
         ("heterogeneous", 1000, 72),
     ]
@@ -842,8 +843,9 @@ def build_review_tables() -> None:
         m = re.search(r"P(\d+)", q["id"])
         return bool(m) and int(m.group(1)) >= 25 and q["protocol"].startswith("v2")
 
-    def _is_adversary(q):
-        return _is_revision(q) and "am. 8" in q["protocol"]
+    def _is_adversary(q):  # amendments eight to ten (P43 onwards) go in the third table
+        mm = re.search(r"P(\d+)", q["id"])
+        return _is_revision(q) and int(mm.group(1)) >= 43
 
     for fname, subset in (
         ("predictions2.tex", [q for q in preds if not _is_revision(q)]),
@@ -1005,7 +1007,7 @@ def build_revision_tables() -> None:
 
         st = "" if c["stagger_h"] is None else intc(c["stagger_h"])
         prow.append(
-            f"{label} & {intc(c['n'])} & {st} & {intc(c['n_placements'])} & {f('D10')} & {f('D11')} & "
+            f"{label} & {intc(c['n'])} & {st} & {intc(c['n_placements'])} & {num(s['wall_clock_h_median'], 1)} & {f('D10')} & {f('D11')} & "
             f"{num(s['joint_max']['median'])} [{num(s['joint_max']['p5'])}, {num(s['joint_max']['p95'])}] & "
             f"{num(s['p_any_unit_flagged'])} & {num(s['p_over_0.10'])} & {num(e['p_over_0.10'])} \\\\"
         )
@@ -1028,8 +1030,8 @@ def build_revision_tables() -> None:
             break
     _table(
         "placements.tex",
-        "lrrrcccccc",
-        r"Split & Accounts & Stagger (h) & Days & D10 & D11 & Joint max & P(any) & P($>$0.10) & P($>$0.10), excl. \\",
+        "lrrrrcccccc",
+        r"Split & Accounts & Stagger (h) & Days & Hours & D10 & D11 & Joint max & P(any) & P($>$0.10) & P($>$0.10), excl. \\",
         prow,
     )
     ten = find(source="table5", kind="roundrobin", n=10)
@@ -1197,8 +1199,8 @@ def build_revision_tables() -> None:
     macro("DFiveTruncReplay", pct(d5["truncated_share_replay"], 1) + "\\%")
     macro("DThreeNBelow", intc(d3["n_below"]))
     macro("DThreeShareThree", pct(d3["share_below_with_three_requests"]) + "\\%")
-    macro("DThreeThrMinFive", num(d3["threshold_min_size"]["5"]["threshold"]))
-    macro("DThreeThrMinTen", num(d3["threshold_min_size"]["10"]["threshold"]))
+    macro("DThreeThrMinFive", num(d3["threshold_min_size"]["5"]["threshold"], 3))
+    macro("DThreeThrMinTen", num(d3["threshold_min_size"]["10"]["threshold"], 3))
     macro("BTwoFullShare", pct(b2["share_b2_equal_1"], 1) + "\\%")
     macro("BTwoHalfShare", pct(b2["share_b2_at_least_0.5"], 1) + "\\%")
     macro("DOneAboveN", intc(d1["above"]["n"]))
@@ -1503,15 +1505,29 @@ def build_adversary_tables() -> None:
         macro(f"Oasst{_camel(det)}Block", frac_or_na(u[bkey][det]["flagged"]["0.01"]))
         macro(f"Oasst{_camel(det)}Account", frac_or_na(u["identity"][det]["flagged"]["0.01"]))
     orr = load(m7 / "r3batch_oasst.json")
+    nr = load(EV / "m9" / "content_no_robots.json")["campaigns"]["control:no_robots"]
+    nrk = [x for x in nr if x.startswith("block")][0]
+    nrr = load(EV / "m9" / "r3batch_no_robots.json")["controls"]["no_robots"]
     orows2 = []
     for det in ("C1", "C2", "C2low", "C3", "B1", "B2"):
         orows2.append(
-            f"{det} & {frac_or_na(u['identity'][det]['flagged']['0.01'])} & {frac_or_na(u[bkey][det]['flagged']['0.01'])} \\\\"
+            f"{det} & {frac_or_na(u[bkey][det]['flagged']['0.01'])} & {frac_or_na(nr[nrk][det]['flagged']['0.01'])} \\\\"
         )
     orows2.append(
-        f"Pooled design & -- & {num(orr['controls']['oasst']['flagged']['fpr_0.01'])} ({orr['controls']['oasst']['median']:.2e}) \\\\"
+        f"Pooled design & {num(orr['controls']['oasst']['flagged']['fpr_0.01'])} ({orr['controls']['oasst']['median']:.2e}) & {num(nrr['flagged']['fpr_0.01'])} ({nrr['median']:.2e}) \\\\"
     )
-    _table("oasst.tex", "lcc", r"Statistic & Per account & Per block \\\\", orows2)
+    _table(
+        "oasst.tex",
+        "lcc",
+        r"Statistic & Assistant conversations & Written instructions \\\\",
+        orows2,
+    )
+    for det in ("C2low", "C3", "C2", "B1"):
+        macro(f"NoRobots{_camel(det)}Block", frac_or_na(nr[nrk][det]["flagged"]["0.01"]))
+    macro("NoRobotsCThreeAuc", num(nr[nrk]["C3"]["auc"]))
+    macro("NoRobotsPooledFlagged", num(nrr["flagged"]["fpr_0.01"]))
+    macro("NoRobotsPooledMedian", f"{nrr['median']:.2e}")
+    macro("NoRobotsNPrompts", intc(nrr["n_prompts"]))
     macro("OasstPooledFlagged", num(orr["controls"]["oasst"]["flagged"]["fpr_0.01"]))
     macro("OasstPooledMedian", f"{orr['controls']['oasst']['median']:.2e}")
     macro("OasstNPrompts", intc(orr["controls"]["oasst"]["n_prompts"]))
@@ -1572,6 +1588,28 @@ def build_adversary_tables() -> None:
     )
     macro("NPacedCells", intc(n_paced))
     macro("NPacedCellsCaught", intc(n_paced_full))
+
+    # ---- B1 calibrated on the real accounts only (fifth review)
+    b1 = load(EV / "m8" / "b1_real_only.json")
+    macro("BOneNReal", intc(b1["n_real"]))
+    macro("BOneThrReal", num(b1["threshold_real"], 3))
+    macro("BOneRealisedFprReal", pct(b1["realised_fpr_real"], 1) + "\\%")
+    macro("BOneNRealWithMembership", intc(b1["n_real_with_membership"]))
+    macro(
+        "BOneCBenchReal", num(b1["campaigns"]["pilot_baseline:block100"]["flagged_real_threshold"])
+    )
+    macro(
+        "BOneSeedOneReal", num(b1["campaigns"]["c_real_v2_s1:identity"]["flagged_real_threshold"])
+    )
+    macro(
+        "BOneControlReal",
+        num(b1["campaigns"]["control:uniform_firstturns:block100"]["flagged_real_threshold"]),
+    )
+    # pooled design with all-turn pools (the run before first-turn matching), for the traced sentence
+    r3a = load(EV / "m4" / "r3batch_ctrl.json")
+    macro("PooledAllTurnHeldout", num(r3a["benign_heldout"]["flagged"]["fpr_0.01"]))
+    macro("PooledAllTurnFirstTurns", num(r3a["benign_heldout_first_turns"]["flagged"]["fpr_0.01"]))
+    macro("PooledAllTurnCReal", num(r3a["campaigns"]["c_real_v2"]["pure"]["flagged"]["fpr_0.01"]))
 
     # ---- B9 diagnostic: kernel terms of the per-account discrepancy
     kd = load(EV / "m8" / "kernel.json")

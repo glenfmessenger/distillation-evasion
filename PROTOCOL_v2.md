@@ -448,3 +448,13 @@ registered figures. No lever is changed. Prediction P51: at least one of the thr
 more than 0.10 of its sessions under the ten-request threshold. Also: the mean within-unit kernel
 value of the per-account discrepancy statistic for benign accounts and the campaigns, to show
 what the matched-count statistic measures (no prediction).
+
+**B10 — 2026-11-13 — Registered before any run (decision 49; Glen: "do 4 and 6").** A second
+out-of-corpus benign sample, to test whether the provenance result of B8 item 7 rests on one
+corpus: three thousand prompts of the public No Robots instruction set (HuggingFaceH4/no_robots,
+CC BY-NC 4.0; prompts written by human annotators, not chat logs), train split, sampled with
+seed 0, scored exactly as the OpenAssistant sample was (per-account content detectors in blocks
+of 100, primary configuration; pooled-window design with first-turn-matched pools), prompts
+only, no teacher. Prediction P52: the diversity statistic C3 flags at least 0.9 of its blocks
+and the pooled design flags every window; C2 and B1 flag at most 0.10. No prediction for C2low
+(the instruction-corpus campaign and the OpenAssistant sample disagreed on it).

@@ -22,7 +22,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=3000)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--source", choices=["oasst", "no_robots"], default="oasst")
     a = ap.parse_args()
+    if a.source == "no_robots":
+        return no_robots(a)
     import pandas as pd
     from huggingface_hub import hf_hub_download
 
@@ -50,6 +53,36 @@ def main() -> int:
         "n": a.n,
         "seed": a.seed,
         "parquet": path.rsplit("/", 1)[-1],
+    }
+    (out_dir / "manifest.json").write_text(json.dumps(man, indent=1))
+    print(json.dumps(man))
+    return 0
+
+
+def no_robots(a) -> int:
+    """Amendment B10: prompts of the No Robots instruction set (human-written, CC BY-NC 4.0)."""
+    import pandas as pd
+    from huggingface_hub import hf_hub_download
+
+    path = hf_hub_download(
+        "HuggingFaceH4/no_robots", "data/train-00000-of-00001.parquet", repo_type="dataset"
+    )
+    texts = sorted(set(pd.read_parquet(path)["prompt"].tolist()))
+    if len(texts) < a.n:
+        raise RuntimeError(f"only {len(texts)} prompts, need {a.n}")
+    rng = random.Random(a.seed)
+    chosen = rng.sample(texts, a.n)
+    rng.shuffle(chosen)
+    out_dir = host_repo() / "campaign_prompts" / "no_robots_ctrl"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with (out_dir / "prompts.jsonl").open("w", encoding="utf-8") as fh:
+        for t in chosen:
+            fh.write(json.dumps({"messages": [{"role": "user", "content": t}]}) + "\n")
+    man = {
+        "source": "HuggingFaceH4/no_robots train split, prompts, de-duplicated",
+        "n_candidates": len(texts),
+        "n": a.n,
+        "seed": a.seed,
     }
     (out_dir / "manifest.json").write_text(json.dumps(man, indent=1))
     print(json.dumps(man))

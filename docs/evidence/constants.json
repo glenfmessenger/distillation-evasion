@@ -163,5 +163,9 @@
  "PctHundredth": {
   "value": "0.01\\%",
   "source": "PROTOCOL_v2.md B8 item 3: third budget of the sweep"
+ },
+ "NConvReplayAccounts": {
+  "value": "1,965",
+  "source": "replay_schedule m3_v1: identities of the conversational component (b:conv), the accounts in the pooled-window pools"
  }
 }

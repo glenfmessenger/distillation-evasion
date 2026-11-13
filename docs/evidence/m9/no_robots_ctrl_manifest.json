@@ -1,0 +1,6 @@
+{
+ "source": "HuggingFaceH4/no_robots train split, prompts, de-duplicated",
+ "n_candidates": 9499,
+ "n": 3000,
+ "seed": 0
+}

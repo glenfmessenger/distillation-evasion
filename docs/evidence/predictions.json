@@ -467,5 +467,12 @@
   "prediction": "at least one of the three headline cells (one account at the cap, ten rate-capped accounts, the 50-account reliable cell) is flagged at more than 0.10 of its sessions under the cadence threshold calibrated on sessions of at least ten requests",
   "outcome": "held: all three are flagged completely (1.00), as is every rate-capped, heterogeneous and search cell; the unevaded campaigns stay at zero",
   "finding": "F87"
+ },
+ {
+  "id": "P52",
+  "protocol": "v2.0 am. 10",
+  "prediction": "a second out-of-corpus benign sample (3,000 No Robots prompts): the diversity statistic C3 flags at least 0.9 of its blocks and the pooled design flags every window; C2 and B1 flag at most 0.10",
+  "outcome": "failed on the first clause: C3 flags 0.07 of blocks (it ranks them high, AUC 0.98, without crossing); the pooled design flags every window and C2low flags 0.87 of blocks; C2 and B1 at 0.00",
+  "finding": "F90"
  }
 ]
