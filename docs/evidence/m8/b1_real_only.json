@@ -1,0 +1,42 @@
+{
+ "n_all": 1061,
+ "n_real": 1000,
+ "threshold_all": 0.016260162601626018,
+ "exceed_all": 10,
+ "threshold_real": 0.0,
+ "exceed_real": 7,
+ "realised_fpr_real": 0.007,
+ "n_real_with_membership": 7,
+ "campaigns": {
+  "pilot_baseline:identity": {
+   "flagged_real_threshold": 1.0,
+   "flagged_all_threshold": 1.0,
+   "n": 1
+  },
+  "pilot_baseline:block100": {
+   "flagged_real_threshold": 1.0,
+   "flagged_all_threshold": 1.0,
+   "n": 20
+  },
+  "c_real_v2:20:identity": {
+   "flagged_real_threshold": 0.0,
+   "flagged_all_threshold": 0.0,
+   "n": 1
+  },
+  "c_real_v2_s1:identity": {
+   "flagged_real_threshold": 1.0,
+   "flagged_all_threshold": 0.0,
+   "n": 1
+  },
+  "c_instr_v2:identity": {
+   "flagged_real_threshold": 0.0,
+   "flagged_all_threshold": 0.0,
+   "n": 1
+  },
+  "control:uniform_firstturns:block100": {
+   "flagged_real_threshold": 0.0,
+   "flagged_all_threshold": 0.0,
+   "n": 30
+  }
+ }
+}
