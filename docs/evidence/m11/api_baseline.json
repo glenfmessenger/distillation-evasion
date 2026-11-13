@@ -1,0 +1,154 @@
+{
+ "window_s": 600,
+ "sets": {
+  "m-large": {
+   "n_clients": 162,
+   "days": 14.0,
+   "n_client_days": 1396,
+   "client_max_hourly": {
+    "10": 5514.2,
+    "50": 23279.0,
+    "90": 116229.60000000006,
+    "99": 934282.5899999987
+   },
+   "share_clients_over_chat_threshold": 1.0,
+   "client_day_threshold_1pct": 484992.0,
+   "client_day_n_exceed": 13,
+   "n_active_windows": 99839,
+   "cv_quantiles": {
+    "1": 0.22108338492807,
+    "5": 0.4209170373437173,
+    "25": 0.9413697573008106,
+    "50": 1.1677992398371004,
+    "75": 2.018722471611621,
+    "95": 9.157324652640506
+   },
+   "share_windows_below_chat_cadence": 0.029357265196967117,
+   "share_windows_below_lever_cadence": 0.0073217880788068795,
+   "share_clients_median_below_chat_cadence": 0.012345679012345678,
+   "n_clients_with_active_windows": 162
+  },
+  "m-mid": {
+   "n_clients": 109,
+   "days": 14.0,
+   "n_client_days": 1119,
+   "client_max_hourly": {
+    "10": 5799.200000000001,
+    "50": 110258.0,
+    "90": 459461.00000000006,
+    "99": 2606952.200000001
+   },
+   "share_clients_over_chat_threshold": 0.9908256880733946,
+   "client_day_threshold_1pct": 3786981.0,
+   "client_day_n_exceed": 11,
+   "n_active_windows": 106385,
+   "cv_quantiles": {
+    "1": 0.6074660168597364,
+    "5": 0.9020419451277536,
+    "25": 1.0229996067670502,
+    "50": 1.3156977266796683,
+    "75": 2.5118843328403138,
+    "95": 8.393856261342375
+   },
+   "share_windows_below_chat_cadence": 0.0028669455280349674,
+   "share_windows_below_lever_cadence": 0.0004981905343798468,
+   "share_clients_median_below_chat_cadence": 0.0,
+   "n_clients_with_active_windows": 108
+  },
+  "m-small": {
+   "n_clients": 43,
+   "days": 14.0,
+   "n_client_days": 394,
+   "client_max_hourly": {
+    "10": 43197.4,
+    "50": 100780.0,
+    "90": 506499.2000000004,
+    "99": 4323692.819999997
+   },
+   "share_clients_over_chat_threshold": 1.0,
+   "client_day_threshold_1pct": 3242498.0,
+   "client_day_n_exceed": 3,
+   "n_active_windows": 40095,
+   "cv_quantiles": {
+    "1": 0.5029019367073199,
+    "5": 0.9252926790959094,
+    "25": 1.0593249679225396,
+    "50": 1.2138598275049366,
+    "75": 2.4693203572211617,
+    "95": 9.097840633940436
+   },
+   "share_windows_below_chat_cadence": 0.005761316872427984,
+   "share_windows_below_lever_cadence": 0.004065344806085547,
+   "share_clients_median_below_chat_cadence": 0.0,
+   "n_clients_with_active_windows": 43
+  },
+  "deepseek-r1": {
+   "n_clients": 73,
+   "days": 1.0,
+   "n_client_days": 73,
+   "client_max_hourly": {
+    "10": 331.2,
+    "50": 1251.0,
+    "90": 17714.799999999996,
+    "99": 46827.64
+   },
+   "share_clients_over_chat_threshold": 1.0,
+   "client_day_threshold_1pct": 47449.0,
+   "client_day_n_exceed": 0,
+   "n_active_windows": 3111,
+   "cv_quantiles": {
+    "1": 0.5100356036883672,
+    "5": 0.7213963389548412,
+    "25": 0.9234371352200856,
+    "50": 1.0307656713131974,
+    "75": 1.661456484387779,
+    "95": 5.805972249835711
+   },
+   "share_windows_below_chat_cadence": 0.0022500803600128574,
+   "share_windows_below_lever_cadence": 0.0,
+   "share_clients_median_below_chat_cadence": 0.0136986301369863,
+   "n_clients_with_active_windows": 73
+  }
+ },
+ "language_pooled": {
+  "n_clients": 314,
+  "n_client_days": 2909,
+  "client_max_hourly": {
+   "10": 5989.8,
+   "50": 44306.0,
+   "90": 336156.8,
+   "99": 2571936.700000003
+  },
+  "share_clients_over_chat_threshold": 0.9968152866242038,
+  "client_day_threshold_1pct": 2760839.0,
+  "client_day_n_exceed": 29,
+  "below_resolution": false,
+  "hours_one_account_at_api_threshold": 0.0007244174687477249,
+  "campaign_in_one_hour_flagged": false,
+  "n_active_windows": 246319,
+  "cv_quantiles": {
+   "1": 0.27166381136529155,
+   "5": 0.6951673805054827,
+   "25": 1.0117698336457828,
+   "50": 1.2304638292795753,
+   "75": 2.2645434777052236,
+   "95": 8.86065805255162
+  },
+  "cadence_threshold_1pct_low": 0.27166033431627584,
+  "share_windows_below_chat_cadence": 0.014075243891051848,
+  "share_windows_below_lever_cadence": 0.0038446080083144214,
+  "share_clients_median_below_chat_cadence": 0.006389776357827476,
+  "share_clients_median_below_lever_cadence": 0.0,
+  "lever_cadence_flagged_at_api_threshold": true
+ },
+ "p55": {
+  "share_clients_over_26": 0.9968152866242038,
+  "client_day_threshold": 2760839.0,
+  "holds": true
+ },
+ "p56": {
+  "share_windows_below_0.305": 0.014075243891051848,
+  "cv_q1": 0.27166381136529155,
+  "holds": true
+ }
+}

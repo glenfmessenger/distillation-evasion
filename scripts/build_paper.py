@@ -598,6 +598,8 @@ def main() -> int:
     build_revision_tables()
     build_second_round_tables()
     build_adversary_tables()
+    build_followup_tables()
+    build_api_baseline()
     OUT_M.write_text("".join(f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in sorted(macros.items())))
     print(f"{len(macros)} macros, {len(list(OUT_T.glob('*.tex')))} tables")
     return 0
@@ -850,7 +852,11 @@ def build_review_tables() -> None:
     for fname, subset in (
         ("predictions2.tex", [q for q in preds if not _is_revision(q)]),
         ("predictions3.tex", [q for q in preds if _is_revision(q) and not _is_adversary(q)]),
-        ("predictions4.tex", [q for q in preds if _is_adversary(q)]),
+        ("predictions4.tex", [q for q in preds if _is_adversary(q) and "am. 8" in q["protocol"]]),
+        (
+            "predictions5.tex",
+            [q for q in preds if _is_adversary(q) and "am. 8" not in q["protocol"]],
+        ),
     ):
         _table(
             fname,
@@ -1641,6 +1647,135 @@ def build_adversary_tables() -> None:
     body = (OUT_T / "volume_sensitivity.tex").read_text()
     body = body.replace("\\bottomrule", "\n".join(orows) + "\n\\bottomrule", 1)
     (OUT_T / "volume_sensitivity.tex").write_text(body)
+
+
+def build_followup_tables() -> None:
+    """Amendment B11: recalibrated cadence characterised; benign reference for the any-flag measure."""
+    fu = load(EV / "m10" / "followup.json")
+    cd = fu["cadence"]
+    macro("CadTenNFlagged", intc(cd["n_flagged"]))
+    macro("CadTenNFlaggedAccounts", intc(cd["n_flagged_accounts"]))
+    macro("CadTenAlertsPerDay", num(cd["alerts_per_day"], 1))
+    macro("CadTenHeldout", pct(cd["heldout_fpr_mean"], 2) + "\\%")
+    macro("CadTenHeldoutMin", pct(cd["heldout_fpr_min"], 2) + "\\%")
+    macro("CadTenHeldoutMax", pct(cd["heldout_fpr_max"], 2) + "\\%")
+    macro("CadTenFlaggedMedianSize", intc(cd["flagged_session_size"]["50"]))
+    macro("CadTenAllMedianSize", intc(cd["all_session_size"]["50"]))
+    macro("CadTenFlaggedSingleTurn", num(cd["flagged_single_turn_share"]["50"]))
+    macro("CadTenAllSingleTurn", num(cd["all_single_turn_share"]["50"]))
+    br = fu["benign_reference"]
+    macro("BenignAnyTen", num(br["groups"]["10"]["p_any"]))
+    macro("BenignAnyFifty", num(br["groups"]["50"]["p_any"]))
+    macro("BenignAnyHundred", num(br["groups"]["100"]["p_any"]))
+    p53 = fu["p53"]
+    macro("NSearchCellsCadence", intc(p53["n_cells"]))
+    macro("NSearchCellsCadenceCaught", intc(p53["n_flagged_ge_0.9"]))
+    macro("SearchMinShareSessionsScoreable", num(p53["min_share_sessions_scoreable"]))
+    macro("SearchMinShareRequestsScoreable", num(p53["min_share_requests_in_scoreable"]))
+    macro("NSearchUnderHalfScoreable", intc(p53["n_under_half_sessions_scoreable"]))
+
+    def _cell(**kw):
+        for c in fu["cells"]:
+            if all(c.get(k) == v for k, v in kw.items()):
+                return c
+        raise KeyError(kw)
+
+    c50 = _cell(source="search", n=50, count_cap=26, session_mult=10.0, stagger_h=6)
+    macro("CadFiftyShareSessions", num(c50["share_sessions_scoreable"]))
+    macro("CadFiftyShareRequests", num(c50["share_requests_in_scoreable"]))
+    h100 = _cell(source="table7", n=100, stagger_h=6)
+    macro("CadHetShareSessions", num(h100["share_sessions_scoreable"]))
+    macro("CadHetShareRequests", num(h100["share_requests_in_scoreable"]))
+    macro(
+        "NSearchRequestsUnderHalf",
+        intc(
+            sum(
+                1
+                for c in fu["cells"]
+                if c["source"] == "search" and c["share_requests_in_scoreable"] < 0.5
+            )
+        ),
+    )
+    rows = []
+    f3 = lambda v: "n/a" if v is None else num(v)  # noqa: E731
+    for c in fu["cells"]:
+        if c["source"] == "price":
+            lab, par = "rate cap", f"cap {c['cap']}"
+        elif c["source"] == "table7":
+            lab, par = "heterogeneous", f"stagger {c['stagger_h']} h"
+        else:
+            lab, par = "search", f"stagger {c['stagger_h']} h"
+        rows.append(
+            f"{lab} & {intc(c['n'])} & {par} & {f3(c['flagged'])} & {f3(c['share_sessions_scoreable'])} & {f3(c['share_requests_in_scoreable'])} \\\\"
+        )
+    _table(
+        "cadence_all_cells.tex",
+        "lrlccc",
+        r"Cell & Accounts & Setting & Flagged & Sessions scoreable & Requests in scoreable sessions \\",
+        rows,
+    )
+    rc = load(EV / "m7" / "recalibrate.json")
+    trows = []
+    for det in ("D4", "D5", "D6", "D7", "D8", "D8b"):
+        r0, r1 = rc["registered"][det], rc["no_constructed"][det]
+        mx = max(v["flagged"] for v in r1["campaigns"].values())
+        trows.append(
+            f"{det} & {r0['threshold']:.3g} & {intc(r0['n_benign'])} & {r1['threshold']:.3g} & {intc(r1['n_benign'])} & {num(mx)} \\\\"
+        )
+    _table(
+        "no_constructed.tex",
+        "lrrrrc",
+        r"Detector & Registered thr. & Units & Without constructed thr. & Units & Largest campaign flagged \\",
+        trows,
+    )
+
+
+def build_api_baseline() -> None:
+    """Amendment B12: second benign baseline from public production API traffic."""
+    ab = load(EV / "m11" / "api_baseline.json")
+    pl = ab["language_pooled"]
+    macro("ApiNClients", intc(pl["n_clients"]))
+    macro("ApiNClientDays", intc(pl["n_client_days"]))
+    macro("ApiNWindows", intc(pl["n_active_windows"]))
+    macro("ApiBusiestHourMedian", intc(round(pl["client_max_hourly"]["50"], -2)))
+    macro("ApiBusiestHourPTen", intc(round(pl["client_max_hourly"]["10"], -1)))
+    macro("ApiShareOverChatThr", pct(pl["share_clients_over_chat_threshold"], 1) + "\\%")
+    macro("ApiRateThrMillions", num(pl["client_day_threshold_1pct"] / 1e6, 2))
+    macro("ApiRateThrExceed", intc(pl["client_day_n_exceed"]))
+    macro("ApiCvMedian", num(pl["cv_quantiles"]["50"]))
+    macro("ApiCvPFive", num(pl["cv_quantiles"]["5"]))
+    macro("ApiCadenceThr", num(pl["cadence_threshold_1pct_low"], 3))
+    macro("ApiShareBelowChatCadence", pct(pl["share_windows_below_chat_cadence"], 2) + "\\%")
+    macro("ApiShareBelowLeverCadence", pct(pl["share_windows_below_lever_cadence"], 2) + "\\%")
+    macro(
+        "ApiClientsMedianBelowChat", pct(pl["share_clients_median_below_chat_cadence"], 2) + "\\%"
+    )
+    rows = []
+    names = {
+        "m-large": "language, large",
+        "m-mid": "language, mid",
+        "m-small": "language, small",
+        "deepseek-r1": "reasoning",
+    }
+    for name, s in ab["sets"].items():
+        c, v = s["client_max_hourly"], s["cv_quantiles"]
+        rows.append(
+            f"{names[name]} & {intc(s['n_clients'])} & {intc(s['n_client_days'])} & {intc(round(c['50'], -2))} & {intc(round(c['90'], -2))} & "
+            f"{pct(s['share_clients_over_chat_threshold'])}\\% & {num(v['1'])} & {num(v['5'])} & {num(v['50'])} & "
+            f"{pct(s['share_windows_below_chat_cadence'], 1)}\\% & {pct(s['share_windows_below_lever_cadence'], 1)}\\% \\\\"
+        )
+    c, v = pl["client_max_hourly"], pl["cv_quantiles"]
+    rows.append(
+        f"language, pooled & {intc(pl['n_clients'])} & {intc(pl['n_client_days'])} & {intc(round(c['50'], -2))} & {intc(round(c['90'], -2))} & "
+        f"{pct(pl['share_clients_over_chat_threshold'])}\\% & {num(v['1'])} & {num(v['5'])} & {num(v['50'])} & "
+        f"{pct(pl['share_windows_below_chat_cadence'], 1)}\\% & {pct(pl['share_windows_below_lever_cadence'], 1)}\\% \\\\"
+    )
+    _table(
+        "api_baseline.tex",
+        "lrrrrrccccc",
+        r"Clients & $n$ & Client-days & \multicolumn{2}{c}{Busiest hour: median, 90th} & Over chat thr. & \multicolumn{3}{c}{Cadence CV: 1st, 5th, median} & Below 0.305 & Below 0.20 \\",
+        rows,
+    )
 
 
 _WORDS = {

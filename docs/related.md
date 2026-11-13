@@ -207,3 +207,4 @@ Sixteen references added after the external reviews; each was verified on 2026-1
 - 2026-11-12: oasst2023 (Köpf et al., NeurIPS 2023 Datasets and Benchmarks; arXiv 2304.07327) verified by arXiv lookup; used as the out-of-corpus benign prompt sample of amendment B8.
 - 2026-11-13: pal2021stateful (arXiv 2107.05166), atli2019extraction (arXiv 1910.05429), chu2012automation (IEEE TDSC 9(6)), cao2012sybilrank (NSDI 2012) verified by web lookup; added for the fifth review.
 - 2026-11-13: norobots2023 (HuggingFaceH4/no_robots dataset card, CC BY-NC 4.0) read directly; used as the second out-of-corpus benign sample (B10).
+- 2026-11-13: xiang2026servegen (arXiv 2505.09999, NSDI'26) verified on arXiv; its released per-client traces are the second benign baseline (B12).

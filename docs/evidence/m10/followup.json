@@ -1,0 +1,3755 @@
+{
+ "cadence": {
+  "threshold": 0.3052578284537604,
+  "n_sessions": 18867,
+  "n_flagged": 188,
+  "n_flagged_accounts": 172,
+  "alerts_per_day": 0.48578811369509045,
+  "heldout_fpr_mean": 0.010249040329734697,
+  "heldout_fpr_min": 0.005546492659053833,
+  "heldout_fpr_max": 0.013810962451445835,
+  "median_split_k_n": [
+   98,
+   9538
+  ],
+  "median_split_ci": [
+   0.00834914108724474,
+   0.012507465219845058
+  ],
+  "flagged_session_size": {
+   "10": 10.0,
+   "50": 11.0,
+   "90": 19.0
+  },
+  "all_session_size": {
+   "10": 10.0,
+   "50": 15.0,
+   "90": 36.0
+  },
+  "flagged_single_turn_share": {
+   "10": 0.06139705882352941,
+   "50": 0.1,
+   "90": 0.8371794871794873
+  },
+  "all_single_turn_share": {
+   "10": 0.06666666666666667,
+   "50": 0.22580645161290322,
+   "90": 1.0
+  },
+  "flagged_cv": {
+   "10": 0.19570401950309874,
+   "50": 0.2632411747378428,
+   "90": 0.29758853319474504
+  }
+ },
+ "benign_reference": {
+  "per_account_any_six": 0.033368505465749376,
+  "groups": {
+   "10": {
+    "p_any": 0.282,
+    "expected_independent": 0.2877877962654908
+   },
+   "50": {
+    "p_any": 0.819,
+    "expected_independent": 0.8167487038488421
+   },
+   "100": {
+    "p_any": 0.964,
+    "expected_independent": 0.9664189624589206
+   }
+  }
+ },
+ "cells": [
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 297,
+     "n_scoreable": 54,
+     "share_sessions_scoreable": 0.18181818181818182,
+     "share_requests_in_scoreable": 0.468,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 268,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.19402985074626866,
+     "share_requests_in_scoreable": 0.5065,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 258,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.20155038759689922,
+     "share_requests_in_scoreable": 0.5675,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "share_requests_in_scoreable": 0.5065
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 297,
+     "n_scoreable": 54,
+     "share_sessions_scoreable": 0.18181818181818182,
+     "share_requests_in_scoreable": 0.468,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 268,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.19402985074626866,
+     "share_requests_in_scoreable": 0.5065,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 258,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.20155038759689922,
+     "share_requests_in_scoreable": 0.5675,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "share_requests_in_scoreable": 0.5065
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 297,
+     "n_scoreable": 54,
+     "share_sessions_scoreable": 0.18181818181818182,
+     "share_requests_in_scoreable": 0.468,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 268,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.19402985074626866,
+     "share_requests_in_scoreable": 0.5065,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 258,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.20155038759689922,
+     "share_requests_in_scoreable": 0.5675,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "share_requests_in_scoreable": 0.5065
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 297,
+     "n_scoreable": 54,
+     "share_sessions_scoreable": 0.18181818181818182,
+     "share_requests_in_scoreable": 0.468,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 268,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.19402985074626866,
+     "share_requests_in_scoreable": 0.5065,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 258,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.20155038759689922,
+     "share_requests_in_scoreable": 0.5675,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "share_requests_in_scoreable": 0.5065
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 140,
+     "n_scoreable": 105,
+     "share_sessions_scoreable": 0.75,
+     "share_requests_in_scoreable": 0.897,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 104,
+     "n_scoreable": 75,
+     "share_sessions_scoreable": 0.7211538461538461,
+     "share_requests_in_scoreable": 0.8945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 116,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7586206896551724,
+     "share_requests_in_scoreable": 0.928,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "share_requests_in_scoreable": 0.928
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 140,
+     "n_scoreable": 105,
+     "share_sessions_scoreable": 0.75,
+     "share_requests_in_scoreable": 0.897,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 104,
+     "n_scoreable": 75,
+     "share_sessions_scoreable": 0.7211538461538461,
+     "share_requests_in_scoreable": 0.8945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 116,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7586206896551724,
+     "share_requests_in_scoreable": 0.928,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "share_requests_in_scoreable": 0.928
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 140,
+     "n_scoreable": 105,
+     "share_sessions_scoreable": 0.75,
+     "share_requests_in_scoreable": 0.897,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 104,
+     "n_scoreable": 75,
+     "share_sessions_scoreable": 0.7211538461538461,
+     "share_requests_in_scoreable": 0.8945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 116,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7586206896551724,
+     "share_requests_in_scoreable": 0.928,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "share_requests_in_scoreable": 0.928
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 140,
+     "n_scoreable": 105,
+     "share_sessions_scoreable": 0.75,
+     "share_requests_in_scoreable": 0.897,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 104,
+     "n_scoreable": 75,
+     "share_sessions_scoreable": 0.7211538461538461,
+     "share_requests_in_scoreable": 0.8945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 116,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7586206896551724,
+     "share_requests_in_scoreable": 0.928,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "share_requests_in_scoreable": 0.928
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 269,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.1970260223048327,
+     "share_requests_in_scoreable": 0.5375,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 285,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.18596491228070175,
+     "share_requests_in_scoreable": 0.494,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 269,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.1970260223048327,
+     "share_requests_in_scoreable": 0.5375,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 285,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.18596491228070175,
+     "share_requests_in_scoreable": 0.494,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 269,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.1970260223048327,
+     "share_requests_in_scoreable": 0.5375,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 285,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.18596491228070175,
+     "share_requests_in_scoreable": 0.494,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 269,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.1970260223048327,
+     "share_requests_in_scoreable": 0.5375,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 285,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.18596491228070175,
+     "share_requests_in_scoreable": 0.494,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 123,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.7317073170731707,
+     "share_requests_in_scoreable": 0.926,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 114,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7719298245614035,
+     "share_requests_in_scoreable": 0.925,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "share_requests_in_scoreable": 0.926
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 123,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.7317073170731707,
+     "share_requests_in_scoreable": 0.926,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 114,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7719298245614035,
+     "share_requests_in_scoreable": 0.925,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "share_requests_in_scoreable": 0.926
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 123,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.7317073170731707,
+     "share_requests_in_scoreable": 0.926,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 114,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7719298245614035,
+     "share_requests_in_scoreable": 0.925,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "share_requests_in_scoreable": 0.926
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 123,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.7317073170731707,
+     "share_requests_in_scoreable": 0.926,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 114,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.7719298245614035,
+     "share_requests_in_scoreable": 0.925,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "share_requests_in_scoreable": 0.926
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 274,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.20802919708029197,
+     "share_requests_in_scoreable": 0.534,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 280,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.17142857142857143,
+     "share_requests_in_scoreable": 0.492,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.17993079584775087,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 274,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.20802919708029197,
+     "share_requests_in_scoreable": 0.534,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 280,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.17142857142857143,
+     "share_requests_in_scoreable": 0.492,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.17993079584775087,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 274,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.20802919708029197,
+     "share_requests_in_scoreable": 0.534,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 280,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.17142857142857143,
+     "share_requests_in_scoreable": 0.492,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.17993079584775087,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 289,
+     "n_scoreable": 52,
+     "share_sessions_scoreable": 0.17993079584775087,
+     "share_requests_in_scoreable": 0.5035,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 262,
+     "n_scoreable": 53,
+     "share_sessions_scoreable": 0.20229007633587787,
+     "share_requests_in_scoreable": 0.5645,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 274,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.20802919708029197,
+     "share_requests_in_scoreable": 0.534,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 280,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.17142857142857143,
+     "share_requests_in_scoreable": 0.492,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 319,
+     "n_scoreable": 51,
+     "share_sessions_scoreable": 0.15987460815047022,
+     "share_requests_in_scoreable": 0.418,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.17993079584775087,
+   "share_requests_in_scoreable": 0.5035
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 101,
+     "n_scoreable": 66,
+     "share_sessions_scoreable": 0.6534653465346535,
+     "share_requests_in_scoreable": 0.9085,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 105,
+     "n_scoreable": 81,
+     "share_sessions_scoreable": 0.7714285714285715,
+     "share_requests_in_scoreable": 0.9245,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "share_requests_in_scoreable": 0.9245
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 101,
+     "n_scoreable": 66,
+     "share_sessions_scoreable": 0.6534653465346535,
+     "share_requests_in_scoreable": 0.9085,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 105,
+     "n_scoreable": 81,
+     "share_sessions_scoreable": 0.7714285714285715,
+     "share_requests_in_scoreable": 0.9245,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "share_requests_in_scoreable": 0.9245
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 101,
+     "n_scoreable": 66,
+     "share_sessions_scoreable": 0.6534653465346535,
+     "share_requests_in_scoreable": 0.9085,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 105,
+     "n_scoreable": 81,
+     "share_sessions_scoreable": 0.7714285714285715,
+     "share_requests_in_scoreable": 0.9245,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "share_requests_in_scoreable": 0.9245
+  },
+  {
+   "source": "search",
+   "n": 50,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 120,
+     "n_scoreable": 89,
+     "share_sessions_scoreable": 0.7416666666666667,
+     "share_requests_in_scoreable": 0.911,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 129,
+     "n_scoreable": 109,
+     "share_sessions_scoreable": 0.8449612403100775,
+     "share_requests_in_scoreable": 0.9565,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 101,
+     "n_scoreable": 66,
+     "share_sessions_scoreable": 0.6534653465346535,
+     "share_requests_in_scoreable": 0.9085,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 105,
+     "n_scoreable": 81,
+     "share_sessions_scoreable": 0.7714285714285715,
+     "share_requests_in_scoreable": 0.9245,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 124,
+     "n_scoreable": 115,
+     "share_sessions_scoreable": 0.9274193548387096,
+     "share_requests_in_scoreable": 0.9945,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "share_requests_in_scoreable": 0.9245
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 347,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13256484149855907,
+     "share_requests_in_scoreable": 0.404,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 331,
+     "n_scoreable": 45,
+     "share_sessions_scoreable": 0.13595166163141995,
+     "share_requests_in_scoreable": 0.4165,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 320,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.1375,
+     "share_requests_in_scoreable": 0.43,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 328,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.14634146341463414,
+     "share_requests_in_scoreable": 0.3995,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.1375,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 347,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13256484149855907,
+     "share_requests_in_scoreable": 0.404,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 331,
+     "n_scoreable": 45,
+     "share_sessions_scoreable": 0.13595166163141995,
+     "share_requests_in_scoreable": 0.4165,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 320,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.1375,
+     "share_requests_in_scoreable": 0.43,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 328,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.14634146341463414,
+     "share_requests_in_scoreable": 0.3995,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.1375,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 347,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13256484149855907,
+     "share_requests_in_scoreable": 0.404,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 331,
+     "n_scoreable": 45,
+     "share_sessions_scoreable": 0.13595166163141995,
+     "share_requests_in_scoreable": 0.4165,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 320,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.1375,
+     "share_requests_in_scoreable": 0.43,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 328,
+     "n_scoreable": 48,
+     "share_sessions_scoreable": 0.14634146341463414,
+     "share_requests_in_scoreable": 0.3995,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.1375,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 160,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.5625,
+     "share_requests_in_scoreable": 0.8185,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6624203821656051,
+     "share_requests_in_scoreable": 0.866,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 161,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.546583850931677,
+     "share_requests_in_scoreable": 0.808,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 163,
+     "n_scoreable": 110,
+     "share_sessions_scoreable": 0.6748466257668712,
+     "share_requests_in_scoreable": 0.8695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 160,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.5625,
+     "share_requests_in_scoreable": 0.8185,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6624203821656051,
+     "share_requests_in_scoreable": 0.866,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 161,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.546583850931677,
+     "share_requests_in_scoreable": 0.808,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 163,
+     "n_scoreable": 110,
+     "share_sessions_scoreable": 0.6748466257668712,
+     "share_requests_in_scoreable": 0.8695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 160,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.5625,
+     "share_requests_in_scoreable": 0.8185,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6624203821656051,
+     "share_requests_in_scoreable": 0.866,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 161,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.546583850931677,
+     "share_requests_in_scoreable": 0.808,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 163,
+     "n_scoreable": 110,
+     "share_sessions_scoreable": 0.6748466257668712,
+     "share_requests_in_scoreable": 0.8695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 160,
+     "n_scoreable": 90,
+     "share_sessions_scoreable": 0.5625,
+     "share_requests_in_scoreable": 0.8185,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6624203821656051,
+     "share_requests_in_scoreable": 0.866,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 161,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.546583850931677,
+     "share_requests_in_scoreable": 0.808,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 163,
+     "n_scoreable": 110,
+     "share_sessions_scoreable": 0.6748466257668712,
+     "share_requests_in_scoreable": 0.8695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.5032258064516129,
+     "share_requests_in_scoreable": 0.8135,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.535031847133758,
+     "share_requests_in_scoreable": 0.806,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8135
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.5032258064516129,
+     "share_requests_in_scoreable": 0.8135,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.535031847133758,
+     "share_requests_in_scoreable": 0.806,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8135
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.5032258064516129,
+     "share_requests_in_scoreable": 0.8135,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.535031847133758,
+     "share_requests_in_scoreable": 0.806,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8135
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.5032258064516129,
+     "share_requests_in_scoreable": 0.8135,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 157,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.535031847133758,
+     "share_requests_in_scoreable": 0.806,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8135
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 311,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.14790996784565916,
+     "share_requests_in_scoreable": 0.4795,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 322,
+     "n_scoreable": 41,
+     "share_sessions_scoreable": 0.12732919254658384,
+     "share_requests_in_scoreable": 0.4055,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 329,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.14893617021276595,
+     "share_requests_in_scoreable": 0.4215,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 333,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13813813813813813,
+     "share_requests_in_scoreable": 0.39,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 311,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.14790996784565916,
+     "share_requests_in_scoreable": 0.4795,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 322,
+     "n_scoreable": 41,
+     "share_sessions_scoreable": 0.12732919254658384,
+     "share_requests_in_scoreable": 0.4055,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 329,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.14893617021276595,
+     "share_requests_in_scoreable": 0.4215,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 333,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13813813813813813,
+     "share_requests_in_scoreable": 0.39,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 311,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.14790996784565916,
+     "share_requests_in_scoreable": 0.4795,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 322,
+     "n_scoreable": 41,
+     "share_sessions_scoreable": 0.12732919254658384,
+     "share_requests_in_scoreable": 0.4055,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 329,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.14893617021276595,
+     "share_requests_in_scoreable": 0.4215,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 333,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13813813813813813,
+     "share_requests_in_scoreable": 0.39,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 311,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.14790996784565916,
+     "share_requests_in_scoreable": 0.4795,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 322,
+     "n_scoreable": 41,
+     "share_sessions_scoreable": 0.12732919254658384,
+     "share_requests_in_scoreable": 0.4055,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 329,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.14893617021276595,
+     "share_requests_in_scoreable": 0.4215,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 333,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.13813813813813813,
+     "share_requests_in_scoreable": 0.39,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 316,
+     "n_scoreable": 44,
+     "share_sessions_scoreable": 0.13924050632911392,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "share_requests_in_scoreable": 0.406
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 152,
+     "n_scoreable": 73,
+     "share_sessions_scoreable": 0.48026315789473684,
+     "share_requests_in_scoreable": 0.837,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.5548387096774193,
+     "share_requests_in_scoreable": 0.8125,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 152,
+     "n_scoreable": 73,
+     "share_sessions_scoreable": 0.48026315789473684,
+     "share_requests_in_scoreable": 0.837,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.5548387096774193,
+     "share_requests_in_scoreable": 0.8125,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 152,
+     "n_scoreable": 73,
+     "share_sessions_scoreable": 0.48026315789473684,
+     "share_requests_in_scoreable": 0.837,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.5548387096774193,
+     "share_requests_in_scoreable": 0.8125,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 100,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 164,
+     "n_scoreable": 99,
+     "share_sessions_scoreable": 0.6036585365853658,
+     "share_requests_in_scoreable": 0.8595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 160,
+     "n_scoreable": 91,
+     "share_sessions_scoreable": 0.56875,
+     "share_requests_in_scoreable": 0.802,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 152,
+     "n_scoreable": 73,
+     "share_sessions_scoreable": 0.48026315789473684,
+     "share_requests_in_scoreable": 0.837,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 155,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.5548387096774193,
+     "share_requests_in_scoreable": 0.8125,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 167,
+     "n_scoreable": 104,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "share_requests_in_scoreable": 0.8365,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.56875,
+   "share_requests_in_scoreable": 0.8365
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 239,
+     "n_scoreable": 80,
+     "share_sessions_scoreable": 0.33472803347280333,
+     "share_requests_in_scoreable": 0.6595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 247,
+     "n_scoreable": 80,
+     "share_sessions_scoreable": 0.32388663967611336,
+     "share_requests_in_scoreable": 0.653,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 245,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.3510204081632653,
+     "share_requests_in_scoreable": 0.6945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 254,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.3464566929133858,
+     "share_requests_in_scoreable": 0.6655,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 77,
+     "share_sessions_scoreable": 0.3168724279835391,
+     "share_requests_in_scoreable": 0.612,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.33472803347280333,
+   "share_requests_in_scoreable": 0.6595
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 239,
+     "n_scoreable": 80,
+     "share_sessions_scoreable": 0.33472803347280333,
+     "share_requests_in_scoreable": 0.6595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 247,
+     "n_scoreable": 80,
+     "share_sessions_scoreable": 0.32388663967611336,
+     "share_requests_in_scoreable": 0.653,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 245,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.3510204081632653,
+     "share_requests_in_scoreable": 0.6945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 254,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.3464566929133858,
+     "share_requests_in_scoreable": 0.6655,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 77,
+     "share_sessions_scoreable": 0.3168724279835391,
+     "share_requests_in_scoreable": 0.612,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.33472803347280333,
+   "share_requests_in_scoreable": 0.6595
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 239,
+     "n_scoreable": 80,
+     "share_sessions_scoreable": 0.33472803347280333,
+     "share_requests_in_scoreable": 0.6595,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 247,
+     "n_scoreable": 80,
+     "share_sessions_scoreable": 0.32388663967611336,
+     "share_requests_in_scoreable": 0.653,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 245,
+     "n_scoreable": 86,
+     "share_sessions_scoreable": 0.3510204081632653,
+     "share_requests_in_scoreable": 0.6945,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 254,
+     "n_scoreable": 88,
+     "share_sessions_scoreable": 0.3464566929133858,
+     "share_requests_in_scoreable": 0.6655,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 77,
+     "share_sessions_scoreable": 0.3168724279835391,
+     "share_requests_in_scoreable": 0.612,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.33472803347280333,
+   "share_requests_in_scoreable": 0.6595
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 254,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.30708661417322836,
+     "share_requests_in_scoreable": 0.6455,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 247,
+     "n_scoreable": 71,
+     "share_sessions_scoreable": 0.2874493927125506,
+     "share_requests_in_scoreable": 0.6695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 92,
+     "share_sessions_scoreable": 0.36363636363636365,
+     "share_requests_in_scoreable": 0.736,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 87,
+     "share_sessions_scoreable": 0.3438735177865613,
+     "share_requests_in_scoreable": 0.677,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 83,
+     "share_sessions_scoreable": 0.34156378600823045,
+     "share_requests_in_scoreable": 0.6405,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.34156378600823045,
+   "share_requests_in_scoreable": 0.6695
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 254,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.30708661417322836,
+     "share_requests_in_scoreable": 0.6455,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 247,
+     "n_scoreable": 71,
+     "share_sessions_scoreable": 0.2874493927125506,
+     "share_requests_in_scoreable": 0.6695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 92,
+     "share_sessions_scoreable": 0.36363636363636365,
+     "share_requests_in_scoreable": 0.736,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 87,
+     "share_sessions_scoreable": 0.3438735177865613,
+     "share_requests_in_scoreable": 0.677,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 83,
+     "share_sessions_scoreable": 0.34156378600823045,
+     "share_requests_in_scoreable": 0.6405,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.34156378600823045,
+   "share_requests_in_scoreable": 0.6695
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 254,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.30708661417322836,
+     "share_requests_in_scoreable": 0.6455,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 247,
+     "n_scoreable": 71,
+     "share_sessions_scoreable": 0.2874493927125506,
+     "share_requests_in_scoreable": 0.6695,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 92,
+     "share_sessions_scoreable": 0.36363636363636365,
+     "share_requests_in_scoreable": 0.736,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 87,
+     "share_sessions_scoreable": 0.3438735177865613,
+     "share_requests_in_scoreable": 0.677,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 83,
+     "share_sessions_scoreable": 0.34156378600823045,
+     "share_requests_in_scoreable": 0.6405,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.34156378600823045,
+   "share_requests_in_scoreable": 0.6695
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 254,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.30708661417322836,
+     "share_requests_in_scoreable": 0.6455,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 256,
+     "n_scoreable": 82,
+     "share_sessions_scoreable": 0.3203125,
+     "share_requests_in_scoreable": 0.7105,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 250,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.312,
+     "share_requests_in_scoreable": 0.7165,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.345679012345679,
+     "share_requests_in_scoreable": 0.7025,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 79,
+     "share_sessions_scoreable": 0.31225296442687744,
+     "share_requests_in_scoreable": 0.636,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.31225296442687744,
+   "share_requests_in_scoreable": 0.7025
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 254,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.30708661417322836,
+     "share_requests_in_scoreable": 0.6455,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 256,
+     "n_scoreable": 82,
+     "share_sessions_scoreable": 0.3203125,
+     "share_requests_in_scoreable": 0.7105,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 250,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.312,
+     "share_requests_in_scoreable": 0.7165,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.345679012345679,
+     "share_requests_in_scoreable": 0.7025,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 79,
+     "share_sessions_scoreable": 0.31225296442687744,
+     "share_requests_in_scoreable": 0.636,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.31225296442687744,
+   "share_requests_in_scoreable": 0.7025
+  },
+  {
+   "source": "search",
+   "n": 200,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 254,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.30708661417322836,
+     "share_requests_in_scoreable": 0.6455,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 256,
+     "n_scoreable": 82,
+     "share_sessions_scoreable": 0.3203125,
+     "share_requests_in_scoreable": 0.7105,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 250,
+     "n_scoreable": 78,
+     "share_sessions_scoreable": 0.312,
+     "share_requests_in_scoreable": 0.7165,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 243,
+     "n_scoreable": 84,
+     "share_sessions_scoreable": 0.345679012345679,
+     "share_requests_in_scoreable": 0.7025,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 253,
+     "n_scoreable": 79,
+     "share_sessions_scoreable": 0.31225296442687744,
+     "share_requests_in_scoreable": 0.636,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.31225296442687744,
+   "share_requests_in_scoreable": 0.7025
+  },
+  {
+   "source": "search",
+   "n": 500,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 528,
+     "n_scoreable": 58,
+     "share_sessions_scoreable": 0.10984848484848485,
+     "share_requests_in_scoreable": 0.368,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 524,
+     "n_scoreable": 54,
+     "share_sessions_scoreable": 0.10305343511450382,
+     "share_requests_in_scoreable": 0.3575,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 522,
+     "n_scoreable": 66,
+     "share_sessions_scoreable": 0.12643678160919541,
+     "share_requests_in_scoreable": 0.428,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 524,
+     "n_scoreable": 64,
+     "share_sessions_scoreable": 0.12213740458015267,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 524,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.10877862595419847,
+     "share_requests_in_scoreable": 0.361,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.10984848484848485,
+   "share_requests_in_scoreable": 0.368
+  },
+  {
+   "source": "search",
+   "n": 500,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 528,
+     "n_scoreable": 58,
+     "share_sessions_scoreable": 0.10984848484848485,
+     "share_requests_in_scoreable": 0.368,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 524,
+     "n_scoreable": 54,
+     "share_sessions_scoreable": 0.10305343511450382,
+     "share_requests_in_scoreable": 0.3575,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 522,
+     "n_scoreable": 66,
+     "share_sessions_scoreable": 0.12643678160919541,
+     "share_requests_in_scoreable": 0.428,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 524,
+     "n_scoreable": 64,
+     "share_sessions_scoreable": 0.12213740458015267,
+     "share_requests_in_scoreable": 0.406,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 524,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.10877862595419847,
+     "share_requests_in_scoreable": 0.361,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.10984848484848485,
+   "share_requests_in_scoreable": 0.368
+  },
+  {
+   "source": "search",
+   "n": 500,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 523,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.1089866156787763,
+     "share_requests_in_scoreable": 0.4355,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 528,
+     "n_scoreable": 55,
+     "share_sessions_scoreable": 0.10416666666666667,
+     "share_requests_in_scoreable": 0.4085,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 526,
+     "n_scoreable": 56,
+     "share_sessions_scoreable": 0.10646387832699619,
+     "share_requests_in_scoreable": 0.4825,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 538,
+     "n_scoreable": 65,
+     "share_sessions_scoreable": 0.120817843866171,
+     "share_requests_in_scoreable": 0.45,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 531,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.09227871939736347,
+     "share_requests_in_scoreable": 0.383,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.10646387832699619,
+   "share_requests_in_scoreable": 0.4355
+  },
+  {
+   "source": "search",
+   "n": 500,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 523,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.1089866156787763,
+     "share_requests_in_scoreable": 0.4355,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 528,
+     "n_scoreable": 55,
+     "share_sessions_scoreable": 0.10416666666666667,
+     "share_requests_in_scoreable": 0.4085,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 526,
+     "n_scoreable": 56,
+     "share_sessions_scoreable": 0.10646387832699619,
+     "share_requests_in_scoreable": 0.4825,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 538,
+     "n_scoreable": 65,
+     "share_sessions_scoreable": 0.120817843866171,
+     "share_requests_in_scoreable": 0.45,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 531,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.09227871939736347,
+     "share_requests_in_scoreable": 0.383,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.10646387832699619,
+   "share_requests_in_scoreable": 0.4355
+  },
+  {
+   "source": "search",
+   "n": 500,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 523,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.1089866156787763,
+     "share_requests_in_scoreable": 0.4355,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 525,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.08761904761904762,
+     "share_requests_in_scoreable": 0.411,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 532,
+     "n_scoreable": 60,
+     "share_sessions_scoreable": 0.11278195488721804,
+     "share_requests_in_scoreable": 0.4965,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 532,
+     "n_scoreable": 64,
+     "share_sessions_scoreable": 0.12030075187969924,
+     "share_requests_in_scoreable": 0.5015,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 534,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.09176029962546817,
+     "share_requests_in_scoreable": 0.397,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.1089866156787763,
+   "share_requests_in_scoreable": 0.4355
+  },
+  {
+   "source": "search",
+   "n": 500,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 523,
+     "n_scoreable": 57,
+     "share_sessions_scoreable": 0.1089866156787763,
+     "share_requests_in_scoreable": 0.4355,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 525,
+     "n_scoreable": 46,
+     "share_sessions_scoreable": 0.08761904761904762,
+     "share_requests_in_scoreable": 0.411,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 532,
+     "n_scoreable": 60,
+     "share_sessions_scoreable": 0.11278195488721804,
+     "share_requests_in_scoreable": 0.4965,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 532,
+     "n_scoreable": 64,
+     "share_sessions_scoreable": 0.12030075187969924,
+     "share_requests_in_scoreable": 0.5015,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 534,
+     "n_scoreable": 49,
+     "share_sessions_scoreable": 0.09176029962546817,
+     "share_requests_in_scoreable": 0.397,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.1089866156787763,
+   "share_requests_in_scoreable": 0.4355
+  },
+  {
+   "source": "search",
+   "n": 1000,
+   "count_cap": 26,
+   "session_mult": 1.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 1422,
+     "n_scoreable": 2,
+     "share_sessions_scoreable": 0.0014064697609001407,
+     "share_requests_in_scoreable": 0.011,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1407,
+     "n_scoreable": 1,
+     "share_sessions_scoreable": 0.0007107320540156361,
+     "share_requests_in_scoreable": 0.005,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1383,
+     "n_scoreable": 1,
+     "share_sessions_scoreable": 0.0007230657989877079,
+     "share_requests_in_scoreable": 0.0055,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1428,
+     "n_scoreable": 0,
+     "share_sessions_scoreable": 0.0,
+     "share_requests_in_scoreable": 0.0,
+     "flagged": null
+    },
+    {
+     "n_sessions": 1396,
+     "n_scoreable": 1,
+     "share_sessions_scoreable": 0.0007163323782234957,
+     "share_requests_in_scoreable": 0.006,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.0007163323782234957,
+   "share_requests_in_scoreable": 0.0055
+  },
+  {
+   "source": "search",
+   "n": 1000,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 1015,
+     "n_scoreable": 36,
+     "share_sessions_scoreable": 0.035467980295566505,
+     "share_requests_in_scoreable": 0.1915,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1016,
+     "n_scoreable": 34,
+     "share_sessions_scoreable": 0.03346456692913386,
+     "share_requests_in_scoreable": 0.1785,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1003,
+     "n_scoreable": 39,
+     "share_sessions_scoreable": 0.038883349950149554,
+     "share_requests_in_scoreable": 0.1975,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1003,
+     "n_scoreable": 34,
+     "share_sessions_scoreable": 0.03389830508474576,
+     "share_requests_in_scoreable": 0.174,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1014,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.03254437869822485,
+     "share_requests_in_scoreable": 0.1745,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.03389830508474576,
+   "share_requests_in_scoreable": 0.1785
+  },
+  {
+   "source": "search",
+   "n": 1000,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 1017,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.032448377581120944,
+     "share_requests_in_scoreable": 0.2295,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1014,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.03254437869822485,
+     "share_requests_in_scoreable": 0.2145,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1021,
+     "n_scoreable": 38,
+     "share_sessions_scoreable": 0.03721841332027424,
+     "share_requests_in_scoreable": 0.2495,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1015,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.03251231527093596,
+     "share_requests_in_scoreable": 0.228,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1016,
+     "n_scoreable": 34,
+     "share_sessions_scoreable": 0.03346456692913386,
+     "share_requests_in_scoreable": 0.266,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.03254437869822485,
+   "share_requests_in_scoreable": 0.2295
+  },
+  {
+   "source": "search",
+   "n": 1000,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "stagger_h": 168,
+   "per": [
+    {
+     "n_sessions": 1021,
+     "n_scoreable": 34,
+     "share_sessions_scoreable": 0.03330068560235064,
+     "share_requests_in_scoreable": 0.242,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1015,
+     "n_scoreable": 32,
+     "share_sessions_scoreable": 0.03152709359605911,
+     "share_requests_in_scoreable": 0.2295,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1010,
+     "n_scoreable": 34,
+     "share_sessions_scoreable": 0.033663366336633666,
+     "share_requests_in_scoreable": 0.2895,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1015,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.03251231527093596,
+     "share_requests_in_scoreable": 0.2575,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1014,
+     "n_scoreable": 30,
+     "share_sessions_scoreable": 0.029585798816568046,
+     "share_requests_in_scoreable": 0.3035,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.03251231527093596,
+   "share_requests_in_scoreable": 0.2575
+  },
+  {
+   "source": "price",
+   "n": 1,
+   "cap": 26,
+   "per": [
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 1,
+   "cap": 8,
+   "per": [
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 1,
+   "cap": 2,
+   "per": [
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 10,
+   "cap": 26,
+   "per": [
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 10,
+   "cap": 8,
+   "per": [
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 10,
+   "cap": 2,
+   "per": [
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 20,
+     "n_scoreable": 20,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 100,
+   "cap": 26,
+   "per": [
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 0.99
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 100,
+   "cap": 8,
+   "per": [
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "price",
+   "n": 100,
+   "cap": 2,
+   "per": [
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 100,
+     "n_scoreable": 100,
+     "share_sessions_scoreable": 1.0,
+     "share_requests_in_scoreable": 1.0,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "share_requests_in_scoreable": 1.0
+  },
+  {
+   "source": "table7",
+   "n": 100,
+   "stagger_h": 0,
+   "per": [
+    {
+     "n_sessions": 667,
+     "n_scoreable": 17,
+     "share_sessions_scoreable": 0.025487256371814093,
+     "share_requests_in_scoreable": 0.2845,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 809,
+     "n_scoreable": 18,
+     "share_sessions_scoreable": 0.022249690976514216,
+     "share_requests_in_scoreable": 0.1315,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 790,
+     "n_scoreable": 25,
+     "share_sessions_scoreable": 0.03164556962025317,
+     "share_requests_in_scoreable": 0.1885,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 723,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.04564315352697095,
+     "share_requests_in_scoreable": 0.2425,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 778,
+     "n_scoreable": 16,
+     "share_sessions_scoreable": 0.02056555269922879,
+     "share_requests_in_scoreable": 0.147,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.025487256371814093,
+   "share_requests_in_scoreable": 0.1885
+  },
+  {
+   "source": "table7",
+   "n": 100,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 667,
+     "n_scoreable": 17,
+     "share_sessions_scoreable": 0.025487256371814093,
+     "share_requests_in_scoreable": 0.2845,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 809,
+     "n_scoreable": 18,
+     "share_sessions_scoreable": 0.022249690976514216,
+     "share_requests_in_scoreable": 0.1315,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 790,
+     "n_scoreable": 25,
+     "share_sessions_scoreable": 0.03164556962025317,
+     "share_requests_in_scoreable": 0.1885,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 723,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.04564315352697095,
+     "share_requests_in_scoreable": 0.2425,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 778,
+     "n_scoreable": 16,
+     "share_sessions_scoreable": 0.02056555269922879,
+     "share_requests_in_scoreable": 0.147,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.025487256371814093,
+   "share_requests_in_scoreable": 0.1885
+  },
+  {
+   "source": "table7",
+   "n": 100,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 667,
+     "n_scoreable": 17,
+     "share_sessions_scoreable": 0.025487256371814093,
+     "share_requests_in_scoreable": 0.2845,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 809,
+     "n_scoreable": 18,
+     "share_sessions_scoreable": 0.022249690976514216,
+     "share_requests_in_scoreable": 0.1315,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 790,
+     "n_scoreable": 25,
+     "share_sessions_scoreable": 0.03164556962025317,
+     "share_requests_in_scoreable": 0.1885,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 723,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.04564315352697095,
+     "share_requests_in_scoreable": 0.2425,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 778,
+     "n_scoreable": 16,
+     "share_sessions_scoreable": 0.02056555269922879,
+     "share_requests_in_scoreable": 0.147,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.025487256371814093,
+   "share_requests_in_scoreable": 0.1885
+  },
+  {
+   "source": "table7",
+   "n": 100,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 667,
+     "n_scoreable": 17,
+     "share_sessions_scoreable": 0.025487256371814093,
+     "share_requests_in_scoreable": 0.2845,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 809,
+     "n_scoreable": 18,
+     "share_sessions_scoreable": 0.022249690976514216,
+     "share_requests_in_scoreable": 0.1315,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 790,
+     "n_scoreable": 25,
+     "share_sessions_scoreable": 0.03164556962025317,
+     "share_requests_in_scoreable": 0.1885,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 723,
+     "n_scoreable": 33,
+     "share_sessions_scoreable": 0.04564315352697095,
+     "share_requests_in_scoreable": 0.2425,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 778,
+     "n_scoreable": 16,
+     "share_sessions_scoreable": 0.02056555269922879,
+     "share_requests_in_scoreable": 0.147,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.025487256371814093,
+   "share_requests_in_scoreable": 0.1885
+  },
+  {
+   "source": "table7",
+   "n": 1000,
+   "stagger_h": 0,
+   "per": [
+    {
+     "n_sessions": 1344,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.005952380952380952,
+     "share_requests_in_scoreable": 0.091,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1361,
+     "n_scoreable": 7,
+     "share_sessions_scoreable": 0.005143277002204262,
+     "share_requests_in_scoreable": 0.0555,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1362,
+     "n_scoreable": 11,
+     "share_sessions_scoreable": 0.008076358296622614,
+     "share_requests_in_scoreable": 0.0635,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1393,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.00574300071787509,
+     "share_requests_in_scoreable": 0.057,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1366,
+     "n_scoreable": 9,
+     "share_sessions_scoreable": 0.006588579795021962,
+     "share_requests_in_scoreable": 0.0645,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "share_requests_in_scoreable": 0.0635
+  },
+  {
+   "source": "table7",
+   "n": 1000,
+   "stagger_h": 6,
+   "per": [
+    {
+     "n_sessions": 1344,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.005952380952380952,
+     "share_requests_in_scoreable": 0.091,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1361,
+     "n_scoreable": 7,
+     "share_sessions_scoreable": 0.005143277002204262,
+     "share_requests_in_scoreable": 0.0555,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1362,
+     "n_scoreable": 11,
+     "share_sessions_scoreable": 0.008076358296622614,
+     "share_requests_in_scoreable": 0.0635,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1393,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.00574300071787509,
+     "share_requests_in_scoreable": 0.057,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1366,
+     "n_scoreable": 9,
+     "share_sessions_scoreable": 0.006588579795021962,
+     "share_requests_in_scoreable": 0.0645,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "share_requests_in_scoreable": 0.0635
+  },
+  {
+   "source": "table7",
+   "n": 1000,
+   "stagger_h": 24,
+   "per": [
+    {
+     "n_sessions": 1344,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.005952380952380952,
+     "share_requests_in_scoreable": 0.091,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1361,
+     "n_scoreable": 7,
+     "share_sessions_scoreable": 0.005143277002204262,
+     "share_requests_in_scoreable": 0.0555,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1362,
+     "n_scoreable": 11,
+     "share_sessions_scoreable": 0.008076358296622614,
+     "share_requests_in_scoreable": 0.0635,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1393,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.00574300071787509,
+     "share_requests_in_scoreable": 0.057,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1366,
+     "n_scoreable": 9,
+     "share_sessions_scoreable": 0.006588579795021962,
+     "share_requests_in_scoreable": 0.0645,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "share_requests_in_scoreable": 0.0635
+  },
+  {
+   "source": "table7",
+   "n": 1000,
+   "stagger_h": 72,
+   "per": [
+    {
+     "n_sessions": 1344,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.005952380952380952,
+     "share_requests_in_scoreable": 0.091,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1361,
+     "n_scoreable": 7,
+     "share_sessions_scoreable": 0.005143277002204262,
+     "share_requests_in_scoreable": 0.0555,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1362,
+     "n_scoreable": 11,
+     "share_sessions_scoreable": 0.008076358296622614,
+     "share_requests_in_scoreable": 0.0635,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1393,
+     "n_scoreable": 8,
+     "share_sessions_scoreable": 0.00574300071787509,
+     "share_requests_in_scoreable": 0.057,
+     "flagged": 1.0
+    },
+    {
+     "n_sessions": 1366,
+     "n_scoreable": 9,
+     "share_sessions_scoreable": 0.006588579795021962,
+     "share_requests_in_scoreable": 0.0645,
+     "flagged": 1.0
+    }
+   ],
+   "flagged": 1.0,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "share_requests_in_scoreable": 0.0635
+  }
+ ],
+ "p53": {
+  "n_cells": 62,
+  "n_flagged_ge_0.9": 62,
+  "n_under_half_sessions_scoreable": 38,
+  "min_share_requests_in_scoreable": 0.0055,
+  "min_share_sessions_scoreable": 0.0007163323782234957,
+  "holds": true
+ },
+ "p54": {
+  "p_any_50": 0.819,
+  "holds": true
+ }
+}

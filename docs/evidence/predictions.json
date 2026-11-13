@@ -474,5 +474,33 @@
   "prediction": "a second out-of-corpus benign sample (3,000 No Robots prompts): the diversity statistic C3 flags at least 0.9 of its blocks and the pooled design flags every window; C2 and B1 flag at most 0.10",
   "outcome": "failed on the first clause: C3 flags 0.07 of blocks (it ranks them high, AUC 0.98, without crossing); the pooled design flags every window and C2low flags 0.87 of blocks; C2 and B1 at 0.00",
   "finding": "F90"
+ },
+ {
+  "id": "P53",
+  "protocol": "v2.0 am. 11",
+  "prediction": "the recalibrated cadence detector flags at least 0.9 of the scoreable sessions in every one of the 62 clearing cells, and in at least half the cells fewer than half the sessions are scoreable",
+  "outcome": "held: all 62 cells at 1.00 of scoreable sessions; in 38 of 62 fewer than half the sessions have ten requests (in 17, fewer than half the requests fall in such sessions)",
+  "finding": "F91"
+ },
+ {
+  "id": "P54",
+  "protocol": "v2.0 am. 11",
+  "prediction": "groups of 50 benign accounts drawn at random have at least one account flagged by any of the six timeline-calibrated detectors with probability at least 0.5",
+  "outcome": "held: 0.82 (0.28 for groups of 10, 0.96 for 100), against 0.36 for the 50-account cell",
+  "finding": "F91"
+ },
+ {
+  "id": "P55",
+  "protocol": "v2.0 am. 12",
+  "prediction": "on public production API traffic (ServeGen per-client traces) more than half the clients exceed 26 requests in their busiest hour, and the 1% client-day threshold is at least 2,000 an hour",
+  "outcome": "held by a wide margin (too-good stop invoked): 99.7% of 314 clients exceed 26; the 1% client-day threshold is 2.76 million requests an hour in released units; the median client's busiest hour is 44,306",
+  "finding": "F92"
+ },
+ {
+  "id": "P56",
+  "protocol": "v2.0 am. 12",
+  "prediction": "fewer than 5% of active ten-minute windows have an inter-arrival CV below 0.305, and the 1% low-side quantile lies above 0.05",
+  "outcome": "held: 1.41% of 246,319 windows below 0.305 and 0.38% below 0.20; 1% low-side quantile 0.272; no client has a median below 0.20",
+  "finding": "F92"
  }
 ]

@@ -458,3 +458,40 @@ of 100, primary configuration; pooled-window design with first-turn-matched pool
 only, no teacher. Prediction P52: the diversity statistic C3 flags at least 0.9 of its blocks
 and the pooled design flags every window; C2 and B1 flag at most 0.10. No prediction for C2low
 (the instruction-corpus campaign and the OpenAssistant sample disagreed on it).
+
+**B11 — 2026-11-13 — Registered before any run (decision 50).** Defender-side follow-up to a sixth
+pre-submission review; no lever is changed, added or swept. (1) The recalibrated cadence detector
+(sessions of at least ten requests) characterised: held-out false-alarm rate over 20 account
+splits with an exact interval; the benign sessions it flags described (size, single-turn share,
+accounts); and every one of the 62 clearing cells of the search scored under it, with the share
+of each cell's sessions that have ten or more requests reported for every cell of B9.
+Prediction P53: at least 0.9 of the scoreable sessions are flagged in every one of the 62 cells,
+and in at least half the cells fewer than half the sessions are scoreable. (2) A benign reference
+for the any-account-flagged measure: groups of 10, 50 and 100 benign accounts drawn at random
+from the timeline (1,000 draws each), the share of groups with at least one account flagged by
+any of the six timeline-calibrated detectors over the account's history. Prediction P54: for
+groups of 50 that share is at least 0.5, above the 50-account cell's 0.36.
+
+**B12 — 2026-11-13 — Registered before any statistic is computed (decision 51; Glen: "go").** A
+second benign baseline from public production API traffic, defender-side. Source: the per-client
+traces released with ServeGen (github.com/alibaba/ServeGen, Apache-2.0, commit d70c8b2): for each
+client of three language-model tiers (m-large, m-mid, m-small; 314 clients in all) and one
+reasoning model, fourteen days in ten-minute windows, each with the client's request rate and the
+coefficient of variation of its inter-arrival times. Only the file layout and column names have
+been read. The release does not say whether rates are rescaled or how clients were selected; both
+are reported as limits, and the rate result is given in released units.
+(1) *Hourly rate.* Per client and per client-day, the largest number of requests in any hour
+(six consecutive windows, rate times window length). The 1% order-statistic threshold over
+client-days (the per-client set is below resolution) and the quantiles of the per-client
+maximum; the share of clients whose maximum exceeds the chat corpus's threshold of 26 an hour;
+the hours one account would need for 2,000 requests at the API threshold. Prediction P55: more
+than half the clients exceed 26 requests in their busiest hour, and the 1% client-day threshold
+is at least 2,000 an hour, so the campaign as issued would not be flagged by a rate detector
+calibrated on this traffic.
+(2) *Cadence.* The distribution of the per-window coefficient of variation over windows with at
+least ten requests (the unit differs from the paper's session statistic and is stated): its 1%
+and 5% low-side quantiles, the share of windows below 0.305 (the recalibrated chat threshold)
+and below 0.20 (the registered rate cap's cadence), and the share of clients with a median
+below each. Prediction P56: fewer than 5% of active windows fall below 0.305, and the 1%
+low-side quantile lies above 0.05; fixed-interval pacing at 0.20 is rare but not absent among
+API clients.
