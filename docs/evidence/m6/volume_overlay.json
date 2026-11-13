@@ -1,0 +1,67 @@
+{
+ "volume": [
+  {
+   "f": 2.0,
+   "draw": 0,
+   "n_accounts": 236930,
+   "n_identity_days": 360576,
+   "radius": 0.2718149802031151,
+   "thr_d10": 46.0,
+   "thr_d11": 24.0,
+   "cells": {
+    "10": {
+     "d10_median": 0.0,
+     "d11_median": 0.0,
+     "p_any_d10": 0.0,
+     "p_any_d11": 0.02
+    },
+    "100": {
+     "d10_median": 1.0,
+     "d11_median": 1.0,
+     "p_any_d10": 1.0,
+     "p_any_d11": 1.0
+    }
+   }
+  },
+  {
+   "f": 4.0,
+   "draw": 0,
+   "n_accounts": 473860,
+   "n_identity_days": 721152,
+   "radius": 0.1960858892757561,
+   "thr_d10": 63.0,
+   "thr_d11": 42.0,
+   "cells": {
+    "10": {
+     "d10_median": 0.0,
+     "d11_median": 0.0,
+     "p_any_d10": 0.0,
+     "p_any_d11": 0.02
+    },
+    "100": {
+     "d10_median": 1.0,
+     "d11_median": 1.0,
+     "p_any_d10": 1.0,
+     "p_any_d11": 1.0
+    }
+   }
+  }
+ ],
+ "p33": {
+  "thr_d11_median_at_0.25": null,
+  "ten_account_p_any_d11_median_at_0.25": null,
+  "holds": false
+ },
+ "scale": [],
+ "p36": {},
+ "feature_names": [
+  "log_requests",
+  "log_sessions",
+  "session_len_median",
+  "log_gap_median",
+  "log_span",
+  "start_sin",
+  "start_cos",
+  "single_turn_frac"
+ ]
+}

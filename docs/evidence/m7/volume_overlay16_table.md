@@ -1,0 +1,1 @@
+Overlay x16 (run on a 15 GB CPU VM, day-restricted density scorer, 2026-11-13): 1,895,440 account-equivalents; D10 threshold 113, D11 threshold 138, radius 0.101; cells {"10": {"d10_median": 0.0, "d11_median": 0.0, "p_any_d10": 0.0, "p_any_d11": 0.0}, "100": {"d10_median": 0.0, "d11_median": 0.53, "p_any_d10": 0.0, "p_any_d11": 0.54}}.

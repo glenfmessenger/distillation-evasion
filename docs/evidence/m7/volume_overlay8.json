@@ -1,0 +1,44 @@
+{
+ "volume": [
+  {
+   "f": 8.0,
+   "draw": 0,
+   "n_accounts": 947720,
+   "n_identity_days": 1442304,
+   "radius": 0.14078392551726804,
+   "thr_d10": 83.0,
+   "thr_d11": 74.0,
+   "cells": {
+    "10": {
+     "d10_median": 0.0,
+     "d11_median": 0.0,
+     "p_any_d10": 0.0,
+     "p_any_d11": 0.0
+    },
+    "100": {
+     "d10_median": 1.0,
+     "d11_median": 1.0,
+     "p_any_d10": 1.0,
+     "p_any_d11": 1.0
+    }
+   }
+  }
+ ],
+ "p33": {
+  "thr_d11_median_at_0.25": null,
+  "ten_account_p_any_d11_median_at_0.25": null,
+  "holds": false
+ },
+ "scale": [],
+ "p36": {},
+ "feature_names": [
+  "log_requests",
+  "log_sessions",
+  "session_len_median",
+  "log_gap_median",
+  "log_span",
+  "start_sin",
+  "start_cos",
+  "single_turn_frac"
+ ]
+}

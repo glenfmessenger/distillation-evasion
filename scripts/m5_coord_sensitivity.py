@@ -65,6 +65,33 @@ class Scaler:
         return ((x - self.med) / self.scale)[:, self.keep]
 
 
+def _day_index(days: np.ndarray) -> dict[int, np.ndarray]:
+    idx: dict[int, list[int]] = {}
+    for i, d in enumerate(days):
+        idx.setdefault(int(d), []).append(i)
+    return {d: np.array(v) for d, v in idx.items()}
+
+
+def score_campaign_restricted(zb, by_day, zc, dc, r) -> np.ndarray:
+    """D10 for campaign rows among the benign rows of the same days only; equal to
+    score_campaign restricted to those days (checked against it in m5_placements.py)."""
+    out = np.zeros(len(zc), dtype=int)
+    for d in np.unique(dc):
+        mc = dc == d
+        c = zc[mc]
+        idx = by_day.get(int(d))
+        a = np.concatenate([zb[idx], c]) if idx is not None else c
+        d2 = np.maximum(
+            np.sum(c * c, axis=1)[:, None] + np.sum(a * a, axis=1)[None, :] - 2.0 * (c @ a.T), 0.0
+        )
+        within = d2 <= r * r
+        nb = len(a) - len(c)
+        own = np.arange(len(c))
+        within[own, nb + own] = False
+        out[mc] = within.sum(axis=1)
+    return out
+
+
 def place(recs, seed, day_min, day_max):
     rng = np.random.default_rng(1000 + seed)
     t0 = int(rng.integers(day_min, day_max)) * 86400 * NS
@@ -80,7 +107,12 @@ def main() -> int:
     ap.add_argument("--max-sessions", type=int, default=20)
     ap.add_argument("--out-label", required=True)
     ap.add_argument("--cap", type=int, default=26)
-    ap.add_argument("--fractions", default="0.1,0.25,0.5,1.0")
+    ap.add_argument(
+        "--fractions",
+        default="0.1,0.25,0.5,1.0",
+        help="fractions below one subsample accounts; integers above one overlay that many days",
+    )
+    ap.add_argument("--skip-scale", action="store_true", help="run the volume item only")
     ap.add_argument("--draws", type=int, default=5)
     ap.add_argument("--placements", type=int, default=50)
     a = ap.parse_args()
@@ -107,6 +139,65 @@ def main() -> int:
     for f in [float(x) for x in a.fractions.split(",")]:
         for draw in range(1 if f >= 1.0 else a.draws):
             rng = np.random.default_rng(500 + draw)
+            if f > 1.0:
+                # B7 item 5: the timeline overlaid onto itself with calendar offsets, so that
+                # f days' accounts fall on one day (f times the daily account volume)
+                k = int(round(f))
+                fb = np.concatenate([feat_b] * k)
+                db = np.concatenate([days_b - j for j in range(k)])
+                bt = np.concatenate(
+                    [np.array(sorted(birth_map.values())) - j * 86400.0 for j in range(k)]
+                )
+                sc = Scaler(fb, "registered")
+                zb = sc(fb)
+                r = nearest_neighbour_radius(zb, db)
+                dens_b = same_day_density(zb, db, r)
+                by_day_f = _day_index(db)
+                cal10 = D.calibrate(dens_b.astype(float).tolist(), "high", 0.01)
+                bb = np.sort(bt)
+                cal11 = D.calibrate(birth_burst(bb, 600.0).astype(float).tolist(), "high", 0.01)
+                row = {
+                    "f": f,
+                    "draw": draw,
+                    "n_accounts": k * len(accounts),
+                    "n_identity_days": int(len(db)),
+                    "radius": r,
+                    "thr_d10": cal10["threshold"],
+                    "thr_d11": cal11["threshold"],
+                    "cells": {},
+                }
+                for n in (10, 100):
+                    d10, d11, any10, any11 = [], [], [], []
+                    for seed in range(a.placements):
+                        recs = place(cell(n, seed), seed, day_min, day_max)
+                        rows_c = identity_days(recs)
+                        dens = score_campaign_restricted(
+                            zb,
+                            by_day_f,
+                            sc(np.stack([features(x) for x in rows_c])),
+                            np.array([x["day"] for x in rows_c]),
+                            r,
+                        )
+                        v11 = score_births(bb, np.array(list(births(recs).values())), 600.0)
+                        f10 = float(np.mean([D.fires(float(v), cal10) for v in dens]))
+                        f11 = float(np.mean([D.fires(float(v), cal11) for v in v11]))
+                        d10.append(f10)
+                        d11.append(f11)
+                        any10.append(f10 > 0)
+                        any11.append(f11 > 0)
+                    row["cells"][str(n)] = {
+                        "d10_median": float(np.median(d10)),
+                        "d11_median": float(np.median(d11)),
+                        "p_any_d10": float(np.mean(any10)),
+                        "p_any_d11": float(np.mean(any11)),
+                    }
+                volume.append(row)
+                print(
+                    f"overlay x{k}: thr D10 {cal10['threshold']:.0f} D11 {cal11['threshold']:.0f}; "
+                    f"ten-account P(any D11) {row['cells']['10']['p_any_d11']:.2f}",
+                    flush=True,
+                )
+                continue
             keep = (
                 set(
                     rng.choice(accounts, size=int(round(f * len(accounts))), replace=False).tolist()
@@ -120,6 +211,7 @@ def main() -> int:
             db = days_b[m]
             r = nearest_neighbour_radius(zb, db)
             dens_b = same_day_density(zb, db, r)
+            by_day_f = _day_index(db)
             cal10 = D.calibrate(dens_b.astype(float).tolist(), "high", 0.01)
             bb = np.array(sorted(t for i, t in birth_map.items() if i in keep))
             cal11 = D.calibrate(birth_burst(bb, 600.0).astype(float).tolist(), "high", 0.01)
@@ -138,9 +230,9 @@ def main() -> int:
                 for seed in range(a.placements):
                     recs = place(cell(n, seed), seed, day_min, day_max)
                     rows_c = identity_days(recs)
-                    dens = score_campaign(
+                    dens = score_campaign_restricted(
                         zb,
-                        db,
+                        by_day_f,
                         sc(np.stack([features(x) for x in rows_c])),
                         np.array([x["day"] for x in rows_c]),
                         r,
@@ -180,7 +272,7 @@ def main() -> int:
 
     # ---- item 6: D10 scale ---------------------------------------------------------------
     scale_rows = []
-    for variant in ("registered", "drop_constant", "floor_1", "iqr"):
+    for variant in [] if a.skip_scale else ("registered", "drop_constant", "floor_1", "iqr"):
         sc = Scaler(feat_b, variant)
         zb = sc(feat_b)
         r = nearest_neighbour_radius(zb, days_b)
@@ -236,8 +328,8 @@ def main() -> int:
             f"{variant}: r {r:.3f} thr {cal10['threshold']:.0f}; split100 {row['cells']['roundrobin_100']['median']:.2f}, batch {row['cells']['batch_job']['median']:.2f}, org {row['cells']['organisation']['median']:.2f}",
             flush=True,
         )
-    reg = scale_rows[0]
-    if reg["thr_d10"] != 35:
+    reg = scale_rows[0] if scale_rows else None
+    if reg is not None and reg["thr_d10"] != 35:
         raise RuntimeError(f"registered D10 threshold not reproduced: {reg['thr_d10']}")
     p36 = {
         v["variant"]: (
@@ -279,16 +371,17 @@ def main() -> int:
             f"| {f:g} | {vs[0]['n_accounts']} | {med('thr_d10'):.0f} | {med('thr_d11'):.0f} | {med('radius'):.3f} | "
             f"{medc('10', 'd11_median'):.2f}, {medc('10', 'p_any_d11'):.2f} | {medc('100', 'd10_median'):.2f}, {medc('100', 'd11_median'):.2f}, {medc('100', 'p_any_d10'):.2f} |"
         )
-    md += [
-        "",
-        f"P33: {json.dumps(p33)}",
-        "",
-        "D10 scale sensitivity (B6 item 6): MAD per feature "
-        + ", ".join(f"{n} {v:.3g}" for n, v in zip(result["feature_names"], reg["mad"]))
-        + ".",
-        "| Variant | Features | Radius | Threshold | Exceed | Round-robin 100 | Organisation | Batch job | Eval fleet | P36 |",
-        "|---|---|---|---|---|---|---|---|---|---|",
-    ]
+    if reg is not None:
+        md += [
+            "",
+            f"P33: {json.dumps(p33)}",
+            "",
+            "D10 scale sensitivity (B6 item 6): MAD per feature "
+            + ", ".join(f"{n} {v:.3g}" for n, v in zip(result["feature_names"], reg["mad"]))
+            + ".",
+            "| Variant | Features | Radius | Threshold | Exceed | Round-robin 100 | Organisation | Batch job | Eval fleet | P36 |",
+            "|---|---|---|---|---|---|---|---|---|---|",
+        ]
     for v in scale_rows:
         c = v["cells"]
         fmt = lambda k: f"{c[k]['median']:.2f} [{c[k]['min']:.2f}, {c[k]['max']:.2f}]"  # noqa: E731

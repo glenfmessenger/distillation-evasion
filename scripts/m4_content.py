@@ -80,7 +80,14 @@ def campaign_prompts(root: Path, spec: str) -> tuple[str, list[str], int]:
     if "finished" not in man:
         raise RuntimeError(f"campaign {label} has not finished")
     if "prompt_file" in man["strata"]:
-        with Path(man["strata"]["prompt_file"]).open(encoding="utf-8") as fh:
+        pf = Path(man["strata"]["prompt_file"])
+        if not pf.exists():  # manifest written on the node; remap its data root to ours, visibly
+            node_root = Path("/home/ubuntu/data")
+            if not pf.is_relative_to(node_root):
+                raise FileNotFoundError(f"prompt file {pf} not found and not under {node_root}")
+            pf = root / pf.relative_to(node_root)
+            print(f"prompt file remapped from the node data root to {pf}", flush=True)
+        with pf.open(encoding="utf-8") as fh:
             prompts = [json.loads(line)["messages"][0]["content"] for line in fh if line.strip()]
     else:
         pool = {it.id: it for it in read_jsonl(root / "pool" / "pool.jsonl")}

@@ -49,6 +49,7 @@ def main() -> int:
     ap.add_argument("--m-list", default="5,20,100")
     ap.add_argument("--groups", type=int, default=100)
     ap.add_argument("--committed", default="", help="committed content.json to compare thresholds")
+    ap.add_argument("--model", default=MODEL, help="embedding model (its benign cache must exist)")
     a = ap.parse_args()
     root = host_repo()
     sched = read_schedule(root / "benign" / a.benign_label / "replay_schedule.jsonl")
@@ -56,7 +57,15 @@ def main() -> int:
     for r in sched:
         by_ident[r.identity_id].append(r)
     units = {i: v for i, v in by_ident.items() if len(v) >= N_MATCH}
-    cache = root / "results" / "aggregates" / "m4" / "_embeddings" / f"benign_{a.benign_label}.npy"
+    mtag = "" if a.model == MODEL else "_" + a.model.replace("/", "_")
+    cache = (
+        root
+        / "results"
+        / "aggregates"
+        / "m4"
+        / "_embeddings"
+        / f"benign_{a.benign_label}{mtag}.npy"
+    )
     b_emb = np.load(cache)
     b_texts, b_owner, b_time = [], [], []
     for i, v in units.items():
@@ -112,7 +121,7 @@ def main() -> int:
     ident_list = list(units)
     perm = np.random.default_rng(1).permutation(len(ident_list))
     result = {
-        "model": MODEL,
+        "model": a.model,
         "n_benign_units": len(units),
         "sigma": sigma,
         "calibration": {d: cal[d] for d in DETS},

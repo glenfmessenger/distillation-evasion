@@ -240,7 +240,7 @@
  {
   "id": "P22",
   "protocol": "v2.0 am. 4",
-  "prediction": "with a request-weighted reference pool including light accounts, the ordinary-prompt pure window and the uniform benign control move together",
+  "prediction": "request-weighted reference pool: (first clause) the ordinary-prompt pure window is no longer flagged once the conversation-uniform control is matched; (second clause) the control and the campaign move together",
   "outcome": "failed on the first clause (pure window still flagged); held on the second (control and campaign move together)",
   "finding": "F74"
  },
@@ -352,7 +352,7 @@
  {
   "id": "P30",
   "protocol": "v2.0 am. 6",
-  "prediction": "the 50-account cell (draw cap 26, session multiplier 10, stagger 6 h) exceeds 0.10 in fewer than 10% of placements",
+  "prediction": "the 50-account cell with a six-hour creation stagger (other settings in the evidence) exceeds 0.10 in fewer than 10% of placements",
   "outcome": "held: 1.3% of days",
   "finding": "F73"
  },
@@ -362,5 +362,110 @@
   "prediction": "the 100-account cell with the shortest schedule exceeds 0.10 in more than 10% of placements",
   "outcome": "held: 17% of days",
   "finding": "F73"
+ },
+ {
+  "id": "P37",
+  "protocol": "v2.0 am. 7",
+  "prediction": "under cadence thresholds recalibrated on sessions of at least five and ten requests the unevaded campaigns remain unflagged",
+  "outcome": "failed narrowly: size-matched sessions reach 0.02 flagged (two of ninety); declared and idle-gap sessions stay at zero",
+  "finding": "F75"
+ },
+ {
+  "id": "P38",
+  "protocol": "v2.0 am. 7",
+  "prediction": "reasoning share recalibrated without truncated records: the threshold falls and the benchmark campaign's flagged fraction rises to at least 0.10; ordinary prompts stay at zero",
+  "outcome": "failed: threshold 0.991 to 0.988, benchmark campaign still unflagged (AUC 0.92); ordinary prompts at zero",
+  "finding": "F75"
+ },
+ {
+  "id": "P39",
+  "protocol": "v2.0 am. 7",
+  "prediction": "under each alternative D10 scaling at least 80% of reported cells keep their clear-or-not verdict; the two all-day headline cells' share of days over 10% moves by at most 0.05",
+  "outcome": "held: 100% agreement for all three alternatives; the ten- and 50-account cells' shares are identical under every scaling",
+  "finding": "F78"
+ },
+ {
+  "id": "P40",
+  "protocol": "v2.0 am. 7",
+  "prediction": "under the second encoder C3 flags at least 0.10 of pooled-account control units at m >= 20; with filtered pools the uniform control and the ordinary-prompt campaign are still flagged alike",
+  "outcome": "failed on the first clause: 0.06 at m = 20, 0.10 at m = 100 (the uniform control's blocks are flagged at 0.43, above the campaign's 0.40); second clause held",
+  "finding": "F76, F77"
+ },
+ {
+  "id": "P42",
+  "protocol": "v2.0 am. 7",
+  "prediction": "the three B4 populations and the scalings' 100-account cell on every placement day: medians unchanged from the five-placement values within 0.05",
+  "outcome": "held: organisation D10 0.00, batch job 1.00, evaluation fleet D10 0.00 and D11 1.00, the 100-account cell 1.00 under every scaling",
+  "finding": "F78"
+ },
+ {
+  "id": "P41",
+  "protocol": "v2.0 am. 7",
+  "prediction": "overlaying the corpus to four times its daily volume at least doubles the creation threshold; the 100-account split stays flagged completely; the ten-account cell's share of placements with any account flagged does not rise",
+  "outcome": "held: creation threshold 24 at twice and 42 at four times the volume (15 registered); the 100-account split D10 1.00; ten-account cell any-flagged on 0.02 of placements",
+  "finding": "F79"
+ },
+ {
+  "id": "P43",
+  "protocol": "v2.0 am. 8",
+  "prediction": "in the 50-account cell the first flagged unit comes from a per-account detector, not from D10 or D11, on most flagged days",
+  "outcome": "held: the registered cadence statistic on 79% of flagged days (alone on 64%); D11 on 36%; D10 never",
+  "finding": "F80"
+ },
+ {
+  "id": "P46",
+  "protocol": "v2.0 am. 8",
+  "prediction": "under reasoning-share and cache-share thresholds calibrated on sessions of at least ten requests, and under D4 to D8b calibrated without the constructed accounts, every campaign stays at most 0.10 flagged",
+  "outcome": "held: largest flagged fraction 0.07 (benchmark campaign, reasoning share, size-matched sessions)",
+  "finding": "F81"
+ },
+ {
+  "id": "P47",
+  "protocol": "v2.0 am. 8",
+  "prediction": "a low-side output-length threshold at 1% flags at least half of the ordinary-prompt campaign's sessions (post hoc)",
+  "outcome": "held on declared blocks (0.70; seed 1 0.50); 0.12 with size-matched sessions, so a session-size effect",
+  "finding": "F81"
+ },
+ {
+  "id": "P50",
+  "protocol": "v2.0 am. 8",
+  "prediction": "a benign sample of 3,000 OpenAssistant first turns: C2low flags at least 0.9 of its blocks and the pooled design flags every window",
+  "outcome": "held, and more: C2low 1.00, C3 1.00 per block under the primary encoder, pooled design 1.00 with a statistic twice the ordinary-prompt campaign's",
+  "finding": "F83"
+ },
+ {
+  "id": "P45",
+  "protocol": "v2.0 am. 8",
+  "prediction": "at 0.1% the rate threshold at least doubles and the one-account price at least halves; the 100-account split stays flagged completely by both cross-account detectors at 0.1%; at 8,000 requests the ten- and 50-account cells keep their cross-account verdicts and their schedules lengthen fourfold",
+  "outcome": "failed on the fourth clause: threshold 26 to 57 (0.1%) and 112 (0.01%), one-account price 80.0 to 35.7 and 18.0 hours; 100-account split flagged completely at both budgets; at 8,000 requests both cells stay unflagged and the ten-account schedule lengthens fourfold (32.0 h), but the 50-account one 3.2-fold (56.3 h)",
+  "finding": "F84"
+ },
+ {
+  "id": "P48",
+  "protocol": "v2.0 am. 8",
+  "prediction": "the any-detector rate on timeline accounts with D10 and D11 included is at most 3.5%",
+  "outcome": "held: 3.34% (1.76% without the cross-account pair; D10 alone 1.16%)",
+  "finding": "F85"
+ },
+ {
+  "id": "P49",
+  "protocol": "v2.0 am. 8",
+  "prediction": "fifty real heavy accounts with first requests collapsed into ten minutes: D11 flags at least 0.9 and D10 at most 0.10",
+  "outcome": "held: D11 1.00 in every placement, D10 0.00 (max 0.03)",
+  "finding": "F85"
+ },
+ {
+  "id": "P44",
+  "protocol": "v2.0 am. 8",
+  "prediction": "at sixteen times the volume the 100-account round-robin split is no longer flagged completely (D10 or D11 median below 0.95)",
+  "outcome": "held: at sixteen times the volume the thresholds are 113 (D10) and 138 (D11); the 100-account split is flagged by D10 at 0.00 and by D11 at 0.53",
+  "finding": "F86"
+ },
+ {
+  "id": "P51",
+  "protocol": "v2.0 am. 9",
+  "prediction": "at least one of the three headline cells (one account at the cap, ten rate-capped accounts, the 50-account reliable cell) is flagged at more than 0.10 of its sessions under the cadence threshold calibrated on sessions of at least ten requests",
+  "outcome": "held: all three are flagged completely (1.00), as is every rate-capped, heterogeneous and search cell; the unevaded campaigns stay at zero",
+  "finding": "F87"
  }
 ]

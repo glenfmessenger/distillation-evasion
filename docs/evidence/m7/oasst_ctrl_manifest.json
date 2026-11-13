@@ -1,0 +1,7 @@
+{
+ "source": "OpenAssistant/oasst1 train split, English first prompter turns, de-duplicated",
+ "n_candidates": 3457,
+ "n": 3000,
+ "seed": 0,
+ "parquet": "train-00000-of-00001-b42a775f407cee45.parquet"
+}

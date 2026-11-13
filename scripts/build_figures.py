@@ -107,7 +107,7 @@ def fig_price() -> None:
     n_req = lev["n_campaign_records"]
     cap = lev["rate_caps"]["0.99"]
     med = lambda v: sorted(v)[len(v) // 2]  # noqa: E731
-    fig, ax = plt.subplots(figsize=(5.2, 3.7))
+    fig, ax = plt.subplots(figsize=(5.2, 4.6))
     xs = [1, 10, 100, 1000]
     xs = [x for x in xs if n_req / cap / x >= 1.0] + [n_req / cap]
     ax.plot(
@@ -139,7 +139,7 @@ def fig_price() -> None:
         if key not in seen:
             seen.add(key)
             what = "rate detector fires" if d1 > 0.1 else "clears the rate detector"
-            label = f"round-robin, {lab or 'stricter caps'}: {what}"
+            label = f"{lab or 'stricter caps'}, {what}"
         ax.scatter([c["n"]], [wc], s=30, marker=marker, color=colour, label=label, zorder=3)
     cl = [c for c in l9["cells"] if c["clears"]]
     ax.scatter(
@@ -159,7 +159,7 @@ def fig_price() -> None:
     ax.grid(True, which="major", color=GRID, lw=0.6)
     for sp in ax.spines.values():
         sp.set_color(GRID)
-    ax.legend(fontsize=6.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.18), ncol=2)
+    ax.legend(fontsize=8, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=1)
     fig.tight_layout()
     fig.savefig(OUT / "price.pdf")
     fig.savefig(OUT / "price.png", dpi=200)

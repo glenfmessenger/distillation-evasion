@@ -1,0 +1,266 @@
+{
+ "round-robin 10": {
+  "days": 387,
+  "days_any": 31,
+  "p_any": 0.08010335917312661,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 1.0
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "round-robin 100": {
+  "days": 387,
+  "days_any": 387,
+  "p_any": 1.0,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "search 50, stagger 6 h": {
+  "days": 387,
+  "days_any": 138,
+  "p_any": 0.35658914728682173,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 0.35507246376811596,
+    "largest_share_of_flagged_days": 0.35507246376811596,
+    "only_share_of_flagged_days": 0.21014492753623187
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.7898550724637681,
+    "largest_share_of_flagged_days": 0.644927536231884,
+    "only_share_of_flagged_days": 0.644927536231884
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "search 100, stagger 6 h": {
+  "days": 387,
+  "days_any": 347,
+  "p_any": 0.896640826873385,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 0.6455331412103746,
+    "largest_share_of_flagged_days": 0.5994236311239193,
+    "only_share_of_flagged_days": 0.138328530259366
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.861671469740634,
+    "largest_share_of_flagged_days": 0.40057636887608067,
+    "only_share_of_flagged_days": 0.35446685878962536
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "organisation": {
+  "days": 235,
+  "days_any": 235,
+  "p_any": 1.0,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.029787234042553193
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 0.46808510638297873,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 0.2978723404255319,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.9191489361702128,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "batch job": {
+  "days": 347,
+  "days_any": 347,
+  "p_any": 1.0,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "eval fleet": {
+  "days": 347,
+  "days_any": 347,
+  "p_any": 1.0,
+  "by_detector": {
+   "D1": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D10": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D11": {
+    "nonzero_share_of_flagged_days": 1.0,
+    "largest_share_of_flagged_days": 1.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D2": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D3": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   },
+   "D9": {
+    "nonzero_share_of_flagged_days": 0.0,
+    "largest_share_of_flagged_days": 0.0,
+    "only_share_of_flagged_days": 0.0
+   }
+  }
+ },
+ "p43": {
+  "per_account_max_share": 0.7898550724637681,
+  "cross_account_share": 0.35507246376811596,
+  "holds": true
+ }
+}

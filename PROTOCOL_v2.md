@@ -363,3 +363,88 @@ number already seen, the item says so.
    campaign, and the three B4 populations. Prediction P36: under every alternative the
    100-account split is flagged at 0.95 or more, the batch job at 0.5 or more, and the
    organisation at 0.10 or less (medians over the five B4 placements).
+
+**B7 — 2026-11-12 — Second-round revision, registered before any run (decision 46; Glen: "go").**
+Scope as B6: defender-side re-analysis of data in hand; no lever is changed or added, and lever
+cells are not re-scored against cadence. All runs on the Mac; no GPU.
+
+1. *Cadence threshold and session size.* D3 recalibrated on benign sessions of at least five and
+   at least ten requests; the unevaded campaigns re-scored under each threshold with declared,
+   idle-gap and size-matched sessions. Prediction P37: the unevaded campaigns remain unflagged
+   under both thresholds.
+2. *Reasoning share without truncation.* D5 recalibrated with records cut off at the generation
+   cap excluded from the benign sessions; the campaigns re-scored the same way; each campaign's
+   own truncation rate reported. Prediction P38: the threshold falls and the benchmark campaign's
+   flagged fraction rises from zero to at least 0.10; the ordinary-prompt campaigns stay at zero.
+3. *D10 scaling on every reported cell.* Each cross-account-table cell and each of the 62
+   clearing cells re-scored under the three B6 scalings on the five registered placements, and
+   the ten-account and 50-account cells on all placement days. Prediction P39: at least 80% of
+   cells keep their clear/not-clear verdict under each alternative, and the two all-day cells'
+   share of days over 10% moves by at most 0.05.
+4. *Content controls.* (a) The uniform control and the pooled-account control under the second
+   encoder, primary calibration. (b) C3 for both controls across the B6 calibration splits,
+   tabulated from the existing held-out run. (c) The pooled-window check with the campaign's
+   prompt filter (deduplication and benchmark n-gram exclusion) applied to the benign reference
+   and held-out pools. Prediction P40: under the second encoder C3 flags at least 0.10 of the
+   pooled-account control units at m ≥ 20; with the filtered pools the uniform control and the
+   ordinary-prompt campaign are still flagged alike.
+5. *Benign volume upward.* The timeline overlaid onto itself with calendar offsets of one and
+   three days (two and four times the daily account volume), D10 and D11 recalibrated, the
+   ten-account and 100-account cells re-scored on fifty placements. Prediction P41: the creation
+   threshold at least doubles at four times the volume; the 100-account split stays flagged
+   completely; the ten-account cell's share of placements with any account flagged does not rise.
+6. *All-day controls.* The three B4 populations and the three D10 scalings' 100-account cell
+   re-scored on every placement day. Prediction P42: medians unchanged from the five-placement
+   values within 0.05.
+
+**B8 — 2026-11-12 — Adversary-pass revision, registered before any run (decision 47; Glen: "go").**
+Scope as B6 and B7: defender-side re-analysis of data in hand plus one public prompt sample; no
+lever is changed, added or searched; lever cells are not re-scored against cadence.
+
+1. *Decomposition of flags.* For the reported headline cells and the constructed organisation, on
+   every placement day, which detector produces the first flagged unit and the largest flagged
+   fraction (from the existing all-day evidence; no run). Prediction P43: in the 50-account cell
+   the first flagged unit comes from a per-account detector, not from D10 or D11, on most of the
+   days on which any unit is flagged.
+2. *Benign volume further upward.* Overlay factors eight and sixteen. Prediction P44: at sixteen
+   times the volume the 100-account round-robin split is no longer flagged completely (D10 or
+   D11 median below 0.95).
+3. *Budgets and campaign size.* Thresholds at 1%, 0.1% and 0.01% for the timeline-calibrated
+   detectors (D1, D2, D3, D9, D10, D11); the price-table cells and the ten-, 50- and 100-account
+   cells re-scored at each budget (five registered placements); the ten- and 50-account cells
+   re-scored on the 8,000-request run at 1%. Prediction P45: at 0.1% the rate threshold at least
+   doubles and the one-account price at least halves; the 100-account split stays flagged
+   completely by both cross-account detectors at 0.1%; at 8,000 requests the ten- and
+   50-account cells keep their cross-account verdicts and their schedules lengthen fourfold.
+4. *Replay-calibrated pattern detectors.* (a) D5 and D7 recalibrated on sessions of at least ten
+   requests, campaigns re-scored with declared and size-matched sessions. (b) D4 to D8b
+   recalibrated with the 120 constructed accounts removed. (c) A two-sided (low-side) threshold
+   at 1% for D4, D6 and D7, post hoc. Predictions P46: under (a) and (b) every campaign's flagged
+   fraction stays at most 0.10 for every replay-calibrated detector; P47: under (c) the
+   ordinary-prompt campaign's output-length statistic (D4, AUC 0.01) is flagged on at least half
+   its sessions.
+5. *D10's benign tail and the full timeline compounding.* The benign account-days above the D10
+   threshold described (requests, sessions, start hour, single-turn share) against the median
+   account-day; the any-detector rate on timeline accounts recomputed with D10 and D11.
+   Prediction P48: that rate is at most 3.5%.
+6. *Real profiles, simultaneous creation.* Fifty real heavy accounts as in the organisation
+   control, with their first requests collapsed into one ten-minute window, fifty placements.
+   Prediction P49: D11 flags at least 0.9 of them and D10 at most 0.10.
+7. *Out-of-corpus benign sample.* Three thousand English first user turns of the public
+   OpenAssistant conversations (oasst1, Apache-2.0), sampled with seed 0, scored by the
+   per-account content detectors (blocks of 100) and by the pooled-window design as a control,
+   prompts only, no teacher. Prediction P50: C2low flags at least 0.9 of its blocks and the
+   pooled design flags every window, i.e. the content detectors flag any uniform draw from a
+   public corpus, in or out of the calibration corpus.
+8. *Pilot truncation.* The share of student samples cut off at the generation cap, per arm, from
+   the existing scores; no prediction.
+
+**B9 — 2026-11-12 — Registered before any run (decision 48).** Defender-side scoring of the
+recorded lever cells under the two recalibrated cadence thresholds of B7 item 1 (sessions of at
+least five and at least ten requests), with the cells' own sessions and with sessions re-derived
+by the idle-gap rule; joint maximum and share of days with any unit flagged reported beside the
+registered figures. No lever is changed. Prediction P51: at least one of the three headline cells
+(one account at the cap, ten rate-capped accounts, the 50-account reliable cell) is flagged at
+more than 0.10 of its sessions under the ten-request threshold. Also: the mean within-unit kernel
+value of the per-account discrepancy statistic for benign accounts and the campaigns, to show
+what the matched-count statistic measures (no prediction).

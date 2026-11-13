@@ -131,5 +131,37 @@
  "NFive": {
   "value": "5",
   "source": "PROTOCOL_v2.md B6 item 3(b): smallest pooled-account size m"
+ },
+ "NConstructedAccounts": {
+  "value": "120",
+  "source": "benign m3_v1 manifest args: n_eval 30 + n_batch 30 + n_agent 60"
+ },
+ "NEvalAccounts": {
+  "value": "30",
+  "source": "benign m3_v1 manifest args n_eval"
+ },
+ "NBatchAccounts": {
+  "value": "30",
+  "source": "benign m3_v1 manifest args n_batch"
+ },
+ "NAgentAccounts": {
+  "value": "60",
+  "source": "benign m3_v1 manifest args n_agent"
+ },
+ "NConstructedRequests": {
+  "value": "5,850",
+  "source": "replay_schedule m3_v1: agent_loop 725 + batch_summarise 1,330 + eval_harness 3,795 requests"
+ },
+ "NConstructedInContent": {
+  "value": "61",
+  "source": "v2_content_instr unit_stats: 30 eval, 30 batch, 1 agent among the 1,061 calibration accounts"
+ },
+ "NRealReplayAccounts": {
+  "value": "2,500",
+  "source": "benign m3_v1 manifest args: n_heavy 1,000 + n_light 1,500"
+ },
+ "PctHundredth": {
+  "value": "0.01\\%",
+  "source": "PROTOCOL_v2.md B8 item 3: third budget of the sweep"
  }
 }

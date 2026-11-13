@@ -16,3 +16,6 @@ Amendments after freeze are recorded in PROTOCOL.md §10 (A1 to A6 as of 2026-11
 2026-11-11, decision 32: PROTOCOL v1.0 is superseded by PROTOCOL_v2.md, frozen at 7fd6ee4. v1.0's thresholds and results stand as recorded; v2.0 registers new predictions P1 to P6 before any run under it.
 
 2026-11-12, decision 44: amendment B6 (PROTOCOL_v2.md §10) registers predictions P25 to P36 before any revision analysis runs. Thresholds of v2.0 are unchanged; held-out and sensitivity thresholds are reported beside them, not substituted.
+2026-11-12, decision 46: amendment B7 (PROTOCOL_v2.md §10) registers predictions P37 to P42 before any second-round analysis runs. Registered thresholds unchanged; recalibrated thresholds reported beside them.
+2026-11-12, decision 47: amendment B8 (P43 to P50) registered before any adversary-pass analysis runs.
+2026-11-12, decision 48: amendment B9 (P51) registered before running.

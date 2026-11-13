@@ -1,0 +1,457 @@
+{
+ "n_constructed_accounts_removed": 120,
+ "registered": {
+  "D4": {
+   "threshold": 0.8700642329299478,
+   "n_benign": 1170,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.6811111111111111
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.009914529914529915
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.012393162393162393
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.09944444444444445
+    }
+   }
+  },
+  "D5": {
+   "threshold": 0.9909228441754917,
+   "n_benign": 10486,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.9247568186152966
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.502860957467099
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.4981832920083921
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.6556217814228495
+    }
+   }
+  },
+  "D6": {
+   "threshold": 0.8402633751485009,
+   "n_benign": 1170,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.5585470085470086
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.6025213675213675
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.5911111111111111
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.724017094017094
+    }
+   }
+  },
+  "D7": {
+   "threshold": 0.8084531684977913,
+   "n_benign": 10486,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.34470246042342173
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.25799876025176427
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.2579510776273126
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.22723631508678238
+    }
+   }
+  },
+  "D8": {
+   "threshold": 0.8109790056867614,
+   "n_benign": 1020,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.9441176470588235
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.6931372549019608
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.6696078431372549
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.7205882352941176
+    }
+   }
+  },
+  "D8b": {
+   "threshold": 3.0,
+   "n_benign": 1020,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.6230392156862745
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.1
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.16715686274509803
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.4818627450980392
+    }
+   }
+  }
+ },
+ "min_ten": {
+  "D5": {
+   "threshold": 0.9242426259954934,
+   "n_benign": 1170,
+   "campaigns": {
+    "pilot_baseline": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.967991452991453,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.06666666666666667,
+      "auc": 0.9657169990503324,
+      "n_units": 90
+     }
+    },
+    "c_real_v2:20": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.5590598290598291,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.0,
+      "auc": 0.575954415954416,
+      "n_units": 90
+     }
+    },
+    "c_real_v2_s1": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.5545299145299145,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.0,
+      "auc": 0.5699050332383666,
+      "n_units": 90
+     }
+    },
+    "c_instr_v2": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.7128632478632478,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.0,
+      "auc": 0.7006552706552707,
+      "n_units": 90
+     }
+    }
+   }
+  },
+  "D7": {
+   "threshold": 0.8771031374484611,
+   "n_benign": 1170,
+   "campaigns": {
+    "pilot_baseline": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.051410256410256414,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.022222222222222223,
+      "auc": 0.05899335232668566,
+      "n_units": 90
+     }
+    },
+    "c_real_v2:20": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.0102991452991453,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.0,
+      "auc": 0.009805318138651473,
+      "n_units": 90
+     }
+    },
+    "c_real_v2_s1": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.009829059829059829,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.0,
+      "auc": 0.008812915479582146,
+      "n_units": 90
+     }
+    },
+    "c_instr_v2": {
+     "declared": {
+      "flagged": 0.0,
+      "auc": 0.00811965811965812,
+      "n_units": 20
+     },
+     "benign-sized": {
+      "flagged": 0.0,
+      "auc": 0.008328584995251662,
+      "n_units": 90
+     }
+    }
+   }
+  }
+ },
+ "no_constructed": {
+  "D4": {
+   "threshold": 0.8782858707557503,
+   "n_benign": 1079,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.6768303985171455
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.004633920296570899
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.005885078776645042
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.0819740500463392
+    }
+   }
+  },
+  "D5": {
+   "threshold": 0.9910269192422732,
+   "n_benign": 10366,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.9241173065792012
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.5022670268184449
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.4976075631873432
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.6561016785645379
+    }
+   }
+  },
+  "D6": {
+   "threshold": 0.8256434830230011,
+   "n_benign": 1079,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.6795180722891566
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.728498609823911
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.7155699721964782
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.8178405931417979
+    }
+   }
+  },
+  "D7": {
+   "threshold": 0.8108568839459581,
+   "n_benign": 10366,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.34705768859733743
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.2609082577657727
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.26089861084314103
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.22985722554505114
+    }
+   }
+  },
+  "D8": {
+   "threshold": 0.839477652098921,
+   "n_benign": 959,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.9603753910323254
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.7340980187695516
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.7205422314911366
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.7413972888425443
+    }
+   }
+  },
+  "D8b": {
+   "threshold": 3.0,
+   "n_benign": 959,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "auc": 0.6496350364963503
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "auc": 0.10636079249217935
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "auc": 0.1777893639207508
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "auc": 0.5114702815432742
+    }
+   }
+  }
+ },
+ "low_side": {
+  "D4": {
+   "threshold": 0.118986190526634,
+   "n_exceed": 11,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_real_v2:20": {
+     "flagged": 0.7,
+     "flagged_size_matched": 0.12222222222222222
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.5,
+     "flagged_size_matched": 0.08888888888888889
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.011111111111111112
+    }
+   }
+  },
+  "D6": {
+   "threshold": 0.14544026740229143,
+   "n_exceed": 11,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    }
+   }
+  },
+  "D7": {
+   "threshold": 0.0,
+   "n_exceed": 0,
+   "campaigns": {
+    "pilot_baseline": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_real_v2:20": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_real_v2_s1": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    },
+    "c_instr_v2": {
+     "flagged": 0.0,
+     "flagged_size_matched": 0.0
+    }
+   }
+  }
+ },
+ "p46": {
+  "max_flagged": 0.06666666666666667,
+  "holds": true
+ },
+ "p47": {
+  "d4_low_flagged_c_real": 0.7,
+  "holds": true
+ }
+}

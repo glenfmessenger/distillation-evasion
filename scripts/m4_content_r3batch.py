@@ -79,6 +79,13 @@ def main() -> int:
         "identity, light users included, embedded here (cache benign_<label>_all.npy)",
     )
     ap.add_argument(
+        "--filter-pools",
+        action="store_true",
+        help="B7 item 4(c): drop from the benign pools exact-duplicate prompts and prompts that "
+        "share a 13-gram with another benign prompt (the campaign's own filter, applied to "
+        "the reference side)",
+    )
+    ap.add_argument(
         "--first-turns-only",
         action="store_true",
         help="restrict the reference, null and held-out pools to first user turns (turn-matched)",
@@ -111,6 +118,37 @@ def main() -> int:
     if len(owners) != len(b_all):
         raise RuntimeError("embedding cache does not match the schedule")
     real = np.asarray([o.startswith("b:conv:") for o in owners])
+    n_filtered = 0
+    if a.filter_pools:
+        from collections import Counter
+
+        from dev_harness.pool import ngrams
+
+        texts = [x for i in units if i.startswith("b:conv:") for x in units[i]]
+        real_idx = np.nonzero(real)[0]
+        if len(texts) != len(real_idx):
+            raise RuntimeError("real-prompt list does not match the real mask")
+        seen: set[str] = set()
+        gram_count: Counter = Counter()
+        per_prompt = []
+        for x in texts:
+            g = ngrams(x, 13)
+            per_prompt.append(g)
+            for gg in set(g):
+                gram_count[gg] += 1
+        keep_real = np.ones(len(texts), dtype=bool)
+        for k, x in enumerate(texts):
+            if x in seen or any(gram_count[gg] > 1 for gg in per_prompt[k]):
+                keep_real[k] = False
+            seen.add(x)
+        n_filtered = int((~keep_real).sum())
+        keep = np.ones(len(real), dtype=bool)
+        keep[real_idx[~keep_real]] = False
+        real = real & keep
+        print(
+            f"pool filter dropped {n_filtered} of {len(texts)} real conversational prompts",
+            flush=True,
+        )
     b, b_first = b_all[real], first[real]
     if a.first_turns_only:
         b, b_first = b[b_first], b_first[b_first]
@@ -148,6 +186,9 @@ def main() -> int:
         "batch": B,
         "first_turns_only": a.first_turns_only,
         "all_replay_prompts": a.all_replay_prompts,
+        "filter_pools": a.filter_pools,
+        "n_pool_prompts_filtered": n_filtered,
+        "n_pool_prompts_real": int(np.asarray([o.startswith("b:conv:") for o in owners]).sum()),
         "n_benign_identities_in_pools": len(units),
         "sigma": sigma,
         "n_reference": len(ref),
