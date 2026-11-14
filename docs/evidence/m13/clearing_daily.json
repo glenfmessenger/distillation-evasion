@@ -1,0 +1,3387 @@
+{
+ "gap_sessions": true,
+ "daily_calibration": {
+  "threshold": 49.0,
+  "direction": "high",
+  "fpr_budget": 0.01,
+  "n_benign": 118465,
+  "n_unscoreable": 0,
+  "n_exceed": 1155,
+  "resolution": 8.441311779850588e-06,
+  "below_resolution": false
+ },
+ "threshold": 0.3052578284537604,
+ "cells": [
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 1,
+   "cap": 26,
+   "hours": 79.96147047340708,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": 0.0,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 1,
+   "cap": 8,
+   "hours": 285.5727152532664,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": 1.0,
+    "sessions": 1.0,
+    "accounts": 1.0,
+    "requests": 1.0
+   },
+   "daily": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 1,
+   "cap": 2,
+   "hours": 1998.9399142708064,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 10,
+   "cap": 26,
+   "hours": 7.997447399022084,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": 0.4,
+    "sessions": 0.4,
+    "accounts": 0.4,
+    "requests": 0.4
+   },
+   "daily": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 10,
+   "cap": 8,
+   "hours": 28.56068310559361,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": 1.0,
+    "sessions": 1.0,
+    "accounts": 1.0,
+    "requests": 1.0
+   },
+   "daily": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 10,
+   "cap": 2,
+   "hours": 199.9526435160471,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 100,
+   "cap": 26,
+   "hours": 0.8129144660836112,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": 0.57,
+    "sessions": 0.57,
+    "accounts": 0.57,
+    "requests": 0.57
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.57,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.57,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 100,
+   "cap": 8,
+   "hours": 2.905539971925,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": 0.98,
+    "sessions": 0.98,
+    "accounts": 0.98,
+    "requests": 0.98
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.98,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.98,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 100,
+   "cap": 2,
+   "hours": 20.334027830592362,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 1000,
+   "cap": 26,
+   "hours": 0.09770278844805556,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 1000,
+   "cap": 8,
+   "hours": 0.3494690530586111,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   }
+  },
+  {
+   "source": "price",
+   "kind": "roundrobin",
+   "n": 1000,
+   "cap": 2,
+   "hours": 2.449130850177361,
+   "n_placements": 1,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "roundrobin",
+   "n": 10,
+   "cap": 26,
+   "stagger_h": null,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 7.998456758587222,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.4,
+    "sessions": 0.4,
+    "accounts": 0.4,
+    "requests": 0.4
+   },
+   "daily": 1.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.08010335917312661,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "roundrobin",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": null,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 0.8130579170097222,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.57,
+    "sessions": 0.57,
+    "accounts": 0.57,
+    "requests": 0.57
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 1.0,
+   "registered": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "roundrobin",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": null,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 0.09781916097722222,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": null,
+    "sessions": 0.0,
+    "accounts": 0.0,
+    "requests": 0.0
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0,
+   "registered": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 0,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 57.045129091342915,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.8333333333333334,
+    "sessions": 0.02262443438914027,
+    "accounts": 0.12,
+    "requests": 0.16
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.027149321266968326,
+   "registered": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 60.47131164856181,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.8333333333333334,
+    "sessions": 0.02262443438914027,
+    "accounts": 0.12,
+    "requests": 0.16
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.027149321266968326,
+   "registered": {
+    "joint_median": 0.3,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8333333333333334,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.3,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 70.26744109276291,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.8333333333333334,
+    "sessions": 0.02262443438914027,
+    "accounts": 0.12,
+    "requests": 0.16
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.027149321266968326,
+   "registered": {
+    "joint_median": 0.3,
+    "clears": false,
+    "p_over": 0.9973958333333334,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8333333333333334,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.3,
+    "clears": false,
+    "p_over": 0.9973958333333334,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 100.77211137308333,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8333333333333334,
+    "sessions": 0.02262443438914027,
+    "accounts": 0.12,
+    "requests": 0.16
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.027149321266968326,
+   "registered": {
+    "joint_median": 0.3,
+    "clears": false,
+    "p_over": 0.9973753280839895,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8333333333333334,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.3,
+    "clears": false,
+    "p_over": 0.9973753280839895,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 0,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 15.521674743585418,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.875,
+    "sessions": 0.0051508462104488595,
+    "accounts": 0.005,
+    "requests": 0.0555
+   },
+   "daily": 0.001,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "registered": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 18.726721400330554,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.875,
+    "sessions": 0.0051508462104488595,
+    "accounts": 0.005,
+    "requests": 0.0555
+   },
+   "daily": 0.001,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "registered": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 31.991925807122776,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.875,
+    "sessions": 0.0051508462104488595,
+    "accounts": 0.005,
+    "requests": 0.0555
+   },
+   "daily": 0.001,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "registered": {
+    "joint_median": 0.7978035892323031,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.875,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.7978035892323031,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "table5",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 0,
+   "session_mult": 1.0,
+   "hours": 75.30094094921583,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.875,
+    "sessions": 0.0051508462104488595,
+    "accounts": 0.005,
+    "requests": 0.0555
+   },
+   "daily": 0.001,
+   "share_sessions_scoreable": 0.005952380952380952,
+   "registered": {
+    "joint_median": 0.3310240816366503,
+    "clears": false,
+    "p_over": 0.9322916666666666,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.875,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.3310240816366503,
+    "clears": false,
+    "p_over": 0.9322916666666666,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 28.076838966413888,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7692307692307693,
+    "sessions": 0.14925373134328357,
+    "accounts": 0.48,
+    "requests": 0.398
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "registered": {
+    "joint_median": 0.10740740740740741,
+    "clears": false,
+    "p_over": 0.6139896373056994,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7692307692307693,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.28,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 39.40455747438695,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7692307692307693,
+    "sessions": 0.14925373134328357,
+    "accounts": 0.48,
+    "requests": 0.398
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "registered": {
+    "joint_median": 0.10682905878021844,
+    "clears": false,
+    "p_over": 0.6113989637305699,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7692307692307693,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.28,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 78.35458109651194,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7692307692307693,
+    "sessions": 0.14925373134328357,
+    "accounts": 0.48,
+    "requests": 0.398
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "registered": {
+    "joint_median": 0.1064110859484525,
+    "clears": false,
+    "p_over": 0.609375,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7692307692307693,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.28,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 167.7323072256236,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7692307692307693,
+    "sessions": 0.14925373134328357,
+    "accounts": 0.48,
+    "requests": 0.398
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.19402985074626866,
+   "registered": {
+    "joint_median": 0.10606060606060606,
+    "clears": false,
+    "p_over": 0.6062992125984252,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7692307692307693,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.28,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 18.71214780627861,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.6214285714285714,
+    "accounts": 0.74,
+    "requests": 0.772
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.012919896640826873,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6214285714285714,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 31.62649100950236,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.6214285714285714,
+    "accounts": 0.74,
+    "requests": 0.772
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.007772020725388601,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6214285714285714,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 74.11654678342624,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.6214285714285714,
+    "accounts": 0.74,
+    "requests": 0.772
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6214285714285714,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 165.86474974414708,
+   "n_placements": 380,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.6214285714285714,
+    "accounts": 0.74,
+    "requests": 0.772
+   },
+   "daily": 0.28,
+   "share_sessions_scoreable": 0.7586206896551724,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6214285714285714,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "hours": 40.0297015151875,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.8113207547169812,
+    "sessions": 0.156794425087108,
+    "accounts": 0.48,
+    "requests": 0.458
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "registered": {
+    "joint_median": 0.10688631797350001,
+    "clears": false,
+    "p_over": 0.5984455958549223,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8113207547169812,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "hours": 49.61266647921167,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.8113207547169812,
+    "sessions": 0.156794425087108,
+    "accounts": 0.48,
+    "requests": 0.458
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "registered": {
+    "joint_median": 0.10634109566091474,
+    "clears": false,
+    "p_over": 0.5932642487046632,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8113207547169812,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "hours": 83.23749356903042,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.8113207547169812,
+    "sessions": 0.156794425087108,
+    "accounts": 0.48,
+    "requests": 0.458
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "registered": {
+    "joint_median": 0.10634109566091474,
+    "clears": false,
+    "p_over": 0.59375,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8113207547169812,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 100,
+   "session_mult": 3.0,
+   "hours": 168.43494703903804,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8113207547169812,
+    "sessions": 0.156794425087108,
+    "accounts": 0.48,
+    "requests": 0.458
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18596491228070175,
+   "registered": {
+    "joint_median": 0.10638297872340426,
+    "clears": false,
+    "p_over": 0.5958005249343832,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8113207547169812,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 26.81357593431236,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.6140350877192983,
+    "accounts": 0.68,
+    "requests": 0.7805
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.025906735751295335,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6140350877192983,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 37.01515175700847,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.6140350877192983,
+    "accounts": 0.68,
+    "requests": 0.7805
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0051813471502590676,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6140350877192983,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 75.74963614999902,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.6140350877192983,
+    "accounts": 0.68,
+    "requests": 0.7805
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6140350877192983,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 165.8020876351461,
+   "n_placements": 380,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.6140350877192983,
+    "accounts": 0.68,
+    "requests": 0.7805
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7719298245614035,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6140350877192983,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 40.0297015151875,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7647058823529411,
+    "sessions": 0.15441176470588236,
+    "accounts": 0.44,
+    "requests": 0.415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18466898954703834,
+   "registered": {
+    "joint_median": 0.10666850732387817,
+    "clears": false,
+    "p_over": 0.5932642487046632,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7647058823529411,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 49.929963764678476,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7647058823529411,
+    "sessions": 0.15441176470588236,
+    "accounts": 0.44,
+    "requests": 0.415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18466898954703834,
+   "registered": {
+    "joint_median": 0.10583372224814988,
+    "clears": false,
+    "p_over": 0.5880829015544041,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7647058823529411,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 83.82906453988444,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7647058823529411,
+    "sessions": 0.15441176470588236,
+    "accounts": 0.44,
+    "requests": 0.415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18466898954703834,
+   "registered": {
+    "joint_median": 0.1054617676266137,
+    "clears": false,
+    "p_over": 0.5859375,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7647058823529411,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 168.579018200255,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7647058823529411,
+    "sessions": 0.15441176470588236,
+    "accounts": 0.44,
+    "requests": 0.415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.18466898954703834,
+   "registered": {
+    "joint_median": 0.10566037735849057,
+    "clears": false,
+    "p_over": 0.5853018372703412,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7647058823529411,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.22,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 26.81357593431236,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7654320987654321,
+    "sessions": 0.6,
+    "accounts": 0.56,
+    "requests": 0.7415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.02849740932642487,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7654320987654321,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 37.269101057343335,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7654320987654321,
+    "sessions": 0.6,
+    "accounts": 0.56,
+    "requests": 0.7415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.010362694300518135,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7654320987654321,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 76.31845706396209,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7654320987654321,
+    "sessions": 0.6,
+    "accounts": 0.56,
+    "requests": 0.7415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7654320987654321,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 50,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 166.29673925521377,
+   "n_placements": 380,
+   "cadence": {
+    "scoreable": 0.7654320987654321,
+    "sessions": 0.6,
+    "accounts": 0.56,
+    "requests": 0.7415
+   },
+   "daily": 0.22,
+   "share_sessions_scoreable": 0.7714285714285715,
+   "registered": {
+    "joint_median": 0.0,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7654320987654321,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.6,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 32.34940462723319,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.11075949367088607,
+    "accounts": 0.25,
+    "requests": 0.319
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.10407110091743119,
+    "clears": false,
+    "p_over": 0.5777202072538861,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.11075949367088607,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 75.80318397792459,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.11075949367088607,
+    "accounts": 0.25,
+    "requests": 0.319
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.1038107910478177,
+    "clears": false,
+    "p_over": 0.5729166666666666,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.11075949367088607,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 3.0,
+   "hours": 167.92402454005196,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.782608695652174,
+    "sessions": 0.11075949367088607,
+    "accounts": 0.25,
+    "requests": 0.319
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.10367892976588629,
+    "clears": false,
+    "p_over": 0.5721784776902887,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.782608695652174,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.11075949367088607,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 12.82468945087,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.47904191616766467,
+    "accounts": 0.51,
+    "requests": 0.668
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "registered": {
+    "joint_median": 0.026490066225165563,
+    "clears": true,
+    "p_over": 0.17054263565891473,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.47904191616766467,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 28.12077981260083,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.47904191616766467,
+    "accounts": 0.51,
+    "requests": 0.668
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "registered": {
+    "joint_median": 0.012738853503184714,
+    "clears": true,
+    "p_over": 0.007772020725388601,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.47904191616766467,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 72.95437253977889,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.47904191616766467,
+    "accounts": 0.51,
+    "requests": 0.668
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "registered": {
+    "joint_median": 0.012232530300763132,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.47904191616766467,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 166.60732615431724,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7888888888888889,
+    "sessions": 0.47904191616766467,
+    "accounts": 0.51,
+    "requests": 0.668
+   },
+   "daily": 0.09,
+   "share_sessions_scoreable": 0.6227544910179641,
+   "registered": {
+    "joint_median": 0.012121212121212121,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7888888888888889,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.47904191616766467,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 20.848626594427223,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.4375,
+    "accounts": 0.38,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.03870967741935484,
+    "clears": true,
+    "p_over": 0.1937984496124031,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.4375,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 31.848822324219306,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.4375,
+    "accounts": 0.38,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.02040816326530612,
+    "clears": true,
+    "p_over": 0.015544041450777202,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.4375,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 73.48210063097069,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.4375,
+    "accounts": 0.38,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.0196078431372549,
+    "clears": true,
+    "p_over": 0.0026041666666666665,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.4375,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 166.8638284996878,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.4375,
+    "accounts": 0.38,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.019867549668874173,
+    "clears": true,
+    "p_over": 0.0026246719160104987,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.4375,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 31.40186910140528,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.10967741935483871,
+    "accounts": 0.24,
+    "requests": 0.335
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.10932475884244373,
+    "clears": false,
+    "p_over": 0.6692506459948321,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.10967741935483871,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 42.47501025167416,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.10967741935483871,
+    "accounts": 0.24,
+    "requests": 0.335
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.10560031158395343,
+    "clears": false,
+    "p_over": 0.6269430051813472,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.10967741935483871,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 79.06884606132945,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.10967741935483871,
+    "accounts": 0.24,
+    "requests": 0.335
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.10552230378317334,
+    "clears": false,
+    "p_over": 0.625,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.10967741935483871,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 3.0,
+   "hours": 168.47558036926276,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.10967741935483871,
+    "accounts": 0.24,
+    "requests": 0.335
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.13924050632911392,
+   "registered": {
+    "joint_median": 0.10545454545454545,
+    "clears": false,
+    "p_over": 0.6220472440944882,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.10967741935483871,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 6,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 21.3402625364375,
+   "n_placements": 387,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.44516129032258067,
+    "accounts": 0.37,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.04081632653061224,
+    "clears": true,
+    "p_over": 0.17571059431524547,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.44516129032258067,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 32.71334813356347,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.44516129032258067,
+    "accounts": 0.37,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.021512285391179192,
+    "clears": true,
+    "p_over": 0.012953367875647668,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.44516129032258067,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 73.40624959373056,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.44516129032258067,
+    "accounts": 0.37,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.02020408163265306,
+    "clears": true,
+    "p_over": 0.0078125,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.44516129032258067,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 100,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 166.76359481078083,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7755102040816326,
+    "sessions": 0.44516129032258067,
+    "accounts": 0.37,
+    "requests": 0.668
+   },
+   "daily": 0.07,
+   "share_sessions_scoreable": 0.56875,
+   "registered": {
+    "joint_median": 0.02,
+    "clears": true,
+    "p_over": 0.007874015748031496,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7755102040816326,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.44516129032258067,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 25.890664935329724,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.7727272727272727,
+    "sessions": 0.2612244897959184,
+    "accounts": 0.235,
+    "requests": 0.516
+   },
+   "daily": 0.015,
+   "share_sessions_scoreable": 0.33472803347280333,
+   "registered": {
+    "joint_median": 0.023391812865497075,
+    "clears": true,
+    "p_over": 0.025906735751295335,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7727272727272727,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.2612244897959184,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 72.41388330994403,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7727272727272727,
+    "sessions": 0.2612244897959184,
+    "accounts": 0.235,
+    "requests": 0.516
+   },
+   "daily": 0.015,
+   "share_sessions_scoreable": 0.33472803347280333,
+   "registered": {
+    "joint_median": 0.02,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7727272727272727,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.2612244897959184,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 167.29139437442777,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7727272727272727,
+    "sessions": 0.2612244897959184,
+    "accounts": 0.235,
+    "requests": 0.516
+   },
+   "daily": 0.015,
+   "share_sessions_scoreable": 0.33472803347280333,
+   "registered": {
+    "joint_median": 0.02,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7727272727272727,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.2612244897959184,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 27.717518932785975,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.8028169014084507,
+    "sessions": 0.2644628099173554,
+    "accounts": 0.215,
+    "requests": 0.562
+   },
+   "daily": 0.03,
+   "share_sessions_scoreable": 0.33884297520661155,
+   "registered": {
+    "joint_median": 0.029069767441860465,
+    "clears": true,
+    "p_over": 0.02849740932642487,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8028169014084507,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.2644628099173554,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 72.84137084814999,
+   "n_placements": 385,
+   "cadence": {
+    "scoreable": 0.8028169014084507,
+    "sessions": 0.2644628099173554,
+    "accounts": 0.215,
+    "requests": 0.562
+   },
+   "daily": 0.03,
+   "share_sessions_scoreable": 0.33884297520661155,
+   "registered": {
+    "joint_median": 0.023668639053254437,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8028169014084507,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.2644628099173554,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 167.50416404050168,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8028169014084507,
+    "sessions": 0.2644628099173554,
+    "accounts": 0.215,
+    "requests": 0.562
+   },
+   "daily": 0.03,
+   "share_sessions_scoreable": 0.33884297520661155,
+   "registered": {
+    "joint_median": 0.023255813953488372,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8028169014084507,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.2644628099173554,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 24,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 28.350480873620974,
+   "n_placements": 386,
+   "cadence": {
+    "scoreable": 0.8170731707317073,
+    "sessions": 0.26171875,
+    "accounts": 0.2,
+    "requests": 0.5825
+   },
+   "daily": 0.03,
+   "share_sessions_scoreable": 0.31225296442687744,
+   "registered": {
+    "joint_median": 0.03,
+    "clears": true,
+    "p_over": 0.02849740932642487,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8170731707317073,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.26171875,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 72.79537533305222,
+   "n_placements": 385,
+   "cadence": {
+    "scoreable": 0.8170731707317073,
+    "sessions": 0.26171875,
+    "accounts": 0.2,
+    "requests": 0.5825
+   },
+   "daily": 0.03,
+   "share_sessions_scoreable": 0.31225296442687744,
+   "registered": {
+    "joint_median": 0.027472527472527472,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8170731707317073,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.26171875,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 200,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 167.494720872615,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8170731707317073,
+    "sessions": 0.26171875,
+    "accounts": 0.2,
+    "requests": 0.5825
+   },
+   "daily": 0.03,
+   "share_sessions_scoreable": 0.31225296442687744,
+   "registered": {
+    "joint_median": 0.025806451612903226,
+    "clears": true,
+    "p_over": 0.0,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8170731707317073,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.26171875,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 500,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 72.09382204342376,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.7758620689655172,
+    "sessions": 0.08587786259541985,
+    "accounts": 0.08,
+    "requests": 0.2955
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.10984848484848485,
+   "registered": {
+    "joint_median": 0.06521739130434782,
+    "clears": true,
+    "p_over": 0.0625,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7758620689655172,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.08587786259541985,
+    "clears": true,
+    "p_over": 0.0625,
+    "reliable": true
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 500,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 167.67809253625694,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.7758620689655172,
+    "sessions": 0.08587786259541985,
+    "accounts": 0.08,
+    "requests": 0.2955
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.10984848484848485,
+   "registered": {
+    "joint_median": 0.06374501992031872,
+    "clears": true,
+    "p_over": 0.04461942257217848,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7758620689655172,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.08587786259541985,
+    "clears": true,
+    "p_over": 0.04461942257217848,
+    "reliable": true
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 500,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 72.13265309480889,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.8070175438596491,
+    "sessions": 0.08365019011406843,
+    "accounts": 0.066,
+    "requests": 0.3535
+   },
+   "daily": 0.01,
+   "share_sessions_scoreable": 0.10646387832699619,
+   "registered": {
+    "joint_median": 0.05729048771569362,
+    "clears": true,
+    "p_over": 0.046875,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8070175438596491,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.08365019011406843,
+    "clears": true,
+    "p_over": 0.046875,
+    "reliable": true
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 500,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 167.6600961947886,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8070175438596491,
+    "sessions": 0.08365019011406843,
+    "accounts": 0.066,
+    "requests": 0.3535
+   },
+   "daily": 0.01,
+   "share_sessions_scoreable": 0.10646387832699619,
+   "registered": {
+    "joint_median": 0.05583756345177665,
+    "clears": true,
+    "p_over": 0.007874015748031496,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8070175438596491,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.08365019011406843,
+    "clears": true,
+    "p_over": 0.007874015748031496,
+    "reliable": true
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 500,
+   "cap": 26,
+   "stagger_h": 72,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 72.11802805672333,
+   "n_placements": 384,
+   "cadence": {
+    "scoreable": 0.8070175438596491,
+    "sessions": 0.08795411089866156,
+    "accounts": 0.062,
+    "requests": 0.359
+   },
+   "daily": 0.008,
+   "share_sessions_scoreable": 0.1089866156787763,
+   "registered": {
+    "joint_median": 0.05750547345374932,
+    "clears": true,
+    "p_over": 0.059895833333333336,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8070175438596491,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.08795411089866156,
+    "clears": true,
+    "p_over": 0.059895833333333336,
+    "reliable": true
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 500,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 167.63760289688054,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8070175438596491,
+    "sessions": 0.08795411089866156,
+    "accounts": 0.062,
+    "requests": 0.359
+   },
+   "daily": 0.008,
+   "share_sessions_scoreable": 0.1089866156787763,
+   "registered": {
+    "joint_median": 0.05555555555555555,
+    "clears": true,
+    "p_over": 0.015748031496062992,
+    "reliable": true
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8070175438596491,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.08795411089866156,
+    "clears": true,
+    "p_over": 0.015748031496062992,
+    "reliable": true
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 1.0,
+   "hours": 168.5977468364693,
+   "n_placements": 380,
+   "cadence": {
+    "scoreable": 1.0,
+    "sessions": 0.0007107320540156361,
+    "accounts": 0.001,
+    "requests": 0.005
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.0007163323782234957,
+   "registered": {
+    "joint_median": 0.12015037593984962,
+    "clears": false,
+    "p_over": 0.7684210526315789,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 1.0,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.12015037593984962,
+    "clears": false,
+    "p_over": 0.7684210526315789,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 26,
+   "session_mult": 10.0,
+   "hours": 167.80885190986695,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8823529411764706,
+    "sessions": 0.030541871921182268,
+    "accounts": 0.031,
+    "requests": 0.1625
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.03389830508474576,
+   "registered": {
+    "joint_median": 0.0748663101604278,
+    "clears": true,
+    "p_over": 0.16535433070866143,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8823529411764706,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0748663101604278,
+    "clears": true,
+    "p_over": 0.16535433070866143,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 100,
+   "session_mult": 10.0,
+   "hours": 167.7979945151314,
+   "n_placements": 381,
+   "cadence": {
+    "scoreable": 0.8181818181818182,
+    "sessions": 0.026600985221674877,
+    "accounts": 0.025,
+    "requests": 0.19
+   },
+   "daily": 0.0,
+   "share_sessions_scoreable": 0.03251231527093596,
+   "registered": {
+    "joint_median": 0.0738255033557047,
+    "clears": true,
+    "p_over": 0.17585301837270342,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.8181818181818182,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.0738255033557047,
+    "clears": true,
+    "p_over": 0.17585301837270342,
+    "reliable": false
+   }
+  },
+  {
+   "source": "search",
+   "kind": "heterogeneous",
+   "n": 1000,
+   "cap": 26,
+   "stagger_h": 168,
+   "count_cap": 300,
+   "session_mult": 10.0,
+   "hours": 167.80354241396904,
+   "n_placements": 380,
+   "cadence": {
+    "scoreable": 0.7878787878787878,
+    "sessions": 0.02561576354679803,
+    "accounts": 0.022,
+    "requests": 0.2075
+   },
+   "daily": 0.001,
+   "share_sessions_scoreable": 0.03251231527093596,
+   "registered": {
+    "joint_median": 0.072992700729927,
+    "clears": true,
+    "p_over": 0.1868421052631579,
+    "reliable": false
+   },
+   "corrected_scoreable": {
+    "joint_median": 0.7878787878787878,
+    "clears": false,
+    "p_over": 1.0,
+    "reliable": false
+   },
+   "corrected_sessions": {
+    "joint_median": 0.072992700729927,
+    "clears": true,
+    "p_over": 0.1868421052631579,
+    "reliable": false
+   }
+  }
+ ],
+ "summary": {
+  "search": {
+   "registered": {
+    "n_cells": 62,
+    "n_clear": 42,
+    "n_reliable": 36,
+    "cheapest_clearing": {
+     "source": "search",
+     "n": 100,
+     "cap": 26,
+     "stagger_h": 6,
+     "count_cap": 26,
+     "session_mult": 10.0,
+     "hours": 12.82468945087,
+     "share_sessions_scoreable": 0.6227544910179641,
+     "cadence": {
+      "scoreable": 0.7888888888888889,
+      "sessions": 0.47904191616766467,
+      "accounts": 0.51,
+      "requests": 0.668
+     }
+    },
+    "cheapest_reliable": {
+     "source": "search",
+     "n": 50,
+     "cap": 26,
+     "stagger_h": 6,
+     "count_cap": 26,
+     "session_mult": 10.0,
+     "hours": 18.71214780627861,
+     "share_sessions_scoreable": 0.7586206896551724,
+     "cadence": {
+      "scoreable": 0.782608695652174,
+      "sessions": 0.6214285714285714,
+      "accounts": 0.74,
+      "requests": 0.772
+     }
+    }
+   },
+   "corrected_scoreable": {
+    "n_cells": 62,
+    "n_clear": 0,
+    "n_reliable": 0,
+    "cheapest_clearing": null,
+    "cheapest_reliable": null
+   },
+   "corrected_sessions": {
+    "n_cells": 62,
+    "n_clear": 9,
+    "n_reliable": 6,
+    "cheapest_clearing": {
+     "source": "search",
+     "n": 500,
+     "cap": 26,
+     "stagger_h": 72,
+     "count_cap": 26,
+     "session_mult": 10.0,
+     "hours": 72.09382204342376,
+     "share_sessions_scoreable": 0.10984848484848485,
+     "cadence": {
+      "scoreable": 0.7758620689655172,
+      "sessions": 0.08587786259541985,
+      "accounts": 0.08,
+      "requests": 0.2955
+     }
+    },
+    "cheapest_reliable": {
+     "source": "search",
+     "n": 500,
+     "cap": 26,
+     "stagger_h": 72,
+     "count_cap": 26,
+     "session_mult": 10.0,
+     "hours": 72.09382204342376,
+     "share_sessions_scoreable": 0.10984848484848485,
+     "cadence": {
+      "scoreable": 0.7758620689655172,
+      "sessions": 0.08587786259541985,
+      "accounts": 0.08,
+      "requests": 0.2955
+     }
+    }
+   }
+  },
+  "price": {
+   "registered": {
+    "n_cells": 12,
+    "n_clear": 12,
+    "n_reliable": 12,
+    "cheapest_clearing": {
+     "source": "price",
+     "n": 1000,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": null,
+     "session_mult": null,
+     "hours": 0.09770278844805556,
+     "share_sessions_scoreable": 0.0,
+     "cadence": {
+      "scoreable": null,
+      "sessions": 0.0,
+      "accounts": 0.0,
+      "requests": 0.0
+     }
+    },
+    "cheapest_reliable": {
+     "source": "price",
+     "n": 1000,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": null,
+     "session_mult": null,
+     "hours": 0.09770278844805556,
+     "share_sessions_scoreable": 0.0,
+     "cadence": {
+      "scoreable": null,
+      "sessions": 0.0,
+      "accounts": 0.0,
+      "requests": 0.0
+     }
+    }
+   },
+   "corrected_scoreable": {
+    "n_cells": 12,
+    "n_clear": 6,
+    "n_reliable": 6,
+    "cheapest_clearing": {
+     "source": "price",
+     "n": 1000,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": null,
+     "session_mult": null,
+     "hours": 0.09770278844805556,
+     "share_sessions_scoreable": 0.0,
+     "cadence": {
+      "scoreable": null,
+      "sessions": 0.0,
+      "accounts": 0.0,
+      "requests": 0.0
+     }
+    },
+    "cheapest_reliable": {
+     "source": "price",
+     "n": 1000,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": null,
+     "session_mult": null,
+     "hours": 0.09770278844805556,
+     "share_sessions_scoreable": 0.0,
+     "cadence": {
+      "scoreable": null,
+      "sessions": 0.0,
+      "accounts": 0.0,
+      "requests": 0.0
+     }
+    }
+   },
+   "corrected_sessions": {
+    "n_cells": 12,
+    "n_clear": 6,
+    "n_reliable": 6,
+    "cheapest_clearing": {
+     "source": "price",
+     "n": 1000,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": null,
+     "session_mult": null,
+     "hours": 0.09770278844805556,
+     "share_sessions_scoreable": 0.0,
+     "cadence": {
+      "scoreable": null,
+      "sessions": 0.0,
+      "accounts": 0.0,
+      "requests": 0.0
+     }
+    },
+    "cheapest_reliable": {
+     "source": "price",
+     "n": 1000,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": null,
+     "session_mult": null,
+     "hours": 0.09770278844805556,
+     "share_sessions_scoreable": 0.0,
+     "cadence": {
+      "scoreable": null,
+      "sessions": 0.0,
+      "accounts": 0.0,
+      "requests": 0.0
+     }
+    }
+   }
+  },
+  "table5": {
+   "registered": {
+    "n_cells": 11,
+    "n_clear": 1,
+    "n_reliable": 1,
+    "cheapest_clearing": {
+     "source": "table5",
+     "n": 10,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": 0,
+     "session_mult": 1.0,
+     "hours": 7.998456758587222,
+     "share_sessions_scoreable": 1.0,
+     "cadence": {
+      "scoreable": 0.4,
+      "sessions": 0.4,
+      "accounts": 0.4,
+      "requests": 0.4
+     }
+    },
+    "cheapest_reliable": {
+     "source": "table5",
+     "n": 10,
+     "cap": 26,
+     "stagger_h": null,
+     "count_cap": 0,
+     "session_mult": 1.0,
+     "hours": 7.998456758587222,
+     "share_sessions_scoreable": 1.0,
+     "cadence": {
+      "scoreable": 0.4,
+      "sessions": 0.4,
+      "accounts": 0.4,
+      "requests": 0.4
+     }
+    }
+   },
+   "corrected_scoreable": {
+    "n_cells": 11,
+    "n_clear": 0,
+    "n_reliable": 0,
+    "cheapest_clearing": null,
+    "cheapest_reliable": null
+   },
+   "corrected_sessions": {
+    "n_cells": 11,
+    "n_clear": 0,
+    "n_reliable": 0,
+    "cheapest_clearing": null,
+    "cheapest_reliable": null
+   }
+  }
+ },
+ "p59": {
+  "primary_n_with_scoreable": 78,
+  "primary_n_clear": 0,
+  "secondary_search_clear": 9,
+  "secondary_heads_clear": {
+   "one_account_cap26": false,
+   "ten_account_cap26": false,
+   "fifty_reliable": false
+  },
+  "holds": false
+ }
+}

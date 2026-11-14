@@ -265,8 +265,9 @@ def main() -> int:
                     else None
                 )
                 cad = None if cadc is None else cadc["cadence"]["scoreable"]
+                day = None if cadc is None else cadc["daily"]
                 price_rows.append(
-                    f"{intc(lev['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} & {'--' if cad is None else num(cad)} \\\\"
+                    f"{intc(lev['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} & {'--' if day is None else num(day)} & {'--' if cad is None else num(cad)} \\\\"
                 )
             cell = (
                 f"N{c['n']}"
@@ -292,7 +293,7 @@ def main() -> int:
             }
         )
         price_rows.append(
-            f"{intc(lev8['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} & -- \\\\"
+            f"{intc(lev8['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} & -- & -- \\\\"
         )
         macro(f"FlagDOneEightK{_camel(str(c['n']))}{'Shaped' if c['q'] else ''}", num(med(d1)))
         macro(
@@ -301,8 +302,8 @@ def main() -> int:
         )
     _table(
         "price.tex",
-        "rrrrccc",
-        r"Requests & Accounts & Cap/h & Hours & D1 & D2 & Cad. \\",
+        "rrrrcccc",
+        r"Requests & Accounts & Cap/h & Hours & D1 & D2 & 24 h & Cad. \\",
         price_rows,
     )
     macro("NReschedulings", intc(len(load(CAMPAIGNS[0][2])["cells"][0]["per_seed"])))
@@ -1581,42 +1582,25 @@ def build_adversary_tables() -> None:
         ("unevaded single account", "unevaded single account"),
     ]
     by_cell = {c["cell"]: c for c in cc["cells"]}
-    tbc = load(EV / "m12" / "timebase.json")["cells"]
 
     def benign_base(key: str) -> str:
+        """Ten-request threshold on completion times with idle-gap sessions (B17)."""
         kind, rest = key.split(" ", 1)
         if kind == "round-robin":
             n, cap = rest.split(", cap ")
             if cap == "none":
                 return "--"
-            m = [
-                c
-                for c in tbc
-                if c["source"] == "price" and c["n"] == int(n) and c["cap"] == int(cap)
-            ]
+            k = ("price", int(n), int(cap), None, 0, 1.0)
         elif kind == "heterogeneous":
             n, st = rest.split(", stagger ")
-            m = [
-                c
-                for c in tbc
-                if c["source"] == "table7" and c["n"] == int(n) and c["stagger_h"] == int(st)
-            ]
+            k = ("table5", int(n), 26, int(st), 0, 1.0)
         elif kind == "search":
             n, st = rest.split(", stagger ")
-            m = [
-                c
-                for c in tbc
-                if c["source"] == "search"
-                and c["n"] == int(n)
-                and c["stagger_h"] == int(st)
-                and c["count_cap"] == 26
-                and c["session_mult"] == 10.0
-            ]
+            k = ("search", int(n), 26, int(st), 26, 10.0)
         else:
             return "--"
-        if len(m) != 1:
-            raise RuntimeError(f"benign-time-base cell for {key!r}: {len(m)} matches")
-        return frac_or_na(m[0]["summary"]["completion:10"]["flagged"])
+        c = _corrected()[k]["cadence"]["scoreable"]
+        return "n/a" if c is None else num(c)
 
     for key, label in want:
         s = by_cell[key]["summary"]
@@ -1928,13 +1912,15 @@ def build_b13() -> None:
 
 def build_b14() -> None:
     """Amendment B14: corrected clearing, size-matched pattern scoring, cohorts, observed content units."""
-    cl = load(EV / "m13" / "clearing.json")
+    cl = load(EV / "m13" / "clearing_daily.json")
+    if not (cl["gap_sessions"] and cl["daily_calibration"]):
+        raise RuntimeError("clearing_daily.json is not the idle-gap, 24-hour run")
     s = cl["summary"]["search"]
     reg, pri, sec = s["registered"], s["corrected_scoreable"], s["corrected_sessions"]
     macro("ClrSearchRegClear", intc(reg["n_clear"]))
     macro("ClrSearchRegReliable", intc(reg["n_reliable"]))
     macro("ClrNWithScoreable", intc(cl["p59"]["primary_n_with_scoreable"]))
-    if cl["p59"]["primary_n_clear"] != 0 or pri["n_clear"] != 0:
+    if pri["n_clear"] != 0:
         raise RuntimeError("text says no cell clears under the scoreable-session rule")
     macro("ClrSecClear", intc(sec["n_clear"]))
     macro("ClrSecReliable", intc(sec["n_reliable"]))
@@ -1953,8 +1939,40 @@ def build_b14() -> None:
     macro("ClrSecMinN", intc(sec_n[0]))
     one = next(c for c in cl["cells"] if c["source"] == "price" and c["n"] == 1 and c["cap"] == 26)
     ten = next(c for c in cl["cells"] if c["source"] == "price" and c["n"] == 10 and c["cap"] == 26)
-    macro("ClrOneSessions", num(one["cadence"]["sessions"]))
-    macro("ClrTenAccounts", num(ten["cadence"]["accounts"]))
+    macro("GapOneFlagged", num(one["cadence"]["scoreable"]))
+    macro("GapTenFlagged", num(ten["cadence"]["scoreable"]))
+    dc = cl["daily_calibration"]
+    macro("DailyThr", intc(dc["threshold"]))
+    macro("DailyNAbove", intc(dc["n_exceed"]))
+    if one["daily"] != 1.0 or ten["daily"] != 1.0:
+        raise RuntimeError("text says the 24-hour rate flags every account of both cells")
+    srch = [c for c in cl["cells"] if c["source"] == "search"]
+    macro("DailySearchOver", intc(sum(1 for c in srch if c["daily"] > 0.10)))
+    macro(
+        "DailyRegClearOver",
+        intc(sum(1 for c in srch if c["registered"]["clears"] and c["daily"] > 0.10)),
+    )
+    two = {
+        n: next(c for c in cl["cells"] if c["source"] == "price" and c["n"] == n and c["cap"] == 2)
+        for n in (1, 10)
+    }
+    for n, c in two.items():
+        if not (
+            c["corrected_scoreable"]["clears"]
+            and c["cadence"]["scoreable"] is None
+            and c["daily"] == 0.0
+        ):
+            raise RuntimeError(
+                f"text says the {n}-account cap-2 cell clears unscoreable and unflagged"
+            )
+    macro("CapTwoOneHours", intc(round(two[1]["hours"])))
+    macro("CapTwoTenHours", intc(round(two[10]["hours"])))
+    for n, tag in ((1, "One"), (10, "Ten"), (100, "Hundred")):
+        c8 = next(
+            c for c in cl["cells"] if c["source"] == "price" and c["n"] == n and c["cap"] == 8
+        )
+        if c8["corrected_scoreable"]["clears"]:
+            raise RuntimeError("text says the cap-8 cells do not clear")
     t5 = cl["summary"]["table5"]
     if t5["corrected_scoreable"]["n_clear"] != 0 or t5["corrected_sessions"]["n_clear"] != 0:
         raise RuntimeError("text says no cross-account table cell clears when corrected")
@@ -1963,14 +1981,14 @@ def build_b14() -> None:
         f"{name} & {intc(r['n_clear'])} & {intc(r['n_reliable'])} & {f(r['cheapest_clearing'])} & {f(r['cheapest_reliable'])} \\\\"
         for name, r in (
             ("as registered", reg),
-            ("corrected, of scoreable", pri),
-            ("corrected, of all sessions", sec),
+            ("fuller set, of scoreable", pri),
+            ("fuller set, of all sessions", sec),
         )
     ]
     _table(
         "clearing.tex",
         "lrrll",
-        r"Cadence detector & Clear & Reliable & Cheapest clear & Cheapest reliable \\",
+        r"Rule & Clear & Reliable & Cheapest clear & Cheapest reliable \\",
         rows,
     )
     pt = load(EV / "m13" / "pattern.json")
@@ -2139,6 +2157,10 @@ def build_b16() -> None:
     macro("ApiLargeDayBelow", pct(cd["tiers"]["m-large"]["share_below_campaign"]) + "\\%")
     macro("ApiLangDayMedian", intc(round(cd["language_pooled"]["median_busiest_hour"], -2)))
     macro("ApiNLangClientDays", intc(cd["language_pooled"]["n_client_days"]))
+    rs = load(EV / "m15" / "reasoning.json")
+    macro("ReasonThrOne", intc(round(rs["0.01"]["threshold"], -2)))
+    macro("ReasonThrTen", intc(round(rs["0.1"]["threshold"], -2)))
+    macro("ReasonShareAbove", pct(rs["share_above_campaign"]) + "\\%")
     ro = load(EV / "m15" / "realonly.json")
     macro("RealOnlyMaxChange", num(ro["max_change_excluding_B1"]))
     pops = ro["populations"]
@@ -2155,8 +2177,9 @@ def build_b16() -> None:
     for det in ("D4", "D5", "D6", "D7", "D8", "D8b"):
         r0, r1 = rc["registered"][det], rc["no_constructed"][det]
         mx = max(v["flagged"] for v in r1["campaigns"].values())
+        mk = "$^\\dagger$" if int(0.01 * r1["n_benign"]) < 10 else ""
         rows.append(
-            f"{det} & {r1['threshold']:.3g} & {intc(r1['n_benign'])} & {r0['threshold']:.3g} & {num(mx)} \\\\"
+            f"{det}{mk} & {r1['threshold']:.3g} & {intc(r1['n_benign'])} & {r0['threshold']:.3g} & {num(mx)} \\\\"
         )
     rows.append("\\midrule")
     cs = ro["calibration_by_source"]["s1"]
@@ -2181,7 +2204,7 @@ def build_b16() -> None:
 
 def _corrected() -> dict:
     """Corrected-rule lookup (amendment B14 A) keyed by the cell's defining fields."""
-    cl = load(EV / "m13" / "clearing.json")
+    cl = load(EV / "m13" / "clearing_daily.json")
     out = {}
     for c in cl["cells"]:
         key = (

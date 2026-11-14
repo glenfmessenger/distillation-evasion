@@ -600,3 +600,28 @@ reference pools, unchanged), and every campaign and control re-scored. Predictio
 from the benchmark-membership baseline, whose change is on record (B9), no flagged fraction
 changes by more than 0.05. The manuscript then reports the replay-calibrated detectors on real
 accounts as its primary calibration and the registered thresholds beside them (decision 57).
+
+**B17 — 2026-11-13 — Registered before any run (decision 58).** A correction to B14 (A) raised by
+a tenth pre-submission read (AI-generated): the recalibrated cadence detector was scored on the
+sessions each lever declares, which a server does not see; the paper holds its sessions-per-day
+detector to the idle-gap rule and must hold this one to it too. Every recorded cell of B14 (A)
+is re-scored with sessions derived per account by the 1,800-second idle-gap rule on completion
+times, same threshold, same joint rule, same denominators. No lever is changed and no schedule
+is designed. Prediction P70: under idle-gap sessions the one-account and ten-account cells at the
+26-per-hour cap are not flagged by the recalibrated detector (flagged share of scoreable sessions
+at or under 0.10), so the statement that no recorded cell clears on scoreable sessions fails.
+
+**B18 — 2026-11-13 — Registered before any run (decision 59).** Two defender-side additions after
+the tenth pre-submission read, on recorded data only; no lever, no campaign, no schedule.
+(1) *A per-day volume detector.* The registered hourly-rate statistic with a 24-hour sliding
+window (the same function, window 86,400 s): per account, the largest number of requests in any
+24 hours, calibrated at 1% on the timeline's accounts. Every recorded cell of B14 (A) is scored
+by it (share of accounts above the threshold, five re-schedulings), and clearing is recomputed
+with it in the joint rule beside the recalibrated cadence detector under idle-gap sessions (B17).
+Prediction P71: the threshold lies between 10 and 60 requests in 24 hours, and both the
+one-account and the ten-account cell at the 26-per-hour cap have every account above it. No
+prediction for the heterogeneous or search cells, whose per-account counts are drawn from the
+benign distribution. (2) *The reasoning tier's own threshold.* The 1% and 10% order-statistic
+thresholds on the 73 reasoning-tier client-days of the API aggregates, with their exceedance
+counts. Prediction P72: both lie above the campaign's 2,000 requests, and the 1% threshold is
+below resolution.

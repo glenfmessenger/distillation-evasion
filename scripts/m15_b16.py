@@ -174,6 +174,35 @@ def _get(row: dict, det: str) -> float:
     return math.nan if v is None else float(v)
 
 
+def reasoning(root: Path, servegen_dir: str) -> dict:
+    """B18 (2): the reasoning tier's own order-statistic thresholds on its client-days."""
+    base = root / servegen_dir / "data" / SETS["deepseek-r1"]
+    files = sorted(base.glob("chunk-*-trace.csv"))
+    if not files:
+        raise FileNotFoundError(base)
+    dm = []
+    for f in files:
+        _, rate, _ = load_client(f)
+        dm.append(float(np.convolve(rate * WINDOW_S, np.ones(6), mode="valid").max()))
+    out = {
+        "n_client_days": len(dm),
+        "share_above_campaign": float(np.mean(np.asarray(dm) > CAMPAIGN)),
+    }
+    for b in (0.01, 0.10):
+        c = D.calibrate(dm, "high", b)
+        out[str(b)] = {
+            "threshold": c["threshold"],
+            "n_exceed": c["n_exceed"],
+            "below_resolution": c["below_resolution"],
+        }
+    out["p72"] = {
+        "holds": out["0.01"]["threshold"] > CAMPAIGN
+        and out["0.1"]["threshold"] > CAMPAIGN
+        and out["0.01"]["below_resolution"]
+    }
+    return out
+
+
 def realonly(root: Path, label: str) -> dict:
     sched = read_schedule(root / "benign" / label / "replay_schedule.jsonl")
     n: dict[str, int] = defaultdict(int)
@@ -258,7 +287,9 @@ def realonly(root: Path, label: str) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("part", choices=["d10half", "constructed", "clientday", "realonly"])
+    ap.add_argument(
+        "part", choices=["d10half", "constructed", "clientday", "realonly", "reasoning"]
+    )
     ap.add_argument("--benign-label", default="m3_v1")
     ap.add_argument("--servegen-dir", default="external/ServeGen")
     ap.add_argument("--out-label", required=True)
@@ -269,6 +300,7 @@ def main() -> int:
         "constructed": lambda: constructed(root, a.benign_label),
         "clientday": lambda: clientday(root, a.servegen_dir),
         "realonly": lambda: realonly(root, a.benign_label),
+        "reasoning": lambda: reasoning(root, a.servegen_dir),
     }[a.part]()
     out_dir = root / "results" / "aggregates" / "m15" / a.out_label
     out_dir.mkdir(parents=True, exist_ok=True)

@@ -21,6 +21,7 @@ from pathlib import Path
 
 import numpy as np
 
+from dev_harness.detectors import stats as D
 from dev_harness.detectors.coordination import identity_days
 from dev_harness.levers import shape_rate, split_heterogeneous, split_identities
 from dev_harness.paths import host_repo
@@ -36,11 +37,25 @@ SEEDS = 5
 DENOMS = ("scoreable", "sessions", "accounts", "requests")
 
 
-def cadence(recs: list, thr: float) -> dict:
+def cadence(recs: list, thr: float, gap_sessions: bool = False) -> dict:
     """Ten-request cadence detector on completion times, four denominators."""
     by: dict[str, list] = defaultdict(list)
-    for r in recs:
-        by[r.session_id].append(r)
+    if gap_sessions:
+        per_acc: dict[str, list] = defaultdict(list)
+        for r in recs:
+            per_acc[r.identity_id].append(r)
+        for acc, rs in per_acc.items():
+            ct = lambda x: (x.t_sched_ns + (x.t_done_ns - x.t_send_ns)) / NS  # noqa: E731
+            rs.sort(key=ct)
+            k, last = 0, ct(rs[0])
+            for r in rs:
+                if ct(r) - last > 1800.0:
+                    k += 1
+                last = ct(r)
+                by[f"{acc}:g{k}"].append(r)
+    else:
+        for r in recs:
+            by[r.session_id].append(r)
     n_sc = n_fl = req_fl = 0
     acc_fl: set[str] = set()
     for s in by.values():
@@ -73,6 +88,16 @@ def main() -> int:
     ap.add_argument("--campaign-label", default="c_real_v2")
     ap.add_argument("--out-label", required=True)
     ap.add_argument("--cap", type=int, default=26)
+    ap.add_argument(
+        "--daily",
+        action="store_true",
+        help="B18: add the hourly-rate statistic with a 24-hour window, calibrated on the timeline",
+    )
+    ap.add_argument(
+        "--gap-sessions",
+        action="store_true",
+        help="B17: sessions derived per account by the 1,800 s idle-gap rule on completion times",
+    )
     a = ap.parse_args()
     root = host_repo()
     tb = json.loads((ROOT / "docs" / "evidence" / "m12" / "timebase.json").read_text())
@@ -82,6 +107,17 @@ def main() -> int:
         raise RuntimeError("ten-request cadence threshold differs between B11 and B13 evidence")
     pl = json.loads((ROOT / "docs" / "evidence" / "m5" / "placements.json").read_text())
     babs = timeline_abs(root / "benign" / a.benign_label / "timeline_abs.jsonl")
+    daily_cal = None
+    if a.daily:
+        dvals = [
+            D.d1_rate(sorted(v, key=lambda r: r.t_sched_ns), 86400.0).value
+            for v in D.by_identity(babs).values()
+        ]
+        daily_cal = D.calibrate(dvals, "high", 0.01)
+        print(
+            f"24-hour rate threshold {daily_cal['threshold']} ({daily_cal['n_exceed']} of {len(dvals)} accounts above)",
+            flush=True,
+        )
     rows_b = identity_days(babs)
     benign_counts = [row["requests"] for row in rows_b]
     benign_sess = [int(x) for row in rows_b for x in [row["session_len_median"]] if x >= 1]
@@ -139,16 +175,32 @@ def main() -> int:
         )
     out = []
     for cell in cells:
-        per = [cadence(build(cell, s), thr) for s in range(SEEDS)]
+        per = [cadence(build(cell, s), thr, a.gap_sessions) for s in range(SEEDS)]
         cad = {}
         for d in DENOMS:
             v = [p[d] for p in per if p[d] is not None]
             cad[d] = float(np.median(v)) if v else None
+        daily = None
+        if daily_cal is not None:
+            dv = []
+            for s in range(SEEDS):
+                fl = [
+                    bool(
+                        D.fires(
+                            D.d1_rate(sorted(v, key=lambda r: r.t_sched_ns), 86400.0).value,
+                            daily_cal,
+                        )
+                    )
+                    for v in D.by_identity(build(cell, s)).values()
+                ]
+                dv.append(float(np.mean(fl)))
+            daily = float(np.median(dv))
         jd = np.asarray(cell.pop("joint_days"))
         row = {
             **cell,
             "n_placements": len(jd),
             "cadence": cad,
+            "daily": daily,
             "share_sessions_scoreable": float(
                 np.median([p["n_scoreable"] / p["n_sessions"] for p in per])
             ),
@@ -161,7 +213,7 @@ def main() -> int:
         }
         for d in ("scoreable", "sessions"):
             c = cad[d] if cad[d] is not None else 0.0
-            j = np.maximum(jd, c)
+            j = np.maximum(jd, max(c, daily or 0.0))
             row[f"corrected_{d}"] = {
                 "joint_median": float(np.median(j)),
                 "clears": bool(np.median(j) <= 0.10),
@@ -172,7 +224,7 @@ def main() -> int:
         print(
             f"{row['source']} {row['kind']} n={row['n']} cap={row.get('cap')} S={row.get('stagger_h')} "
             f"cc={row.get('count_cap')} m={row.get('session_mult')}: {row['hours']:.1f} h, cadence "
-            f"{cad}, registered clears {row['registered']['clears']}, corrected "
+            f"{cad}, daily {daily}, registered clears {row['registered']['clears']}, corrected "
             f"{row['corrected_scoreable']['clears']} / {row['corrected_sessions']['clears']}",
             flush=True,
         )
@@ -236,7 +288,14 @@ def main() -> int:
         and p59["secondary_search_clear"] >= 31
         and not any(p59["secondary_heads_clear"].values())
     )
-    result = {"threshold": thr, "cells": out, "summary": summary, "p59": p59}
+    result = {
+        "gap_sessions": a.gap_sessions,
+        "daily_calibration": daily_cal,
+        "threshold": thr,
+        "cells": out,
+        "summary": summary,
+        "p59": p59,
+    }
     out_dir = root / "results" / "aggregates" / "m13" / a.out_label
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "clearing.json").write_text(json.dumps(result, indent=1, default=float))

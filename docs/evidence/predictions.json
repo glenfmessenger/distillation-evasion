@@ -593,5 +593,26 @@
   "prediction": "with content thresholds recomputed on the 1,000 real calibration accounts, no flagged fraction other than the benchmark-membership baseline's changes by more than 0.05",
   "outcome": "held: largest change 0.02; the membership baseline's threshold falls to zero (7 real accounts above it, below resolution) and then flags whole-campaign units of ordinary prompts, but 1.00 of the benchmark campaign's 100-prompt blocks against at most 0.10 of any other population's",
   "finding": "F98"
+ },
+ {
+  "id": "P70",
+  "protocol": "v2.0 am. 17",
+  "prediction": "with sessions derived by the idle-gap rule on completion times, the one-account and ten-account cells at the 26-per-hour cap are not flagged by the recalibrated cadence detector (at or under 0.10 of scoreable sessions)",
+  "outcome": "failed in part: the one-account cell is not flagged (0.00) and clears at 80.0 hours; the ten-account cell is flagged at 0.40 of scoreable sessions and does not clear",
+  "finding": "F99"
+ },
+ {
+  "id": "P71",
+  "protocol": "v2.0 am. 18",
+  "prediction": "the hourly-rate statistic with a 24-hour window, calibrated at 1% on the timeline, has a threshold between 10 and 60 requests, and every account of the one-account and ten-account cells at the 26-per-hour cap is above it",
+  "outcome": "held: threshold 49 requests in 24 hours (1,155 of 118,465 accounts above); both cells flagged at 1.00; the cells capped at two requests an hour stay under it",
+  "finding": "F100"
+ },
+ {
+  "id": "P72",
+  "protocol": "v2.0 am. 18",
+  "prediction": "the reasoning tier's own 1% and 10% thresholds on its 73 client-days lie above the campaign's 2,000 requests, and the 1% threshold is below resolution",
+  "outcome": "held: 47,449 (no exceedance) and 17,967 (7 exceedances), both below resolution; 27% of its clients exceed the campaign's size",
+  "finding": "F100"
  }
 ]

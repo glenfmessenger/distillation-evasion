@@ -171,5 +171,9 @@
  "NFortyEight": {
   "value": "48",
   "source": "PROTOCOL_v2.md amendment B14 (C): 48-hour horizon from an account's first request"
+ },
+ "NTwentyFour": {
+  "value": "24",
+  "source": "PROTOCOL_v2.md amendment B18 (1): 24-hour sliding window"
  }
 }

@@ -1,0 +1,17 @@
+{
+ "n_client_days": 73,
+ "share_above_campaign": 0.273972602739726,
+ "0.01": {
+  "threshold": 47449.0,
+  "n_exceed": 0,
+  "below_resolution": true
+ },
+ "0.1": {
+  "threshold": 17967.0,
+  "n_exceed": 7,
+  "below_resolution": true
+ },
+ "p72": {
+  "holds": true
+ }
+}
