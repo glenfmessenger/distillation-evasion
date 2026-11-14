@@ -1,0 +1,166 @@
+{
+ "n_benign_sessions": 1170,
+ "statistics": {
+  "D3": {
+   "low": {
+    "threshold": 0.2657998249421896,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.022222222222222223,
+     "c_real_v2:20": 0.022222222222222223,
+     "c_real_v2_s1": 0.011111111111111112,
+     "c_instr_v2": 0.011111111111111112
+    }
+   },
+   "high": {
+    "threshold": 2.5729132360944313,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.022222222222222223,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   }
+  },
+  "D4": {
+   "low": {
+    "threshold": 0.118986190526634,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.12222222222222222,
+     "c_real_v2_s1": 0.08888888888888889,
+     "c_instr_v2": 0.011111111111111112
+    }
+   },
+   "high": {
+    "threshold": 0.8700642329299478,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   }
+  },
+  "D5nt": {
+   "low": {
+    "threshold": 0.23598654708520178,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   },
+   "high": {
+    "threshold": 0.9238787002344486,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   }
+  },
+  "D6": {
+   "low": {
+    "threshold": 0.14544026740229143,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   },
+   "high": {
+    "threshold": 0.8402633751485009,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   }
+  },
+  "D7": {
+   "low": {
+    "threshold": 0.0,
+    "n_exceed": 0,
+    "below_resolution": true,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   },
+   "high": {
+    "threshold": 0.8771031374484611,
+    "n_exceed": 11,
+    "below_resolution": false,
+    "campaigns": {
+     "pilot_baseline": 0.022222222222222223,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   }
+  },
+  "D9": {
+   "low": {
+    "threshold": 0.03333333333333333,
+    "n_exceed": 8,
+    "below_resolution": true,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   },
+   "high": {
+    "threshold": 1.0,
+    "n_exceed": 0,
+    "below_resolution": true,
+    "campaigns": {
+     "pilot_baseline": 0.0,
+     "c_real_v2:20": 0.0,
+     "c_real_v2_s1": 0.0,
+     "c_instr_v2": 0.0
+    }
+   }
+  }
+ },
+ "max_resolved": {
+  "flagged": 0.12222222222222222,
+  "where": [
+   "D4",
+   "low",
+   "c_real_v2:20"
+  ]
+ },
+ "p65": {
+  "max": 0.12222222222222222,
+  "where": [
+   "D4",
+   "low",
+   "c_real_v2:20"
+  ],
+  "holds": true
+ }
+}

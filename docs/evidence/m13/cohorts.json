@@ -1,0 +1,60 @@
+{
+ "n_accounts": 118465,
+ "share_requests_within_horizon": 0.6124544520611147,
+ "per_account_any_six_48h": 0.02884396235174946,
+ "per_account_by_detector": {
+  "D1": 0.00688811041235808,
+  "D10": 0.010695142025070697,
+  "D11": 0.0063478664584476424,
+  "D2": 0.0010129574135820706,
+  "D3": 0.005495293968682733
+ },
+ "n_windows": 1524,
+ "cohorts": {
+  "all_windows": {
+   "10": {
+    "n_eligible_windows": 1516,
+    "p_any": 0.184,
+    "flagged_per_cohort_median": 0.0,
+    "flagged_per_cohort_p95": 1.0,
+    "mean_window_flag_rate": 0.02185793285265906,
+    "expected_independent": 0.2537400321738923
+   },
+   "50": {
+    "n_eligible_windows": 1176,
+    "p_any": 0.544,
+    "flagged_per_cohort_median": 1.0,
+    "flagged_per_cohort_p95": 4.0,
+    "mean_window_flag_rate": 0.02359517268167363,
+    "expected_independent": 0.7685534426110486
+   }
+  },
+  "excluding_first_30_days": {
+   "10": {
+    "n_eligible_windows": 1396,
+    "p_any": 0.151,
+    "flagged_per_cohort_median": 0.0,
+    "flagged_per_cohort_p95": 1.0,
+    "mean_window_flag_rate": 0.021883251798367823,
+    "expected_independent": 0.2537400321738923
+   },
+   "50": {
+    "n_eligible_windows": 1063,
+    "p_any": 0.524,
+    "flagged_per_cohort_median": 1.0,
+    "flagged_per_cohort_p95": 6.0499999999999545,
+    "mean_window_flag_rate": 0.023775778862064997,
+    "expected_independent": 0.7685534426110486
+   }
+  }
+ },
+ "cells": {
+  "50": 0.35658914728682173,
+  "10": 0.08010335917312661
+ },
+ "p61": {
+  "p_any_50": 0.544,
+  "cell_50": 0.35658914728682173,
+  "holds": true
+ }
+}

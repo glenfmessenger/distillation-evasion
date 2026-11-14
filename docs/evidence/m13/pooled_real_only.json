@@ -1,0 +1,386 @@
+{
+ "model": "BAAI/bge-small-en-v1.5",
+ "n_benign_units": 1061,
+ "real_only": true,
+ "n_merge_candidates": 1000,
+ "sigma": 1.0170682668685913,
+ "calibration": {
+  "C1": {
+   "threshold": 0.9354714215158109,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "C2": {
+   "threshold": 0.29658261835575106,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "C2low": {
+   "threshold": 0.02107645571231842,
+   "direction": "low",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "C3": {
+   "threshold": 0.5314277708530426,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "B1": {
+   "threshold": 0.016260162601626018,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "B2": {
+   "threshold": 1.0,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 0,
+   "resolution": 0.000942507068803016,
+   "below_resolution": true
+  }
+ },
+ "threshold_comparison": {
+  "C1": {
+   "committed": 0.9354714215158109,
+   "recomputed": 0.9354714215158109,
+   "match": true
+  },
+  "C2": {
+   "committed": 0.29658261239528655,
+   "recomputed": 0.29658261835575106,
+   "match": true
+  },
+  "C2low": {
+   "committed": 0.021076449751853944,
+   "recomputed": 0.02107645571231842,
+   "match": true
+  },
+  "C3": {
+   "committed": 0.5314277708530426,
+   "recomputed": 0.5314277708530426,
+   "match": true
+  },
+  "B1": {
+   "committed": 0.016260162601626018,
+   "recomputed": 0.016260162601626018,
+   "match": true
+  },
+  "B2": {
+   "committed": 1.0,
+   "recomputed": 1.0,
+   "match": true
+  }
+ },
+ "controls": {
+  "control:pooled_m5": {
+   "n_groups": 100,
+   "identity": {
+    "C1": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.5264348562497077,
+     "auc": 0.09696512723845428
+    },
+    "C2": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.018088194727897643,
+     "auc": 0.02709707822808671
+    },
+    "C2low": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.7,
+     "median": 0.018088194727897643,
+     "auc": 0.9729029217719133
+    },
+    "C3": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.04,
+     "median": 0.4795380234718323,
+     "auc": 0.8684825636192272
+    },
+    "B1": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.01,
+     "median": 0.0,
+     "auc": 0.5143402450518378
+    },
+    "B2": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.22099423379346494,
+     "auc": 0.5933977379830349
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 118,
+     "n_scoreable": 118,
+     "flagged": 0.0,
+     "median": 0.5858644177356004,
+     "auc": 0.20259908305244492
+    },
+    "C2": {
+     "n_units": 118,
+     "n_scoreable": 118,
+     "flagged": 0.0,
+     "median": 0.030078230798244475,
+     "auc": 0.1232527676160961
+    },
+    "C2low": {
+     "n_units": 118,
+     "n_scoreable": 118,
+     "flagged": 0.13559322033898305,
+     "median": 0.030078230798244475,
+     "auc": 0.876747232383904
+    },
+    "C3": {
+     "n_units": 118,
+     "n_scoreable": 118,
+     "flagged": 0.00847457627118644,
+     "median": 0.46341320872306824,
+     "auc": 0.7859949839454304
+    },
+    "B1": {
+     "n_units": 118,
+     "n_scoreable": 118,
+     "flagged": 0.00847457627118644,
+     "median": 0.0,
+     "auc": 0.49391763446700426
+    },
+    "B2": {
+     "n_units": 118,
+     "n_scoreable": 118,
+     "flagged": 0.0,
+     "median": 0.23,
+     "auc": 0.5908920270291858
+    }
+   }
+  },
+  "control:pooled_m20": {
+   "n_groups": 50,
+   "identity": {
+    "C1": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "flagged": 0.0,
+     "median": 0.4189733286041944,
+     "auc": 0.00294062205466541
+    },
+    "C2": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "flagged": 0.0,
+     "median": 0.004725699126720429,
+     "auc": 0.0
+    },
+    "C2low": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "flagged": 1.0,
+     "median": 0.004725699126720429,
+     "auc": 1.0
+    },
+    "C3": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "flagged": 0.02,
+     "median": 0.5043835639953613,
+     "auc": 0.9484071630537229
+    },
+    "B1": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "flagged": 0.0,
+     "median": 0.0,
+     "auc": 0.5583317624882187
+    },
+    "B2": {
+     "n_units": 50,
+     "n_scoreable": 50,
+     "flagged": 0.0,
+     "median": 0.2510427252710027,
+     "auc": 0.6178887841658812
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 350,
+     "n_scoreable": 350,
+     "flagged": 0.0,
+     "median": 0.5071433055991293,
+     "auc": 0.06858758583546519
+    },
+    "C2": {
+     "n_units": 350,
+     "n_scoreable": 350,
+     "flagged": 0.0,
+     "median": 0.017550545930862426,
+     "auc": 0.02647637000134644
+    },
+    "C2low": {
+     "n_units": 350,
+     "n_scoreable": 350,
+     "flagged": 0.6514285714285715,
+     "median": 0.017550545930862426,
+     "auc": 0.9735236299986536
+    },
+    "C3": {
+     "n_units": 350,
+     "n_scoreable": 350,
+     "flagged": 0.025714285714285714,
+     "median": 0.48490479588508606,
+     "auc": 0.8816857412144877
+    },
+    "B1": {
+     "n_units": 350,
+     "n_scoreable": 350,
+     "flagged": 0.008571428571428572,
+     "median": 0.0,
+     "auc": 0.5067160360845564
+    },
+    "B2": {
+     "n_units": 350,
+     "n_scoreable": 350,
+     "flagged": 0.0,
+     "median": 0.21,
+     "auc": 0.5758166150531844
+    }
+   }
+  },
+  "control:pooled_m100": {
+   "n_groups": 10,
+   "identity": {
+    "C1": {
+     "n_units": 10,
+     "n_scoreable": 10,
+     "flagged": 0.0,
+     "median": 0.3578659052364137,
+     "auc": 0.0
+    },
+    "C2": {
+     "n_units": 10,
+     "n_scoreable": 10,
+     "flagged": 0.0,
+     "median": 0.0012038782238960265,
+     "auc": 0.0
+    },
+    "C2low": {
+     "n_units": 10,
+     "n_scoreable": 10,
+     "flagged": 1.0,
+     "median": 0.0012038782238960265,
+     "auc": 1.0
+    },
+    "C3": {
+     "n_units": 10,
+     "n_scoreable": 10,
+     "flagged": 0.0,
+     "median": 0.5087075680494308,
+     "auc": 0.9656927426955703
+    },
+    "B1": {
+     "n_units": 10,
+     "n_scoreable": 10,
+     "flagged": 0.0,
+     "median": 0.00012866700977869275,
+     "auc": 0.7344486333647502
+    },
+    "B2": {
+     "n_units": 10,
+     "n_scoreable": 10,
+     "flagged": 0.0,
+     "median": 0.23860960121364538,
+     "auc": 0.6300659754948162
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 377,
+     "n_scoreable": 377,
+     "flagged": 0.0,
+     "median": 0.4626542793346684,
+     "auc": 0.029052717895384217
+    },
+    "C2": {
+     "n_units": 377,
+     "n_scoreable": 377,
+     "flagged": 0.0,
+     "median": 0.011330869793891907,
+     "auc": 0.008597564481733613
+    },
+    "C2low": {
+     "n_units": 377,
+     "n_scoreable": 377,
+     "flagged": 0.9071618037135278,
+     "median": 0.011330869793891907,
+     "auc": 0.9914024355182663
+    },
+    "C3": {
+     "n_units": 377,
+     "n_scoreable": 377,
+     "flagged": 0.023872679045092837,
+     "median": 0.4942971467971802,
+     "auc": 0.9116718375387816
+    },
+    "B1": {
+     "n_units": 377,
+     "n_scoreable": 377,
+     "flagged": 0.005305039787798408,
+     "median": 0.0,
+     "auc": 0.5081050607879559
+    },
+    "B2": {
+     "n_units": 377,
+     "n_scoreable": 377,
+     "flagged": 0.0,
+     "median": 0.19,
+     "auc": 0.5528066460498454
+    }
+   }
+  }
+ },
+ "p32": {
+  "20": {
+   "C2low_identity_flagged": 1.0,
+   "others_at_most_0.10": true
+  },
+  "100": {
+   "C2low_identity_flagged": 1.0,
+   "others_at_most_0.10": true
+  }
+ }
+}

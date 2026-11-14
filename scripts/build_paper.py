@@ -600,6 +600,8 @@ def main() -> int:
     build_adversary_tables()
     build_followup_tables()
     build_api_baseline()
+    build_b13()
+    build_b14()
     OUT_M.write_text("".join(f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in sorted(macros.items())))
     print(f"{len(macros)} macros, {len(list(OUT_T.glob('*.tex')))} tables")
     return 0
@@ -690,8 +692,8 @@ def build_review_tables() -> None:
         )
     _table(
         "methods.tex",
-        r"ll@{\hspace{6pt}}llllrrr",
-        r"Detector & Statistic & Level & Unit & Calibration & Benign units & Flag if & Realised rate & Alerts/day \\",
+        r"l@{\hspace{4pt}}l@{\hspace{4pt}}l@{\hspace{4pt}}l@{\hspace{4pt}}l@{\hspace{4pt}}lrrr",
+        r"Detector & Statistic & Level & Unit & Calibration & Benign units & Flag if & Realised & Alerts/day \\",
         rows,
     )
 
@@ -1776,6 +1778,267 @@ def build_api_baseline() -> None:
         r"Clients & $n$ & Client-days & \multicolumn{2}{c}{Busiest hour: median, 90th} & Over chat thr. & \multicolumn{3}{c}{Cadence CV: 1st, 5th, median} & Below 0.305 & Below 0.20 \\",
         rows,
     )
+
+
+def build_b13() -> None:
+    """Amendment B13: cadence on the benign time base; API baseline by tier and client."""
+    tb = load(EV / "m12" / "timebase.json")
+    macro("LatencyMedianS", f"{tb['latency_s']['median']:.0f}")
+    macro("LatencyStdS", f"{tb['latency_s']['std']:.0f}")
+    macro("PacingIntervalS", f"{tb['interval_s']:.0f}")
+    cells = tb["cells"]
+
+    def comp(c):
+        return c["summary"]["completion:10"]["flagged"]
+
+    p26 = [comp(c) for c in cells if c["source"] == "price" and c["cap"] == 26]
+    strict = [comp(c) for c in cells if c["source"] == "price" and c["cap"] in (8, 2)]
+    het = [comp(c) for c in cells if c["source"] == "table7"]
+    srch = sorted(comp(c) for c in cells if c["source"] == "search")
+    macro("CompFlagCapMin", num(min(p26)))
+    macro("CompFlagCapMax", num(max(p26)))
+    macro("CompFlagStrictMin", num(min(strict)))
+    macro("CompFlagHet", num(sorted(het)[len(het) // 2]))
+    macro("CompFlagSearchMedian", num(srch[len(srch) // 2]))
+    macro("CompFlagSearchMin", num(srch[0]))
+    c1 = next(c for c in cells if c["source"] == "price" and c["cap"] == 26 and c["n"] == 1)
+    macro("CompCvCap", num(c1["summary"]["completion:10"]["cv_median"]))
+    f3 = lambda v: "n/a" if v is None else num(v)  # noqa: E731
+    rows = []
+    for c in cells:
+        s = c["summary"]
+        if c["source"] == "price":
+            lab, par = "rate cap", f"cap {c['cap']}"
+        elif c["source"] == "table7":
+            lab, par = "heterogeneous", f"stagger {c['stagger_h']} h"
+        else:
+            lab, par = "search", f"stagger {c['stagger_h']} h"
+        rows.append(
+            f"{lab} & {intc(c['n'])} & {par} & {f3(s['scheduled:10']['cv_median'])} & {f3(s['scheduled:10']['flagged'])} & {f3(s['completion:10']['cv_median'])} & {f3(s['completion:5']['flagged'])} & {f3(s['completion:10']['flagged'])} \\\\"
+        )
+    _table(
+        "cadence_timebase.tex",
+        "lrlccccc",
+        r"Cell & Accounts & Setting & \multicolumn{2}{c}{Scheduled times: CV, flagged} & \multicolumn{3}{c}{Completion times: CV, flagged (min.\ 5), flagged (min.\ 10)} \\",
+        rows,
+    )
+    tr = load(EV / "m12" / "tiers.json")
+    r1 = tr["tiers"]["deepseek-r1"]
+    macro("ApiReasoningNClients", intc(r1["n_clients"]))
+    macro("ApiReasoningShareBelow", pct(r1["share_busiest_hour_below_campaign"]) + "\\%")
+    macro("ApiReasoningBusiestMedian", intc(round(r1["busiest_hour"]["50"], -2)))
+    macro(
+        "ApiLargeShareBelow",
+        pct(tr["tiers"]["m-large"]["share_busiest_hour_below_campaign"], 1) + "\\%",
+    )
+    macro(
+        "ApiMidShareBelow", pct(tr["tiers"]["m-mid"]["share_busiest_hour_below_campaign"]) + "\\%"
+    )
+    lp = tr["language_pooled"]
+    macro("ApiNOwners", intc(lp["n_clients_owning_exceedances"]))
+    macro("ApiLowTopFive", pct(lp["share_low_windows_in_top5_clients"]) + "\\%")
+    macro("ApiRateThrCiLo", num(lp["ci_rate_threshold"][0] / 1e6, 2))
+    macro("ApiRateThrCiHi", num(lp["ci_rate_threshold"][1] / 1e6, 1))
+    macro("ApiMedianCiLo", intc(round(lp["ci_busiest_hour_median"][0], -2)))
+    macro("ApiMedianCiHi", intc(round(lp["ci_busiest_hour_median"][1], -2)))
+    macro("ApiLowShareCiLo", pct(lp["ci_share_windows_below_0.20"][0], 2) + "\\%")
+    macro("ApiLowShareCiHi", pct(lp["ci_share_windows_below_0.20"][1], 2) + "\\%")
+    n10 = sum(
+        tr["tiers"][k]["n_clients_10pct_windows_below_0.305"]
+        for k in ("m-large", "m-mid", "m-small")
+    )
+    macro("ApiNClientsRegular", intc(n10))
+
+
+def build_b14() -> None:
+    """Amendment B14: corrected clearing, size-matched pattern scoring, cohorts, observed content units."""
+    cl = load(EV / "m13" / "clearing.json")
+    s = cl["summary"]["search"]
+    reg, pri, sec = s["registered"], s["corrected_scoreable"], s["corrected_sessions"]
+    macro("ClrSearchRegClear", intc(reg["n_clear"]))
+    macro("ClrSearchRegReliable", intc(reg["n_reliable"]))
+    macro("ClrNWithScoreable", intc(cl["p59"]["primary_n_with_scoreable"]))
+    if cl["p59"]["primary_n_clear"] != 0 or pri["n_clear"] != 0:
+        raise RuntimeError("text says no cell clears under the scoreable-session rule")
+    macro("ClrSecClear", intc(sec["n_clear"]))
+    macro("ClrSecReliable", intc(sec["n_reliable"]))
+    macro("ClrSecCheapestN", intc(sec["cheapest_clearing"]["n"]))
+    macro("ClrSecCheapestH", num(sec["cheapest_clearing"]["hours"], 1))
+    macro(
+        "ClrSecCheapestScoreable", pct(sec["cheapest_clearing"]["share_sessions_scoreable"]) + "\\%"
+    )
+    sec_n = sorted(
+        {
+            c["n"]
+            for c in cl["cells"]
+            if c["source"] == "search" and c["corrected_sessions"]["clears"]
+        }
+    )
+    macro("ClrSecMinN", intc(sec_n[0]))
+    one = next(c for c in cl["cells"] if c["source"] == "price" and c["n"] == 1 and c["cap"] == 26)
+    ten = next(c for c in cl["cells"] if c["source"] == "price" and c["n"] == 10 and c["cap"] == 26)
+    macro("ClrOneSessions", num(one["cadence"]["sessions"]))
+    macro("ClrTenAccounts", num(ten["cadence"]["accounts"]))
+    t5 = cl["summary"]["table5"]
+    if t5["corrected_scoreable"]["n_clear"] != 0 or t5["corrected_sessions"]["n_clear"] != 0:
+        raise RuntimeError("text says no cross-account table cell clears when corrected")
+    f = lambda x: "--" if x is None else f"{intc(x['n'])} acc., {num(x['hours'], 1)} h"  # noqa: E731
+    rows = [
+        f"{name} & {intc(r['n_clear'])} & {intc(r['n_reliable'])} & {f(r['cheapest_clearing'])} & {f(r['cheapest_reliable'])} \\\\"
+        for name, r in (
+            ("as registered", reg),
+            ("corrected, of scoreable", pri),
+            ("corrected, of all sessions", sec),
+        )
+    ]
+    _table(
+        "clearing.tex",
+        "lrrll",
+        r"Cadence detector & Clear & Reliable & Cheapest clear & Cheapest reliable \\",
+        rows,
+    )
+    pt = load(EV / "m13" / "pattern.json")
+    macro("PatNBenign", intc(pt["n_benign_sessions"]))
+    macro("PatNAccounts", intc(pt["n_benign_accounts"]))
+    macro("PatNCamp", intc(pt["n_campaign_sessions"]["c_real_v2:20"]))
+    camps = ("pilot_baseline", "c_real_v2:20", "c_real_v2_s1", "c_instr_v2")
+    two = pt["two_sided"]
+    macro(
+        "PatTwoSidedMax",
+        num(max(r["campaigns"][c]["flagged"] or 0.0 for r in two.values() for c in camps)),
+    )
+    j = pt["joint"]
+    macro("PatJointBench", num(j["campaigns"]["pilot_baseline"]["median"]))
+    macro("PatJointOtherMax", num(max(j["campaigns"][c]["median"] for c in camps[1:])))
+    macro("PatJointFpr", pct(j["heldout_fpr_mean"], 1) + "\\%")
+    o = pt["oracle"]
+    cross = [
+        o["c_real_v2:20"]["campaigns"]["c_real_v2_s1"]["median"],
+        o["c_real_v2_s1"]["campaigns"]["c_real_v2:20"]["median"],
+    ]
+    macro("PatOracleOrdMin", num(min(cross)))
+    macro("PatOracleOrdMax", num(max(cross)))
+    instr = [o[k]["campaigns"]["c_instr_v2"]["median"] for k in ("c_real_v2:20", "c_real_v2_s1")]
+    macro("PatOracleInstrMin", num(min(instr)))
+    macro("PatOracleInstrMax", num(max(instr)))
+    macro(
+        "PatOracleFpr",
+        pct(max(o[k]["heldout_fpr_mean"] for k in ("c_real_v2:20", "c_real_v2_s1")), 1) + "\\%",
+    )
+    macro(
+        "PatOracleBenchToOrd",
+        num(
+            max(
+                o["pilot_baseline"]["campaigns"][c]["median"]
+                for c in ("c_real_v2:20", "c_real_v2_s1")
+            )
+        ),
+    )
+    one = load(EV / "m14" / "onesided.json")
+    macro("PatOneSidedMax", num(one["max_resolved"]["flagged"]))
+    macro(
+        "PatUnlabelledMax",
+        num(
+            max(
+                one["max_resolved"]["flagged"],
+                max(r["campaigns"][c]["flagged"] or 0.0 for r in two.values() for c in camps),
+                max(j["campaigns"][c]["median"] for c in camps),
+            )
+        ),
+    )
+    if max(j["campaigns"][c]["median"] for c in camps[1:]) != 0.0:
+        raise RuntimeError("text says the joint score flags none of the other campaigns")
+    macro(
+        "PatOracleOrdToBench",
+        num(
+            max(
+                o[k]["campaigns"]["pilot_baseline"]["median"]
+                for k in ("c_real_v2:20", "c_real_v2_s1")
+            )
+        ),
+    )
+    dg = load(EV / "m13" / "pattern_diag.json")["sets"]
+    macro("PatDiagAll", num(dg["all"]["flagged_median"]))
+    macro("PatDiagNoCache", num(dg["without D7"]["flagged_median"]))
+    macro("PatDiagNoSingle", num(dg["without D9"]["flagged_median"]))
+    macro("PatDiagNoCadence", num(dg["without D3"]["flagged_median"]))
+    macro(
+        "PatDiagSingleMax",
+        num(max(v["flagged_median"] for k, v in dg.items() if k.startswith("only"))),
+    )
+    names = {
+        "D3": "cadence variation",
+        "D4": "output-length distance",
+        "D5nt": "reasoning share",
+        "D6": "prompt-length distance",
+        "D7": "cached-prefix share$^\\dagger$",
+        "D9": "single-turn fraction$^\\dagger$",
+    }
+    rows = []
+    for k, r in two.items():
+        if r["below_resolution"] != ("dagger" in names[k]):
+            raise RuntimeError(f"{k}: resolution mark does not match the evidence")
+        rows.append(
+            f"{names[k]}, two-sided & {pct(r['realised'], 1)}\\% (in sample) & "
+            + " & ".join(num(r["campaigns"][c]["flagged"]) for c in camps)
+            + " \\\\"
+        )
+    rows.append("\\midrule")
+    line = lambda name, d: (  # noqa: E731
+        f"{name} & {pct(d['heldout_fpr_mean'], 1)}\\% & "
+        + " & ".join(num(d["campaigns"][c]["median"]) for c in camps)
+        + " \\\\"
+    )
+    rows.append(line("joint score, benign sessions only", j))
+    lab = {
+        "pilot_baseline": "C-bench",
+        "c_real_v2:20": "C-real, first seed",
+        "c_real_v2_s1": "C-real, second seed",
+        "c_instr_v2": "C-instr",
+    }
+    for k in camps:
+        rows.append(line(f"upper bound, trained on {lab[k]}", o[k]))
+    _table(
+        "pattern_matched.tex",
+        "lrrrrr",
+        r"Score & False-alarm rate & C-bench & C-real, first seed & C-real, second seed & C-instr \\",
+        rows,
+    )
+    co = load(EV / "m13" / "cohorts.json")
+    macro("CohFifty", num(co["cohorts"]["all_windows"]["50"]["p_any"]))
+    macro("CohFiftyExcl", num(co["cohorts"]["excluding_first_30_days"]["50"]["p_any"]))
+    macro("CohTen", num(co["cohorts"]["all_windows"]["10"]["p_any"]))
+    macro("CohPerAccount", pct(co["per_account_any_six_48h"], 1) + "\\%")
+    macro("CohCellFifty", num(co["cells"]["50"]))
+    macro("CohCellTen", num(co["cells"]["10"]))
+    au = load(EV / "m13" / "address_units.json")
+    macro("AddrNAddresses", intc(au["n_addresses"]))
+    macro("AddrNMulti", intc(au["n_addresses_multi_account"]))
+    macro("AddrNUnits", intc(au["n_units"]))
+    c2 = au["detectors"]["C2low"]
+    macro("AddrNFlagged", intc(c2["n_flagged"]))
+    macro("AddrFlagShare", num(c2["flagged"]))
+    macro("AddrCiHi", num(c2["ci95"][1]))
+    macro("AddrMaxAccounts", intc(au["size"]["accounts_max"]))
+    if au["size"]["accounts_median"] != 2.0:
+        raise RuntimeError("text says the median shared-address unit has two accounts")
+    sm = load(EV / "m14" / "pooled_small_merges.json")
+    if not sm["real_only"]:
+        raise RuntimeError("pooled_small_merges.json is not a real-only run")
+    for m, tag in ((2, "Two"), (3, "Three")):
+        macro(
+            f"SmallMergeM{tag}",
+            num(sm["controls"][f"control:pooled_m{m}"]["identity"]["C2low"]["flagged"]),
+        )
+    macro("AddrCiLo", num(au["detectors"]["C2low"]["ci95"][0]))
+    ro = load(EV / "m13" / "pooled_real_only.json")
+    if not ro["real_only"]:
+        raise RuntimeError("pooled_real_only.json is not the real-only run")
+    for m, tag in ((5, "Five"), (20, "Twenty"), (100, "Hundred")):
+        macro(
+            f"RealOnlyM{tag}",
+            num(ro["controls"][f"control:pooled_m{m}"]["identity"]["C2low"]["flagged"]),
+        )
 
 
 _WORDS = {

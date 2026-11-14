@@ -495,3 +495,88 @@ and below 0.20 (the registered rate cap's cadence), and the share of clients wit
 below each. Prediction P56: fewer than 5% of active windows fall below 0.305, and the 1%
 low-side quantile lies above 0.05; fixed-interval pacing at 0.20 is rare but not absent among
 API clients.
+
+**B13 — 2026-11-13 — Registered before any run (decision 53).** Defender-side corrections after a
+seventh pre-submission review (AI-generated); no lever is changed. (1) *Time base.* The benign
+cadence thresholds are computed on reply timestamps, which include generation latency, while the
+lever cells were scored on scheduled send times. Every lever cell of B11 is re-scored on
+completion times (scheduled time plus the record's own send-to-completion latency), sessions
+ordered by completion, under the three cadence thresholds. Prediction P57: on the completion
+time base fewer than half the scoreable sessions of the cells paced at the 26-per-hour interval
+(the 1% cap cells, the heterogeneous cells and the search cells) are flagged under the
+ten-request threshold, while the cells at the two stricter caps stay at 0.9 or more. (2) *API
+baseline by tier and by client.* For each tier including the reasoning set: the share of clients
+whose busiest hour is below the campaign's 2,000 requests; the number of distinct clients that
+own the client-days above the 1% threshold and the windows below the cadence thresholds; a
+by-client bootstrap interval on the pooled quantiles. Prediction P58: on the reasoning tier more
+than a third of clients have a busiest hour below 2,000, and fewer than 20 clients own the
+client-days above the pooled threshold.
+
+**B14 — 2026-11-13 — Registered before any run (decision 54).** Four defender-side analyses after
+an eighth pre-submission read (AI-generated, F94). No lever is added or changed, no campaign is
+issued, and no schedule is designed against a detector; every item re-scores recorded cells or
+recorded benign traffic.
+
+(A) *Clearing with the corrected cadence detector.* For every recorded lever cell (the price
+cells, the cross-account table's cells and the 62 clearing cells of the wider search), five
+re-schedulings: the ten-request cadence detector on completion times (B13), with four
+denominators: scoreable sessions (the rule used for every other detector), all sessions, accounts
+(an account counts if any of its sessions is flagged), and requests (those in flagged sessions).
+The corrected joint statistic of a cell is the larger of its recorded joint maximum on each
+placement day and its cadence fraction; "clears" and "reliable" keep their definitions. Reported
+under the scoreable-session denominator (primary) and the all-sessions denominator (secondary).
+Prediction P59: under the primary denominator no cell that has a scoreable session clears (this
+clause follows from F93 and is not a blind prediction); under the all-sessions denominator at
+least half of the 62 search cells still clear, and neither the one-account nor the ten-account
+cell at the 26-per-hour cap nor the 50-account reliable cell does.
+
+(B) *Pattern statistics on comparable sessions.* Units: benign replay sessions with at least ten
+completed records, and each campaign cut into sessions of benign sizes (the B5 rule, at least
+ten records). Statistics: cadence variation, output-length distance, reasoning share without
+truncated records, prompt-length distance, cached-prefix share, single-turn fraction. (i) Each
+statistic with a two-sided threshold at a 1% total budget (resolution judged on total
+exceedances). (ii) A joint score fitted on benign sessions only: squared Mahalanobis distance on
+the standardised statistics (missing values set to the benign median, ridge 1e-6), threshold at
+1%. (iii) As an upper bound that a defender without labelled campaigns cannot reach, a logistic
+regression trained on benign sessions and one campaign and tested on the others. For (ii) and
+(iii) the fit and threshold come from one half of the benign accounts and the false-alarm rate
+from the other, 20 splits; the length reference distributions are those of the full replay, as
+registered. Prediction P60: at a held-out false-alarm rate within half a point of 1%, the
+benign-fit joint score flags more than 10% of the benchmark campaign's sessions and no more than
+10% of the sessions of either ordinary-prompt campaign or of the instruction campaign (median
+over splits).
+
+(C) *Benign cohorts formed as a defender would form them.* Cohorts of 10 and of 50 benign
+accounts first seen in the same six-hour window of the absolute timeline (every window with
+enough first appearances; 1,000 draws), each account scored on the six content-blind timeline
+and cross-account detectors at the registered thresholds over the 48 hours from its first
+request. Reported: the share of cohorts with at least one account flagged, beside the recorded
+50-account and ten-account cells. Prediction P61: for cohorts of 50 the share is at least the
+50-account reliable cell's 0.36 and below the whole-history random-group figure of 0.82.
+
+(D) *Content controls on observed units.* (i) Natural shared-address units: replayed real
+accounts are grouped by the corpus's hashed address (the account key is a hash of address and
+user agent; the address is read from the public corpus for this purpose only and is not
+stored beyond a salted group label); every address with two or more replayed accounts and at
+least 30 prompts between them is one unit, scored by the per-unit content statistics against the
+registered thresholds with its constituents excluded from the reference draws. If fewer than 20
+such units exist the item is reported as untested. Prediction P62: fewer than 10% of these units
+are flagged by the low-side discrepancy statistic. (ii) The pooled-account control of B6 repeated
+with merges drawn from real accounts only. Prediction P63: the low-side discrepancy statistic
+flags at least half the merged units at m = 5 and at least 0.9 at m = 20 and m = 100.
+
+Stop rule: if (B) flags more than half of an ordinary-prompt campaign's sessions at the held-out
+budget, or if (D)(i) and (D)(ii) disagree in direction, stop and report before any manuscript
+text changes.
+
+**B15 — 2026-11-13 — Registered before any run (decision 56).** Two small defender-side checks
+after a ninth pre-submission read (AI-generated), each needed to make a sentence already in the
+manuscript either true or withdrawn. No lever, no campaign, no schedule. (1) *Small synthetic
+merges.* The pooled-account control with merges of m = 2 and m = 3 real accounts (100 groups
+each), to compare like with like against the observed shared-address units, which have a median
+of two accounts. Prediction P64: the low-side discrepancy statistic flags between 0.05 and 0.40
+of merges at m = 2, more at m = 3 than at m = 2, and more at m = 2 than the 0.03 of the observed
+units. (2) *One-sided thresholds on the matched units.* On the units of B14 (B), each of the six
+statistics with a 1% threshold on each side separately. Prediction P65: the largest flagged
+fraction over statistics, sides and campaigns is at most 0.15 and is the low side of the
+output-length distance on an ordinary-prompt campaign.

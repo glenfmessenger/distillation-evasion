@@ -50,6 +50,11 @@ def main() -> int:
     ap.add_argument("--groups", type=int, default=100)
     ap.add_argument("--committed", default="", help="committed content.json to compare thresholds")
     ap.add_argument("--model", default=MODEL, help="embedding model (its benign cache must exist)")
+    ap.add_argument(
+        "--real-only",
+        action="store_true",
+        help="B14 (D)(ii): draw merges from real accounts only (constructed accounts stay in the reference)",
+    )
     a = ap.parse_args()
     root = host_repo()
     sched = read_schedule(root / "benign" / a.benign_label / "replay_schedule.jsonl")
@@ -118,11 +123,15 @@ def main() -> int:
                 }
         print("threshold comparison:", json.dumps(compare), flush=True)
 
-    ident_list = list(units)
+    ident_list = [i for i in units if not a.real_only or i.startswith(("b:conv:", "b:code:"))]
+    if a.real_only and len(ident_list) != 1000:
+        raise RuntimeError(f"expected 1000 real accounts, found {len(ident_list)}")
     perm = np.random.default_rng(1).permutation(len(ident_list))
     result = {
         "model": a.model,
         "n_benign_units": len(units),
+        "real_only": a.real_only,
+        "n_merge_candidates": len(ident_list),
         "sigma": sigma,
         "calibration": {d: cal[d] for d in DETS},
         "threshold_comparison": compare,

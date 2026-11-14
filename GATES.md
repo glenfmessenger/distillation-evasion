@@ -22,3 +22,6 @@ Amendments after freeze are recorded in PROTOCOL.md §10 (A1 to A6 as of 2026-11
 2026-11-13, decision 49: amendment B10 (P52) registered before running.
 2026-11-13, decision 50: amendment B11 (P53, P54) registered before running.
 2026-11-13, decision 51: amendment B12 (P55, P56) registered before any statistic was computed on the ServeGen traces.
+2026-11-13, decision 53: amendment B13 (P57, P58) registered before running.
+2026-11-13, decision 54: amendment B14 (P59 to P63) registered before running.
+2026-11-13, decision 56: amendment B15 (P64, P65) registered before running.

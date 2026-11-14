@@ -9,7 +9,7 @@
  {
   "id": "v1 D2",
   "protocol": "v1.0",
-  "prediction": "sessions per account-day flags the single account (endpoint)",
+  "prediction": "sessions per account-day flags the single account",
   "outcome": "held under client-declared sessions only; not under the idle-gap rule (P23)",
   "finding": "F40"
  },
@@ -394,7 +394,7 @@
  {
   "id": "P42",
   "protocol": "v2.0 am. 7",
-  "prediction": "the three B4 populations and the scalings' 100-account cell on every placement day: medians unchanged from the five-placement values within 0.05",
+  "prediction": "the three constructed coordinated populations and the scalings' 100-account cell on every placement day: medians unchanged from the five-placement values within 0.05",
   "outcome": "held: organisation D10 0.00, batch job 1.00, evaluation fleet D10 0.00 and D11 1.00, the 100-account cell 1.00 under every scaling",
   "finding": "F78"
  },
@@ -479,7 +479,7 @@
   "id": "P53",
   "protocol": "v2.0 am. 11",
   "prediction": "the recalibrated cadence detector flags at least 0.9 of the scoreable sessions in every one of the 62 clearing cells, and in at least half the cells fewer than half the sessions are scoreable",
-  "outcome": "held: all 62 cells at 1.00 of scoreable sessions; in 38 of 62 fewer than half the sessions have ten requests (in 17, fewer than half the requests fall in such sessions)",
+  "outcome": "held on scheduled send times, as written: all 62 cells at 1.00 of scoreable sessions (on the benign time base of am. 13 the lowest cell is at 0.77, below the 0.9 written); in 38 of 62 fewer than half the sessions have ten requests (in 17, fewer than half the requests fall in such sessions)",
   "finding": "F91"
  },
  {
@@ -493,7 +493,7 @@
   "id": "P55",
   "protocol": "v2.0 am. 12",
   "prediction": "on public production API traffic (ServeGen per-client traces) more than half the clients exceed 26 requests in their busiest hour, and the 1% client-day threshold is at least 2,000 an hour",
-  "outcome": "held by a wide margin (too-good stop invoked): 99.7% of 314 clients exceed 26; the 1% client-day threshold is 2.76 million requests an hour in released units; the median client's busiest hour is 44,306",
+  "outcome": "held by a wide margin (reported to the author before use): 99.7% of 314 clients exceed 26; the 1% client-day threshold is 2.76 million requests an hour in released units; the median client's busiest hour is 44,306",
   "finding": "F92"
  },
  {
@@ -502,5 +502,68 @@
   "prediction": "fewer than 5% of active ten-minute windows have an inter-arrival CV below 0.305, and the 1% low-side quantile lies above 0.05",
   "outcome": "held: 1.41% of 246,319 windows below 0.305 and 0.38% below 0.20; 1% low-side quantile 0.272; no client has a median below 0.20",
   "finding": "F92"
+ },
+ {
+  "id": "P57",
+  "protocol": "v2.0 am. 13",
+  "prediction": "on the completion-time base fewer than half the scoreable sessions of the cells paced at the 26-per-hour interval are flagged under the ten-request cadence threshold, while the cells at the two stricter caps stay at 0.9 or more",
+  "outcome": "failed on the first clause: the 1% cap cells fall to 0.40 to 0.57, but the heterogeneous cells stay at 0.88 and the search cells at a median of 0.79 (minimum 0.77); the stricter-cap cells stay at 0.98 or more",
+  "finding": "F93"
+ },
+ {
+  "id": "P58",
+  "protocol": "v2.0 am. 13",
+  "prediction": "on the reasoning tier of the API baseline more than a third of clients have a busiest hour below 2,000 requests, and fewer than 20 clients own the client-days above the pooled rate threshold",
+  "outcome": "held: 73% of the 73 reasoning-tier clients are below the campaign's size; 3 clients own all 29 exceeding client-days",
+  "finding": "F93"
+ },
+ {
+  "id": "P59",
+  "protocol": "v2.0 am. 14",
+  "prediction": "with the ten-request cadence detector on completion times in the joint rule, no cell with a scoreable session clears (scoreable-session denominator; follows from P57's result, not blind); with an all-sessions denominator at least half of the 62 search cells still clear and the one-account, ten-account and 50-account headline cells do not",
+  "outcome": "failed on the second clause: no cell clears under the scoreable-session denominator (0 of 81 with a scoreable session); under the all-sessions denominator 9 of 62 search cells clear, not half, the cheapest at 500 accounts and 72.1 h; none of the three headline cells clears",
+  "finding": "F95"
+ },
+ {
+  "id": "P60",
+  "protocol": "v2.0 am. 14",
+  "prediction": "on size-matched sessions, a joint score fitted on benign sessions only flags more than 10% of the benchmark campaign's sessions and at most 10% of each other campaign's, at a held-out false-alarm rate within half a point of 1%",
+  "outcome": "failed on the first clause: benchmark campaign 0.04, the other three 0.00, held-out false-alarm rate 1.49%; a classifier trained on one ordinary-prompt campaign flags 0.84 to 0.89 of the other at 1.4% held out (upper bound, needs a labelled campaign)",
+  "finding": "F95"
+ },
+ {
+  "id": "P61",
+  "protocol": "v2.0 am. 14",
+  "prediction": "benign cohorts of 50 accounts first seen in the same six-hour window, scored over 48 hours, have at least one account flagged in a share of cohorts at or above the 50-account cell's 0.36 and below 0.82",
+  "outcome": "held: 0.54 (0.52 excluding the first 30 days); cohorts of ten 0.18 against the ten-account cell's 0.08",
+  "finding": "F95"
+ },
+ {
+  "id": "P63",
+  "protocol": "v2.0 am. 14",
+  "prediction": "with merges drawn from real accounts only, the low-side discrepancy statistic flags at least half the merged units at m = 5 and at least 0.9 at m = 20 and m = 100",
+  "outcome": "held: 0.70, 1.00 and 1.00 (0.72, 1.00, 1.00 with constructed accounts in the draw)",
+  "finding": "F95"
+ },
+ {
+  "id": "P62",
+  "protocol": "v2.0 am. 14",
+  "prediction": "fewer than 10% of natural shared-address units (two or more replayed real accounts on one hashed address, at least 30 prompts between them) are flagged by the low-side discrepancy statistic",
+  "outcome": "held: 2 of 76 units (0.03, interval 0.00 to 0.09); the units are small, a median of two accounts",
+  "finding": "F95"
+ },
+ {
+  "id": "P65",
+  "protocol": "v2.0 am. 15",
+  "prediction": "on the matched pattern units, with a 1% threshold on each side of each statistic separately, the largest flagged fraction is at most 0.15 and is the low side of the output-length distance on an ordinary-prompt campaign",
+  "outcome": "held: 0.12, low side of the output-length distance, ordinary-prompt campaign (first seed)",
+  "finding": "F96"
+ },
+ {
+  "id": "P64",
+  "protocol": "v2.0 am. 15",
+  "prediction": "synthetic merges of two real accounts are flagged by the low-side discrepancy statistic at between 0.05 and 0.40, merges of three at more than merges of two, and merges of two at more than the 0.03 of the observed shared-address units",
+  "outcome": "held: 0.07 at m = 2 and 0.14 at m = 3; the m = 2 figure lies inside the observed units' interval (0.00 to 0.09), so synthetic and observed aggregates of this size do not differ measurably",
+  "finding": "F96"
  }
 ]

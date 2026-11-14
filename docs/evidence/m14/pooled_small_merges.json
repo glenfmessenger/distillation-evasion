@@ -1,0 +1,286 @@
+{
+ "model": "BAAI/bge-small-en-v1.5",
+ "n_benign_units": 1061,
+ "real_only": true,
+ "n_merge_candidates": 1000,
+ "sigma": 1.0170682668685913,
+ "calibration": {
+  "C1": {
+   "threshold": 0.9354714215158109,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "C2": {
+   "threshold": 0.29658261835575106,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "C2low": {
+   "threshold": 0.02107645571231842,
+   "direction": "low",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "C3": {
+   "threshold": 0.5314277708530426,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "B1": {
+   "threshold": 0.016260162601626018,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 10,
+   "resolution": 0.000942507068803016,
+   "below_resolution": false
+  },
+  "B2": {
+   "threshold": 1.0,
+   "direction": "high",
+   "fpr_budget": 0.01,
+   "n_benign": 1061,
+   "n_unscoreable": 0,
+   "n_exceed": 0,
+   "resolution": 0.000942507068803016,
+   "below_resolution": true
+  }
+ },
+ "threshold_comparison": {
+  "C1": {
+   "committed": 0.9354714215158109,
+   "recomputed": 0.9354714215158109,
+   "match": true
+  },
+  "C2": {
+   "committed": 0.29658261239528655,
+   "recomputed": 0.29658261835575106,
+   "match": true
+  },
+  "C2low": {
+   "committed": 0.021076449751853944,
+   "recomputed": 0.02107645571231842,
+   "match": true
+  },
+  "C3": {
+   "committed": 0.5314277708530426,
+   "recomputed": 0.5314277708530426,
+   "match": true
+  },
+  "B1": {
+   "committed": 0.016260162601626018,
+   "recomputed": 0.016260162601626018,
+   "match": true
+  },
+  "B2": {
+   "committed": 1.0,
+   "recomputed": 1.0,
+   "match": true
+  }
+ },
+ "controls": {
+  "control:pooled_m2": {
+   "n_groups": 100,
+   "identity": {
+    "C1": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.6290082822991736,
+     "auc": 0.3165315739868049
+    },
+    "C2": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.04428245723247528,
+     "auc": 0.23157398680490104
+    },
+    "C2low": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.07,
+     "median": 0.04428245723247528,
+     "auc": 0.768426013195099
+    },
+    "C3": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.03,
+     "median": 0.45142845809459686,
+     "auc": 0.7206786050895382
+    },
+    "B1": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.01,
+     "median": 0.0,
+     "auc": 0.5096465598491988
+    },
+    "B2": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.15833333333333333,
+     "auc": 0.5420452403393026
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 0,
+     "n_scoreable": 0,
+     "flagged": null,
+     "median": null,
+     "auc": null
+    },
+    "C2": {
+     "n_units": 0,
+     "n_scoreable": 0,
+     "flagged": null,
+     "median": null,
+     "auc": null
+    },
+    "C2low": {
+     "n_units": 0,
+     "n_scoreable": 0,
+     "flagged": null,
+     "median": null,
+     "auc": null
+    },
+    "C3": {
+     "n_units": 0,
+     "n_scoreable": 0,
+     "flagged": null,
+     "median": null,
+     "auc": null
+    },
+    "B1": {
+     "n_units": 0,
+     "n_scoreable": 0,
+     "flagged": null,
+     "median": null,
+     "auc": null
+    },
+    "B2": {
+     "n_units": 0,
+     "n_scoreable": 0,
+     "flagged": null,
+     "median": null,
+     "auc": null
+    }
+   }
+  },
+  "control:pooled_m3": {
+   "n_groups": 100,
+   "identity": {
+    "C1": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.5918367163680808,
+     "auc": 0.2092177191328935
+    },
+    "C2": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.03147872984409332,
+     "auc": 0.11841658812441093
+    },
+    "C2low": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.14,
+     "median": 0.03147872984409332,
+     "auc": 0.8815834118755891
+    },
+    "C3": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.02,
+     "median": 0.45972874760627747,
+     "auc": 0.7978699340245052
+    },
+    "B1": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.01,
+     "median": 0.0,
+     "auc": 0.5095004712535344
+    },
+    "B2": {
+     "n_units": 100,
+     "n_scoreable": 100,
+     "flagged": 0.0,
+     "median": 0.23145604395604397,
+     "auc": 0.5914797360980207
+    }
+   },
+   "block100": {
+    "C1": {
+     "n_units": 99,
+     "n_scoreable": 99,
+     "flagged": 0.0,
+     "median": 0.5947576018236336,
+     "auc": 0.22294576300231342
+    },
+    "C2": {
+     "n_units": 99,
+     "n_scoreable": 99,
+     "flagged": 0.0,
+     "median": 0.03294137120246887,
+     "auc": 0.13990041794000324
+    },
+    "C2low": {
+     "n_units": 99,
+     "n_scoreable": 99,
+     "flagged": 0.13131313131313133,
+     "median": 0.03294137120246887,
+     "auc": 0.8600995820599968
+    },
+    "C3": {
+     "n_units": 99,
+     "n_scoreable": 99,
+     "flagged": 0.010101010101010102,
+     "median": 0.4563206434249878,
+     "auc": 0.7788154875808033
+    },
+    "B1": {
+     "n_units": 99,
+     "n_scoreable": 99,
+     "flagged": 0.010101010101010102,
+     "median": 0.0,
+     "auc": 0.5047363360275707
+    },
+    "B2": {
+     "n_units": 99,
+     "n_scoreable": 99,
+     "flagged": 0.0,
+     "median": 0.25,
+     "auc": 0.5905235198354897
+    }
+   }
+  }
+ },
+ "p32": {}
+}

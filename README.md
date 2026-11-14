@@ -6,8 +6,8 @@ only endpoint ever queried; no third-party service is involved.
 
 ## What is here
 
-- `PROTOCOL_v2.md` — the registered protocol the paper reports against (predictions P1 to P36,
-  amendments B1 to B6 and A8; B6 is the revision after external review). `PROTOCOL.md` is the superseded first protocol, kept because the paper's
+- `PROTOCOL_v2.md` — the registered protocol the paper reports against (predictions P1 to P65,
+  amendments B1 to B15 and A8; B6 onwards are revisions after pre-submission reads, each registered before its run). `PROTOCOL.md` is the superseded first protocol, kept because the paper's
   prediction register and its capability appendix report against it. `GATES.md` records the
   frozen commits of both.
 - `DECISIONS.md`, `FINDINGS.md` — the decision log and the findings log, including every failed

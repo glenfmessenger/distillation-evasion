@@ -167,5 +167,9 @@
  "NConvReplayAccounts": {
   "value": "1,965",
   "source": "replay_schedule m3_v1: identities of the conversational component (b:conv), the accounts in the pooled-window pools"
+ },
+ "NFortyEight": {
+  "value": "48",
+  "source": "PROTOCOL_v2.md amendment B14 (C): 48-hour horizon from an account's first request"
  }
 }
