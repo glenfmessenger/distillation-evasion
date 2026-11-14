@@ -1,0 +1,40 @@
+{
+ "n_sessions": {
+  "real": 1079,
+  "evaluation harness": 30,
+  "batch summarisation": 30,
+  "agent loop": 31
+ },
+ "n_accounts": {
+  "real": 833,
+  "evaluation harness": 30,
+  "batch summarisation": 30,
+  "agent loop": 31
+ },
+ "flagged": {
+  "heldout_real": {
+   "median": 0.013059883324283308,
+   "min": 0.0,
+   "max": 0.03125
+  },
+  "evaluation harness": {
+   "median": 1.0,
+   "min": 1.0,
+   "max": 1.0
+  },
+  "batch summarisation": {
+   "median": 1.0,
+   "min": 0.8666666666666667,
+   "max": 1.0
+  },
+  "agent loop": {
+   "median": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  }
+ },
+ "p67": {
+  "batch_median": 1.0,
+  "holds": true
+ }
+}

@@ -565,5 +565,33 @@
   "prediction": "synthetic merges of two real accounts are flagged by the low-side discrepancy statistic at between 0.05 and 0.40, merges of three at more than merges of two, and merges of two at more than the 0.03 of the observed shared-address units",
   "outcome": "held: 0.07 at m = 2 and 0.14 at m = 3; the m = 2 figure lies inside the observed units' interval (0.00 to 0.09), so synthetic and observed aggregates of this size do not differ measurably",
   "finding": "F96"
+ },
+ {
+  "id": "P66",
+  "protocol": "v2.0 am. 16",
+  "prediction": "with standardiser, radius, neighbour counts and threshold all taken within the calibration half, the profile detector's threshold lies between 15 and 25 and its held-out false-alarm rate within half a point of 1%",
+  "outcome": "failed narrowly on the first clause: threshold 25 to 26 over 20 splits; held-out false-alarm rate 0.83% (0.53% to 1.11%)",
+  "finding": "F98"
+ },
+ {
+  "id": "P67",
+  "protocol": "v2.0 am. 16",
+  "prediction": "the classifier trained on the first-seed ordinary-prompt campaign, with constructed accounts removed from the benign side, flags at least half of the constructed batch-summarisation sessions",
+  "outcome": "held: 1.00 of batch-summarisation and 1.00 of evaluation-harness sessions, 0.00 of agent-loop sessions; 1.3% of held-out real sessions",
+  "finding": "F98"
+ },
+ {
+  "id": "P68",
+  "protocol": "v2.0 am. 16",
+  "prediction": "fewer than 10% of the language-model client-days in the API aggregates have a busiest hour below the campaign's 2,000 requests",
+  "outcome": "failed: 21% of 2,909 client-days (28% in the large tier, 17% mid, 9% small); 73% in the reasoning tier",
+  "finding": "F98"
+ },
+ {
+  "id": "P69",
+  "protocol": "v2.0 am. 16",
+  "prediction": "with content thresholds recomputed on the 1,000 real calibration accounts, no flagged fraction other than the benchmark-membership baseline's changes by more than 0.05",
+  "outcome": "held: largest change 0.02; the membership baseline's threshold falls to zero (7 real accounts above it, below resolution) and then flags whole-campaign units of ordinary prompts, but 1.00 of the benchmark campaign's 100-prompt blocks against at most 0.10 of any other population's",
+  "finding": "F98"
  }
 ]

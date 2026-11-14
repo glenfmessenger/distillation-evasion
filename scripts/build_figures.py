@@ -142,14 +142,38 @@ def fig_price() -> None:
             label = f"{lab or 'stricter caps'}, {what}"
         ax.scatter([c["n"]], [wc], s=30, marker=marker, color=colour, label=label, zorder=3)
     cl = [c for c in l9["cells"] if c["clears"]]
+    corr = {
+        (c["n"], c["stagger_h"], c["count_cap"], float(c["session_mult"])): c["corrected_sessions"][
+            "clears"
+        ]
+        for c in load(EV / "m13" / "clearing.json")["cells"]
+        if c["source"] == "search"
+    }
+
+    def still(c: dict) -> bool:
+        return corr[(c["n"], c["stagger_h"], c["count_cap"], float(c["session_mult"]))]
+
+    lost = [c for c in cl if not still(c)]
+    kept = [c for c in cl if still(c)]
     ax.scatter(
-        [c["n"] for c in cl],
-        [c["wall_clock_h"] for c in cl],
+        [c["n"] for c in lost],
+        [c["wall_clock_h"] for c in lost],
+        s=26,
+        marker="^",
+        facecolors="none",
+        edgecolors=AQUA,
+        linewidths=0.9,
+        label="wider search: clears as registered only",
+        zorder=4,
+    )
+    ax.scatter(
+        [c["n"] for c in kept],
+        [c["wall_clock_h"] for c in kept],
         s=26,
         marker="^",
         color=AQUA,
-        label="wider search: clears every content-blind detector",
-        zorder=4,
+        label="wider search: also clears with recalibrated cadence\n(flags counted over all sessions)",
+        zorder=5,
     )
     ax.set_xscale("log")
     ax.set_yscale("log")

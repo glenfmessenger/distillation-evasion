@@ -25,3 +25,4 @@ Amendments after freeze are recorded in PROTOCOL.md §10 (A1 to A6 as of 2026-11
 2026-11-13, decision 53: amendment B13 (P57, P58) registered before running.
 2026-11-13, decision 54: amendment B14 (P59 to P63) registered before running.
 2026-11-13, decision 56: amendment B15 (P64, P65) registered before running.
+2026-11-13, decision 57: amendment B16 (P66 to P69) registered before running.

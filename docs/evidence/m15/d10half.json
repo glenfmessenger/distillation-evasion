@@ -1,0 +1,12 @@
+{
+ "threshold_min": 25.0,
+ "threshold_max": 26.0,
+ "threshold_median": 25.0,
+ "heldout_fpr_mean": 0.008331572427530997,
+ "heldout_fpr_min": 0.005297704328124479,
+ "heldout_fpr_max": 0.011068136473578028,
+ "radius_median": 0.5524215972775048,
+ "p66": {
+  "holds": false
+ }
+}

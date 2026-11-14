@@ -259,8 +259,14 @@ def main() -> int:
                 }
             )
             if name == "C-real, seed 0":
+                cadc = (
+                    _corrected().get(("price", c["n"], c["cap_per_hour"], None, 0, 1.0))
+                    if c["q"] is not None and tag == "CRealSeedZero"
+                    else None
+                )
+                cad = None if cadc is None else cadc["cadence"]["scoreable"]
                 price_rows.append(
-                    f"{intc(lev['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} \\\\"
+                    f"{intc(lev['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} & {'--' if cad is None else num(cad)} \\\\"
                 )
             cell = (
                 f"N{c['n']}"
@@ -286,7 +292,7 @@ def main() -> int:
             }
         )
         price_rows.append(
-            f"{intc(lev8['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} \\\\"
+            f"{intc(lev8['n_campaign_records'])} & {c['n']} & {'none' if c['q'] is None else c['cap_per_hour']} & {num(med(wc) / 3600, 1)} & {num(med(d1))} & {num(med(d2))} & -- \\\\"
         )
         macro(f"FlagDOneEightK{_camel(str(c['n']))}{'Shaped' if c['q'] else ''}", num(med(d1)))
         macro(
@@ -295,8 +301,8 @@ def main() -> int:
         )
     _table(
         "price.tex",
-        "rrrrcc",
-        r"Requests & Accounts & Cap/h & Hours & D1 & D2 \\",
+        "rrrrccc",
+        r"Requests & Accounts & Cap/h & Hours & D1 & D2 & Cad. \\",
         price_rows,
     )
     macro("NReschedulings", intc(len(load(CAMPAIGNS[0][2])["cells"][0]["per_seed"])))
@@ -551,12 +557,18 @@ def main() -> int:
     for c in sorted(clearing, key=lambda c: (c["wall_clock_h"], c["n"]))[:8]:
         m = c["median_flagged"]
         l9_rows.append(
-            f"{c['n']} & {c['count_cap']} & {c['session_mult']:g} & {c['stagger_h']} & {num(m['D2'])} & {num(m['D3'])} & {num(m['D10'])} & {num(m['D11'])} & {num(c['joint_max'])} & {num(c['wall_clock_h'], 1)} \\\\"
+            f"{c['n']} & {c['count_cap']} & {c['session_mult']:g} & {c['stagger_h']} & {num(m['D2'])} & {num(m['D3'])} & {num(m['D10'])} & {num(m['D11'])} & {num(c['joint_max'])} & {num(c['wall_clock_h'], 1)} & "
+            + _corr_cols(
+                _corrected().get(
+                    ("search", c["n"], 26, c["stagger_h"], c["count_cap"], float(c["session_mult"]))
+                )
+            )
+            + " \\\\"
         )
     _table(
         "search.tex",
-        "rrrrcccccr",
-        r"Identities & Count cap & Session mult. & Stagger (h) & D2 & D3 & D10 & D11 & Joint max & Wall-clock (h) \\",
+        "rrrrcccccrcc",
+        r"Identities & Count cap & Session mult. & Stagger (h) & D2 & D3 & D10 & D11 & Joint max & Wall-clock (h) & Cadence, recal. & Clears, recal. \\",
         l9_rows,
     )
 
@@ -602,6 +614,7 @@ def main() -> int:
     build_api_baseline()
     build_b13()
     build_b14()
+    build_b16()
     OUT_M.write_text("".join(f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in sorted(macros.items())))
     print(f"{len(macros)} macros, {len(list(OUT_T.glob('*.tex')))} tables")
     return 0
@@ -1017,7 +1030,20 @@ def build_revision_tables() -> None:
         prow.append(
             f"{label} & {intc(c['n'])} & {st} & {intc(c['n_placements'])} & {num(s['wall_clock_h_median'], 1)} & {f('D10')} & {f('D11')} & "
             f"{num(s['joint_max']['median'])} [{num(s['joint_max']['p5'])}, {num(s['joint_max']['p95'])}] & "
-            f"{num(s['p_any_unit_flagged'])} & {num(s['p_over_0.10'])} & {num(e['p_over_0.10'])} \\\\"
+            f"{num(s['p_any_unit_flagged'])} & {num(s['p_over_0.10'])} & {num(e['p_over_0.10'])} & "
+            + _corr_cols(
+                _corrected().get(
+                    (
+                        c["source"],
+                        c["n"],
+                        26,
+                        c["stagger_h"],
+                        c.get("count_cap") or 0,
+                        float(c.get("session_mult") or 1.0),
+                    )
+                )
+            )
+            + " \\\\"
         )
 
     for c in cells:
@@ -1038,8 +1064,8 @@ def build_revision_tables() -> None:
             break
     _table(
         "placements.tex",
-        "lrrrrcccccc",
-        r"Split & Accounts & Stagger (h) & Days & Hours & D10 & D11 & Joint max & P(any) & P($>$0.10) & P($>$0.10), excl. \\",
+        "lrrrrcccccccc",
+        r"Split & Acc. & Stag.\ (h) & Days & Hours & D10 & D11 & Joint max & P(any) & P($>$0.10) & excl. & Cad. & Clears \\",
         prow,
     )
     ten = find(source="table5", kind="roundrobin", n=10)
@@ -1555,17 +1581,54 @@ def build_adversary_tables() -> None:
         ("unevaded single account", "unevaded single account"),
     ]
     by_cell = {c["cell"]: c for c in cc["cells"]}
+    tbc = load(EV / "m12" / "timebase.json")["cells"]
+
+    def benign_base(key: str) -> str:
+        kind, rest = key.split(" ", 1)
+        if kind == "round-robin":
+            n, cap = rest.split(", cap ")
+            if cap == "none":
+                return "--"
+            m = [
+                c
+                for c in tbc
+                if c["source"] == "price" and c["n"] == int(n) and c["cap"] == int(cap)
+            ]
+        elif kind == "heterogeneous":
+            n, st = rest.split(", stagger ")
+            m = [
+                c
+                for c in tbc
+                if c["source"] == "table7" and c["n"] == int(n) and c["stagger_h"] == int(st)
+            ]
+        elif kind == "search":
+            n, st = rest.split(", stagger ")
+            m = [
+                c
+                for c in tbc
+                if c["source"] == "search"
+                and c["n"] == int(n)
+                and c["stagger_h"] == int(st)
+                and c["count_cap"] == 26
+                and c["session_mult"] == 10.0
+            ]
+        else:
+            return "--"
+        if len(m) != 1:
+            raise RuntimeError(f"benign-time-base cell for {key!r}: {len(m)} matches")
+        return frac_or_na(m[0]["summary"]["completion:10"]["flagged"])
+
     for key, label in want:
         s = by_cell[key]["summary"]
         f = lambda lab, k: frac_or_na(s[f"{lab}:{k}"]["flagged_median"])  # noqa: E731
         cv = s["own:3"]["cv_median"]
         crows.append(
-            f"{label} & {num(by_cell[key]['hours'], 1)} & {'--' if cv is None else num(cv)} & {f('own', 3)} & {f('own', 5)} & {f('own', 10)} & {f('gap', 3)} & {f('gap', 5)} & {f('gap', 10)} \\\\"
+            f"{label} & {num(by_cell[key]['hours'], 1)} & {'--' if cv is None else num(cv)} & {f('own', 3)} & {f('own', 5)} & {f('own', 10)} & {f('gap', 3)} & {f('gap', 5)} & {f('gap', 10)} & {benign_base(key)} \\\\"
         )
     _table(
         "cadence_cells.tex",
-        "lrr" + "c" * 6,
-        r"Cell & Hours & CV & \multicolumn{3}{c}{Own sessions: min.\ 3 / 5 / 10} & \multicolumn{3}{c}{Idle-gap sessions: min.\ 3 / 5 / 10} \\\\",
+        "lrr" + "c" * 7,
+        r"Cell & Hours & CV & \multicolumn{3}{c}{Own sessions: min.\ 3 / 5 / 10} & \multicolumn{3}{c}{Idle-gap sessions: min.\ 3 / 5 / 10} & Benign time base, min.\ 10 \\\\",
         crows,
     )
     for key, tag in (
@@ -1759,23 +1822,28 @@ def build_api_baseline() -> None:
         "m-small": "language, small",
         "deepseek-r1": "reasoning",
     }
+    below = load(EV / "m12" / "tiers.json")["tiers"]
+    lang = [k for k in ab["sets"] if k != "deepseek-r1"]
+    pooled_below = sum(
+        below[k]["share_busiest_hour_below_campaign"] * ab["sets"][k]["n_clients"] for k in lang
+    ) / sum(ab["sets"][k]["n_clients"] for k in lang)
     for name, s in ab["sets"].items():
         c, v = s["client_max_hourly"], s["cv_quantiles"]
         rows.append(
             f"{names[name]} & {intc(s['n_clients'])} & {intc(s['n_client_days'])} & {intc(round(c['50'], -2))} & {intc(round(c['90'], -2))} & "
-            f"{pct(s['share_clients_over_chat_threshold'])}\\% & {num(v['1'])} & {num(v['5'])} & {num(v['50'])} & "
+            f"{pct(s['share_clients_over_chat_threshold'], 1)}\\% & {pct(below[name]['share_busiest_hour_below_campaign'], 1)}\\% & {num(v['1'])} & {num(v['5'])} & {num(v['50'])} & "
             f"{pct(s['share_windows_below_chat_cadence'], 1)}\\% & {pct(s['share_windows_below_lever_cadence'], 1)}\\% \\\\"
         )
     c, v = pl["client_max_hourly"], pl["cv_quantiles"]
     rows.append(
         f"language, pooled & {intc(pl['n_clients'])} & {intc(pl['n_client_days'])} & {intc(round(c['50'], -2))} & {intc(round(c['90'], -2))} & "
-        f"{pct(pl['share_clients_over_chat_threshold'])}\\% & {num(v['1'])} & {num(v['5'])} & {num(v['50'])} & "
+        f"{pct(pl['share_clients_over_chat_threshold'], 1)}\\% & {pct(pooled_below, 1)}\\% & {num(v['1'])} & {num(v['5'])} & {num(v['50'])} & "
         f"{pct(pl['share_windows_below_chat_cadence'], 1)}\\% & {pct(pl['share_windows_below_lever_cadence'], 1)}\\% \\\\"
     )
     _table(
         "api_baseline.tex",
-        "lrrrrrccccc",
-        r"Clients & $n$ & Client-days & \multicolumn{2}{c}{Busiest hour: median, 90th} & Over chat thr. & \multicolumn{3}{c}{Cadence CV: 1st, 5th, median} & Below 0.305 & Below 0.20 \\",
+        "lrrrrrrccccc",
+        r"Clients & $n$ & Client-days & \multicolumn{2}{c}{Busiest hour: median, 90th} & Over chat thr. & Below campaign & \multicolumn{3}{c}{Cadence CV: 1st, 5th, median} & Below 0.305 & Below 0.20 \\",
         rows,
     )
 
@@ -1848,6 +1916,14 @@ def build_b13() -> None:
         for k in ("m-large", "m-mid", "m-small")
     )
     macro("ApiNClientsRegular", intc(n10))
+    lang_n = {
+        k: ab_n
+        for k, ab_n in ((k, tr["tiers"][k]["n_clients"]) for k in ("m-large", "m-mid", "m-small"))
+    }
+    pooled_below = sum(
+        tr["tiers"][k]["share_busiest_hour_below_campaign"] * lang_n[k] for k in lang_n
+    ) / sum(lang_n.values())
+    macro("ApiLangShareOverCampaign", pct(1 - pooled_below) + "\\%")
 
 
 def build_b14() -> None:
@@ -2039,6 +2115,97 @@ def build_b14() -> None:
             f"RealOnlyM{tag}",
             num(ro["controls"][f"control:pooled_m{m}"]["identity"]["C2low"]["flagged"]),
         )
+
+
+def build_b16() -> None:
+    """Amendment B16: held-out profile detector within the half, classifier on constructed
+    automation, API per client-day, replay-calibrated detectors on real accounts only."""
+    dh = load(EV / "m15" / "d10half.json")
+    macro("DTenHalfThrMin", intc(dh["threshold_min"]))
+    macro("DTenHalfThrMax", intc(dh["threshold_max"]))
+    macro("DTenHalfFpr", pct(dh["heldout_fpr_mean"], 2) + "\\%")
+    macro("DTenHalfFprMin", pct(dh["heldout_fpr_min"], 2) + "\\%")
+    macro("DTenHalfFprMax", pct(dh["heldout_fpr_max"], 2) + "\\%")
+    cn = load(EV / "m15" / "constructed.json")
+    macro("ClsEval", num(cn["flagged"]["evaluation harness"]["median"]))
+    macro("ClsBatch", num(cn["flagged"]["batch summarisation"]["median"]))
+    macro("ClsAgent", num(cn["flagged"]["agent loop"]["median"]))
+    macro("ClsRealFpr", pct(cn["flagged"]["heldout_real"]["median"], 1) + "\\%")
+    macro("ClsNEval", intc(cn["n_sessions"]["evaluation harness"]))
+    macro("ClsNBatch", intc(cn["n_sessions"]["batch summarisation"]))
+    macro("ClsNAgent", intc(cn["n_sessions"]["agent loop"]))
+    cd = load(EV / "m15" / "clientday.json")
+    macro("ApiLangDayBelow", pct(cd["language_pooled"]["share_below_campaign"]) + "\\%")
+    macro("ApiLargeDayBelow", pct(cd["tiers"]["m-large"]["share_below_campaign"]) + "\\%")
+    macro("ApiLangDayMedian", intc(round(cd["language_pooled"]["median_busiest_hour"], -2)))
+    macro("ApiNLangClientDays", intc(cd["language_pooled"]["n_client_days"]))
+    ro = load(EV / "m15" / "realonly.json")
+    macro("RealOnlyMaxChange", num(ro["max_change_excluding_B1"]))
+    pops = ro["populations"]
+    macro("BOneRealBenchBlock", num(pops["all:pilot_baseline:block100"]["B1"]["real"]))
+    others = [
+        v["B1"]["real"]
+        for k, v in pops.items()
+        if k.endswith(":block100") and "pilot_baseline" not in k and v["B1"]["real"] is not None
+    ]
+    macro("BOneRealOtherBlockMax", num(max(others)))
+    macro("BOneRealNExceed", intc(ro["calibration_by_source"]["s1"]["B1"]["n_exceed_real"]))
+    rc = load(EV / "m7" / "recalibrate.json")
+    rows = []
+    for det in ("D4", "D5", "D6", "D7", "D8", "D8b"):
+        r0, r1 = rc["registered"][det], rc["no_constructed"][det]
+        mx = max(v["flagged"] for v in r1["campaigns"].values())
+        rows.append(
+            f"{det} & {r1['threshold']:.3g} & {intc(r1['n_benign'])} & {r0['threshold']:.3g} & {num(mx)} \\\\"
+        )
+    rows.append("\\midrule")
+    cs = ro["calibration_by_source"]["s1"]
+    for det in ("C1", "C2", "C2low", "C3", "B1", "B2"):
+        c = cs[det]
+        ch = max(
+            abs(v[det]["all"] - v[det]["real"])
+            for v in pops.values()
+            if det in v and v[det]["all"] is not None
+        )
+        mark = "$^\\dagger$" if c["below_resolution_real"] else ""
+        rows.append(
+            f"{det}{mark} & {c['threshold_real']:.3g} & {intc(ro['n_real'])} & {c['threshold_all']:.3g} & {num(ch)} \\\\"
+        )
+    _table(
+        "real_only.tex",
+        "lrrrc",
+        r"Detector & Thr., real & Units & Thr., registered & Flagged / change \\",
+        rows,
+    )
+
+
+def _corrected() -> dict:
+    """Corrected-rule lookup (amendment B14 A) keyed by the cell's defining fields."""
+    cl = load(EV / "m13" / "clearing.json")
+    out = {}
+    for c in cl["cells"]:
+        key = (
+            c["source"],
+            c["n"],
+            c.get("cap"),
+            c.get("stagger_h"),
+            c.get("count_cap") or 0,
+            float(c.get("session_mult") or 1.0),
+        )
+        out[key] = c
+    return out
+
+
+def _corr_cols(c: dict | None) -> str:
+    """Two cells: corrected cadence share of scoreable sessions; clears (scoreable / all)."""
+    if c is None:
+        return "-- & --"
+    cad = c["cadence"]["scoreable"]
+    yn = lambda b: "yes" if b else "no"  # noqa: E731
+    return (
+        f"{'--' if cad is None else num(cad)} & "
+        f"{yn(c['corrected_scoreable']['clears'])} / {yn(c['corrected_sessions']['clears'])}"
+    )
 
 
 _WORDS = {

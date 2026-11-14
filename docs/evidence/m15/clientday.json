@@ -1,0 +1,32 @@
+{
+ "tiers": {
+  "m-large": {
+   "n_client_days": 1396,
+   "share_below_campaign": 0.2786532951289398,
+   "median_busiest_hour": 6582.0
+  },
+  "m-mid": {
+   "n_client_days": 1119,
+   "share_below_campaign": 0.16621983914209115,
+   "median_busiest_hour": 39994.0
+  },
+  "m-small": {
+   "n_client_days": 394,
+   "share_below_campaign": 0.08629441624365482,
+   "median_busiest_hour": 82865.5
+  },
+  "deepseek-r1": {
+   "n_client_days": 73,
+   "share_below_campaign": 0.726027397260274,
+   "median_busiest_hour": 1251.0
+  }
+ },
+ "language_pooled": {
+  "n_client_days": 2909,
+  "share_below_campaign": 0.20935029219663115,
+  "median_busiest_hour": 16313.0
+ },
+ "p68": {
+  "holds": false
+ }
+}

@@ -580,3 +580,23 @@ units. (2) *One-sided thresholds on the matched units.* On the units of B14 (B),
 statistics with a 1% threshold on each side separately. Prediction P65: the largest flagged
 fraction over statistics, sides and campaigns is at most 0.15 and is the low side of the
 output-length distance on an ordinary-prompt campaign.
+
+**B16 — 2026-11-13 — Registered before any run (decision 57).** Defender-side re-analyses of
+recorded data after four external reads (AI-generated, F97). No lever, no campaign, no schedule.
+(1) *Held-out profile detector within the half.* The held-out calibration of the profile detector
+with standardiser, radius, neighbour counts and threshold all taken within the calibration half
+and the false-alarm rate measured with neighbours counted within the test half. Prediction P66:
+the half-population threshold lies between 15 and 25 and the held-out false-alarm rate within
+half a point of 1%. (2) *The labelled-campaign classifier on constructed automation.* The
+classifier of B14 (B) trained on the first-seed ordinary-prompt campaign with the constructed
+accounts removed from the benign side, then applied to the constructed accounts' sessions of ten
+or more records. Prediction P67: it flags at least half of the batch-summarisation sessions; no
+prediction for the evaluation-harness or agent-loop sessions. (3) *API tiers per client-day.* The
+share of client-days whose busiest hour is below the campaign's 2,000 requests, by tier.
+Prediction P68: below 10% for the pooled language tiers. (4) *Content calibration on real
+accounts only.* Thresholds of the six per-unit content statistics recomputed on the 1,000 real
+calibration accounts from the stored per-unit values (the statistics themselves, and their
+reference pools, unchanged), and every campaign and control re-scored. Prediction P69: apart
+from the benchmark-membership baseline, whose change is on record (B9), no flagged fraction
+changes by more than 0.05. The manuscript then reports the replay-calibrated detectors on real
+accounts as its primary calibration and the registered thresholds beside them (decision 57).
